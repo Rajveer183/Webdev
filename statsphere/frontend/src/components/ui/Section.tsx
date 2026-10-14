@@ -3,6 +3,18 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 import { useReveal } from '../../hooks/useReveal'
+import { WaveDivider } from './WaveDivider'
+
+type SectionTone = 'default' | 'muted' | 'blue' | 'cream' | 'lavender' | 'mint'
+
+const TONE_BG: Record<SectionTone, string> = {
+  default: 'bg-[var(--bg-page)]',
+  muted: 'bg-[var(--bg-section-alt)]',
+  blue: 'bg-[var(--bg-blue)]',
+  cream: 'bg-[var(--bg-cream)]',
+  lavender: 'bg-[var(--bg-lavender)]',
+  mint: 'bg-[var(--bg-mint)]',
+}
 
 export function Section({
   id,
@@ -13,6 +25,9 @@ export function Section({
   className = '',
   tone = 'default',
   action,
+  dividerColor,
+  dividerVariant = 'wave-1',
+  isBandDivider = false,
 }: {
   id?: string
   eyebrow?: string
@@ -20,13 +35,18 @@ export function Section({
   intro?: ReactNode
   children: ReactNode
   className?: string
-  tone?: 'default' | 'muted'
+  tone?: SectionTone
   action?: ReactNode
+  dividerColor?: string
+  dividerVariant?: 'wave-1' | 'wave-2'
+  isBandDivider?: boolean
 }) {
   const ref = useReveal<HTMLDivElement>()
+  const hasDivider = Boolean(dividerColor || isBandDivider)
+
   return (
-    <section id={id} className={`py-14 sm:py-20 ${tone === 'muted' ? 'bg-[var(--bg-section-alt)] border-y border-[var(--border)]' : 'bg-[var(--bg-page)]'} ${className}`}>
-      <div ref={ref} className="container-page">
+    <section id={id} className={`relative pt-14 sm:pt-20 ${TONE_BG[tone]} ${className}`}>
+      <div ref={ref} className={`container-page ${hasDivider ? 'pb-14 sm:pb-20' : 'pb-14 sm:pb-20'}`}>
         {(title || eyebrow) && (
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
@@ -39,6 +59,9 @@ export function Section({
         )}
         {children}
       </div>
+      {hasDivider && (
+        <WaveDivider color={dividerColor} variant={dividerVariant} isBand={isBandDivider} />
+      )}
     </section>
   )
 }
@@ -55,6 +78,7 @@ export function PageHeader({
   crumbs,
   children,
   aside,
+  nextColor = 'var(--bg-blue)',
 }: {
   eyebrow?: string
   title: ReactNode
@@ -63,10 +87,26 @@ export function PageHeader({
   children?: ReactNode
   /** Visual shown beside the heading on large screens (e.g. a subject illustration). */
   aside?: ReactNode
+  nextColor?: string
 }) {
   return (
-    <header className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--bg-hero)]">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_20rem_at_85%_-10%,var(--accent-soft),transparent)]" />
+    <header style={{ background: 'var(--bg-hero)' }} className="relative overflow-hidden bg-hero">
+      {/* Soft blurred glow circles */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -right-24 h-[460px] w-[460px] rounded-full bg-[#9CC4FF] opacity-35 blur-[80px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-24 -left-24 h-[460px] w-[460px] rounded-full bg-[#FFE2A3] opacity-40 blur-[80px]"
+      />
+
+      {/* Hero subtle dotted pattern (primary at 6% opacity) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(var(--primary)_1.5px,transparent_1.5px)] [background-size:24px_24px]"
+      />
+
       <div className={`container-page relative py-12 sm:py-16 ${aside ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12' : ''}`}>
         <div>
           {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} />}
@@ -77,6 +117,7 @@ export function PageHeader({
         </div>
         {aside && <div className="hidden lg:block">{aside}</div>}
       </div>
+      <WaveDivider color={nextColor} variant="wave-1" />
     </header>
   )
 }

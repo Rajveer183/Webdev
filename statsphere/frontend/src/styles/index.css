@@ -17,29 +17,42 @@
   --text-heading: #0F172A;
   --text-body: #334155;
   --text-muted: #64748B;
-  --bg-page: #FFFFFF;
-  --bg-hero: linear-gradient(180deg, #F3F6FC 0%, #FFFFFF 100%);
-  --bg-section-alt: #F8FAFC;
+  --border: #D6E4F7;
+
+  /* Light mode background palette */
+  --bg-hero: linear-gradient(160deg, #CFE3FF 0%, #EAF3FF 45%, #FFFFFF 100%);
+  --bg-blue: #EAF3FF;
+  --bg-cream: #FFF8E8;
+  --bg-lavender: #EEF0FF;
+  --bg-mint: #E6F6F8;
   --bg-card: #FFFFFF;
-  --border: #E2E8F0;
+  --bg-band: linear-gradient(135deg, #12306B 0%, #1E4FA3 100%);
+  --bg-footer: #0B1F4D;
+
+  /* Section tint tokens for icon containers */
+  --tint-blue: #D6E4F7;
+  --tint-cream: #FDE7B8;
+  --tint-lavender: #DDE2FF;
+  --tint-mint: #CBEFEF;
+
   --topbar-bg: #12306B;
   --topbar-text: #E6ECFF;
-
-  /* App compatibility tokens */
-  --bg: var(--bg-page);
+  --bg-page: var(--bg-card);
+  --bg-section-alt: var(--bg-blue);
   --surface: var(--bg-card);
-  --surface-2: var(--bg-section-alt);
-  --surface-3: var(--accent-soft);
-  --border-strong: #CBD5E1;
+  --surface-2: var(--bg-blue);
+  --surface-3: var(--bg-cream);
+  --border-strong: #B0CEF2;
   --text: var(--text-heading);
   --text-subtle: var(--text-muted);
   --brand: var(--primary);
   --brand-hover: var(--primary-hover);
   --brand-fg: #FFFFFF;
-  --brand-soft: #F1F6FF;
+  --brand-soft: var(--bg-blue);
   --link: var(--primary);
   --accent-strong: var(--accent-hover);
   --ring: var(--accent);
+  --card-shadow: 0 8px 24px rgba(18, 48, 107, 0.08);
   --success: #15803D;
   --success-soft: #E8F6EC;
   --warning: #C8962E;
@@ -47,11 +60,11 @@
   --danger: #B91C1C;
   --danger-soft: #FDECEC;
   --hero-from: #12306B;
-  --hero-to: #0D2552;
+  --hero-to: #1E4FA3;
 
   /* Chart tokens */
   --chart-surface: #FFFFFF;
-  --chart-grid: #E6E9EF;
+  --chart-grid: #D6E4F7;
   --chart-axis: #52514E;
   --series-1: #12306B;
   --series-2: #C8962E;
@@ -71,40 +84,53 @@
   --text-heading: #F8FAFC;
   --text-body: #CBD5E1;
   --text-muted: #94A3B8;
-  --bg-page: #0B1220;
-  --bg-hero: #0B1220;
-  --bg-section-alt: #0F172A;
-  --bg-card: #111A2E;
-  --border: #1E293B;
+  --border: #1E2D4A;
+
+  /* Dark mode background palette */
+  --bg-hero: linear-gradient(160deg, #0F2447 0%, #0B1830 55%, #0B1220 100%);
+  --bg-blue: #0F1B33;
+  --bg-cream: #1A1810;
+  --bg-lavender: #151830;
+  --bg-mint: #0E2228;
+  --bg-card: #14203A;
+  --bg-band: linear-gradient(135deg, #1E4FA3 0%, #12306B 100%);
+  --bg-footer: #060D1F;
+
+  /* Section tint tokens for icon containers */
+  --tint-blue: #1C2D4F;
+  --tint-cream: #2C2618;
+  --tint-lavender: #23284A;
+  --tint-mint: #15343B;
+
   --topbar-bg: #060D1F;
   --topbar-text: #CBD5E1;
-
-  /* App compatibility tokens */
-  --bg: var(--bg-page);
+  --bg-page: #0B1220;
+  --bg-section-alt: var(--bg-blue);
   --surface: var(--bg-card);
-  --surface-2: var(--bg-section-alt);
-  --surface-3: var(--accent-soft);
-  --border-strong: #334155;
+  --surface-2: var(--bg-blue);
+  --surface-3: var(--bg-cream);
+  --border-strong: #2D3F66;
   --text: var(--text-heading);
   --text-subtle: var(--text-muted);
   --brand: var(--primary);
   --brand-hover: var(--primary-hover);
   --brand-fg: #060D1F;
-  --brand-soft: #162033;
+  --brand-soft: var(--bg-blue);
   --link: var(--primary);
   --accent-strong: var(--accent-hover);
   --ring: var(--accent);
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   --success: #4ADE80;
   --success-soft: #10291A;
   --warning: #E3B650;
   --warning-soft: var(--accent-soft);
   --danger: #F87171;
   --danger-soft: #2F1414;
-  --hero-from: #060D1F;
-  --hero-to: #0B1220;
+  --hero-from: #1E4FA3;
+  --hero-to: #12306B;
 
-  --chart-surface: #111A2E;
-  --chart-grid: #263247;
+  --chart-surface: #14203A;
+  --chart-grid: #1E2D4A;
   --chart-axis: #C3C2B7;
   --series-1: #8FB0FF;
   --series-2: #E3B650;
@@ -122,13 +148,21 @@
   --color-heading: var(--text-heading);
   --color-body: var(--text-body);
   --color-muted: var(--text-muted);
-  --color-bg-page: var(--bg-page);
-  --color-bg-hero: var(--bg-hero);
-  --color-section-alt: var(--bg-section-alt);
-  --color-card: var(--bg-card);
   --color-border: var(--border);
+
+  --color-bg-blue: var(--bg-blue);
+  --color-bg-cream: var(--bg-cream);
+  --color-bg-lavender: var(--bg-lavender);
+  --color-bg-mint: var(--bg-mint);
+  --color-bg-card: var(--bg-card);
+  --color-bg-footer: var(--bg-footer);
   --color-topbar-bg: var(--topbar-bg);
   --color-topbar-text: var(--topbar-text);
+
+  --color-tint-blue: var(--tint-blue);
+  --color-tint-cream: var(--tint-cream);
+  --color-tint-lavender: var(--tint-lavender);
+  --color-tint-mint: var(--tint-mint);
 
   --color-bg: var(--bg);
   --color-surface: var(--surface);
@@ -186,6 +220,12 @@
 }
 
 @layer components {
+  .bg-hero {
+    background: var(--bg-hero);
+  }
+  .bg-band {
+    background: var(--bg-band);
+  }
   .container-page {
     @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8;
   }
@@ -199,13 +239,16 @@
   .card {
     background-color: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 1rem;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
     transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
   }
   .card:hover, .card-hover:hover {
     border-color: var(--accent);
-    box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.15);
+    box-shadow: 0 12px 32px rgba(18, 48, 107, 0.14);
+  }
+  :root[data-theme='dark'] .card:hover, :root[data-theme='dark'] .card-hover:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   }
   .prose-body p {
     @apply leading-7 text-muted;

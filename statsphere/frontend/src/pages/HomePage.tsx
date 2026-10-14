@@ -8,6 +8,7 @@ import { Faq, faqJsonLd } from '../components/content/Faq'
 import { Illustration } from '../components/illustrations/Illustration'
 import { LinkButton } from '../components/ui/Button'
 import { Section } from '../components/ui/Section'
+import { WaveDivider } from '../components/ui/WaveDivider'
 import { ErrorState, Loading, SkeletonGrid } from '../components/ui/States'
 import { brand, organizationLd } from '../config/brand'
 import { useApi } from '../hooks/useApi'
@@ -41,21 +42,21 @@ function HeroVisual() {
   const x1 = Number((20 + ((1.96 + 3.2) / 6.4) * 360).toFixed(2))
   return (
     <div className="relative mx-auto w-full max-w-md">
-      <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur">
-        <div className="flex items-center justify-between text-xs text-slate-400">
+      <div className="rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[var(--card-shadow)]">
+        <div className="flex items-center justify-between text-xs text-[var(--text-muted)]">
           <span>Sampling distribution of the mean</span>
-          <span className="rounded-full bg-teal-400/10 px-2 py-0.5 text-teal-300">95% interval</span>
+          <span className="rounded-full bg-[var(--tint-blue)] px-2.5 py-0.5 text-xs font-semibold text-[var(--primary)]">95% interval</span>
         </div>
         <svg viewBox="0 0 400 220" className="mt-4 w-full" role="img" aria-label="Illustration of a normal curve with the central 95 percent shaded">
-          <line x1="20" y1="200" x2="380" y2="200" stroke="rgba(255,255,255,0.2)" />
-          <polygon points={`${x0},200 ${area.join(' ')} ${x1},200`} fill="rgba(94,234,212,0.18)" />
-          <polyline points={pts.join(' ')} fill="none" stroke="#5eead4" strokeWidth="2.5" strokeLinejoin="round" />
-          <line x1="200" y1="200" x2="200" y2="50" stroke="rgba(255,255,255,0.35)" strokeDasharray="3 4" />
-          <text x="200" y="215" textAnchor="middle" fontSize="11" fill="#94a3b8">μ</text>
-          <text x={x0} y="215" textAnchor="middle" fontSize="11" fill="#94a3b8">−1.96σ</text>
-          <text x={x1} y="215" textAnchor="middle" fontSize="11" fill="#94a3b8">+1.96σ</text>
+          <line x1="20" y1="200" x2="380" y2="200" stroke="var(--border)" strokeWidth="1.5" />
+          <polygon points={`${x0},200 ${area.join(' ')} ${x1},200`} fill="var(--tint-blue)" />
+          <polyline points={pts.join(' ')} fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinejoin="round" />
+          <line x1="200" y1="200" x2="200" y2="50" stroke="var(--border)" strokeDasharray="3 4" strokeWidth="1.5" />
+          <text x="200" y="215" textAnchor="middle" fontSize="11" fill="var(--text-muted)">μ</text>
+          <text x={x0} y="215" textAnchor="middle" fontSize="11" fill="var(--text-muted)">−1.96σ</text>
+          <text x={x1} y="215" textAnchor="middle" fontSize="11" fill="var(--text-muted)">+1.96σ</text>
         </svg>
-        <p className="mt-4 rounded-xl bg-black/20 px-4 py-3 text-center font-mono text-sm text-slate-200">x̄ ± 1.96 · σ/√n</p>
+        <p className="mt-4 rounded-xl bg-[var(--bg-blue)] px-4 py-3 text-center font-mono text-sm font-semibold text-[var(--primary)]">x̄ ± 1.96 · σ/√n</p>
       </div>
     </div>
   )
@@ -140,50 +141,68 @@ export default function HomePage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="relative overflow-hidden bg-[linear-gradient(160deg,var(--hero-from),var(--hero-to))] text-white">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(40rem_24rem_at_80%_10%,rgba(45,212,191,0.12),transparent),radial-gradient(30rem_20rem_at_10%_90%,rgba(99,102,241,0.18),transparent)]" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.6)_1px,transparent_1px)] [background-size:48px_48px]" />
-        <div className="container-page relative grid items-center gap-12 py-20 lg:grid-cols-[1.15fr_1fr] lg:py-28">
+      <section style={{ background: 'var(--bg-hero)' }} className="relative overflow-hidden bg-hero text-[var(--text-heading)]">
+        {/* Soft blurred glow circles */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 -right-24 h-[460px] w-[460px] rounded-full bg-[#9CC4FF] opacity-35 blur-[80px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-24 -left-24 h-[460px] w-[460px] rounded-full bg-[#FFE2A3] opacity-40 blur-[80px]"
+        />
+
+        {/* Hero subtle dotted pattern (primary at 6% opacity) */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(var(--primary)_1.5px,transparent_1.5px)] [background-size:24px_24px]"
+        />
+
+        <div className="container-page relative grid items-center gap-12 py-16 lg:grid-cols-[1.15fr_1fr] lg:py-24">
           <div className="animate-fade-up">
-            <p className="text-xs font-semibold tracking-[0.16em] text-teal-300 uppercase">
+            <p className="eyebrow mb-3">
               {brand.institution.name} · {tagline}
             </p>
-            <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]">
+            <h1 className="mt-4 text-4xl font-bold tracking-tight text-[var(--text-heading)] sm:text-5xl lg:text-[3.25rem] lg:leading-[1.12]">
               Expert Consulting. Practical Data Science Training. Measurable Impact.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--text-body)]">
               Explore statistical consulting, mathematical problem-solving, data analytics, and practical certificate courses designed to turn
               technical knowledge into real-world capability.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <LinkButton to="/contact?type=consulting" variant="light" size="lg">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <LinkButton to="/contact?type=consulting" variant="primary" size="lg">
                 Book a Consultation
               </LinkButton>
-              <LinkButton to="/services" variant="outline-light" size="lg">
+              <LinkButton to="/services" variant="secondary" size="lg">
                 Explore Our Services
               </LinkButton>
             </div>
-            <Link to="/courses" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-300 hover:text-teal-200">
+            <Link to="/courses" className="link mt-5 inline-flex items-center gap-1.5 text-sm font-semibold">
               Explore Certificate Courses <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
-            <ul className="mt-10 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-3">
+            <ul className="mt-10 grid gap-3 border-t border-[var(--border)] pt-6 sm:grid-cols-3">
               {VALUE_POINTS.map((v) => (
-                <li key={v} className="flex gap-2 text-sm leading-6 text-slate-300">
-                  <Check className="mt-1 h-4 w-4 shrink-0 text-teal-300" aria-hidden /> {v}
+                <li key={v} className="flex gap-2 text-sm leading-6 text-[var(--text-body)]">
+                  <Check className="mt-1 h-4 w-4 shrink-0 text-[var(--accent)]" aria-hidden /> {v}
                 </li>
               ))}
             </ul>
           </div>
           {brand.heroImage ? (
-            <img src={brand.heroImage} alt="" className="w-full rounded-3xl border border-white/10 object-cover shadow-2xl" />
+            <img src={brand.heroImage} alt="" className="w-full rounded-[16px] border border-[var(--border)] object-cover shadow-[var(--card-shadow)]" />
           ) : (
             <HeroVisual />
           )}
         </div>
+        <WaveDivider color="var(--bg-blue)" variant="wave-1" />
       </section>
 
-      {/* 2. Two pillars */}
+      {/* 2. Two pillars (--bg-blue) */}
       <Section
+        tone="blue"
+        dividerColor="var(--bg-cream)"
+        dividerVariant="wave-2"
         eyebrow="What we do"
         title="Consulting and training, from one team"
         intro="Commission an analysis, or build the skills to do it yourself. Both draw on the same methods and the same standards."
@@ -212,9 +231,11 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 3. Featured services */}
+      {/* 3. Featured services (--bg-cream) */}
       <Section
-        tone="muted"
+        tone="cream"
+        dividerColor="var(--bg-lavender)"
+        dividerVariant="wave-1"
         eyebrow="Consulting services"
         title="Where we help most often"
         action={
@@ -236,15 +257,21 @@ export default function HomePage() {
         )}
       </Section>
 
-      {/* 4. How we work */}
+      {/* 4. How we work (--bg-lavender) */}
       {content && (
-        <Section eyebrow="How we work" title="A clear process, from first question to handover">
+        <Section
+          tone="lavender"
+          dividerColor="var(--bg-mint)"
+          dividerVariant="wave-2"
+          eyebrow="How we work"
+          title="A clear process, from first question to handover"
+        >
           <ol className="grid gap-6 md:grid-cols-5">
             {content.consulting_approach.map((s, i) => (
               <li key={s.step} className="relative">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-semibold text-brand-fg">{i + 1}</span>
-                  {i < content.consulting_approach.length - 1 && <span aria-hidden className="hidden h-px flex-1 bg-line-strong md:block" />}
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--tint-lavender)] text-sm font-semibold text-[var(--primary)]">{i + 1}</span>
+                  {i < content.consulting_approach.length - 1 && <span aria-hidden className="hidden h-px flex-1 bg-[var(--border)] md:block" />}
                 </div>
                 <h3 className="mt-4 font-semibold text-ink">{titleCase(s.step)}</h3>
                 <p className="mt-1.5 text-sm leading-6 text-muted">{s.detail}</p>
@@ -254,9 +281,11 @@ export default function HomePage() {
         </Section>
       )}
 
-      {/* 5. Featured courses */}
+      {/* 5. Featured courses (--bg-mint) */}
       <Section
-        tone="muted"
+        tone="mint"
+        dividerColor="var(--bg-blue)"
+        dividerVariant="wave-1"
         eyebrow="Certificate courses"
         title="Popular courses"
         intro="Structured courses with lab work and a final project, from first principles to advanced modelling."
@@ -279,8 +308,14 @@ export default function HomePage() {
         )}
       </Section>
 
-      {/* 6. Worked analysis showcase */}
-      <Section eyebrow="See how we work" title="A worked analysis, end to end">
+      {/* 6. Worked analysis showcase (--bg-blue) */}
+      <Section
+        tone="blue"
+        dividerColor="var(--bg-cream)"
+        dividerVariant="wave-2"
+        eyebrow="See how we work"
+        title="A worked analysis, end to end"
+      >
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           <div className="min-w-0">
             {chart ? (
@@ -309,9 +344,15 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 7. FAQ */}
+      {/* 7. FAQ (--bg-cream) */}
       {content && (
-        <Section tone="muted" eyebrow="FAQ" title="Frequently asked questions">
+        <Section
+          tone="cream"
+          isBandDivider={true}
+          dividerVariant="wave-1"
+          eyebrow="FAQ"
+          title="Frequently asked questions"
+        >
           <div className="mx-auto max-w-3xl">
             <Faq items={content.faq.slice(0, 6)} />
             <p className="mt-6 text-center text-sm text-muted">

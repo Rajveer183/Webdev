@@ -7,6 +7,7 @@ import { brand } from '../config/brand'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { useSite } from '../hooks/useSite'
 import { titleCase } from '../lib/titleCase'
+import { WaveDivider } from '../components/ui/WaveDivider'
 
 const VALUES = [
   {
@@ -153,16 +154,7 @@ function NetworkGraphCard() {
 
 function Team() {
   if (brand.team.length === 0) {
-    return import.meta.env.DEV ? (
-      <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-14 sm:py-20">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <p className="rounded-xl border border-dashed border-warning/50 bg-warning-soft p-4 text-sm text-warning">
-            Development note: add verified team profiles (name, role, bio, credentials, optional photo) to <code>brand.team</code> in
-            frontend/src/config/brand.ts. This section is hidden in production until then.
-          </p>
-        </div>
-      </section>
-    ) : null
+    return null
   }
   return (
     <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
@@ -210,8 +202,24 @@ export default function AboutPage() {
   return (
     <>
       {/* ===================== HERO SECTION ===================== */}
-      <div className="relative border-b border-[var(--border)] bg-[var(--bg-hero)]">
-        <div className="mx-auto w-full max-w-[1200px] px-4 pt-10 pb-16 sm:px-6 sm:pt-14 lg:px-8">
+      <div style={{ background: 'var(--bg-hero)' }} className="relative overflow-hidden bg-hero">
+        {/* Soft blurred glow circles */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 -right-24 h-[460px] w-[460px] rounded-full bg-[#9CC4FF] opacity-35 blur-[80px]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-24 -left-24 h-[460px] w-[460px] rounded-full bg-[#FFE2A3] opacity-40 blur-[80px]"
+        />
+
+        {/* Hero subtle dotted pattern (primary at 6% opacity) */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(var(--primary)_1.5px,transparent_1.5px)] [background-size:24px_24px]"
+        />
+
+        <div className="relative mx-auto w-full max-w-[1200px] px-4 pt-10 pb-16 sm:px-6 sm:pt-14 lg:px-8">
           <div className="grid grid-cols-1 items-stretch gap-8 min-[900px]:grid-cols-12 lg:gap-12">
             {/* Left Column: Text block */}
             <div className="flex flex-col justify-center min-[900px]:col-span-7">
@@ -297,16 +305,16 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        <WaveDivider color="var(--bg-blue)" variant="wave-1" />
       </div>
 
-      {/* ===================== BELOW THE HERO SECTION ===================== */}
-      {/* Section rhythm: alternate with --bg-section-alt */}
-      <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+      {/* ===================== SECTION 2: PURPOSE & TRAINING (--bg-blue) ===================== */}
+      <section className="relative bg-[var(--bg-blue)] pt-16 sm:pt-20">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
           <div className="grid grid-cols-1 items-stretch gap-8 min-[900px]:grid-cols-2">
             {/* Card 1: Our Purpose */}
-            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
-              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
+              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-blue)] text-[var(--primary)]">
                 <Target className="h-5 w-5" aria-hidden />
               </div>
               <h2 className="mb-4 text-2xl font-bold tracking-tight text-[var(--text-heading)]">
@@ -326,8 +334,8 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2: Consulting and Training, Together */}
-            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
-              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
+              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-blue)] text-[var(--primary)]">
                 <Layers className="h-5 w-5" aria-hidden />
               </div>
               <h2 className="mb-4 text-2xl font-bold tracking-tight text-[var(--text-heading)]">
@@ -347,12 +355,12 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        <WaveDivider color="var(--bg-cream)" variant="wave-2" />
       </section>
 
-      {/* ===================== VALUES SECTION ===================== */}
-      {/* Section rhythm: alternate with --bg-page */}
-      <section className="border-b border-[var(--border)] bg-[var(--bg-page)] py-16 sm:py-20">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+      {/* ===================== SECTION 3: VALUES (--bg-cream) ===================== */}
+      <section className="relative bg-[var(--bg-cream)] pt-16 sm:pt-20">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
               Values
@@ -365,9 +373,9 @@ export default function AboutPage() {
             {VALUES.map(({ icon: I, title, text }) => (
               <div
                 key={title}
-                className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
+                className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-cream)] text-[var(--primary)]">
                   <I className="h-5 w-5" aria-hidden />
                 </div>
                 <h3 className="text-lg font-semibold text-[var(--text-heading)]">{titleCase(title)}</h3>
@@ -376,15 +384,15 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+        <WaveDivider color="var(--bg-lavender)" variant="wave-1" />
       </section>
 
       <Team />
 
-      {/* ===================== AREAS OF EXPERTISE ===================== */}
-      {/* Section rhythm: alternate with --bg-section-alt */}
+      {/* ===================== SECTION 4: AREAS OF EXPERTISE (--bg-lavender) ===================== */}
       {content && (
-        <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
-          <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-[var(--bg-lavender)] pt-16 sm:pt-20">
+          <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
             <div className="mb-10 max-w-3xl">
               <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
                 Areas of expertise
@@ -396,24 +404,26 @@ export default function AboutPage() {
                 Our subject coverage spans a complete four-year statistics and data science curriculum, from descriptive statistics to deep learning.
               </p>
             </div>
-            <div className="grid gap-px overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--border)] shadow-sm sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-px overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--border)] shadow-[var(--card-shadow)] sm:grid-cols-2 lg:grid-cols-4">
               {content.expertise_areas.map((e) => (
-                <div key={e.title} className="bg-[var(--bg-card)] p-6 transition-colors duration-150 hover:bg-[var(--accent-soft)]/30">
-                  <Icon name={e.icon} className="h-5 w-5 text-[var(--primary)]" />
-                  <h3 className="mt-3 font-semibold text-[var(--text-heading)]">{titleCase(e.title)}</h3>
+                <div key={e.title} className="bg-[var(--bg-card)] p-6 transition-colors duration-150 hover:bg-[var(--tint-lavender)]/20">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-lavender)] text-[var(--primary)]">
+                    <Icon name={e.icon} className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-2 font-semibold text-[var(--text-heading)]">{titleCase(e.title)}</h3>
                   <p className="mt-1.5 text-sm leading-6 text-[var(--text-body)]">{e.description}</p>
                 </div>
               ))}
             </div>
           </div>
+          <WaveDivider color="var(--bg-mint)" variant="wave-2" />
         </section>
       )}
 
-      {/* ===================== WHO WE SERVE ===================== */}
-      {/* Section rhythm: alternate with --bg-page */}
+      {/* ===================== SECTION 5: WHO WE SERVE (--bg-mint) ===================== */}
       {content && (
-        <section className="border-b border-[var(--border)] bg-[var(--bg-page)] py-16 sm:py-20">
-          <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-[var(--bg-mint)] pt-16 sm:pt-20">
+          <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
             <div className="mb-10 max-w-3xl">
               <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
                 Who we serve
@@ -429,9 +439,9 @@ export default function AboutPage() {
               {content.industries.map((i) => (
                 <div
                   key={i.name}
-                  className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
+                  className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-mint)] text-[var(--primary)]">
                     <Icon name={i.icon} className="h-5 w-5" />
                   </div>
                   <h3 className="text-base font-semibold text-[var(--text-heading)]">{titleCase(i.name)}</h3>
@@ -440,13 +450,13 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
+          <WaveDivider color="var(--bg-blue)" variant="wave-1" />
         </section>
       )}
 
-      {/* ===================== OUR INSTITUTION ===================== */}
-      {/* Section rhythm: alternate with --bg-section-alt */}
-      <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+      {/* ===================== SECTION 6: OUR INSTITUTION (--bg-blue) ===================== */}
+      <section className="relative bg-[var(--bg-blue)] pt-16 sm:pt-20">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
           <div className="mb-8 max-w-3xl">
             <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
               Our institution
@@ -457,6 +467,7 @@ export default function AboutPage() {
           </div>
           <InstitutionReference />
         </div>
+        <WaveDivider isBand variant="wave-2" />
       </section>
 
       {/* ===================== BOTTOM CTA BANNER ===================== */}
