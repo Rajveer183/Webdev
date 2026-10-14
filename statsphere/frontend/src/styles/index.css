@@ -9,109 +9,127 @@
   color-scheme: light;
 
   /* SGT Consulting Services exact color system */
-  --primary: #0B1F4D;
-  --accent: #0F766E;
-  --accent-hover: #0D5F59;
+  --primary: #12306B;
+  --primary-hover: #0D2552;
+  --accent: #C8962E;
+  --accent-hover: #A87A1C;
+  --accent-soft: #FBF4E3;
   --text-heading: #0F172A;
   --text-body: #334155;
   --text-muted: #64748B;
-  --bg-hero: linear-gradient(180deg, #F1F6FF 0%, #FFFFFF 100%);
-  --bg-section: #F8FAFC;
+  --bg-page: #FFFFFF;
+  --bg-hero: linear-gradient(180deg, #F3F6FC 0%, #FFFFFF 100%);
+  --bg-section-alt: #F8FAFC;
+  --bg-card: #FFFFFF;
   --border: #E2E8F0;
+  --topbar-bg: #12306B;
+  --topbar-text: #E6ECFF;
 
   /* App compatibility tokens */
-  --bg: #FFFFFF;
-  --surface: #FFFFFF;
-  --surface-2: #F8FAFC;
-  --surface-3: #F1F6FF;
+  --bg: var(--bg-page);
+  --surface: var(--bg-card);
+  --surface-2: var(--bg-section-alt);
+  --surface-3: var(--accent-soft);
   --border-strong: #CBD5E1;
-  --text: #0F172A;
-  --text-subtle: #64748B;
-  --brand: #0B1F4D; /* deep navy: headings, primary buttons */
-  --brand-hover: #172554;
+  --text: var(--text-heading);
+  --text-subtle: var(--text-muted);
+  --brand: var(--primary);
+  --brand-hover: var(--primary-hover);
   --brand-fg: #FFFFFF;
   --brand-soft: #F1F6FF;
-  --link: #0F766E;
-  --accent-strong: #0D5F59;
-  --accent-soft: #E6F4F1;
-  --ring: #0F766E;
+  --link: var(--primary);
+  --accent-strong: var(--accent-hover);
+  --ring: var(--accent);
   --success: #15803D;
   --success-soft: #E8F6EC;
-  --warning: #A16207;
-  --warning-soft: #FDF6E3;
+  --warning: #C8962E;
+  --warning-soft: var(--accent-soft);
   --danger: #B91C1C;
   --danger-soft: #FDECEC;
-  --hero-from: #0B1F4D;
-  --hero-to: #172554;
+  --hero-from: #12306B;
+  --hero-to: #0D2552;
 
   /* Chart tokens */
   --chart-surface: #FFFFFF;
   --chart-grid: #E6E9EF;
   --chart-axis: #52514E;
-  --series-1: #2A78D6;
-  --series-2: #EB6834;
+  --series-1: #12306B;
+  --series-2: #C8962E;
   --series-3: #1BAF7A;
-  --chart-ref: #6B7280;
+  --chart-ref: #64748B;
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
 
   /* SGT Consulting Services exact dark tokens */
-  --primary: #E6ECFF;
-  --accent: #2DD4BF;
-  --accent-hover: #5EEAD4;
+  --primary: #8FB0FF;
+  --primary-hover: #B5CBFF;
+  --accent: #E3B650;
+  --accent-hover: #F0CB78;
+  --accent-soft: #2A2210;
   --text-heading: #F8FAFC;
   --text-body: #CBD5E1;
   --text-muted: #94A3B8;
+  --bg-page: #0B1220;
   --bg-hero: #0B1220;
-  --bg-section: #0F172A;
+  --bg-section-alt: #0F172A;
+  --bg-card: #111A2E;
   --border: #1E293B;
+  --topbar-bg: #060D1F;
+  --topbar-text: #CBD5E1;
 
   /* App compatibility tokens */
-  --bg: #0B1220;
-  --surface: #0F172A;
-  --surface-2: #162033;
-  --surface-3: #1E293B;
+  --bg: var(--bg-page);
+  --surface: var(--bg-card);
+  --surface-2: var(--bg-section-alt);
+  --surface-3: var(--accent-soft);
   --border-strong: #334155;
-  --text: #F8FAFC;
-  --text-subtle: #94A3B8;
-  --brand: #E6ECFF;
-  --brand-hover: #FFFFFF;
-  --brand-fg: #0B1F4D;
+  --text: var(--text-heading);
+  --text-subtle: var(--text-muted);
+  --brand: var(--primary);
+  --brand-hover: var(--primary-hover);
+  --brand-fg: #060D1F;
   --brand-soft: #162033;
-  --link: #2DD4BF;
-  --accent-strong: #5EEAD4;
-  --accent-soft: #082F2C;
-  --ring: #2DD4BF;
+  --link: var(--primary);
+  --accent-strong: var(--accent-hover);
+  --ring: var(--accent);
   --success: #4ADE80;
   --success-soft: #10291A;
-  --warning: #FACC15;
-  --warning-soft: #2C250B;
+  --warning: #E3B650;
+  --warning-soft: var(--accent-soft);
   --danger: #F87171;
   --danger-soft: #2F1414;
-  --hero-from: #070C19;
-  --hero-to: #101B38;
+  --hero-from: #060D1F;
+  --hero-to: #0B1220;
 
-  --chart-surface: #111827;
+  --chart-surface: #111A2E;
   --chart-grid: #263247;
   --chart-axis: #C3C2B7;
-  --series-1: #3987E5;
-  --series-2: #D95926;
+  --series-1: #8FB0FF;
+  --series-2: #E3B650;
   --series-3: #199E70;
-  --chart-ref: #9CA3AF;
+  --chart-ref: #94A3B8;
 }
 
 @theme inline {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
   --color-heading: var(--text-heading);
   --color-body: var(--text-body);
   --color-muted: var(--text-muted);
-  --color-section: var(--bg-section);
+  --color-bg-page: var(--bg-page);
+  --color-bg-hero: var(--bg-hero);
+  --color-section-alt: var(--bg-section-alt);
+  --color-card: var(--bg-card);
   --color-border: var(--border);
+  --color-topbar-bg: var(--topbar-bg);
+  --color-topbar-text: var(--topbar-text);
+
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -126,7 +144,6 @@
   --color-brand-soft: var(--brand-soft);
   --color-link: var(--link);
   --color-accent-strong: var(--accent-strong);
-  --color-accent-soft: var(--accent-soft);
   --color-ring: var(--ring);
   --color-success: var(--success);
   --color-success-soft: var(--success-soft);
@@ -142,7 +159,7 @@
     scroll-padding-top: 5rem;
   }
   body {
-    background: var(--bg);
+    background: var(--bg-page);
     color: var(--text-body);
     font-family: var(--font-sans);
     font-feature-settings: 'cv11', 'ss01';
@@ -155,7 +172,7 @@
     border-radius: 4px;
   }
   ::selection {
-    background: color-mix(in oklab, var(--accent) 25%, transparent);
+    background: color-mix(in oklab, var(--accent) 30%, transparent);
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -173,19 +190,36 @@
     @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8;
   }
   .eyebrow {
-    @apply text-xs font-semibold tracking-[0.14em] text-accent uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
   .card {
-    @apply rounded-2xl border border-line bg-surface shadow-[0_1px_2px_rgba(15,23,42,0.04)];
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
   }
-  .card-hover {
-    @apply transition duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:shadow-[0_10px_30px_-12px_rgba(15,23,42,0.18)];
+  .card:hover, .card-hover:hover {
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.15);
   }
   .prose-body p {
     @apply leading-7 text-muted;
   }
   .link {
-    @apply font-medium text-link underline-offset-4 hover:underline;
+    color: var(--primary);
+    font-weight: 500;
+    text-underline-offset: 4px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 150ms ease, color 150ms ease;
+  }
+  .link:hover {
+    text-decoration-color: var(--accent);
   }
   .katex-display {
     overflow-x: auto;

@@ -17,7 +17,7 @@ export function CtaBanner({
     <section className="py-16 sm:py-20">
       <div className="container-page">
         <div className="relative overflow-hidden rounded-3xl bg-[linear-gradient(135deg,var(--hero-from),var(--hero-to))] px-6 py-12 text-white sm:px-12">
-          <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-teal-400/10 blur-3xl" />
+          <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[var(--accent)]/15 blur-3xl" />
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{tc(title)}</h2>

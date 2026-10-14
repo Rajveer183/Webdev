@@ -8,11 +8,13 @@ const base =
   'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition duration-150 disabled:cursor-not-allowed disabled:opacity-60 whitespace-nowrap'
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-brand text-brand-fg hover:bg-brand-hover shadow-sm',
-  secondary: 'border border-line-strong bg-surface text-ink hover:bg-surface-2',
-  ghost: 'text-ink hover:bg-surface-2',
-  accent: 'bg-accent text-white hover:bg-accent-strong dark:text-[#04201d]',
-  light: 'bg-white text-[#0b1736] hover:bg-slate-100 shadow-sm',
+  primary:
+    'bg-[var(--primary)] text-white dark:text-[#060D1F] hover:bg-[var(--primary-hover)] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2',
+  secondary:
+    'border-[1.5px] border-[var(--primary)] bg-transparent text-[var(--primary)] hover:bg-[var(--accent-soft)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2',
+  ghost: 'text-[var(--text-body)] hover:bg-[var(--accent-soft)] hover:text-[var(--primary)]',
+  accent: 'bg-[var(--accent)] text-[#060D1F] hover:bg-[var(--accent-hover)] font-semibold',
+  light: 'bg-white text-[var(--primary)] hover:bg-[var(--accent-soft)] shadow-sm',
   'outline-light': 'border border-white/30 text-white hover:bg-white/10',
 }
 

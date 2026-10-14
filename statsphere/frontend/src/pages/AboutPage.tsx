@@ -51,7 +51,7 @@ function NetworkGraphCard() {
   ]
 
   return (
-    <div className="relative flex h-full min-h-[380px] w-full items-center justify-center overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-200 dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)]">
+    <div className="relative flex h-full min-h-[380px] w-full items-center justify-center overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-200 hover:border-[var(--accent)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)]">
       <svg
         viewBox="0 0 440 360"
         className="h-full max-h-[380px] w-full select-none"
@@ -60,11 +60,11 @@ function NetworkGraphCard() {
         <defs>
           {/* Faint grid background */}
           <pattern id="about-network-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-            <path d="M 24 0 L 0 0 0 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-[var(--text-muted)] opacity-[0.08]" />
+            <path d="M 24 0 L 0 0 0 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-[var(--primary)] opacity-[0.08]" />
           </pattern>
 
-          {/* Soft teal glow filter for the central node */}
-          <filter id="teal-glow" x="-50%" y="-50%" width="200%" height="200%">
+          {/* Soft gold glow filter for the central node */}
+          <filter id="gold-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="8" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
@@ -72,19 +72,19 @@ function NetworkGraphCard() {
             </feMerge>
           </filter>
 
-          {/* Radial teal glow centered at the core */}
-          <radialGradient id="center-radial-teal" cx="50%" cy="50%" r="55%">
+          {/* Radial gold glow centered at the core */}
+          <radialGradient id="center-radial-accent" cx="50%" cy="50%" r="55%">
             <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.14" />
-            <stop offset="100%" stopColor="var(--surface)" stopOpacity="0" />
+            <stop offset="100%" stopColor="var(--bg-card)" stopOpacity="0" />
           </radialGradient>
         </defs>
 
         {/* Faint grid and subtle radial wash */}
         <rect width="100%" height="100%" fill="url(#about-network-grid)" />
-        <circle cx={centerNode.x} cy={centerNode.y} r="160" fill="url(#center-radial-teal)" />
+        <circle cx={centerNode.x} cy={centerNode.y} r="160" fill="url(#center-radial-accent)" />
 
-        {/* Thin teal-tinted connecting lines (30% opacity) */}
-        <g stroke="var(--accent)" strokeOpacity="0.30" strokeWidth="1.5">
+        {/* Thin primary-tinted connecting lines (30% opacity) */}
+        <g stroke="var(--primary)" strokeOpacity="0.30" strokeWidth="1.5">
           {lines.map(([from, to], idx) => {
             const p1 = from === 'c' ? centerNode : outerNodes[from]
             const p2 = to === 'c' ? centerNode : outerNodes[to]
@@ -98,8 +98,8 @@ function NetworkGraphCard() {
           cy={centerNode.y}
           r="140"
           fill="none"
-          stroke="var(--accent)"
-          strokeOpacity="0.12"
+          stroke="var(--primary)"
+          strokeOpacity="0.15"
           strokeWidth="1"
           strokeDasharray="4 6"
         />
@@ -116,28 +116,27 @@ function NetworkGraphCard() {
           strokeDasharray="3 3"
         />
 
-        {/* Navy outer nodes (no grey-blue nodes) */}
+        {/* Primary outer nodes */}
         {outerNodes.map((node, i) => (
           <circle
             key={i}
             cx={node.x}
             cy={node.y}
             r="10"
-            fill="#0B1F4D"
-            stroke="var(--surface)"
+            fill="var(--primary)"
+            stroke="var(--bg-card)"
             strokeWidth="2.5"
-            className="dark:fill-[#E6ECFF]"
           />
         ))}
 
-        {/* Teal central node with soft teal glow */}
-        <g filter="url(#teal-glow)">
+        {/* Gold central node with soft gold glow */}
+        <g filter="url(#gold-glow)">
           <circle
             cx={centerNode.x}
             cy={centerNode.y}
             r="18"
             fill="var(--accent)"
-            stroke="var(--surface)"
+            stroke="var(--bg-card)"
             strokeWidth="3"
           />
           <circle
@@ -155,7 +154,7 @@ function NetworkGraphCard() {
 function Team() {
   if (brand.team.length === 0) {
     return import.meta.env.DEV ? (
-      <section className="py-14 sm:py-20 border-b border-[var(--border)] bg-[var(--surface)]">
+      <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-14 sm:py-20">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <p className="rounded-xl border border-dashed border-warning/50 bg-warning-soft p-4 text-sm text-warning">
             Development note: add verified team profiles (name, role, bio, credentials, optional photo) to <code>brand.team</code> in
@@ -166,20 +165,20 @@ function Team() {
     ) : null
   }
   return (
-    <section className="py-16 sm:py-20 border-b border-[var(--border)] bg-[var(--surface)]">
+    <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)] mb-2">Team</p>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-heading)]">Who you will work with</h2>
+          <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">Team</p>
+          <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">Who you will work with</h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {brand.team.map((m) => (
-            <article key={m.name} className="flex flex-col overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--surface)] shadow-sm">
+            <article key={m.name} className="flex flex-col overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] shadow-sm transition-all duration-200 hover:border-[var(--accent)] hover:shadow-md">
               {m.photo ? (
                 <img src={m.photo} alt={`Portrait of ${m.name}`} className="aspect-[4/3] w-full object-cover" loading="lazy" />
               ) : (
-                <div className="flex aspect-[4/3] items-center justify-center bg-[var(--bg-section)]">
-                  <UserRound className="h-12 w-12 text-[var(--text-muted)]" aria-hidden />
+                <div className="flex aspect-[4/3] items-center justify-center bg-[var(--accent-soft)]">
+                  <UserRound className="h-12 w-12 text-[var(--primary)]" aria-hidden />
                 </div>
               )}
               <div className="p-6">
@@ -188,7 +187,7 @@ function Team() {
                 <p className="mt-3 text-sm leading-6 text-[var(--text-body)]">{m.bio}</p>
                 {m.credentials && <p className="mt-3 text-xs text-[var(--text-muted)]">{m.credentials.join(' · ')}</p>}
                 {m.linkedin && (
-                  <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors">
+                  <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="link mt-3 inline-flex items-center gap-1 text-sm font-medium">
                     LinkedIn <ExternalLink className="h-3.5 w-3.5" aria-hidden />
                   </a>
                 )}
@@ -233,12 +232,12 @@ export default function AboutPage() {
                 </ol>
               </nav>
 
-              {/* Eyebrow "ABOUT US": teal, uppercase, letter-spacing 0.12em, 13px, weight 600 */}
+              {/* Eyebrow "ABOUT US": --accent, uppercase */}
               <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
                 ABOUT US
               </p>
 
-              {/* Headline: "Rigorous Quantitative Work, Explained Clearly" in --text-heading, weight 700, clamp(2.25rem, 4vw, 3.5rem), line-height 1.15, balanced wrapping */}
+              {/* Headline: "Rigorous Quantitative Work, Explained Clearly" */}
               <h1
                 className="mb-5 text-[clamp(2.25rem,4vw,3.5rem)] font-bold leading-[1.15] tracking-tight text-[var(--text-heading)] [text-wrap:balance]"
               >
@@ -251,23 +250,23 @@ export default function AboutPage() {
                 researchers, professionals and businesses solve quantitative problems and build practical data science skills.
               </p>
 
-              {/* Two CTAs below paragraph: primary solid navy "Book a Consultation", secondary outlined teal "Explore Courses" */}
+              {/* Two CTAs: Primary solid --primary, Secondary transparent with 1.5px --primary border and hover --accent-soft */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   to="/contact?type=consulting"
-                  className="inline-flex items-center justify-center rounded-xl bg-[#0B1F4D] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-[#122b68] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-6 py-3.5 text-sm font-semibold text-white dark:text-[#060D1F] shadow-sm transition-all duration-150 hover:bg-[var(--primary-hover)] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
                 >
                   Book a Consultation
                 </Link>
                 <Link
                   to="/courses"
-                  className="inline-flex items-center justify-center rounded-xl border-2 border-[var(--accent)] bg-transparent px-6 py-3 text-sm font-semibold text-[var(--accent)] transition-all duration-150 hover:bg-[var(--accent)] hover:text-white hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center rounded-xl border-[1.5px] border-[var(--primary)] bg-transparent px-6 py-3.5 text-sm font-semibold text-[var(--primary)] transition-all duration-150 hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
                 >
                   Explore Courses
                 </Link>
               </div>
 
-              {/* Slim trust strip under the CTAs with 3 stats in --text-muted with teal numbers */}
+              {/* Slim trust strip under the CTAs with 3 stats in --text-muted with gold (--accent) numbers */}
               <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-[var(--border)] pt-6 text-sm text-[var(--text-muted)] sm:gap-8">
                 <div className="flex items-center gap-2">
                   <span className="text-base font-bold text-[var(--accent)]">SGT</span>
@@ -289,7 +288,7 @@ export default function AboutPage() {
             {/* Right Column: Illustration card matching text block height */}
             <div className="flex items-stretch min-[900px]:col-span-5">
               {brand.aboutImage ? (
-                <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--surface)] shadow-[0_8px_30px_rgb(0,0,0,0.06)]">
+                <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-[var(--accent)]">
                   <img src={brand.aboutImage} alt="" className="h-full w-full object-cover" />
                 </div>
               ) : (
@@ -301,13 +300,13 @@ export default function AboutPage() {
       </div>
 
       {/* ===================== BELOW THE HERO SECTION ===================== */}
-      {/* Use --bg-section to clearly separate from hero, two equal-width cards with 1px --border, 16px radius, small teal icon at top, equal heights */}
-      <section className="border-b border-[var(--border)] bg-[var(--bg-section)] py-16 sm:py-20">
+      {/* Section rhythm: alternate with --bg-section-alt */}
+      <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-stretch gap-8 min-[900px]:grid-cols-2">
             {/* Card 1: Our Purpose */}
-            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--surface)] p-8 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-10">
-              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)]">
+            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
+              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                 <Target className="h-5 w-5" aria-hidden />
               </div>
               <h2 className="mb-4 text-2xl font-bold tracking-tight text-[var(--text-heading)]">
@@ -327,8 +326,8 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2: Consulting and Training, Together */}
-            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--surface)] p-8 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-10">
-              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)]">
+            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
+              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                 <Layers className="h-5 w-5" aria-hidden />
               </div>
               <h2 className="mb-4 text-2xl font-bold tracking-tight text-[var(--text-heading)]">
@@ -351,7 +350,8 @@ export default function AboutPage() {
       </section>
 
       {/* ===================== VALUES SECTION ===================== */}
-      <section className="border-b border-[var(--border)] bg-[var(--surface)] py-16 sm:py-20">
+      {/* Section rhythm: alternate with --bg-page */}
+      <section className="border-b border-[var(--border)] bg-[var(--bg-page)] py-16 sm:py-20">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
@@ -365,9 +365,9 @@ export default function AboutPage() {
             {VALUES.map(({ icon: I, title, text }) => (
               <div
                 key={title}
-                className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)]">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                   <I className="h-5 w-5" aria-hidden />
                 </div>
                 <h3 className="text-lg font-semibold text-[var(--text-heading)]">{titleCase(title)}</h3>
@@ -381,8 +381,9 @@ export default function AboutPage() {
       <Team />
 
       {/* ===================== AREAS OF EXPERTISE ===================== */}
+      {/* Section rhythm: alternate with --bg-section-alt */}
       {content && (
-        <section className="border-b border-[var(--border)] bg-[var(--bg-section)] py-16 sm:py-20">
+        <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
           <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
             <div className="mb-10 max-w-3xl">
               <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
@@ -397,7 +398,7 @@ export default function AboutPage() {
             </div>
             <div className="grid gap-px overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--border)] shadow-sm sm:grid-cols-2 lg:grid-cols-4">
               {content.expertise_areas.map((e) => (
-                <div key={e.title} className="bg-[var(--surface)] p-6 transition-colors duration-150 hover:bg-[var(--bg-section)]">
+                <div key={e.title} className="bg-[var(--bg-card)] p-6 transition-colors duration-150 hover:bg-[var(--accent-soft)]/30">
                   <Icon name={e.icon} className="h-5 w-5 text-[var(--primary)]" />
                   <h3 className="mt-3 font-semibold text-[var(--text-heading)]">{titleCase(e.title)}</h3>
                   <p className="mt-1.5 text-sm leading-6 text-[var(--text-body)]">{e.description}</p>
@@ -409,8 +410,9 @@ export default function AboutPage() {
       )}
 
       {/* ===================== WHO WE SERVE ===================== */}
+      {/* Section rhythm: alternate with --bg-page */}
       {content && (
-        <section className="border-b border-[var(--border)] bg-[var(--surface)] py-16 sm:py-20">
+        <section className="border-b border-[var(--border)] bg-[var(--bg-page)] py-16 sm:py-20">
           <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
             <div className="mb-10 max-w-3xl">
               <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
@@ -427,9 +429,9 @@ export default function AboutPage() {
               {content.industries.map((i) => (
                 <div
                   key={i.name}
-                  className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                  className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)]/10 text-[var(--accent)]">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
                     <Icon name={i.icon} className="h-5 w-5" />
                   </div>
                   <h3 className="text-base font-semibold text-[var(--text-heading)]">{titleCase(i.name)}</h3>
@@ -442,7 +444,8 @@ export default function AboutPage() {
       )}
 
       {/* ===================== OUR INSTITUTION ===================== */}
-      <section className="border-b border-[var(--border)] bg-[var(--bg-section)] py-16 sm:py-20">
+      {/* Section rhythm: alternate with --bg-section-alt */}
+      <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <div className="mb-8 max-w-3xl">
             <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">

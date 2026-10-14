@@ -23,9 +23,9 @@ function ScrollToTop() {
 
 function UtilityBar() {
   return (
-    <div className="hidden bg-[#0B1F4D] text-slate-300 md:block border-b border-[#0B1F4D]/20">
+    <div className="hidden bg-[var(--topbar-bg)] text-[var(--topbar-text)] md:block border-b border-[var(--border)]/20">
       <div className="container-page flex h-9 items-center justify-between text-xs">
-        <a href={brand.institution.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-white transition-colors duration-150">
+        <a href={brand.institution.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[var(--topbar-text)] hover:text-white transition-colors duration-150">
           A service of {brand.institution.name} <ExternalLink className="h-3 w-3" aria-hidden />
         </a>
         <nav aria-label="Quick links" className="flex items-center">

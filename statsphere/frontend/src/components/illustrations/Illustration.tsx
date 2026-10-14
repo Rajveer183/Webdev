@@ -109,7 +109,7 @@ function Motifs({ motif }: { motif: Motif }) {
             ))}
           </g>
           {nodes.map(([x, y], i) => (
-            <circle key={i} cx={x} cy={y} r={i === 7 ? 18 : 11} fill="currentColor" stroke="var(--surface)" strokeWidth={3} className={i === 7 ? 'text-accent' : i % 3 === 0 ? 'text-brand' : 'text-brand/60'} />
+            <circle key={i} cx={x} cy={y} r={i === 7 ? 18 : 11} fill="currentColor" stroke="var(--surface)" strokeWidth={3} className={i === 7 ? 'text-accent' : 'text-brand'} />
           ))}
         </>
       )
@@ -126,7 +126,7 @@ function Motifs({ motif }: { motif: Motif }) {
           </g>
           {pos.flatMap((layer, li) =>
             layer.map(([x, y], i) => (
-              <circle key={`${li}-${i}`} cx={x} cy={y} r={12} fill="currentColor" stroke="var(--surface)" strokeWidth={3} className={li === pos.length - 1 ? 'text-accent' : li === 0 ? 'text-brand' : 'text-brand/55'} />
+              <circle key={`${li}-${i}`} cx={x} cy={y} r={12} fill="currentColor" stroke="var(--surface)" strokeWidth={3} className={li === pos.length - 1 ? 'text-accent' : 'text-brand'} />
             )),
           )}
         </>
@@ -232,9 +232,9 @@ export function Illustration({ motif, className = '', label }: { motif: Motif; c
           <stop offset="100%" stopColor="var(--surface)" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <rect x="10" y="10" width="380" height="280" rx="24" fill="var(--surface)" stroke="var(--border)" />
-      <rect x="10" y="10" width="380" height="280" rx="24" fill={`url(#grid-${motif})`} className="text-line/40" />
-      <rect x="10" y="10" width="380" height="280" rx="24" fill={`url(#glow-${motif})`} />
+      <rect x="10" y="10" width="380" height="280" rx="16" fill="var(--bg-card)" stroke="var(--border)" />
+      <rect x="10" y="10" width="380" height="280" rx="16" fill={`url(#grid-${motif})`} className="text-primary/10" />
+      <rect x="10" y="10" width="380" height="280" rx="16" fill={`url(#glow-${motif})`} />
       <Motifs motif={motif} />
     </svg>
   )

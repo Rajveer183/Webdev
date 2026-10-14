@@ -25,7 +25,7 @@ export function Section({
 }) {
   const ref = useReveal<HTMLDivElement>()
   return (
-    <section id={id} className={`py-14 sm:py-20 ${tone === 'muted' ? 'bg-surface-2/60' : ''} ${className}`}>
+    <section id={id} className={`py-14 sm:py-20 ${tone === 'muted' ? 'bg-[var(--bg-section-alt)] border-y border-[var(--border)]' : 'bg-[var(--bg-page)]'} ${className}`}>
       <div ref={ref} className="container-page">
         {(title || eyebrow) && (
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -65,8 +65,8 @@ export function PageHeader({
   aside?: ReactNode
 }) {
   return (
-    <header className="relative overflow-hidden border-b border-line bg-surface">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_20rem_at_85%_-10%,var(--brand-soft),transparent)]" />
+    <header className="relative overflow-hidden border-b border-[var(--border)] bg-[var(--bg-hero)]">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_20rem_at_85%_-10%,var(--accent-soft),transparent)]" />
       <div className={`container-page relative py-12 sm:py-16 ${aside ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12' : ''}`}>
         <div>
           {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} />}

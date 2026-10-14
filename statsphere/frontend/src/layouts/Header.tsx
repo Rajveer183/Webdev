@@ -102,8 +102,8 @@ function TrainingDropdown({ isCurrent }: { isCurrent: boolean }) {
                 className={({ isActive }) =>
                   `block rounded-lg px-3 py-2 transition-colors duration-150 ${
                     isActive
-                      ? 'bg-[var(--bg-section)] text-[var(--accent)] font-semibold'
-                      : 'text-[var(--text-body)] hover:bg-[var(--bg-section)] hover:text-[var(--text-heading)]'
+                      ? 'bg-[var(--accent-soft)] text-[var(--primary)] font-semibold'
+                      : 'text-[var(--text-body)] hover:bg-[var(--accent-soft)] hover:text-[var(--primary)]'
                   }`
                 }
               >
@@ -222,14 +222,14 @@ export function Header() {
           <div className="hidden md:block">
             <Link
               to="/contact?type=consulting"
-              className="inline-flex items-center justify-center rounded-xl bg-[#0B1F4D] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-[#122b68] hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white dark:text-[#060D1F] shadow-sm transition-all duration-150 hover:bg-[var(--primary-hover)] hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
             >
               Book a Consultation
             </Link>
           </div>
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--text-heading)] hover:bg-[var(--bg-section)] xl:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--text-heading)] hover:bg-[var(--bg-section-alt)] xl:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -249,7 +249,7 @@ export function Header() {
                   to="/services"
                   className={({ isActive }) =>
                     `block rounded-lg px-3 py-2.5 text-base font-medium ${
-                      isActive ? 'bg-[var(--bg-section)] text-[var(--accent)] font-semibold' : 'text-[var(--text-body)]'
+                      isActive ? 'bg-[var(--accent-soft)] text-[var(--primary)] font-semibold' : 'text-[var(--text-body)] hover:bg-[var(--bg-section-alt)]'
                     }`
                   }
                 >
@@ -265,7 +265,7 @@ export function Header() {
                       to={t.to}
                       className={({ isActive }) =>
                         `block rounded-lg px-3 py-2 text-sm font-medium ${
-                          isActive ? 'bg-[var(--bg-section)] text-[var(--accent)] font-semibold' : 'text-[var(--text-muted)]'
+                          isActive ? 'bg-[var(--accent-soft)] text-[var(--primary)] font-semibold' : 'text-[var(--text-muted)] hover:bg-[var(--bg-section-alt)]'
                         }`
                       }
                     >
@@ -279,7 +279,7 @@ export function Header() {
                   to="/knowledge"
                   className={({ isActive }) =>
                     `block rounded-lg px-3 py-2.5 text-base font-medium ${
-                      isActive ? 'bg-[var(--bg-section)] text-[var(--accent)] font-semibold' : 'text-[var(--text-body)]'
+                      isActive ? 'bg-[var(--accent-soft)] text-[var(--primary)] font-semibold' : 'text-[var(--text-body)] hover:bg-[var(--bg-section-alt)]'
                     }`
                   }
                 >
@@ -291,7 +291,7 @@ export function Header() {
                   to="/projects"
                   className={({ isActive }) =>
                     `block rounded-lg px-3 py-2.5 text-base font-medium ${
-                      isActive ? 'bg-[var(--bg-section)] text-[var(--accent)] font-semibold' : 'text-[var(--text-body)]'
+                      isActive ? 'bg-[var(--accent-soft)] text-[var(--primary)] font-semibold' : 'text-[var(--text-body)] hover:bg-[var(--bg-section-alt)]'
                     }`
                   }
                 >
@@ -303,7 +303,7 @@ export function Header() {
                   to="/about"
                   className={({ isActive }) =>
                     `block rounded-lg px-3 py-2.5 text-base font-medium ${
-                      isActive ? 'bg-[var(--bg-section)] text-[var(--accent)] font-semibold' : 'text-[var(--text-body)]'
+                      isActive ? 'bg-[var(--accent-soft)] text-[var(--primary)] font-semibold' : 'text-[var(--text-body)] hover:bg-[var(--bg-section-alt)]'
                     }`
                   }
                 >
@@ -315,7 +315,7 @@ export function Header() {
                   to="/contact"
                   className={({ isActive }) =>
                     `block rounded-lg px-3 py-2.5 text-base font-medium ${
-                      isActive ? 'bg-[var(--bg-section)] text-[var(--accent)] font-semibold' : 'text-[var(--text-body)]'
+                      isActive ? 'bg-[var(--accent-soft)] text-[var(--primary)] font-semibold' : 'text-[var(--text-body)] hover:bg-[var(--bg-section-alt)]'
                     }`
                   }
                 >
@@ -327,7 +327,7 @@ export function Header() {
               <ThemeSwitch />
               <Link
                 to="/contact?type=consulting"
-                className="inline-flex items-center justify-center rounded-xl bg-[#0B1F4D] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-[#122b68] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+                className="inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white dark:text-[#060D1F] shadow-sm transition-all duration-150 hover:bg-[var(--primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
               >
                 Book a Consultation
               </Link>
