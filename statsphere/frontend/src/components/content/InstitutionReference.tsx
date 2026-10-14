@@ -15,7 +15,7 @@ export function InstitutionReference({ compact = false }: { compact?: boolean })
           width={88}
           height={84}
           loading="lazy"
-          className="h-20 w-auto shrink-0 self-start rounded-full bg-white object-contain p-1"
+          className="h-20 w-auto shrink-0 self-start rounded-full bg-[var(--bg-control)] border border-[var(--border)] object-contain p-1"
         />
       )}
       <div>

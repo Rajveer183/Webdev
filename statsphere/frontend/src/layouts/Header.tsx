@@ -10,7 +10,7 @@ const TRAINING_LINKS = [
   { to: '/corporate-training', label: 'Corporate Training', desc: 'Customised workshops for organisations' },
 ]
 
-function ThemeSwitch() {
+function ThemeSwitch({ onDark = false }: { onDark?: boolean }) {
   const { choice, setTheme } = useTheme()
 
   const cycleTheme = () => {
@@ -34,7 +34,11 @@ function ThemeSwitch() {
       onClick={cycleTheme}
       aria-label={current.label}
       title={current.label}
-      className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] transition-all duration-150 hover:bg-[var(--bg-section)] hover:text-[var(--text-heading)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+      className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
+        onDark
+          ? 'border-[var(--header-border)] bg-[var(--header-hover)] text-[var(--header-text)] hover:bg-white/20'
+          : 'border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] hover:bg-[var(--bg-section)] hover:text-[var(--text-heading)]'
+      }`}
     >
       <IconComponent className="h-4 w-4 transition-transform duration-200" aria-hidden />
     </button>
@@ -81,13 +85,13 @@ function TrainingDropdown({ isCurrent }: { isCurrent: boolean }) {
         onClick={() => setIsOpen((prev) => !prev)}
         className={`relative inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-lg ${
           isCurrent
-            ? 'text-[var(--text-heading)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
-            : 'text-[var(--text-muted)] hover:text-[var(--text-heading)]'
+            ? 'text-[var(--header-text)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
+            : 'text-[var(--header-muted)] hover:text-[var(--header-text)] hover:bg-[var(--header-hover)]'
         }`}
       >
         <span>Training</span>
         <ChevronDown
-          className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[var(--accent)]' : 'text-[var(--text-muted)]'}`}
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[var(--accent)]' : 'text-[var(--header-muted)]'}`}
           aria-hidden
         />
       </button>
@@ -142,10 +146,11 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b transition ${
-        scrolled ? 'border-[var(--border)] bg-[var(--surface)]/95 backdrop-blur-md' : 'border-transparent bg-[var(--surface)]'
+      className={`sticky top-0 z-40 bg-[image:var(--header-bg)] transition-shadow ${
+        scrolled ? 'shadow-[0_6px_20px_rgba(11,31,77,0.25)]' : ''
       }`}
     >
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[3px] bg-[image:var(--header-stripe)]" />
       <div className="container-page flex h-16 items-center justify-between gap-4">
         <Link to="/" aria-label={`${name} home`} className="shrink-0 rounded-lg">
           <Logo name={name} imageUrl={brandLogoUrl} />
@@ -159,8 +164,8 @@ export function Header() {
                 className={({ isActive }) =>
                   `relative px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
                     isActive
-                      ? 'text-[var(--text-heading)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
-                      : 'text-[var(--text-muted)] hover:text-[var(--text-heading)]'
+                      ? 'text-[var(--header-text)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
+                      : 'text-[var(--header-muted)] hover:text-[var(--header-text)] hover:bg-[var(--header-hover)]'
                   }`
                 }
               >
@@ -176,8 +181,8 @@ export function Header() {
                 className={({ isActive }) =>
                   `relative px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
                     isActive
-                      ? 'text-[var(--text-heading)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
-                      : 'text-[var(--text-muted)] hover:text-[var(--text-heading)]'
+                      ? 'text-[var(--header-text)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
+                      : 'text-[var(--header-muted)] hover:text-[var(--header-text)] hover:bg-[var(--header-hover)]'
                   }`
                 }
               >
@@ -190,8 +195,8 @@ export function Header() {
                 className={({ isActive }) =>
                   `relative px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
                     isActive
-                      ? 'text-[var(--text-heading)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
-                      : 'text-[var(--text-muted)] hover:text-[var(--text-heading)]'
+                      ? 'text-[var(--header-text)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
+                      : 'text-[var(--header-muted)] hover:text-[var(--header-text)] hover:bg-[var(--header-hover)]'
                   }`
                 }
               >
@@ -204,8 +209,8 @@ export function Header() {
                 className={({ isActive }) =>
                   `relative px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-150 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
                     isActive
-                      ? 'text-[var(--text-heading)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
-                      : 'text-[var(--text-muted)] hover:text-[var(--text-heading)]'
+                      ? 'text-[var(--header-text)] font-semibold after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:bg-[var(--accent)] after:rounded-full'
+                      : 'text-[var(--header-muted)] hover:text-[var(--header-text)] hover:bg-[var(--header-hover)]'
                   }`
                 }
               >
@@ -217,19 +222,19 @@ export function Header() {
 
         <div className="flex items-center gap-2.5">
           <div className="hidden sm:block">
-            <ThemeSwitch />
+            <ThemeSwitch onDark />
           </div>
           <div className="hidden md:block">
             <Link
               to="/contact?type=consulting"
-              className="inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white dark:text-[#060D1F] shadow-sm transition-all duration-150 hover:bg-[var(--primary-hover)] hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[#0B1F4D] shadow-sm transition-all duration-150 hover:bg-[var(--accent-hover)] hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Book a Consultation
             </Link>
           </div>
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--text-heading)] hover:bg-[var(--bg-section-alt)] xl:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--header-text)] hover:bg-[var(--header-hover)] xl:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? 'Close menu' : 'Open menu'}

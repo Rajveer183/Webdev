@@ -14,7 +14,7 @@ const variants: Record<Variant, string> = {
     'border-[1.5px] border-[var(--primary)] bg-transparent text-[var(--primary)] hover:bg-[var(--accent-soft)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2',
   ghost: 'text-[var(--text-body)] hover:bg-[var(--accent-soft)] hover:text-[var(--primary)]',
   accent: 'bg-[var(--accent)] text-[#060D1F] hover:bg-[var(--accent-hover)] font-semibold',
-  light: 'bg-white text-[var(--primary)] hover:bg-[var(--accent-soft)] shadow-sm',
+  light: 'bg-[var(--bg-control)] text-[var(--primary)] hover:bg-[var(--bg-dropdown)] shadow-sm border border-[var(--border)]',
   'outline-light': 'border border-white/30 text-white hover:bg-white/10',
 }
 

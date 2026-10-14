@@ -14,8 +14,8 @@ export function Logo({ name = brand.name, imageUrl }: { name?: string; imageUrl?
     <span className="flex items-center gap-2.5">
       <LogoMark src={imageUrl} />
       <span className="flex flex-col leading-none">
-        <span className="text-[1.02rem] font-semibold tracking-tight text-ink">{name}</span>
-        <span className="mt-1 text-[0.7rem] font-medium tracking-wide text-subtle">{brand.institution.name}</span>
+        <span className="text-[1.02rem] font-semibold tracking-tight text-[var(--header-text)]">{name}</span>
+        <span className="mt-1 text-[0.7rem] font-medium tracking-wide text-[var(--header-muted)]">{brand.institution.name}</span>
       </span>
     </span>
   )

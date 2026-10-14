@@ -37,6 +37,12 @@
 
   --topbar-bg: #12306B;
   --topbar-text: #E6ECFF;
+  --header-bg: linear-gradient(90deg, #0B1F4D 0%, #12306B 40%, #1E4FA3 75%, #2B63C4 100%);
+  --header-text: #FFFFFF;
+  --header-muted: #C9D6F5;
+  --header-hover: rgba(255, 255, 255, 0.1);
+  --header-border: rgba(255, 255, 255, 0.18);
+  --header-stripe: linear-gradient(90deg, #C8962E 0%, #F0CB78 50%, #C8962E 100%);
   --bg-page: var(--bg-card);
   --bg-section-alt: var(--bg-blue);
   --surface: var(--bg-card);
@@ -104,6 +110,12 @@
 
   --topbar-bg: #060D1F;
   --topbar-text: #CBD5E1;
+  --header-bg: linear-gradient(90deg, #060D1F 0%, #0F2447 45%, #163A7A 100%);
+  --header-text: #F8FAFC;
+  --header-muted: #AFC0E6;
+  --header-hover: rgba(255, 255, 255, 0.08);
+  --header-border: rgba(255, 255, 255, 0.14);
+  --header-stripe: linear-gradient(90deg, #A87A1C 0%, #E3B650 50%, #A87A1C 100%);
   --bg-page: #0B1220;
   --bg-section-alt: var(--bg-blue);
   --surface: var(--bg-card);
@@ -220,6 +232,54 @@
 }
 
 @layer components {
+  /* About page hero headline only (scoped by class; no element selectors). */
+  .hero-title {
+    --hero-title-ink: #12306b;
+    --hero-title-from: #1e4fa3;
+    /* Requested gold #C8962E measures 1.94:1 on this light hero, so the text gradient ends on the
+       same hue darkened to #8C6920 (4.56:1). The decorative bar keeps #C8962E. */
+    --hero-title-to: #8c6920;
+    --hero-title-bar: #c8962e;
+    color: var(--hero-title-ink);
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-wrap: balance;
+    text-shadow: none;
+    animation: none;
+    outline: none;
+  }
+  .hero-title::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin-top: 16px;
+    border-radius: 4px;
+    background: var(--hero-title-bar);
+  }
+  .hero-title-accent {
+    color: var(--hero-title-from); /* fallback when background-clip: text is unsupported */
+  }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .hero-title-accent {
+      background-image: linear-gradient(90deg, var(--hero-title-from), var(--hero-title-to));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  :root[data-theme='dark'] .hero-title {
+    --hero-title-ink: #f8fafc;
+    --hero-title-from: #8fb0ff;
+    --hero-title-to: #e3b650;
+    --hero-title-bar: #e3b650;
+  }
+
   .bg-hero {
     background: var(--bg-hero);
   }

@@ -144,7 +144,7 @@ function NetworkGraphCard() {
             cx={centerNode.x}
             cy={centerNode.y}
             r="6"
-            fill="#ffffff"
+            fill="var(--bg-card)"
           />
         </g>
       </svg>
@@ -246,10 +246,10 @@ export default function AboutPage() {
               </p>
 
               {/* Headline: "Rigorous Quantitative Work, Explained Clearly" */}
-              <h1
-                className="mb-5 text-[clamp(2.25rem,4vw,3.5rem)] font-bold leading-[1.15] tracking-tight text-[var(--text-heading)] [text-wrap:balance]"
-              >
-                Rigorous Quantitative Work, Explained Clearly
+              <h1 className="hero-title mb-5">
+                Rigorous Quantitative Work,
+                <br />
+                <span className="hero-title-accent">Explained Clearly</span>
               </h1>
 
               {/* Paragraph: --text-body, 18px, line-height 1.6, max-width 60ch */}
@@ -373,7 +373,7 @@ export default function AboutPage() {
             {VALUES.map(({ icon: I, title, text }) => (
               <div
                 key={title}
-                className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
+                className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card-warm)] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
               >
                 <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-cream)] text-[var(--primary)]">
                   <I className="h-5 w-5" aria-hidden />
