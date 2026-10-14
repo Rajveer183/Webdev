@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+/* Dark mode follows the data-theme attribute set in index.html / ThemeProvider. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ---------- Design tokens ---------- */
+:root {
+  color-scheme: light;
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #f1f4f9;
+  --surface-3: #e8edf5;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text: #0b1324;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+  --brand: #172554; /* deep navy: headings, primary buttons */
+  --brand-hover: #1e3a8a;
+  --brand-fg: #ffffff;
+  --brand-soft: #e7ecfb;
+  --link: #1d4ed8;
+  --accent: #0f766e; /* restrained teal, text-safe */
+  --accent-strong: #115e59;
+  --accent-soft: #e0f5f2;
+  --ring: #2563eb;
+  --success: #15803d;
+  --success-soft: #e8f6ec;
+  --warning: #a16207;
+  --warning-soft: #fdf6e3;
+  --danger: #b91c1c;
+  --danger-soft: #fdecec;
+  --hero-from: #0b1736;
+  --hero-to: #172554;
+
+  /* Chart tokens: categorical slots 1-3 of the validated reference palette (light). */
+  --chart-surface: #ffffff;
+  --chart-grid: #e6e9ef;
+  --chart-axis: #52514e;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --chart-ref: #6b7280;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0a0f1c;
+  --surface: #111827;
+  --surface-2: #162033;
+  --surface-3: #1d2a42;
+  --border: #253149;
+  --border-strong: #34425e;
+  --text: #e6ebf4;
+  --text-muted: #a5b1c6;
+  --text-subtle: #8593ab;
+  --brand: #c7d4ff;
+  --brand-hover: #e0e7ff;
+  --brand-fg: #0b1324;
+  --brand-soft: #1b2747;
+  --link: #8fb4ff;
+  --accent: #5eead4;
+  --accent-strong: #99f6e4;
+  --accent-soft: #0f2f2d;
+  --ring: #8fb4ff;
+  --success: #4ade80;
+  --success-soft: #10291a;
+  --warning: #facc15;
+  --warning-soft: #2c250b;
+  --danger: #f87171;
+  --danger-soft: #2f1414;
+  --hero-from: #070c19;
+  --hero-to: #101b38;
+
+  --chart-surface: #111827;
+  --chart-grid: #263247;
+  --chart-axis: #c3c2b7;
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --chart-ref: #9ca3af;
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-fg: var(--brand-fg);
+  --color-brand-soft: var(--brand-soft);
+  --color-link: var(--link);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--ring) 25%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.14em] text-accent uppercase;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-[0_1px_2px_rgba(15,23,42,0.04)];
+  }
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:shadow-[0_10px_30px_-12px_rgba(15,23,42,0.18)];
+  }
+  .prose-body p {
+    @apply leading-7 text-muted;
+  }
+  .link {
+    @apply font-medium text-link underline-offset-4 hover:underline;
+  }
+  .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25rem 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+/* Scroll reveal (classes added by useReveal after hydration) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+.reveal.reveal-in {
+  opacity: 1;
+  transform: none;
+}

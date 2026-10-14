@@ -1,0 +1,149 @@
+{
+  "expertise_areas": [
+    {
+      "title": "Statistical analysis & inference",
+      "icon": "Sigma",
+      "description": "Descriptive statistics, probability models, estimation, hypothesis tests, ANOVA and nonparametric methods.",
+      "source_pages": [2, 3, 13, 14, 29, 30, 70, 71]
+    },
+    {
+      "title": "Regression & predictive modelling",
+      "icon": "TrendingUp",
+      "description": "Simple, multiple, polynomial, regularised and logistic regression, validated with cross-validation.",
+      "source_pages": [3, 41, 42, 69]
+    },
+    {
+      "title": "Machine learning & deep learning",
+      "icon": "BrainCircuit",
+      "description": "Supervised and unsupervised learning, ensembles, SVMs, neural networks, CNNs, RNNs and NLP foundations.",
+      "source_pages": [37, 38, 48, 49, 62, 63, 105, 106]
+    },
+    {
+      "title": "Time series & forecasting",
+      "icon": "LineChart",
+      "description": "Decomposition, trend fitting, seasonal indices, AR/MA models, exponential smoothing and index numbers.",
+      "source_pages": [25, 26, 27, 28]
+    },
+    {
+      "title": "Survey sampling & experimental design",
+      "icon": "FlaskConical",
+      "description": "Questionnaire design, probability sampling designs, CRD, RBD, Latin squares and factorial experiments.",
+      "source_pages": [2, 58, 59, 60, 61]
+    },
+    {
+      "title": "Multivariate analysis",
+      "icon": "Network",
+      "description": "Principal components, factor analysis, discriminant analysis and cluster analysis.",
+      "source_pages": [68, 69, 70, 71]
+    },
+    {
+      "title": "Survival & reliability analysis",
+      "icon": "HeartPulse",
+      "description": "Censored time-to-event data, Kaplan–Meier and Nelson–Aalen estimation, lifetime distributions and system reliability.",
+      "source_pages": [72, 73, 74, 75]
+    },
+    {
+      "title": "Quality control",
+      "icon": "Gauge",
+      "description": "Control charts for variables and attributes, process monitoring and acceptance sampling plans.",
+      "source_pages": [43, 44]
+    },
+    {
+      "title": "Operations research & decisions",
+      "icon": "Route",
+      "description": "Linear programming, transportation and assignment, game theory, decision trees and Monte-Carlo simulation.",
+      "source_pages": [32, 33, 107, 108]
+    },
+    {
+      "title": "Applied mathematics",
+      "icon": "FunctionSquare",
+      "description": "Calculus, linear algebra, matrix computations, differential equations and numerical methods.",
+      "source_pages": [6, 7, 16, 17, 18, 19, 52, 53, 102, 103]
+    },
+    {
+      "title": "Data management & big data",
+      "icon": "Database",
+      "description": "SQL and relational design, data warehousing and data mining, Hadoop, Hive, Pig and Spark.",
+      "source_pages": [4, 88, 89, 92, 93, 111, 112]
+    },
+    {
+      "title": "Visualization & reporting",
+      "icon": "BarChart3",
+      "description": "Chart design for amounts, distributions, proportions, trends and geospatial data; Excel PivotTables and PivotCharts.",
+      "source_pages": [10, 11, 78, 79]
+    }
+  ],
+  "industries": [
+    { "name": "Business, economics & management", "icon": "Briefcase", "note": "Quantitative decision-making and statistical applications in economics and management.", "source_pages": [2, 76, 113] },
+    { "name": "Retail, marketing & consumer goods", "icon": "ShoppingBag", "note": "Demand analysis, segmentation and campaign measurement.", "source_pages": [93, 77] },
+    { "name": "Healthcare, medical & public-health research", "icon": "Stethoscope", "note": "Survival analysis and study design for medical and public-health problems.", "source_pages": [60, 72] },
+    { "name": "Agriculture & biological sciences", "icon": "Sprout", "note": "Designing and analysing field and laboratory experiments.", "source_pages": [60] },
+    { "name": "Manufacturing, engineering & quality", "icon": "Factory", "note": "Process control, reliability of systems and engineering models.", "source_pages": [16, 43, 73] },
+    { "name": "Production, logistics & distribution", "icon": "Truck", "note": "Optimising production plans, transportation and assignment.", "source_pages": [32, 33] },
+    { "name": "Finance & actuarial study", "icon": "Landmark", "note": "Time value of money, cash-flow series and risk concepts. Educational support only, not investment advice.", "source_pages": [109] },
+    { "name": "Government & social research", "icon": "Building2", "note": "Sample surveys, sampling methodology and survey data analysis.", "source_pages": [58] }
+  ],
+  "audiences": [
+    { "title": "Businesses & professionals", "icon": "Briefcase", "description": "Bring a decision you need to support with data. We scope the question, analyse your data and explain the results in plain language.", "path": "Discover services → review the approach → submit a project enquiry", "cta": { "label": "Discuss your project", "to": "/contact?type=consulting" } },
+    { "title": "Students & learners", "icon": "GraduationCap", "description": "Build practical skill in statistics, mathematics and data science through structured certificate courses with hands-on lab work.", "path": "Browse courses → review syllabus and outcomes → enquire", "cta": { "label": "Explore courses", "to": "/courses" } },
+    { "title": "Organisations", "icon": "Users", "description": "Upskill analysts, managers or researchers with workshops tailored to your data, tools and sector.", "path": "Explore training → request a customised proposal", "cta": { "label": "Request a proposal", "to": "/corporate-training#proposal" } },
+    { "title": "Researchers", "icon": "Microscope", "description": "Get support with research design, sampling, experimental design, analysis and reproducible reporting.", "path": "Review research services → discuss requirements and deliverables", "cta": { "label": "Discuss requirements", "to": "/services/research-methodology-support" } }
+  ],
+  "consulting_approach": [
+    { "step": "Understand the question", "detail": "A short discovery conversation to clarify the decision or research question, the data available and the constraints." },
+    { "step": "Scope & propose", "detail": "A written scope covering methods, deliverables, timeline and what we need from you, agreed before work starts." },
+    { "step": "Review the data", "detail": "Checks for completeness, quality and suitability. We flag gaps early instead of forcing a method onto unsuitable data." },
+    { "step": "Analyse transparently", "detail": "Methods chosen for the question, with assumptions checked and documented, and code that can be re-run." },
+    { "step": "Explain & hand over", "detail": "A report and walkthrough in plain language, covering the limitations, with reproducible scripts where agreed." }
+  ],
+  "training_methodology": [
+    { "title": "Concept first, then practice", "icon": "Lightbulb", "description": "Each topic starts from the underlying idea and formula, then moves straight to worked examples and lab exercises." },
+    { "title": "Hands-on lab work", "icon": "FlaskConical", "description": "Courses draw on practical lab lists covering Excel, R, Python, SQL, MATLAB, SPSS and the Hadoop/Spark stack, depending on the course." },
+    { "title": "Real-world datasets", "icon": "Database", "description": "Exercises use realistic sample datasets, so learners practise cleaning, analysing and interpreting rather than just computing." },
+    { "title": "Project-based assessment", "icon": "ClipboardCheck", "description": "Proposed assessment combines lab exercises and short quizzes with a final applied project." },
+    { "title": "Interpretation & communication", "icon": "MessageSquareText", "description": "Learners practise explaining results, assumptions and limitations, which is the part analysis work most often gets wrong." },
+    { "title": "Clear certification terms", "icon": "Award", "description": "Certificates are certificates of completion issued by SGT Consulting Services. They are not SGT University degrees or diplomas, or externally accredited qualifications." }
+  ],
+  "faq": [
+    {
+      "q": "What kind of consulting work do you take on?",
+      "a": "Quantitative problems in statistics, mathematics and data science: statistical analysis and interpretation, regression and predictive modelling, forecasting, survey and experimental design, multivariate and survival analysis, quality control, optimisation and machine learning. Each service page describes the scope, what we need from you and the deliverables."
+    },
+    {
+      "q": "Are the certificate courses accredited or part of a degree?",
+      "a": "Courses lead to a certificate of completion issued by SGT Consulting Services, the consulting and training service of SGT University. They are short professional courses, not SGT University degrees or diplomas, and they are not accredited by a government body or industry certifier. If a course gains such recognition, its course page will say so explicitly."
+    },
+    {
+      "q": "Are courses open for enrolment now?",
+      "a": "Courses are currently listed as proposed offerings. You can register your interest through the course enquiry form, and we will contact you with confirmed dates, delivery mode and fees once a cohort is scheduled."
+    },
+    {
+      "q": "How much do consulting projects and courses cost?",
+      "a": "Consulting is quoted per project after a scoping conversation, because the effort depends on the question, the data and the deliverables. Course fees have not been published yet; they will be shared with confirmed course details."
+    },
+    {
+      "q": "Can you help with my thesis or dissertation?",
+      "a": "We can help you plan your methodology, choose and check appropriate statistical methods, review your analysis and explain results, so that you understand and own the work. We do not write theses, assignments or other assessed work on a student's behalf."
+    },
+    {
+      "q": "What do I need to provide for a consulting project?",
+      "a": "A description of the question or decision, the data (or a sample and a data dictionary), any constraints such as deadlines or required software, and who will use the results. Each service page lists the specific inputs."
+    },
+    {
+      "q": "How is my data handled?",
+      "a": "Data is used only for the agreed project. We can work with anonymised or de-identified data and sign a confidentiality agreement before you share anything. Enquiry details submitted through this website are stored securely and used only to respond to you."
+    },
+    {
+      "q": "Which software do you use?",
+      "a": "It depends on the work and your environment. The methods we cover are taught and applied with tools such as R, Python, Excel, SQL, SPSS, MATLAB and, for big data, Hadoop, Hive, Pig and Spark. We can deliver code in the language your team uses."
+    },
+    {
+      "q": "Can training be customised for our organisation?",
+      "a": "Yes. Workshops can be adapted in length, depth and examples, and can use your own anonymised data. Use the corporate training form to request a proposal."
+    },
+    {
+      "q": "Do you guarantee results?",
+      "a": "No. We commit to sound methods, transparent reporting and clear explanation of limitations. We do not guarantee particular findings, model accuracy, business outcomes or publication acceptance, because those depend on the data and the question."
+    }
+  ]
+}

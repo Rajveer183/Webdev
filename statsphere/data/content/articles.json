@@ -1,0 +1,3163 @@
+[
+  {
+    "slug": "central-tendency-and-dispersion",
+    "title": "Measures of Central Tendency and Dispersion",
+    "category": "Statistics",
+    "summary": "A practical guide to summarising a dataset with a single typical value and a measure of spread. It covers the mean, median, mode, geometric and harmonic means, the main dispersion measures, moments, skewness and kurtosis.",
+    "tags": [
+      "descriptive statistics",
+      "mean",
+      "standard deviation",
+      "skewness",
+      "kurtosis"
+    ],
+    "reading_minutes": 5,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Almost every statistical analysis begins with two questions: what is a typical value, and how much do the observations vary around it? Measures of central tendency answer the first question and measures of dispersion answer the second. Reported together, they give a compact but informative description of a distribution, and they are the building blocks for nearly every inferential method that follows."
+      },
+      {
+        "type": "heading",
+        "text": "Measures of central tendency"
+      },
+      {
+        "type": "paragraph",
+        "text": "The arithmetic mean is the sum of the observations divided by their number. It uses every value and has convenient algebraic properties (for example, deviations from the mean always sum to zero), but it is sensitive to extreme values."
+      },
+      {
+        "type": "formula",
+        "tex": "\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n} x_i",
+        "caption": "Arithmetic mean of n observations"
+      },
+      {
+        "type": "paragraph",
+        "text": "The median is the middle value of the ordered data (the average of the two middle values when $n$ is even). Because it depends only on rank order, it is robust to outliers and is preferred for skewed variables such as incomes or waiting times. The mode is the most frequently occurring value and is the only one of the three that makes sense for nominal categories."
+      },
+      {
+        "type": "paragraph",
+        "text": "Two further means suit special kinds of data. The geometric mean is appropriate for ratios and growth rates, and the harmonic mean for rates such as speeds or prices per unit, where the quantity being averaged is a reciprocal. For positive data the three means always satisfy $\\text{HM} \\le \\text{GM} \\le \\text{AM}$, with equality only when all values are identical."
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{GM} = \\left(\\prod_{i=1}^{n} x_i\\right)^{1/n}, \\qquad \\text{HM} = \\frac{n}{\\sum_{i=1}^{n} 1/x_i}",
+        "caption": "Geometric and harmonic means (positive data)"
+      },
+      {
+        "type": "heading",
+        "text": "Measures of dispersion"
+      },
+      {
+        "type": "paragraph",
+        "text": "The range (largest minus smallest value) is quick to compute but depends only on two observations. The quartile deviation, $Q = (Q_3 - Q_1)/2$, uses the middle half of the data and is therefore resistant to outliers. The mean deviation averages the absolute deviations $|x_i - A|$ from a central value $A$; it is smallest when $A$ is the median."
+      },
+      {
+        "type": "paragraph",
+        "text": "The standard deviation is the most widely used measure because it has good mathematical properties and links directly to the normal distribution. When the data are a sample used to estimate a population value, the divisor $n-1$ is used so that $s^2$ is an unbiased estimator of the population variance."
+      },
+      {
+        "type": "formula",
+        "tex": "\\sigma = \\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}(x_i-\\bar{x})^2}, \\qquad s = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}(x_i-\\bar{x})^2}",
+        "caption": "Population-style and sample standard deviation"
+      },
+      {
+        "type": "paragraph",
+        "text": "To compare variability between variables measured on different scales, the coefficient of variation $\\text{CV} = 100\\,\\sigma/\\bar{x}$ expresses the standard deviation as a percentage of the mean."
+      },
+      {
+        "type": "heading",
+        "text": "Moments, skewness and kurtosis"
+      },
+      {
+        "type": "paragraph",
+        "text": "The $r$-th central moment is $\\mu_r = \\frac{1}{n}\\sum (x_i - \\bar{x})^r$, while raw (non-central) moments $\\mu_r'$ are taken about an arbitrary origin. The two are related; for example $\\mu_2 = \\mu_2' - \\mu_1'^2$. When data are grouped into classes of width $h$, Sheppard's correction adjusts the second moment by subtracting $h^2/12$ to compensate for treating each value as if it sat at its class midpoint."
+      },
+      {
+        "type": "paragraph",
+        "text": "Skewness describes asymmetry and kurtosis describes the weight of the tails relative to a normal curve. Moment-based coefficients are defined as follows; a normal distribution has $\\beta_1 = 0$ and $\\beta_2 = 3$."
+      },
+      {
+        "type": "formula",
+        "tex": "\\beta_1 = \\frac{\\mu_3^2}{\\mu_2^3}, \\qquad \\gamma_1 = \\frac{\\mu_3}{\\mu_2^{3/2}}, \\qquad \\beta_2 = \\frac{\\mu_4}{\\mu_2^2}, \\qquad \\gamma_2 = \\beta_2 - 3",
+        "caption": "Moment coefficients of skewness and kurtosis"
+      },
+      {
+        "type": "paragraph",
+        "text": "A simpler alternative is Karl Pearson's coefficient of skewness, $S_k = (\\bar{x} - \\text{Mode})/\\sigma$. Positive values indicate a long right tail, where the mean is pulled above the median and mode."
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Measure",
+          "Best used when",
+          "Main limitation"
+        ],
+        "rows": [
+          [
+            "Mean",
+            "Data are roughly symmetric, interval or ratio scale",
+            "Distorted by outliers"
+          ],
+          [
+            "Median",
+            "Data are skewed or contain outliers",
+            "Ignores the size of extreme values"
+          ],
+          [
+            "Mode",
+            "Categorical data or the most common value is needed",
+            "May not be unique"
+          ],
+          [
+            "Standard deviation",
+            "Spread around the mean, inferential work",
+            "Sensitive to outliers"
+          ],
+          [
+            "Quartile deviation",
+            "Skewed data summarised by the median",
+            "Ignores the tails entirely"
+          ]
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Worked example: five delivery times",
+        "text": "Delivery times (days) for five orders are 2, 3, 3, 4 and 8. Summarise their centre, spread and shape.",
+        "steps": [
+          "Mean: $\\bar{x} = (2+3+3+4+8)/5 = 20/5 = 4$ days. Median (third ordered value) = 3 days. Mode = 3 days.",
+          "Deviations from the mean are $-2, -1, -1, 0, 4$; their squares sum to $4+1+1+0+16 = 22$.",
+          "Population-style variance $= 22/5 = 4.4$, so $\\sigma = \\sqrt{4.4} \\approx 2.10$ days. The sample version is $s = \\sqrt{22/4} \\approx 2.35$ days.",
+          "Range $= 8 - 2 = 6$ days, and $\\text{CV} = 100 \\times 2.10/4 \\approx 52\\%$.",
+          "Pearson's skewness: $S_k = (4 - 3)/2.10 \\approx 0.48$, a moderate right skew caused by the single 8-day delivery.",
+          "Because of the skew, the median of 3 days is the better summary of a 'typical' delivery."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "In consulting reports we rarely show a mean without a measure of spread, and we check skewness before choosing which pair to present. Operational data such as turnaround times, claim amounts and transaction values are usually right-skewed, so the median and quartiles often communicate more honestly than the mean and standard deviation. These summaries also drive data-quality checks: an unexpected coefficient of variation or extreme kurtosis is frequently the first sign of data-entry errors or a mixture of different populations."
+      }
+    ],
+    "source_pages": [
+      2,
+      3
+    ],
+    "related_services": [
+      "statistical-analysis",
+      "data-visualization-reporting"
+    ],
+    "related_courses": [
+      "statistics-for-data-analysis",
+      "excel-for-data-analytics"
+    ],
+    "order": 1,
+    "status": "published"
+  },
+  {
+    "slug": "correlation-and-regression",
+    "title": "Correlation and Simple Linear Regression",
+    "category": "Statistics",
+    "summary": "How to measure and model the linear relationship between two variables. The article covers scatter diagrams, Pearson's and Spearman's correlation, least-squares line fitting, regression coefficients and the coefficient of determination.",
+    "tags": [
+      "correlation",
+      "regression",
+      "least squares",
+      "spearman",
+      "coefficient of determination"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Correlation and regression both study how two quantitative variables move together, but they answer different questions. Correlation measures the strength and direction of a linear association and treats the two variables symmetrically. Regression describes how one variable (the response) changes, on average, as another (the predictor) changes, and provides an equation for prediction."
+      },
+      {
+        "type": "heading",
+        "text": "Start with a scatter diagram"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before calculating anything, plot the pairs $(x_i, y_i)$. A scatter diagram reveals whether the relationship is roughly linear, curved or absent, and whether a few outlying points dominate the pattern. Correlation coefficients summarise only linear association, so a strong curved relationship can produce a coefficient close to zero."
+      },
+      {
+        "type": "heading",
+        "text": "Pearson's product-moment correlation"
+      },
+      {
+        "type": "formula",
+        "tex": "r = \\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})(y_i-\\bar{y})}{\\sqrt{\\sum_{i=1}^{n}(x_i-\\bar{x})^2 \\,\\sum_{i=1}^{n}(y_i-\\bar{y})^2}} = \\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}",
+        "caption": "Pearson's correlation coefficient"
+      },
+      {
+        "type": "paragraph",
+        "text": "Its key properties are:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "$-1 \\le r \\le 1$, with $r = \\pm 1$ only when all points lie exactly on a straight line.",
+          "$r$ is unaffected by a change of origin and scale: if $u = (x-a)/h$ and $v = (y-b)/k$ with $h, k > 0$, then $r_{uv} = r_{xy}$.",
+          "$r = 0$ means no linear association; it does not imply independence.",
+          "Correlation does not establish causation; a third variable may drive both."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Spearman's rank correlation"
+      },
+      {
+        "type": "paragraph",
+        "text": "When data are ordinal, or when outliers or a monotonic but non-linear pattern make Pearson's $r$ misleading, rank each variable separately and correlate the ranks. With no tied ranks this reduces to a simple formula, where $d_i$ is the difference between the two ranks of the $i$-th unit."
+      },
+      {
+        "type": "formula",
+        "tex": "r_s = 1 - \\frac{6\\sum_{i=1}^{n} d_i^2}{n(n^2-1)}",
+        "caption": "Spearman's rank correlation (no ties)"
+      },
+      {
+        "type": "heading",
+        "text": "Fitting a straight line by least squares"
+      },
+      {
+        "type": "paragraph",
+        "text": "The regression line of $y$ on $x$, $\\hat{y} = a + bx$, is chosen to minimise the sum of squared vertical deviations $\\sum (y_i - a - bx_i)^2$. This principle of least squares yields the normal equations, whose solution is:"
+      },
+      {
+        "type": "formula",
+        "tex": "b_{yx} = \\frac{S_{xy}}{S_{xx}} = r\\,\\frac{s_y}{s_x}, \\qquad a = \\bar{y} - b_{yx}\\,\\bar{x}",
+        "caption": "Least-squares slope and intercept"
+      },
+      {
+        "type": "paragraph",
+        "text": "The fitted line always passes through $(\\bar{x}, \\bar{y})$. There is also a separate regression of $x$ on $y$ with slope $b_{xy} = S_{xy}/S_{yy}$. The two lines coincide only when $|r| = 1$, and the regression coefficients are tied to the correlation by a simple identity:"
+      },
+      {
+        "type": "formula",
+        "tex": "b_{yx}\\, b_{xy} = r^2, \\qquad r = \\operatorname{sign}(b_{yx})\\sqrt{b_{yx}\\,b_{xy}}",
+        "caption": "Relation between regression coefficients and r"
+      },
+      {
+        "type": "paragraph",
+        "text": "It follows that both regression coefficients share the sign of $r$ and cannot both exceed 1 in absolute value."
+      },
+      {
+        "type": "heading",
+        "text": "Coefficient of determination"
+      },
+      {
+        "type": "paragraph",
+        "text": "The coefficient of determination $R^2$ is the proportion of the total variation in $y$ that is explained by the fitted line. In simple linear regression it equals the square of the correlation coefficient."
+      },
+      {
+        "type": "formula",
+        "tex": "R^2 = 1 - \\frac{\\sum (y_i-\\hat{y}_i)^2}{\\sum (y_i-\\bar{y})^2} = r^2",
+        "caption": "Coefficient of determination"
+      },
+      {
+        "type": "example",
+        "title": "Worked example: advertising and enquiries",
+        "text": "Five weeks of data give advertising spend $x$ (in thousand rupees) of 1, 2, 3, 4, 5 and enquiries $y$ (in tens) of 2, 4, 5, 4, 5.",
+        "steps": [
+          "Means: $\\bar{x} = 3$, $\\bar{y} = 20/5 = 4$.",
+          "Deviations: $x - \\bar{x} = -2, -1, 0, 1, 2$ and $y - \\bar{y} = -2, 0, 1, 0, 1$.",
+          "$S_{xy} = 4 + 0 + 0 + 0 + 2 = 6$, $S_{xx} = 4+1+0+1+4 = 10$, $S_{yy} = 4+0+1+0+1 = 6$.",
+          "$r = 6/\\sqrt{10 \\times 6} = 6/\\sqrt{60} \\approx 0.775$, a fairly strong positive association.",
+          "Slope $b_{yx} = 6/10 = 0.6$ and intercept $a = 4 - 0.6 \\times 3 = 2.2$, so $\\hat{y} = 2.2 + 0.6x$.",
+          "Check: $b_{xy} = 6/6 = 1$, and $b_{yx}b_{xy} = 0.6 = r^2$. So $R^2 = 0.60$: the line explains 60% of the week-to-week variation in enquiries."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Clients often arrive with a correlation matrix and a question about cause and effect. We use scatter diagrams and rank correlations to check whether a relationship is genuinely linear and robust, then fit regression models to quantify how much the response changes per unit of the driver. We are careful to report $R^2$ alongside residual checks, and to explain that a strong association in observational data, such as marketing spend versus sales, is evidence for further investigation rather than proof of causation."
+      }
+    ],
+    "source_pages": [
+      3
+    ],
+    "related_services": [
+      "regression-predictive-modelling",
+      "statistical-analysis"
+    ],
+    "related_courses": [
+      "regression-predictive-modelling",
+      "statistics-for-data-analysis"
+    ],
+    "order": 2,
+    "status": "published"
+  },
+  {
+    "slug": "probability-and-bayes-theorem",
+    "title": "Probability Foundations and Bayes' Theorem",
+    "category": "Statistics",
+    "summary": "An introduction to the language of probability: sample spaces, events, the classical, frequency and axiomatic definitions, conditional probability and independence. It finishes with Bayes' theorem, illustrated by a diagnostic-test calculation that many people get wrong by intuition.",
+    "tags": [
+      "probability",
+      "conditional probability",
+      "independence",
+      "bayes theorem"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Probability is the mathematical language of uncertainty. Every statistical method, from a confidence interval to a machine-learning classifier, rests on a small set of probability rules. Understanding those rules precisely, especially conditional probability, prevents many common reasoning errors."
+      },
+      {
+        "type": "heading",
+        "text": "Sample spaces and events"
+      },
+      {
+        "type": "paragraph",
+        "text": "A random experiment is a process whose outcome cannot be predicted with certainty. The sample space $S$ is the set of all possible outcomes, and an event is any subset of $S$. Events combine using set operations: the union $A \\cup B$ (A or B occurs), the intersection $A \\cap B$ (both occur) and the complement $A^c$ (A does not occur). Events are mutually exclusive if $A \\cap B = \\varnothing$, and a collection of events is exhaustive if their union is $S$."
+      },
+      {
+        "type": "heading",
+        "text": "Three definitions of probability"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Classical: if $S$ contains $n$ equally likely outcomes, of which $m$ are favourable to $A$, then $P(A) = m/n$. This works for dice and cards but requires equally likely outcomes.",
+          "Statistical (relative frequency): $P(A)$ is the limit of the proportion of times $A$ occurs as the number of repetitions grows. This is how probabilities are estimated from data.",
+          "Axiomatic (Kolmogorov): probability is any function satisfying $P(A) \\ge 0$, $P(S) = 1$, and additivity $P\\left(\\bigcup A_i\\right) = \\sum P(A_i)$ for mutually exclusive events. All other rules are derived from these axioms."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "From the axioms follow results such as $P(A^c) = 1 - P(A)$ and the addition theorem:"
+      },
+      {
+        "type": "formula",
+        "tex": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)",
+        "caption": "Addition theorem"
+      },
+      {
+        "type": "heading",
+        "text": "Conditional probability and independence"
+      },
+      {
+        "type": "paragraph",
+        "text": "The probability of $A$ given that $B$ has occurred restricts attention to the outcomes in $B$:"
+      },
+      {
+        "type": "formula",
+        "tex": "P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}, \\qquad P(B) > 0",
+        "caption": "Conditional probability"
+      },
+      {
+        "type": "paragraph",
+        "text": "Rearranging gives the multiplication theorem $P(A \\cap B) = P(B)\\,P(A \\mid B)$. Events $A$ and $B$ are independent if knowing one occurred does not change the probability of the other, which is equivalent to $P(A \\cap B) = P(A)\\,P(B)$. Independence should not be confused with mutual exclusivity: two mutually exclusive events with positive probability are in fact strongly dependent, because if one occurs the other cannot."
+      },
+      {
+        "type": "heading",
+        "text": "The law of total probability"
+      },
+      {
+        "type": "paragraph",
+        "text": "If $B_1, \\ldots, B_k$ are mutually exclusive and exhaustive events (a partition of $S$), any event $A$ can be decomposed across them:"
+      },
+      {
+        "type": "formula",
+        "tex": "P(A) = \\sum_{i=1}^{k} P(B_i)\\,P(A \\mid B_i)",
+        "caption": "Law of total probability"
+      },
+      {
+        "type": "heading",
+        "text": "Bayes' theorem"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bayes' theorem reverses the direction of conditioning. It converts the prior probabilities $P(B_i)$ and the likelihoods $P(A \\mid B_i)$ into posterior probabilities $P(B_i \\mid A)$, that is, the probabilities of each 'cause' after the evidence $A$ has been observed."
+      },
+      {
+        "type": "formula",
+        "tex": "P(B_j \\mid A) = \\frac{P(B_j)\\,P(A \\mid B_j)}{\\sum_{i=1}^{k} P(B_i)\\,P(A \\mid B_i)}",
+        "caption": "Bayes' theorem"
+      },
+      {
+        "type": "example",
+        "title": "Worked example: interpreting a positive screening test",
+        "text": "A condition affects 1% of a population. A screening test has sensitivity 95% (it is positive for 95% of people with the condition) and specificity 90% (it is negative for 90% of people without it). If a randomly chosen person tests positive, what is the probability they have the condition?",
+        "steps": [
+          "Let $D$ = has the condition and $+$ = tests positive. Then $P(D) = 0.01$, $P(+ \\mid D) = 0.95$, $P(+ \\mid D^c) = 1 - 0.90 = 0.10$.",
+          "True positives: $P(D)P(+ \\mid D) = 0.01 \\times 0.95 = 0.0095$.",
+          "False positives: $P(D^c)P(+ \\mid D^c) = 0.99 \\times 0.10 = 0.099$.",
+          "Total probability of a positive: $P(+) = 0.0095 + 0.099 = 0.1085$.",
+          "Posterior: $P(D \\mid +) = 0.0095/0.1085 \\approx 0.0876$, i.e. under 9%.",
+          "Despite an apparently accurate test, more than 90% of positives are false because the condition is rare. The base rate matters enormously."
+        ]
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Term",
+          "Meaning in the example"
+        ],
+        "rows": [
+          [
+            "Prior $P(D)$",
+            "Prevalence before testing: 1%"
+          ],
+          [
+            "Likelihood $P(+ \\mid D)$",
+            "Sensitivity: 95%"
+          ],
+          [
+            "False positive rate $P(+ \\mid D^c)$",
+            "1 minus specificity: 10%"
+          ],
+          [
+            "Posterior $P(D \\mid +)$",
+            "Positive predictive value: about 8.8%"
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Bayesian reasoning appears whenever we score evidence against a base rate: fraud alerts, quality inspection, credit risk flags, medical screening and classifier outputs. In consulting work we routinely convert a model's sensitivity and specificity into predictive values for the client's real prevalence, because a tool that looks excellent in a balanced test set can generate mostly false alarms in production. The same logic underpins Naive Bayes classifiers and Bayesian updating of forecasts."
+      }
+    ],
+    "source_pages": [
+      13
+    ],
+    "related_services": [
+      "statistical-analysis",
+      "research-methodology-support"
+    ],
+    "related_courses": [
+      "statistics-for-data-analysis",
+      "statistical-inference-hypothesis-testing",
+      "mathematics-for-data-science"
+    ],
+    "order": 3,
+    "status": "published"
+  },
+  {
+    "slug": "probability-distributions-and-clt",
+    "title": "Probability Distributions and the Central Limit Theorem",
+    "category": "Statistics",
+    "summary": "Random variables, their distribution functions and moments, and the three distributions that underpin most applied statistics: Binomial, Poisson and Normal. The article also explains how these distributions are related and why the law of large numbers and the Central Limit Theorem make sampling-based inference possible.",
+    "tags": [
+      "random variables",
+      "binomial",
+      "poisson",
+      "normal distribution",
+      "central limit theorem"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A random variable assigns a number to each outcome of a random experiment. It is discrete if it takes a countable set of values (number of defects, number of arrivals) and continuous if it can take any value in an interval (weight, time, temperature). Its probability distribution tells us how likely each value or range of values is."
+      },
+      {
+        "type": "heading",
+        "text": "pmf, pdf and cdf"
+      },
+      {
+        "type": "paragraph",
+        "text": "A discrete variable has a probability mass function $p(x) = P(X = x)$ with $p(x) \\ge 0$ and $\\sum p(x) = 1$. A continuous variable has a probability density function $f(x) \\ge 0$ with $\\int f(x)\\,dx = 1$; probabilities are areas, $P(a \\le X \\le b) = \\int_a^b f(x)\\,dx$, so any single point has probability zero. In both cases the cumulative distribution function $F(x) = P(X \\le x)$ is non-decreasing, right-continuous, and rises from 0 to 1."
+      },
+      {
+        "type": "heading",
+        "text": "Expectation, variance and generating functions"
+      },
+      {
+        "type": "formula",
+        "tex": "E(X) = \\sum_x x\\,p(x) \\;\\text{ or } \\int x f(x)\\,dx, \\qquad \\operatorname{Var}(X) = E(X^2) - [E(X)]^2",
+        "caption": "Expectation and variance"
+      },
+      {
+        "type": "paragraph",
+        "text": "Expectation is linear: $E(aX + bY) = aE(X) + bE(Y)$ always, while $E(XY) = E(X)E(Y)$ requires independence. For variance, $\\operatorname{Var}(aX + b) = a^2\\operatorname{Var}(X)$, and for independent variables $\\operatorname{Var}(X + Y) = \\operatorname{Var}(X) + \\operatorname{Var}(Y)$. The standardised variable $Z = (X - \\mu)/\\sigma$ has mean 0 and variance 1."
+      },
+      {
+        "type": "formula",
+        "tex": "M_X(t) = E\\left(e^{tX}\\right), \\qquad E(X^r) = \\frac{d^r M_X(t)}{dt^r}\\bigg|_{t=0}",
+        "caption": "Moment generating function and moments"
+      },
+      {
+        "type": "paragraph",
+        "text": "The moment generating function $M_X(t) = E(e^{tX})$, when it exists, generates the raw moments through derivatives at zero: $E(X^r) = M_X^{(r)}(0)$. It uniquely identifies a distribution, and the MGF of a sum of independent variables is the product of their MGFs, which makes it a powerful tool for proving results such as the additivity of Poisson variables."
+      },
+      {
+        "type": "heading",
+        "text": "Three key distributions"
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Distribution",
+          "pmf / pdf",
+          "Mean",
+          "Variance",
+          "Typical use"
+        ],
+        "rows": [
+          [
+            "Binomial$(n,p)$",
+            "$\\binom{n}{x}p^x(1-p)^{n-x}$",
+            "$np$",
+            "$np(1-p)$",
+            "Successes in $n$ independent trials"
+          ],
+          [
+            "Poisson$(\\lambda)$",
+            "$e^{-\\lambda}\\lambda^x/x!$",
+            "$\\lambda$",
+            "$\\lambda$",
+            "Counts of rare events in a fixed interval"
+          ],
+          [
+            "Normal$(\\mu,\\sigma^2)$",
+            "$\\frac{1}{\\sigma\\sqrt{2\\pi}}e^{-(x-\\mu)^2/(2\\sigma^2)}$",
+            "$\\mu$",
+            "$\\sigma^2$",
+            "Measurements; sums and averages"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The normal curve is symmetric about $\\mu$, and about 68%, 95% and 99.7% of its probability lies within 1, 2 and 3 standard deviations of the mean."
+      },
+      {
+        "type": "heading",
+        "text": "How the distributions are related"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Binomial to Poisson: if $n \\to \\infty$ and $p \\to 0$ with $np = \\lambda$ fixed, the Binomial tends to Poisson($\\lambda$). In practice this works well for large $n$ and small $p$.",
+          "Binomial to Normal: for large $n$ with $p$ not too close to 0 or 1 (a common rule is $np \\ge 5$ and $n(1-p) \\ge 5$), Binomial$(n,p)$ is approximately Normal with mean $np$ and variance $np(1-p)$.",
+          "Poisson to Normal: as $\\lambda$ grows, Poisson($\\lambda$) is approximately Normal with mean and variance $\\lambda$."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Law of large numbers and the Central Limit Theorem"
+      },
+      {
+        "type": "paragraph",
+        "text": "The weak law of large numbers states that the sample mean of independent, identically distributed observations converges in probability to the population mean: for any $\\varepsilon > 0$, $P(|\\bar{X}_n - \\mu| > \\varepsilon) \\to 0$ as $n \\to \\infty$. This justifies estimating averages and probabilities from data."
+      },
+      {
+        "type": "paragraph",
+        "text": "The Central Limit Theorem goes further and describes the shape of the sampling distribution. If $X_1, \\ldots, X_n$ are i.i.d. with mean $\\mu$ and finite variance $\\sigma^2$, then whatever the shape of the original distribution:"
+      },
+      {
+        "type": "formula",
+        "tex": "Z_n = \\frac{\\bar{X}_n - \\mu}{\\sigma/\\sqrt{n}} \\;\\xrightarrow{d}\\; N(0,1) \\quad \\text{as } n \\to \\infty",
+        "caption": "Central Limit Theorem (Lindeberg–Lévy form)"
+      },
+      {
+        "type": "example",
+        "title": "Worked example: exact, approximate and CLT probabilities",
+        "text": "Two short calculations show the distributions in action.",
+        "steps": [
+          "Binomial: with $n = 10$ and $p = 0.2$, $P(X = 2) = \\binom{10}{2}(0.2)^2(0.8)^8 = 45 \\times 0.04 \\times 0.16777 \\approx 0.302$.",
+          "Poisson approximation with $\\lambda = np = 2$: $P(X = 2) = e^{-2}2^2/2! \\approx 0.271$. The approximation is rough here because $n$ is small and $p$ is not very small.",
+          "CLT: a process has mean $\\mu = 100$ and standard deviation $\\sigma = 12$. For samples of $n = 36$ the standard error is $12/\\sqrt{36} = 2$.",
+          "$P(\\bar{X} > 103) \\approx P(Z > (103 - 100)/2) = P(Z > 1.5) \\approx 0.0668$.",
+          "So only about 6.7% of samples of 36 would average more than 103, even if individual values are not normally distributed."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Choosing the right distribution is a modelling decision with real consequences. We use Binomial models for conversion and defect rates, Poisson models for call arrivals, claims and incident counts, and Normal models for measurement error and aggregated quantities. The Central Limit Theorem is why confidence intervals and control limits for averages work so widely, but we always check that samples are large enough and observations reasonably independent before relying on it, especially with heavily skewed business data."
+      }
+    ],
+    "source_pages": [
+      14
+    ],
+    "related_services": [
+      "statistical-analysis",
+      "mathematical-modelling-numerical-computation"
+    ],
+    "related_courses": [
+      "statistics-for-data-analysis",
+      "statistical-inference-hypothesis-testing",
+      "mathematics-for-data-science"
+    ],
+    "order": 4,
+    "status": "published"
+  },
+  {
+    "slug": "estimation-and-maximum-likelihood",
+    "title": "Estimation and Maximum Likelihood",
+    "category": "Statistics",
+    "summary": "How we use a sample to estimate unknown population parameters, and how to judge whether an estimator is any good. The article covers sampling distributions, standard errors, unbiasedness, consistency, efficiency, sufficiency, maximum likelihood estimation and confidence intervals.",
+    "tags": [
+      "estimation",
+      "maximum likelihood",
+      "standard error",
+      "confidence intervals",
+      "statistical inference"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A parameter is a fixed but usually unknown characteristic of a population, such as the mean $\\mu$ or the proportion $p$. A statistic is any function of the sample data, such as $\\bar{x}$ or $\\hat{p}$. When a statistic is used to estimate a parameter it is called an estimator, and the value it takes for a particular sample is an estimate."
+      },
+      {
+        "type": "heading",
+        "text": "Sampling distributions and standard errors"
+      },
+      {
+        "type": "paragraph",
+        "text": "Because samples vary, an estimator is itself a random variable. Its probability distribution over all possible samples is its sampling distribution, and the standard deviation of that distribution is the standard error. For the sample mean of $n$ independent observations, and for a sample proportion:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\operatorname{SE}(\\bar{X}) = \\frac{\\sigma}{\\sqrt{n}}, \\qquad \\operatorname{SE}(\\hat{p}) = \\sqrt{\\frac{p(1-p)}{n}}",
+        "caption": "Standard errors of a mean and a proportion"
+      },
+      {
+        "type": "paragraph",
+        "text": "In practice $\\sigma$ and $p$ are unknown and are replaced by $s$ and $\\hat{p}$ to give an estimated standard error. Quadrupling the sample size halves the standard error."
+      },
+      {
+        "type": "heading",
+        "text": "Properties of a good estimator"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Unbiasedness: $E(\\hat{\\theta}) = \\theta$. The sample mean is unbiased for $\\mu$, and $s^2$ with divisor $n-1$ is unbiased for $\\sigma^2$.",
+          "Consistency: $\\hat{\\theta}_n$ converges in probability to $\\theta$ as $n$ grows. A sufficient condition is that both the bias and the variance tend to zero.",
+          "Efficiency: among unbiased estimators, the one with smaller variance is more efficient. Under regularity conditions no unbiased estimator can have variance below the Cramér–Rao lower bound.",
+          "Sufficiency: a statistic $T$ is sufficient for $\\theta$ if it captures all the information about $\\theta$ in the sample. By the factorisation criterion, $T$ is sufficient when the likelihood can be written as $g(T, \\theta)\\,h(x)$. For Bernoulli data, the number of successes is sufficient for $p$."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The overall accuracy of an estimator combines bias and variance through the mean squared error:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\operatorname{MSE}(\\hat{\\theta}) = E\\left[(\\hat{\\theta}-\\theta)^2\\right] = \\operatorname{Var}(\\hat{\\theta}) + \\left[\\operatorname{Bias}(\\hat{\\theta})\\right]^2",
+        "caption": "Bias–variance decomposition of MSE"
+      },
+      {
+        "type": "heading",
+        "text": "Maximum likelihood estimation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Given independent observations $x_1, \\ldots, x_n$ from a model with density or mass function $f(x; \\theta)$, the likelihood is the joint probability of the observed data viewed as a function of $\\theta$. The maximum likelihood estimator (MLE) is the value of $\\theta$ that makes the observed data most probable. It is usually easier to maximise the log-likelihood:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\ell(\\theta) = \\sum_{i=1}^{n} \\log f(x_i;\\theta), \\qquad \\frac{d\\ell}{d\\theta}\\bigg|_{\\theta=\\hat{\\theta}} = 0",
+        "caption": "Log-likelihood and the likelihood equation"
+      },
+      {
+        "type": "paragraph",
+        "text": "For Bernoulli data with $k$ successes in $n$ trials, $\\ell(p) = k\\log p + (n-k)\\log(1-p)$; setting the derivative $k/p - (n-k)/(1-p)$ to zero gives $\\hat{p} = k/n$. For a Poisson sample, $\\ell(\\lambda) = -n\\lambda + \\left(\\sum x_i\\right)\\log\\lambda - \\sum \\log x_i!$, and solving gives $\\hat{\\lambda} = \\bar{x}$. Under regularity conditions MLEs are consistent, asymptotically normal and asymptotically efficient, and they are invariant: the MLE of $g(\\theta)$ is $g(\\hat{\\theta})$. The same principle underlies the loss functions used to fit logistic regression and many machine-learning models."
+      },
+      {
+        "type": "heading",
+        "text": "Point versus interval estimation"
+      },
+      {
+        "type": "paragraph",
+        "text": "A point estimate is a single best guess. An interval estimate adds a statement about precision. A $100(1-\\alpha)\\%$ confidence interval is constructed by a procedure that captures the true parameter in $100(1-\\alpha)\\%$ of repeated samples. For large samples:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\bar{x} \\pm z_{\\alpha/2}\\frac{s}{\\sqrt{n}}, \\qquad \\hat{p} \\pm z_{\\alpha/2}\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}",
+        "caption": "Large-sample confidence intervals ($z_{0.025} = 1.96$ for 95%)"
+      },
+      {
+        "type": "paragraph",
+        "text": "For small samples from a normal population with unknown variance, replace $z_{\\alpha/2}$ with the Student's $t$ critical value on $n-1$ degrees of freedom."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: MLEs and an interval",
+        "text": "In a pilot, 7 of 20 customers accept an offer. Separately, five shifts record 2, 4, 3, 1 and 5 machine stoppages.",
+        "steps": [
+          "Bernoulli MLE: $\\hat{p} = k/n = 7/20 = 0.35$.",
+          "Estimated standard error: $\\sqrt{0.35 \\times 0.65/20} = \\sqrt{0.011375} \\approx 0.1067$.",
+          "95% interval: $0.35 \\pm 1.96 \\times 0.1067 = 0.35 \\pm 0.209$, i.e. roughly $(0.14, 0.56)$. The pilot is too small to pin the rate down precisely.",
+          "Poisson MLE: $\\hat{\\lambda} = \\bar{x} = (2+4+3+1+5)/5 = 15/5 = 3$ stoppages per shift."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Clients usually want a number, but decisions need a number with its uncertainty. We report estimates with standard errors or confidence intervals and use them to plan sample sizes: the pilot above shows that 20 observations leave a margin of about 21 percentage points. Maximum likelihood is our default fitting principle for count, proportion and survival models, and understanding bias, variance and efficiency helps us choose between competing estimators when data are limited."
+      }
+    ],
+    "source_pages": [
+      30,
+      38
+    ],
+    "related_services": [
+      "statistical-analysis",
+      "research-methodology-support"
+    ],
+    "related_courses": [
+      "statistical-inference-hypothesis-testing",
+      "machine-learning-fundamentals"
+    ],
+    "order": 5,
+    "status": "published"
+  },
+  {
+    "slug": "hypothesis-testing-essentials",
+    "title": "Hypothesis Testing Essentials",
+    "category": "Statistics",
+    "summary": "The logic and vocabulary of statistical tests, from null and alternative hypotheses to critical regions, error types and the Neyman–Pearson lemma. It then surveys the standard large-sample z tests, small-sample t tests, chi-square tests and the F test for variances.",
+    "tags": [
+      "hypothesis testing",
+      "z test",
+      "t test",
+      "chi-square",
+      "p-value"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A hypothesis test is a formal procedure for deciding whether sample data provide enough evidence against a default claim about a population. It does not prove anything with certainty; it controls the rate at which we make wrong decisions."
+      },
+      {
+        "type": "heading",
+        "text": "The building blocks"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Null hypothesis $H_0$: the default or 'no effect' statement, for example $\\mu = \\mu_0$.",
+          "Alternative hypothesis $H_1$: what we look for evidence of, for example $\\mu \\ne \\mu_0$ (two-tailed) or $\\mu > \\mu_0$ (one-tailed).",
+          "Simple versus composite: a hypothesis is simple if it specifies the distribution completely (such as $\\mu = 50$ with known $\\sigma$) and composite otherwise (such as $\\mu > 50$).",
+          "Test statistic: a function of the data whose distribution is known when $H_0$ is true.",
+          "Critical region: the set of values of the test statistic that lead to rejecting $H_0$.",
+          "Level of significance $\\alpha$: the probability of rejecting $H_0$ when it is true, commonly 5% or 1%."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Two kinds of error"
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Decision",
+          "$H_0$ true",
+          "$H_0$ false"
+        ],
+        "rows": [
+          [
+            "Reject $H_0$",
+            "Type I error (probability $\\alpha$)",
+            "Correct (power $= 1-\\beta$)"
+          ],
+          [
+            "Do not reject $H_0$",
+            "Correct",
+            "Type II error (probability $\\beta$)"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "For a fixed sample size, reducing $\\alpha$ increases $\\beta$. The only way to reduce both is to collect more data or use a more efficient test."
+      },
+      {
+        "type": "heading",
+        "text": "The Neyman–Pearson lemma"
+      },
+      {
+        "type": "paragraph",
+        "text": "For testing a simple null $H_0: \\theta = \\theta_0$ against a simple alternative $H_1: \\theta = \\theta_1$, the most powerful test of size $\\alpha$ rejects $H_0$ when the likelihood ratio is large:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\frac{L(\\theta_1; x)}{L(\\theta_0; x)} > k, \\quad \\text{where } k \\text{ is chosen so that } P(\\text{reject } H_0 \\mid \\theta_0) = \\alpha",
+        "caption": "Neyman–Pearson most powerful critical region"
+      },
+      {
+        "type": "paragraph",
+        "text": "This result explains why the familiar z and t tests take the form they do: for normal data, the likelihood ratio is a monotone function of $\\bar{x}$."
+      },
+      {
+        "type": "heading",
+        "text": "Large-sample tests"
+      },
+      {
+        "type": "paragraph",
+        "text": "When $n$ is large, the Central Limit Theorem makes means and proportions approximately normal, giving z statistics of the form (estimate minus hypothesised value) divided by standard error:"
+      },
+      {
+        "type": "formula",
+        "tex": "z = \\frac{\\bar{x}-\\mu_0}{\\sigma/\\sqrt{n}}, \\qquad z = \\frac{\\hat{p}-p_0}{\\sqrt{p_0(1-p_0)/n}}, \\qquad z = \\frac{\\bar{x}_1-\\bar{x}_2}{\\sqrt{\\sigma_1^2/n_1 + \\sigma_2^2/n_2}}",
+        "caption": "z statistics for one mean, one proportion and two means"
+      },
+      {
+        "type": "paragraph",
+        "text": "For two proportions, the pooled estimate $\\hat{p} = (x_1 + x_2)/(n_1 + n_2)$ is used in the standard error under $H_0: p_1 = p_2$. At $\\alpha = 0.05$ the critical values are $\\pm 1.96$ (two-tailed) or $1.645$ (one-tailed)."
+      },
+      {
+        "type": "heading",
+        "text": "Small-sample and other exact tests"
+      },
+      {
+        "type": "paragraph",
+        "text": "For a normal population with unknown variance, use Student's $t = (\\bar{x} - \\mu_0)/(s/\\sqrt{n})$ on $n-1$ degrees of freedom. Two means are compared with a pooled two-sample $t$ test on $n_1 + n_2 - 2$ degrees of freedom when the variances can be assumed equal. That assumption is checked with the F test, $F = s_1^2/s_2^2$, on $(n_1 - 1, n_2 - 1)$ degrees of freedom. A single variance is tested with $\\chi^2 = (n-1)s^2/\\sigma_0^2$ on $n-1$ degrees of freedom."
+      },
+      {
+        "type": "paragraph",
+        "text": "For categorical data the chi-square statistic compares observed counts $O_i$ with expected counts $E_i$:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\chi^2 = \\sum_{i} \\frac{(O_i - E_i)^2}{E_i}",
+        "caption": "Chi-square statistic"
+      },
+      {
+        "type": "paragraph",
+        "text": "In a goodness-of-fit test with $k$ classes the degrees of freedom are $k - 1 - m$, where $m$ is the number of parameters estimated from the data. In a test of independence for an $r \\times c$ contingency table, $E_{ij} = (\\text{row total} \\times \\text{column total})/n$ and the degrees of freedom are $(r-1)(c-1)$. Expected counts should generally be at least 5."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: is the fill weight on target?",
+        "text": "A filling line should deliver packs with mean weight 500 g. Historical data give $\\sigma = 32$ g. A sample of 64 packs has $\\bar{x} = 508$ g. Test $H_0: \\mu = 500$ against $H_1: \\mu \\ne 500$ at the 5% level.",
+        "steps": [
+          "Standard error: $32/\\sqrt{64} = 32/8 = 4$ g.",
+          "Test statistic: $z = (508 - 500)/4 = 2.00$.",
+          "Two-tailed critical values at 5% are $\\pm 1.96$. Since $2.00 > 1.96$, reject $H_0$.",
+          "p-value: $2P(Z > 2.00) \\approx 0.0455$, just below 0.05.",
+          "Conclusion: there is evidence, though not overwhelming, that the line is overfilling. At the 1% level (critical value 2.576) we would not reject."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "We frame every test around a business decision: what would we do differently if $H_0$ were rejected? We fix $\\alpha$ before looking at the data, report effect sizes and confidence intervals alongside p-values, and check that test assumptions (independence, normality, equal variances, adequate expected counts) hold. For A/B tests, survey comparisons and quality audits, a power calculation at the planning stage is usually more valuable than any test run afterwards."
+      }
+    ],
+    "source_pages": [
+      29,
+      30
+    ],
+    "related_services": [
+      "statistical-analysis",
+      "research-methodology-support"
+    ],
+    "related_courses": [
+      "statistical-inference-hypothesis-testing",
+      "statistics-for-data-analysis"
+    ],
+    "order": 6,
+    "status": "published"
+  },
+  {
+    "slug": "analysis-of-variance",
+    "title": "Analysis of Variance (ANOVA)",
+    "category": "Statistics",
+    "summary": "ANOVA compares the means of several groups by splitting total variability into a part explained by group membership and a part due to random error. This article walks through one-way and two-way ANOVA, the F ratio, the ANOVA table, its assumptions and its role in designed experiments.",
+    "tags": [
+      "anova",
+      "f test",
+      "experimental design",
+      "sums of squares"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "When we want to compare the means of three or more groups, running every pairwise $t$ test inflates the overall chance of a false positive. Analysis of variance tests the single hypothesis that all group means are equal, by asking whether the variation between group means is large compared with the variation within groups."
+      },
+      {
+        "type": "heading",
+        "text": "One-way ANOVA"
+      },
+      {
+        "type": "paragraph",
+        "text": "Suppose there are $k$ groups (treatments), group $i$ has $n_i$ observations $y_{ij}$ with mean $\\bar{y}_{i\\cdot}$, the grand mean is $\\bar{y}_{\\cdot\\cdot}$, and $N = \\sum n_i$. The model is $y_{ij} = \\mu + \\tau_i + \\varepsilon_{ij}$, where $\\tau_i$ is the effect of treatment $i$ and $\\varepsilon_{ij}$ is random error. We test $H_0: \\tau_1 = \\cdots = \\tau_k = 0$."
+      },
+      {
+        "type": "paragraph",
+        "text": "The central identity of ANOVA partitions the total sum of squares exactly:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\underbrace{\\sum_{i}\\sum_{j}(y_{ij}-\\bar{y}_{\\cdot\\cdot})^2}_{SS_T} = \\underbrace{\\sum_{i} n_i(\\bar{y}_{i\\cdot}-\\bar{y}_{\\cdot\\cdot})^2}_{SS_B} + \\underbrace{\\sum_{i}\\sum_{j}(y_{ij}-\\bar{y}_{i\\cdot})^2}_{SS_W}",
+        "caption": "Partition of the total sum of squares"
+      },
+      {
+        "type": "paragraph",
+        "text": "Dividing each sum of squares by its degrees of freedom gives a mean square. Under $H_0$ both mean squares estimate the error variance $\\sigma^2$, so their ratio should be close to 1; a large ratio is evidence of real differences."
+      },
+      {
+        "type": "formula",
+        "tex": "F = \\frac{MS_B}{MS_W} = \\frac{SS_B/(k-1)}{SS_W/(N-k)} \\sim F_{k-1,\\,N-k} \\text{ under } H_0",
+        "caption": "One-way ANOVA F ratio"
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Source",
+          "SS",
+          "df",
+          "MS",
+          "F"
+        ],
+        "rows": [
+          [
+            "Between groups",
+            "$SS_B$",
+            "$k-1$",
+            "$SS_B/(k-1)$",
+            "$MS_B/MS_W$"
+          ],
+          [
+            "Within groups (error)",
+            "$SS_W$",
+            "$N-k$",
+            "$SS_W/(N-k)$",
+            ""
+          ],
+          [
+            "Total",
+            "$SS_T$",
+            "$N-1$",
+            "",
+            ""
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Two-way ANOVA"
+      },
+      {
+        "type": "paragraph",
+        "text": "With two classification factors, such as treatment and block, or machine and operator, the total variation is split further. For two-way classified data with one observation per cell ($r$ rows and $c$ columns), the model is $y_{ij} = \\mu + \\alpha_i + \\beta_j + \\varepsilon_{ij}$ and"
+      },
+      {
+        "type": "formula",
+        "tex": "SS_T = SS_{\\text{rows}} + SS_{\\text{cols}} + SS_E, \\qquad df:\\; rc-1 = (r-1) + (c-1) + (r-1)(c-1)",
+        "caption": "Two-way ANOVA decomposition (one observation per cell)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Each factor is tested with its own F ratio against $MS_E$. When there are replicate observations per cell, an interaction sum of squares can also be separated out, testing whether the effect of one factor depends on the level of the other. This is the basis of factorial experiments."
+      },
+      {
+        "type": "heading",
+        "text": "Assumptions and follow-up"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Observations are independent, which is usually secured by randomisation.",
+          "Errors are normally distributed within each group; ANOVA is fairly robust to mild departures when groups are of similar size.",
+          "Error variances are equal across groups (homoscedasticity); check with residual plots or a variance test.",
+          "A significant F says only that not all means are equal. Use planned contrasts or a multiple-comparison procedure to identify which groups differ."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Link to experimental design"
+      },
+      {
+        "type": "paragraph",
+        "text": "ANOVA is the analytical engine of designed experiments. A completely randomised design is analysed by one-way ANOVA. A randomised block design removes a known nuisance source of variation (field plots, batches, days) by treating blocks as a second factor, which shrinks $MS_E$ and makes treatment differences easier to detect. Latin squares, split-plot designs and factorial experiments extend the same sum-of-squares logic to more complex structures."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: three training methods",
+        "text": "Test scores for three groups of three trainees are A: 5, 7, 6; B: 8, 9, 10; C: 4, 5, 6. Test whether mean scores differ at the 5% level.",
+        "steps": [
+          "Group means: $\\bar{y}_A = 6$, $\\bar{y}_B = 9$, $\\bar{y}_C = 5$. Grand mean $= 60/9 \\approx 6.667$.",
+          "$SS_B = 3[(6-6.667)^2 + (9-6.667)^2 + (5-6.667)^2] = 3(0.444 + 5.444 + 2.778) = 26$.",
+          "$SS_W$: within A $= 1+1+0 = 2$; within B $= 1+0+1 = 2$; within C $= 1+0+1 = 2$; total $= 6$. So $SS_T = 32$.",
+          "$MS_B = 26/2 = 13$ and $MS_W = 6/6 = 1$, giving $F = 13.0$ on $(2, 6)$ df.",
+          "The 5% critical value of $F_{2,6}$ is about 5.14 (p-value about 0.007), so reject $H_0$: the methods do not all produce the same mean score. Method B appears best, which a follow-up comparison would confirm."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "We use ANOVA to compare treatments, product variants, sites, suppliers and process settings. The most valuable work usually happens before the analysis: choosing a design with randomisation, replication and blocking so that the F test can isolate the effect that matters. We present results as an ANOVA table plus estimated group means with confidence intervals, so stakeholders can see both whether differences exist and how large they are."
+      }
+    ],
+    "source_pages": [
+      30,
+      60,
+      61
+    ],
+    "related_services": [
+      "statistical-analysis",
+      "survey-sampling-experimental-design"
+    ],
+    "related_courses": [
+      "statistical-inference-hypothesis-testing",
+      "experimental-design-sampling"
+    ],
+    "order": 7,
+    "status": "published"
+  },
+  {
+    "slug": "time-series-components-and-forecasting",
+    "title": "Time Series Components and Forecasting",
+    "category": "Statistics",
+    "summary": "A tour of classical and model-based time series analysis: decomposing a series into trend, seasonal, cyclical and irregular parts, measuring trend and seasonality, and fitting simple AR and MA models. It closes with exponential smoothing, a practical forecasting workhorse.",
+    "tags": [
+      "time series",
+      "forecasting",
+      "seasonality",
+      "autoregressive models",
+      "exponential smoothing"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A time series is a sequence of observations recorded at successive points in time, such as monthly sales, daily temperatures or quarterly GDP. Unlike cross-sectional data, consecutive observations are usually correlated, and that dependence is both the challenge and the opportunity of time series analysis."
+      },
+      {
+        "type": "heading",
+        "text": "Components and decomposition models"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Trend $T_t$: the long-run upward or downward movement.",
+          "Seasonal $S_t$: regular patterns that repeat within a fixed period (a year, a week).",
+          "Cyclical $C_t$: longer, irregular-length swings such as business cycles.",
+          "Irregular $I_t$: the residual random fluctuation."
+        ]
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{Additive: } Y_t = T_t + S_t + C_t + I_t \\qquad \\text{Multiplicative: } Y_t = T_t \\times S_t \\times C_t \\times I_t",
+        "caption": "Classical decomposition models"
+      },
+      {
+        "type": "paragraph",
+        "text": "The additive model suits series whose seasonal swings stay roughly constant in size; the multiplicative model suits series whose seasonal swings grow with the level, which is common in business data. Taking logarithms turns a multiplicative model into an additive one."
+      },
+      {
+        "type": "heading",
+        "text": "Measuring trend"
+      },
+      {
+        "type": "paragraph",
+        "text": "A freehand curve gives a quick visual impression. A centred moving average of length $m$ smooths out seasonal and irregular movement; when $m$ is even, a further 2-point average is taken to centre it. The least-squares method fits a mathematical trend such as $\\hat{T}_t = a + bt$ by minimising $\\sum (Y_t - a - bt)^2$, with the same normal equations as simple linear regression, and can be extended to quadratic or exponential growth curves."
+      },
+      {
+        "type": "heading",
+        "text": "Measuring seasonality"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Method of simple averages: average the values for each season across years and express each as a percentage of the overall average. It assumes no trend.",
+          "Ratio to trend: fit a least-squares trend, divide each observation by its trend value, and average the ratios for each season.",
+          "Ratio to moving average: divide each observation by the centred 12-month (or 4-quarter) moving average, then average the ratios season by season. This is the most widely used classical method because the moving average removes both trend and cycle."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Seasonal indices are finally adjusted so that they average 100. Dividing the data by the indices gives a seasonally adjusted series."
+      },
+      {
+        "type": "heading",
+        "text": "Stationary models: AR and MA"
+      },
+      {
+        "type": "paragraph",
+        "text": "After removing trend and seasonality, the remaining series is often modelled as stationary. The autocorrelation function (ACF) $\\rho_k = \\operatorname{Corr}(Y_t, Y_{t-k})$ is the main identification tool. A moving-average process of order $q$, $Y_t = \\varepsilon_t + \\theta_1\\varepsilon_{t-1} + \\cdots + \\theta_q\\varepsilon_{t-q}$, has an ACF that cuts off after lag $q$, so the sample ACF suggests the order. An autoregressive process has an ACF that decays gradually:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{AR}(1): \\; Y_t = \\phi Y_{t-1} + \\varepsilon_t, \\quad |\\phi| < 1, \\quad \\rho_k = \\phi^k",
+        "caption": "First-order autoregressive model"
+      },
+      {
+        "type": "paragraph",
+        "text": "Parameters of AR(1) and AR(2) models can be estimated by least squares or by the Yule–Walker equations, which equate theoretical and sample autocorrelations $r_k$. For AR(2), $Y_t = \\phi_1 Y_{t-1} + \\phi_2 Y_{t-2} + \\varepsilon_t$:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\begin{aligned} r_1 &= \\hat{\\phi}_1 + \\hat{\\phi}_2 r_1 \\\\ r_2 &= \\hat{\\phi}_1 r_1 + \\hat{\\phi}_2 \\end{aligned} \\quad\\Longrightarrow\\quad \\hat{\\phi}_1 = \\frac{r_1(1-r_2)}{1-r_1^2}, \\;\\; \\hat{\\phi}_2 = \\frac{r_2 - r_1^2}{1-r_1^2}",
+        "caption": "Yule–Walker equations for AR(2)"
+      },
+      {
+        "type": "paragraph",
+        "text": "For AR(1) the Yule–Walker estimate is simply $\\hat{\\phi} = r_1$."
+      },
+      {
+        "type": "heading",
+        "text": "Simple exponential smoothing"
+      },
+      {
+        "type": "paragraph",
+        "text": "For series without strong trend or seasonality, simple exponential smoothing forecasts the next value as a weighted average of the latest observation and the previous forecast. Weights on past data decline geometrically, and the smoothing constant $\\alpha$ between 0 and 1 controls how quickly the forecast reacts."
+      },
+      {
+        "type": "formula",
+        "tex": "F_{t+1} = \\alpha Y_t + (1-\\alpha) F_t",
+        "caption": "Simple exponential smoothing"
+      },
+      {
+        "type": "example",
+        "title": "Worked example: smoothing and Yule–Walker",
+        "text": "Weekly demand is 10, 12, 14, 13, 15, 17. Separately, a stationary residual series has $r_1 = 0.6$ and $r_2 = 0.4$.",
+        "steps": [
+          "3-period moving averages: $(10+12+14)/3 = 12$, then 13, 14 and 15, centred on weeks 2 to 5.",
+          "Exponential smoothing with $\\alpha = 0.3$ and $F_1 = 10$: $F_2 = 10$, $F_3 = 0.3(12) + 0.7(10) = 10.6$, $F_4 = 11.62$, $F_5 = 12.034$, $F_6 = 12.924$.",
+          "Forecast for week 7: $F_7 = 0.3(17) + 0.7(12.924) \\approx 14.15$. It lags the rising data, a reminder that simple smoothing does not model trend.",
+          "AR(2) by Yule–Walker: $\\hat{\\phi}_1 = 0.6(1-0.4)/(1-0.36) = 0.36/0.64 = 0.5625$ and $\\hat{\\phi}_2 = (0.4-0.36)/0.64 = 0.0625$.",
+          "The small $\\hat{\\phi}_2$ suggests an AR(1) model with $\\hat{\\phi} = 0.6$ may be adequate."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Demand planning, staffing, inventory and budgeting all depend on forecasts. We start every engagement by plotting the series and decomposing it, because understanding trend and seasonality often answers the client's question before any model is fitted. We then compare simple benchmarks such as seasonal naive and exponential smoothing against AR-type models on held-out data, and choose the simplest method that forecasts reliably."
+      }
+    ],
+    "source_pages": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "related_services": [
+      "time-series-forecasting",
+      "business-analytics-data-mining"
+    ],
+    "related_courses": [
+      "time-series-analysis-forecasting"
+    ],
+    "order": 8,
+    "status": "published"
+  },
+  {
+    "slug": "index-numbers",
+    "title": "Index Numbers: Construction and Tests",
+    "category": "Statistics",
+    "summary": "Index numbers summarise changes in prices, quantities or values relative to a base period. This article explains simple and weighted indices, the Laspeyres, Paasche, Marshall–Edgeworth and Fisher formulas, the time-reversal and factor-reversal tests, chain-base indices and cost-of-living indices.",
+    "tags": [
+      "index numbers",
+      "laspeyres",
+      "paasche",
+      "fisher index",
+      "cost of living"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "An index number measures the relative change in a variable, or a group of related variables, between a base period and a current period. Price indices such as consumer and wholesale price indices are the best-known examples, but the same ideas apply to production, sales volumes and wages. By convention the base period is set to 100."
+      },
+      {
+        "type": "heading",
+        "text": "Simple index numbers"
+      },
+      {
+        "type": "paragraph",
+        "text": "For a single item, the price relative is $100\\,p_1/p_0$, where $p_0$ is the base-period price and $p_1$ the current price. For several items, the simple aggregative index is $100\\sum p_1/\\sum p_0$, and the simple average of relatives is the mean of the individual price relatives. Simple indices are easy to compute but implicitly give every item equal importance, and the aggregative version is distorted by the units in which prices happen to be quoted."
+      },
+      {
+        "type": "heading",
+        "text": "Weighted aggregative indices"
+      },
+      {
+        "type": "paragraph",
+        "text": "Weighting by quantities ($q_0$ for base period, $q_1$ for current) reflects the economic importance of each item. The main formulas differ only in which quantities they use as weights:"
+      },
+      {
+        "type": "formula",
+        "tex": "P_{01}^{L} = \\frac{\\sum p_1 q_0}{\\sum p_0 q_0}\\times 100, \\qquad P_{01}^{P} = \\frac{\\sum p_1 q_1}{\\sum p_0 q_1}\\times 100",
+        "caption": "Laspeyres (base weights) and Paasche (current weights)"
+      },
+      {
+        "type": "formula",
+        "tex": "P_{01}^{ME} = \\frac{\\sum p_1 (q_0+q_1)}{\\sum p_0 (q_0+q_1)}\\times 100, \\qquad P_{01}^{F} = \\sqrt{P_{01}^{L} \\times P_{01}^{P}}",
+        "caption": "Marshall–Edgeworth and Fisher's ideal index"
+      },
+      {
+        "type": "paragraph",
+        "text": "Laspeyres needs base-period quantities only, so it is cheap to update, but it tends to overstate price rises because consumers substitute away from items that become relatively expensive. Paasche uses current quantities and tends to understate them. The Marshall–Edgeworth index uses the combined quantities, and Fisher's index, the geometric mean of Laspeyres and Paasche, balances the two biases."
+      },
+      {
+        "type": "heading",
+        "text": "Tests of adequacy"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Time-reversal test: the index for period 1 relative to 0, multiplied by the index for 0 relative to 1, should equal 1 (with indices as ratios), i.e. $P_{01} \\times P_{10} = 1$.",
+          "Factor-reversal test: the price index multiplied by the corresponding quantity index should equal the value ratio, $P_{01} \\times Q_{01} = \\sum p_1 q_1 / \\sum p_0 q_0$.",
+          "Fisher's index satisfies both tests, which is why it is called 'ideal'. Laspeyres and Paasche satisfy neither. Marshall–Edgeworth satisfies time reversal but not factor reversal."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Fixed-base and chain-base indices"
+      },
+      {
+        "type": "paragraph",
+        "text": "A fixed-base index compares every period with the same base year. A chain-base index first computes link relatives, each period relative to the one before, and then multiplies them together:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{Chain index}_t = \\frac{\\text{Link relative}_t \\times \\text{Chain index}_{t-1}}{100}",
+        "caption": "Chaining link relatives"
+      },
+      {
+        "type": "paragraph",
+        "text": "Chain indices make it easy to add or drop items and update weights, so they stay relevant when consumption patterns change. The cost is that small errors accumulate along the chain, and in general the chain index does not equal the fixed-base index for the same period."
+      },
+      {
+        "type": "heading",
+        "text": "Cost-of-living index"
+      },
+      {
+        "type": "paragraph",
+        "text": "A cost-of-living (consumer price) index measures the change in the cost of a fixed basket of goods and services bought by a defined population group. Construction involves defining the group, conducting a family budget enquiry to fix the basket and the expenditure weights, collecting retail prices, and then combining price relatives $I$ using weights $W$, typically by the weighted average of relatives $\\sum IW/\\sum W$, which with base-period expenditure weights $W = p_0q_0$ is equivalent to Laspeyres. The index is used to deflate money wages into real wages and to set dearness allowances."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: a two-item basket",
+        "text": "Item A: base price 10, base quantity 5, current price 12, current quantity 6. Item B: base price 8, base quantity 10, current price 10, current quantity 8.",
+        "steps": [
+          "$\\sum p_0q_0 = 50 + 80 = 130$; $\\sum p_1q_0 = 60 + 100 = 160$; $\\sum p_0q_1 = 60 + 80 = 140$; $\\sum p_1q_1 = 72 + 80 = 152$.",
+          "Laspeyres: $160/130 \\times 100 \\approx 123.08$.",
+          "Paasche: $152/140 \\times 100 \\approx 108.57$.",
+          "Fisher: $\\sqrt{123.08 \\times 108.57} \\approx 115.60$.",
+          "Marshall–Edgeworth: $(160+152)/(130+140) \\times 100 = 312/270 \\times 100 \\approx 115.56$.",
+          "The large gap between Laspeyres and Paasche reflects substitution: buyers switched from B to A, so the choice of weights matters."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Organisations use index numbers to track input costs, deflate revenue to real terms, adjust contracts and compare performance across regions. When we build a custom index for a client, the key decisions are the basket, the weighting scheme, the base period and how often to re-weight. We usually report both Laspeyres and Paasche alongside Fisher's index so that the size of the substitution effect is visible to decision-makers."
+      }
+    ],
+    "source_pages": [
+      26,
+      27,
+      28
+    ],
+    "related_services": [
+      "business-analytics-data-mining",
+      "statistical-analysis"
+    ],
+    "related_courses": [
+      "time-series-analysis-forecasting",
+      "financial-mathematics-economics"
+    ],
+    "order": 9,
+    "status": "published"
+  },
+  {
+    "slug": "control-charts-for-quality",
+    "title": "Control Charts and Acceptance Sampling",
+    "category": "Statistics",
+    "summary": "Statistical process control separates routine variation from signals that need action. This article explains 3-sigma control charts for variables and attributes, average run length, and acceptance sampling plans with their OC and ASN curves.",
+    "tags": [
+      "statistical process control",
+      "control charts",
+      "acceptance sampling",
+      "quality"
+    ],
+    "reading_minutes": 5,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Every process varies. Statistical quality control distinguishes between chance (common) causes, the many small, unavoidable sources of variation built into the process, and assignable (special) causes such as a worn tool, a new batch of raw material or an untrained operator. A process operating with only chance causes is said to be in statistical control, and its output is predictable. Control charts detect assignable causes so that they can be investigated and removed."
+      },
+      {
+        "type": "heading",
+        "text": "The 3-sigma principle"
+      },
+      {
+        "type": "paragraph",
+        "text": "A control chart plots a sample statistic $W$ over time with a centre line and control limits:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{UCL} = \\mu_W + 3\\sigma_W, \\qquad \\text{CL} = \\mu_W, \\qquad \\text{LCL} = \\mu_W - 3\\sigma_W",
+        "caption": "General 3-sigma control limits"
+      },
+      {
+        "type": "paragraph",
+        "text": "If $W$ is approximately normal, a point falls outside 3-sigma limits by chance with probability about 0.0027, so false alarms are rare. Points outside the limits, or non-random patterns such as long runs on one side of the centre line, signal possible assignable causes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Samples are taken as rational subgroups: small groups of units produced under essentially the same conditions, typically consecutive items. The aim is to make within-subgroup variation reflect only chance causes, so that any shift between subgroups stands out."
+      },
+      {
+        "type": "heading",
+        "text": "Charts for variables"
+      },
+      {
+        "type": "paragraph",
+        "text": "For $m$ subgroups of size $n$, let $\\bar{\\bar{x}}$ be the mean of the subgroup means and $\\bar{R}$ the mean range. The $\\bar{X}$ chart monitors the process level and the $R$ chart monitors its spread:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\bar{X}\\text{ chart: } \\bar{\\bar{x}} \\pm A_2\\bar{R}, \\qquad R\\text{ chart: } \\text{LCL} = D_3\\bar{R}, \\;\\; \\text{UCL} = D_4\\bar{R}",
+        "caption": "X-bar and R chart limits"
+      },
+      {
+        "type": "paragraph",
+        "text": "The constants depend only on $n$ and come from the distribution of the range of normal samples. For $n = 5$: $A_2 = 0.577$, $D_3 = 0$ and $D_4 = 2.114$. For larger subgroups (roughly $n > 10$) the range wastes information, and the $\\bar{X}$ and $s$ chart is preferred, with limits $\\bar{\\bar{x}} \\pm A_3\\bar{s}$ and $B_3\\bar{s}$ to $B_4\\bar{s}$. The R chart should be checked first: $\\bar{X}$ limits are meaningful only if the spread is in control."
+      },
+      {
+        "type": "heading",
+        "text": "Charts for attributes"
+      },
+      {
+        "type": "paragraph",
+        "text": "When each unit is classified as conforming or nonconforming, the fraction nonconforming in a subgroup of size $n$ is monitored with a p chart, or the number nonconforming with an np chart:"
+      },
+      {
+        "type": "formula",
+        "tex": "p\\text{ chart: } \\bar{p} \\pm 3\\sqrt{\\frac{\\bar{p}(1-\\bar{p})}{n}}, \\qquad np\\text{ chart: } n\\bar{p} \\pm 3\\sqrt{n\\bar{p}(1-\\bar{p})}",
+        "caption": "Attribute control limits (negative LCL set to 0)"
+      },
+      {
+        "type": "paragraph",
+        "text": "The np chart is easier to explain on the shop floor but needs a constant subgroup size; the p chart can handle varying $n$ by recomputing limits for each subgroup."
+      },
+      {
+        "type": "heading",
+        "text": "Average run length"
+      },
+      {
+        "type": "paragraph",
+        "text": "The average run length (ARL) is the expected number of subgroups plotted before a signal. If each point independently signals with probability $p$, then $\\text{ARL} = 1/p$. In control, 3-sigma limits give $\\text{ARL}_0 = 1/0.0027 \\approx 370$, about one false alarm per 370 subgroups. After a shift, we want the ARL to be small. ARL comparisons are how chart designs, subgroup sizes and supplementary run rules are evaluated."
+      },
+      {
+        "type": "heading",
+        "text": "Acceptance sampling"
+      },
+      {
+        "type": "paragraph",
+        "text": "Acceptance sampling decides whether to accept or reject a lot on the basis of a sample, rather than controlling the process itself. A single sampling plan $(n, c)$ inspects $n$ items and accepts the lot if the number of defectives $d \\le c$. A double sampling plan takes a first sample, accepts or rejects outright if the result is clear, and otherwise takes a second sample and bases the decision on the combined count. The operating characteristic (OC) curve plots the probability of acceptance against the lot fraction defective $p$; with a binomial model for a single plan:"
+      },
+      {
+        "type": "formula",
+        "tex": "P_a(p) = \\sum_{d=0}^{c} \\binom{n}{d} p^d (1-p)^{n-d}",
+        "caption": "OC function of a single sampling plan"
+      },
+      {
+        "type": "paragraph",
+        "text": "The OC curve shows the producer's risk (rejecting good lots) and the consumer's risk (accepting bad lots). The average sample number (ASN) is the expected number of items inspected per lot; double plans usually have a lower ASN than single plans with similar OC curves, which saves inspection cost."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: setting up control limits",
+        "text": "Twenty-five subgroups of size $n = 5$ give $\\bar{\\bar{x}} = 50.0$ mm and $\\bar{R} = 4.0$ mm. Separately, daily samples of 200 items have an average fraction nonconforming $\\bar{p} = 0.04$.",
+        "steps": [
+          "$\\bar{X}$ chart: $\\text{UCL} = 50.0 + 0.577 \\times 4.0 = 52.308$ mm and $\\text{LCL} = 50.0 - 2.308 = 47.692$ mm.",
+          "$R$ chart: $\\text{UCL} = 2.114 \\times 4.0 = 8.456$ mm and $\\text{LCL} = 0 \\times 4.0 = 0$.",
+          "p chart: $3\\sqrt{0.04 \\times 0.96/200} = 3\\sqrt{0.000192} \\approx 0.0416$.",
+          "So $\\text{UCL} \\approx 0.04 + 0.0416 = 0.0816$, and $\\text{LCL} = 0.04 - 0.0416 < 0$, which is set to 0.",
+          "A day with 17 or more nonconforming items out of 200 (fraction $\\ge 0.085$) would plot above the UCL and trigger an investigation."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Control charts are most useful when they are tied to a reaction plan: who investigates a signal, what they check and how the cause is recorded. In quality engagements we first establish trial limits from historical data, remove subgroups with known assignable causes, and recompute. We then choose subgroup sizes and sampling frequency using ARL, and review supplier acceptance plans by plotting their OC curves so that producer and consumer risks are explicit rather than implicit."
+      }
+    ],
+    "source_pages": [
+      43,
+      44
+    ],
+    "related_services": [
+      "statistical-quality-control"
+    ],
+    "related_courses": [
+      "statistical-quality-control"
+    ],
+    "order": 10,
+    "status": "published"
+  },
+  {
+    "slug": "sampling-designs",
+    "title": "Sampling Designs for Surveys",
+    "category": "Research",
+    "summary": "How to select a sample that supports reliable estimates of population means, totals and proportions. The article covers simple random sampling with and without replacement, stratified, cluster and systematic sampling, and the regression estimator.",
+    "tags": [
+      "survey sampling",
+      "stratified sampling",
+      "cluster sampling",
+      "systematic sampling",
+      "finite population correction"
+    ],
+    "reading_minutes": 5,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A sample survey studies part of a population in order to draw conclusions about the whole. Done well, it is faster, cheaper and often more accurate than a complete census, because resources can be concentrated on careful measurement. Done badly, no amount of data can rescue it. The design, meaning how units are chosen, determines both the estimators we use and the precision we can claim."
+      },
+      {
+        "type": "heading",
+        "text": "Basic vocabulary"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Population: the complete set of $N$ units about which we want information.",
+          "Sampling unit: the unit selected at each draw, such as a household, a shop or a village.",
+          "Sampling frame: the list or map from which units are selected. Frame errors (missing, duplicated or out-of-date units) cause bias that no estimator can fix.",
+          "Random (probability) sample: every unit has a known, non-zero chance of selection, which allows valid estimates of sampling error. Non-random samples (convenience, judgement, quota) do not."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Simple random sampling"
+      },
+      {
+        "type": "paragraph",
+        "text": "In simple random sampling without replacement (SRSWOR), every possible sample of size $n$ is equally likely. The sample mean $\\bar{y}$ is unbiased for the population mean $\\bar{Y}$, and $N\\bar{y}$ is unbiased for the population total. Its variance includes the finite population correction (fpc) $1 - f$, where $f = n/N$ is the sampling fraction:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\operatorname{Var}(\\bar{y})_{\\text{WOR}} = \\left(1-\\frac{n}{N}\\right)\\frac{S^2}{n}, \\qquad \\operatorname{Var}(\\bar{y})_{\\text{WR}} = \\frac{\\sigma^2}{n} = \\frac{N-1}{N}\\cdot\\frac{S^2}{n}",
+        "caption": "Variance of the sample mean under SRSWOR and SRSWR"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here $S^2 = \\sum (Y_i - \\bar{Y})^2/(N-1)$, and it is estimated without bias by the sample variance $s^2$. With replacement (SRSWR), units can be drawn more than once and the fpc disappears, so SRSWOR is always at least as precise. When $f$ is below about 5% the correction is negligible."
+      },
+      {
+        "type": "heading",
+        "text": "Sampling for proportions"
+      },
+      {
+        "type": "paragraph",
+        "text": "If $P$ is the proportion of units with an attribute, the sample proportion $p$ is unbiased under SRSWOR, and its variance is estimated by:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\widehat{\\operatorname{Var}}(p) = \\left(1-\\frac{n}{N}\\right)\\frac{p(1-p)}{n-1}",
+        "caption": "Estimated variance of a sample proportion (SRSWOR)"
+      },
+      {
+        "type": "heading",
+        "text": "Stratified sampling"
+      },
+      {
+        "type": "paragraph",
+        "text": "The population is divided into $L$ non-overlapping strata that are internally homogeneous, and an independent random sample is drawn in each. The estimator is $\\bar{y}_{st} = \\sum W_h\\bar{y}_h$ with $W_h = N_h/N$. Stratification improves precision when strata differ in their means, guarantees representation of important subgroups and allows different field methods by stratum. The total sample can be allocated in two standard ways:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{Proportional: } n_h = n\\frac{N_h}{N}, \\qquad \\text{Neyman: } n_h = n\\frac{N_h S_h}{\\sum_{k=1}^{L} N_k S_k}",
+        "caption": "Allocation of the sample across strata"
+      },
+      {
+        "type": "paragraph",
+        "text": "Neyman allocation minimises $\\operatorname{Var}(\\bar{y}_{st})$ for a fixed total sample size by sampling more heavily in large and variable strata."
+      },
+      {
+        "type": "heading",
+        "text": "Cluster and systematic sampling"
+      },
+      {
+        "type": "paragraph",
+        "text": "In cluster sampling the population is grouped into clusters (for example villages, blocks or schools) and whole clusters are sampled. Area sampling is cluster sampling based on geographic units. It reduces travel and frame-building cost, but units within a cluster tend to be similar, so for the same number of elements it is usually less precise than SRS. The loss grows with the intra-cluster correlation, so many small clusters are better than a few large ones."
+      },
+      {
+        "type": "paragraph",
+        "text": "In linear systematic sampling with $N = nk$, a random start $r$ between 1 and $k$ is chosen and units $r, r+k, r+2k, \\ldots$ are selected. It is simple to carry out in the field and spreads the sample evenly across the frame, but it can perform badly if the frame has a periodic pattern matching $k$. The idea extends to two dimensions for spatial sampling."
+      },
+      {
+        "type": "heading",
+        "text": "Regression estimator"
+      },
+      {
+        "type": "paragraph",
+        "text": "When an auxiliary variable $x$, correlated with $y$, is known for the whole population (for example last year's figures), precision can be improved with the regression estimator:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\bar{y}_{lr} = \\bar{y} + b\\left(\\bar{X} - \\bar{x}\\right)",
+        "caption": "Regression estimator of the population mean"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here $b$ is either a pre-assigned value or the sample least-squares slope. Its approximate variance is $(1-f)S_y^2(1-\\rho^2)/n$, so the gain over $\\bar{y}$ is large when the correlation $\\rho$ is strong. In stratified designs, separate or combined regression estimators can be used."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: precision and allocation",
+        "text": "A frame lists $N = 1000$ retail outlets. An SRSWOR of $n = 100$ gives mean monthly sales $\\bar{y} = 50$ (thousand rupees) with $s^2 = 400$.",
+        "steps": [
+          "Sampling fraction $f = 100/1000 = 0.1$, so fpc $= 0.9$.",
+          "$\\widehat{\\operatorname{Var}}(\\bar{y}) = 0.9 \\times 400/100 = 3.6$, giving standard error $\\sqrt{3.6} \\approx 1.90$.",
+          "Estimated total: $N\\bar{y} = 1000 \\times 50 = 50{,}000$ thousand rupees, with standard error $1000 \\times 1.90 \\approx 1{,}897$.",
+          "Now suppose the outlets form two strata: $N_1 = 600$ small outlets with $S_1 = 10$ and $N_2 = 400$ large outlets with $S_2 = 30$.",
+          "Proportional allocation: $n_1 = 60$, $n_2 = 40$. Neyman: $N_1S_1 = 6000$, $N_2S_2 = 12000$, total 18000, so $n_1 = 100 \\times 6000/18000 \\approx 33$ and $n_2 \\approx 67$.",
+          "Neyman allocation sends two-thirds of the sample to the large, more variable outlets."
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Most survey problems we see are design problems: an incomplete frame, an unplanned convenience sample, or a sample too small for the subgroup comparisons the client actually needs. We help clients build or audit the frame, choose between stratified, cluster and systematic designs based on cost and variability, and compute sample sizes and design weights in advance. Where good auxiliary data exist, such as registers or past census figures, regression estimation can deliver the same precision with a noticeably smaller and cheaper sample."
+      }
+    ],
+    "source_pages": [
+      58,
+      59
+    ],
+    "related_services": [
+      "survey-sampling-experimental-design",
+      "research-methodology-support"
+    ],
+    "related_courses": [
+      "experimental-design-sampling",
+      "research-methodology-latex"
+    ],
+    "order": 11,
+    "status": "published"
+  },
+  {
+    "slug": "design-of-experiments",
+    "title": "Design of Experiments: From Randomisation to Factorial Designs",
+    "category": "Research",
+    "summary": "A well-designed experiment lets you attribute differences in a response to the factors you deliberately changed rather than to noise or confounding. This article covers the three principles of design, the classical CRD, RBD and Latin square layouts, and factorial, fractional factorial and split-plot experiments.",
+    "tags": [
+      "design of experiments",
+      "anova",
+      "factorial designs",
+      "randomisation",
+      "blocking"
+    ],
+    "reading_minutes": 5,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "An experiment is a planned intervention: the analyst chooses which treatments are applied to which experimental units and then measures a response. The value of a designed experiment, compared with passively collected data, is that the design itself controls for alternative explanations. If the plan is sound, a significant difference between treatments can be read as a causal effect; if it is not, no amount of later analysis can fully rescue it."
+      },
+      {
+        "type": "heading",
+        "text": "The three basic principles"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Randomisation — treatments are allocated to units by a chance mechanism. This protects against systematic bias from unrecorded variables and justifies the probability statements made in the analysis of variance.",
+          "Replication — each treatment is applied to more than one unit. Replication provides an estimate of experimental error and improves precision, since the standard error of a treatment mean is $\\sigma/\\sqrt{r}$ for $r$ replicates.",
+          "Local control (blocking) — units are grouped into homogeneous blocks (plots of similar soil, batches of the same raw material, patients of similar age) so that block-to-block variation is removed from the error term."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Good practice also includes stating the objective and response clearly, choosing factor levels that span the region of interest, and deciding the analysis before the data are collected."
+      },
+      {
+        "type": "heading",
+        "text": "Completely randomised design (CRD)"
+      },
+      {
+        "type": "paragraph",
+        "text": "In a CRD all $N$ units are treated as homogeneous and the $t$ treatments are assigned entirely at random, with $r_i$ units on treatment $i$. It is the simplest and most flexible layout, suited to laboratory settings where units really are alike. The model is the one-way ANOVA model:"
+      },
+      {
+        "type": "formula",
+        "tex": "y_{ij} = \\mu + \\tau_i + \\varepsilon_{ij}, \\quad \\varepsilon_{ij} \\sim N(0, \\sigma^2)",
+        "caption": "CRD model: overall mean, treatment effect, random error"
+      },
+      {
+        "type": "heading",
+        "text": "Randomised block design (RBD)"
+      },
+      {
+        "type": "paragraph",
+        "text": "When units differ systematically, they are grouped into $b$ blocks of $t$ units each, and every treatment appears once in every block, randomised separately within each block. Block differences are removed from the error sum of squares, which usually makes the test of treatments more sensitive."
+      },
+      {
+        "type": "formula",
+        "tex": "y_{ij} = \\mu + \\tau_i + \\beta_j + \\varepsilon_{ij}, \\quad i = 1,\\dots,t,\\; j = 1,\\dots,b",
+        "caption": "RBD model with treatment effect $\\tau_i$ and block effect $\\beta_j$"
+      },
+      {
+        "type": "heading",
+        "text": "Latin square design (LSD)"
+      },
+      {
+        "type": "paragraph",
+        "text": "A Latin square controls two sources of nuisance variation at once, such as rows and columns of a field or day and operator in a laboratory. With $t$ treatments, the layout is a $t \\times t$ grid in which each treatment occurs exactly once in each row and each column. The model adds a row effect $\\rho_j$ and a column effect $\\gamma_k$: $y_{ijk} = \\mu + \\rho_j + \\gamma_k + \\tau_i + \\varepsilon_{ijk}$. The price is a restriction that the number of rows, columns and treatments must be equal, and the error degrees of freedom, $(t-1)(t-2)$, are small for small $t$."
+      },
+      {
+        "type": "paragraph",
+        "text": "The relative efficiency of one design over another compares their error mean squares, for example how many CRD replicates would be needed to match the precision of an RBD. When a single observation is lost in an RBD or LSD, the classical approach estimates the missing value by minimising the error sum of squares, then reduces the error degrees of freedom by one before completing the ANOVA."
+      },
+      {
+        "type": "heading",
+        "text": "Factorial experiments"
+      },
+      {
+        "type": "paragraph",
+        "text": "A factorial experiment studies several factors simultaneously by running every combination of their levels. In a $2^k$ design each of $k$ factors has a low and high level. Factorial designs are more efficient than changing one factor at a time and, crucially, they reveal interactions — situations where the effect of one factor depends on the level of another."
+      },
+      {
+        "type": "formula",
+        "tex": "A = \\frac{1}{2n}\\left[ a + ab - b - (1) \\right], \\qquad AB = \\frac{1}{2n}\\left[ ab + (1) - a - b \\right]",
+        "caption": "Main effect of A and AB interaction in a $2^2$ design with $n$ replicates (treatment totals in Yates notation)"
+      },
+      {
+        "type": "paragraph",
+        "text": "The same contrast logic extends to the $2^3$ design with factors A, B, C: seven effects (A, B, C, AB, AC, BC, ABC) are each estimated by a contrast of the eight treatment totals divided by $4n$, and each carries one degree of freedom with sum of squares equal to the contrast squared divided by $8n$."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: a 2² factorial",
+        "text": "A process engineer varies temperature (A) and catalyst (B) at two levels, with one run per combination. Yields are (1) = 20, a = 30, b = 24, ab = 40.",
+        "steps": [
+          "Main effect of A: $[(30 + 40) - (24 + 20)]/2 = (70 - 44)/2 = 13$.",
+          "Main effect of B: $[(24 + 40) - (30 + 20)]/2 = (64 - 50)/2 = 7$.",
+          "Interaction AB: $[(40 + 20) - (30 + 24)]/2 = (60 - 54)/2 = 3$.",
+          "Interpretation: raising temperature adds about 13 units of yield on average; the positive interaction means the temperature gain is larger when the catalyst is at its high level (16 versus 10)."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Fractional factorial and split-plot designs"
+      },
+      {
+        "type": "paragraph",
+        "text": "Full factorials grow quickly: seven two-level factors need $2^7 = 128$ runs. A fractional factorial such as a $2^{7-4}$ design runs a carefully chosen subset, deliberately aliasing high-order interactions (which are usually negligible) with main effects. Such designs are ideal for screening many factors to find the vital few."
+      },
+      {
+        "type": "paragraph",
+        "text": "A split-plot design arises when some factors are hard to change. Levels of the hard-to-change factor are applied to large whole plots, and levels of the easy factor to sub-plots within them. The analysis therefore has two error terms: whole-plot error for the hard factor and a smaller sub-plot error for the easy factor and the interaction."
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Design",
+          "Controls",
+          "Best used when"
+        ],
+        "rows": [
+          [
+            "CRD",
+            "Nothing beyond randomisation",
+            "Units are homogeneous"
+          ],
+          [
+            "RBD",
+            "One nuisance source",
+            "Units fall into natural groups"
+          ],
+          [
+            "Latin square",
+            "Two nuisance sources",
+            "Rows and columns both matter, $t$ moderate"
+          ],
+          [
+            "Factorial",
+            "Several factors jointly",
+            "Interactions are of interest"
+          ],
+          [
+            "Split-plot",
+            "Hard-to-change factors",
+            "Randomisation is restricted in practice"
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "We use these designs in agronomy trials, manufacturing process optimisation, A/B and multivariate tests for digital products, and clinical or behavioural studies. The most common client problem is not the analysis but the plan: no blocking for an obvious nuisance factor, too few replicates to detect the effect that matters, or factors changed one at a time. A short design review before data collection — power, layout and randomisation scheme — is usually the most valuable hour of an experimental project."
+      }
+    ],
+    "source_pages": [
+      60,
+      61
+    ],
+    "related_services": [
+      "survey-sampling-experimental-design",
+      "research-methodology-support",
+      "statistical-analysis"
+    ],
+    "related_courses": [
+      "experimental-design-sampling",
+      "statistical-inference-hypothesis-testing"
+    ],
+    "order": 12,
+    "status": "published"
+  },
+  {
+    "slug": "principal-components-and-factor-analysis",
+    "title": "Principal Components and Factor Analysis",
+    "category": "Statistics",
+    "summary": "Multivariate data are summarised by a mean vector and a covariance matrix, and principal component analysis rotates the data so that a few new variables carry most of the variance. This article explains the multivariate normal model, PCA through eigen-decomposition, the orthogonal factor model and how cluster analysis fits alongside them.",
+    "tags": [
+      "multivariate analysis",
+      "pca",
+      "factor analysis",
+      "eigenvalues",
+      "cluster analysis"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Most real datasets record several variables on each unit: a customer has spend, visit frequency and basket size; a patient has a panel of blood measurements. Multivariate analysis treats each observation as a vector $\\mathbf{x}_i \\in \\mathbb{R}^p$ and studies the variables jointly, including the way they move together."
+      },
+      {
+        "type": "heading",
+        "text": "Summary statistics for multivariate data"
+      },
+      {
+        "type": "paragraph",
+        "text": "For $n$ observations the sample mean vector and sample covariance matrix are"
+      },
+      {
+        "type": "formula",
+        "tex": "\\bar{\\mathbf{x}} = \\frac{1}{n}\\sum_{i=1}^{n} \\mathbf{x}_i, \\qquad \\mathbf{S} = \\frac{1}{n-1}\\sum_{i=1}^{n} (\\mathbf{x}_i - \\bar{\\mathbf{x}})(\\mathbf{x}_i - \\bar{\\mathbf{x}})^{\\top}",
+        "caption": "Sample mean vector and covariance matrix"
+      },
+      {
+        "type": "paragraph",
+        "text": "The diagonal of $\\mathbf{S}$ holds variances and the off-diagonal entries hold covariances. Dividing each covariance by the product of the two standard deviations gives the correlation matrix $\\mathbf{R}$, whose entries $r_{jk} = s_{jk}/\\sqrt{s_{jj}s_{kk}}$ are free of measurement units. Both matrices are symmetric and positive semi-definite."
+      },
+      {
+        "type": "heading",
+        "text": "The multivariate normal distribution"
+      },
+      {
+        "type": "paragraph",
+        "text": "The workhorse model for continuous multivariate data is the $p$-variate normal $N_p(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})$ with density"
+      },
+      {
+        "type": "formula",
+        "tex": "f(\\mathbf{x}) = \\frac{1}{(2\\pi)^{p/2} \\lvert \\boldsymbol{\\Sigma} \\rvert^{1/2}} \\exp\\left( -\\tfrac{1}{2} (\\mathbf{x} - \\boldsymbol{\\mu})^{\\top} \\boldsymbol{\\Sigma}^{-1} (\\mathbf{x} - \\boldsymbol{\\mu}) \\right)",
+        "caption": "Multivariate normal density"
+      },
+      {
+        "type": "paragraph",
+        "text": "Contours of constant density are ellipsoids centred at $\\boldsymbol{\\mu}$ whose axes point along the eigenvectors of $\\boldsymbol{\\Sigma}$. Marginals and conditionals of a multivariate normal are again normal, which makes it the basis of many inference procedures such as Hotelling's $T^2$."
+      },
+      {
+        "type": "heading",
+        "text": "Principal component analysis"
+      },
+      {
+        "type": "paragraph",
+        "text": "PCA looks for orthogonal directions that capture as much variance as possible. The first principal component is the unit vector $\\mathbf{e}_1$ that maximises $\\operatorname{Var}(\\mathbf{e}_1^{\\top}\\mathbf{x})$; the second maximises variance subject to being orthogonal to the first, and so on. The solution is the eigen-decomposition of the covariance (or correlation) matrix:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{S} = \\mathbf{E}\\,\\boldsymbol{\\Lambda}\\,\\mathbf{E}^{\\top}, \\qquad y_k = \\mathbf{e}_k^{\\top}(\\mathbf{x} - \\bar{\\mathbf{x}}), \\qquad \\operatorname{Var}(y_k) = \\lambda_k",
+        "caption": "Eigenvectors give the loadings; eigenvalues give the component variances"
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{PVE}_k = \\frac{\\lambda_k}{\\lambda_1 + \\lambda_2 + \\cdots + \\lambda_p}",
+        "caption": "Proportion of variance explained by component $k$"
+      },
+      {
+        "type": "paragraph",
+        "text": "Because the total variance equals the trace of $\\mathbf{S}$, the proportions sum to one. Use the correlation matrix when variables are on very different scales; otherwise a variable measured in large units dominates the first component."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: PCA of two variables",
+        "text": "Suppose two standardised-scale scores have covariance matrix $\\mathbf{S} = \\begin{bmatrix} 4 & 2 \\\\ 2 & 3 \\end{bmatrix}$.",
+        "steps": [
+          "The trace is $4 + 3 = 7$ and the determinant is $4 \\cdot 3 - 2 \\cdot 2 = 8$.",
+          "Eigenvalues solve $\\lambda^2 - 7\\lambda + 8 = 0$, so $\\lambda = (7 \\pm \\sqrt{17})/2$, giving $\\lambda_1 \\approx 5.562$ and $\\lambda_2 \\approx 1.438$.",
+          "From $(4 - 5.562)e_1 + 2e_2 = 0$ we get $e_2 \\approx 0.781\\,e_1$; normalising gives $\\mathbf{e}_1 \\approx (0.788,\\ 0.615)$.",
+          "PVE of the first component is $5.562/7 \\approx 0.795$: one weighted average of the two scores carries about 79.5% of the total variance."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Choosing the number of components"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Scree plot — plot $\\lambda_k$ against $k$ and keep the components before the curve flattens into an 'elbow'.",
+          "Cumulative variance — keep enough components to explain a target share, such as 80–90% of total variance.",
+          "Kaiser rule — with a correlation matrix, keep components whose eigenvalue exceeds 1.",
+          "Biplot — display observations as points and variables as arrows on the first two components to see clusters and which variables drive them."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "The orthogonal factor model"
+      },
+      {
+        "type": "paragraph",
+        "text": "Factor analysis is a model rather than a rotation. It assumes the $p$ observed variables are driven by $m < p$ unobserved common factors plus variable-specific noise:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{x} - \\boldsymbol{\\mu} = \\mathbf{L}\\mathbf{F} + \\boldsymbol{\\varepsilon}, \\qquad \\boldsymbol{\\Sigma} = \\mathbf{L}\\mathbf{L}^{\\top} + \\boldsymbol{\\Psi}",
+        "caption": "Orthogonal factor model: loadings $\\mathbf{L}$, factors $\\mathbf{F}$, specific variances $\\boldsymbol{\\Psi}$"
+      },
+      {
+        "type": "paragraph",
+        "text": "Here the factors are uncorrelated with unit variance and $\\boldsymbol{\\Psi}$ is diagonal. The communality of variable $j$, $h_j^2 = \\sum_k \\ell_{jk}^2$, is the share of its variance explained by the common factors. Loadings are only identified up to rotation, so rotations such as varimax are used to obtain interpretable factors."
+      },
+      {
+        "type": "heading",
+        "text": "Cluster analysis"
+      },
+      {
+        "type": "paragraph",
+        "text": "Where PCA and factor analysis reduce variables, cluster analysis groups observations. It requires a measure of similarity or distance — Euclidean or Mahalanobis distance for continuous data, matching or Jaccard coefficients for binary attributes. Hierarchical methods (single, complete and average linkage) build a dendrogram, while partitioning methods such as $k$-means search for a fixed number of groups. Running clustering on a handful of leading principal components often gives more stable groups than clustering on many correlated raw variables."
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "We use PCA to compress survey batteries and sensor panels, to remove multicollinearity before regression, and as the first step in customer segmentation, where clusters are formed on component scores and then profiled on the original variables. Factor analysis is our tool of choice for validating questionnaires and building composite indices. The deliverable is always the interpretation: what each component or factor means in business terms, and how stable it is across samples."
+      }
+    ],
+    "source_pages": [
+      68,
+      69
+    ],
+    "related_services": [
+      "multivariate-analysis-segmentation",
+      "statistical-analysis",
+      "business-analytics-data-mining"
+    ],
+    "related_courses": [
+      "multivariate-statistical-analysis",
+      "mathematics-for-data-science",
+      "machine-learning-fundamentals"
+    ],
+    "order": 13,
+    "status": "published"
+  },
+  {
+    "slug": "survival-analysis-kaplan-meier",
+    "title": "Survival Analysis and the Kaplan–Meier Estimator",
+    "category": "Statistics",
+    "summary": "Survival analysis studies the time until an event occurs, while correctly handling subjects whose event has not yet been observed. This article defines the survival, hazard and cumulative hazard functions, works through a Kaplan–Meier table by hand, and connects lifetime models to system reliability.",
+    "tags": [
+      "survival analysis",
+      "kaplan-meier",
+      "hazard function",
+      "censoring",
+      "reliability"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Time-to-event data appear wherever we wait for something to happen: a patient's relapse, a machine component's failure, a customer's cancellation. Two features make them special. Times are positive and usually skewed, and many subjects are censored — the study ends, or they drop out, before their event is seen. Ignoring censored subjects, or treating their censoring time as an event time, both bias the results."
+      },
+      {
+        "type": "heading",
+        "text": "Survival, hazard and cumulative hazard"
+      },
+      {
+        "type": "paragraph",
+        "text": "For a lifetime $T$ with density $f(t)$ and distribution function $F(t)$, three functions describe the same distribution from different angles:"
+      },
+      {
+        "type": "formula",
+        "tex": "S(t) = P(T > t) = 1 - F(t), \\qquad h(t) = \\lim_{\\Delta t \\to 0} \\frac{P(t \\le T < t + \\Delta t \\mid T \\ge t)}{\\Delta t} = \\frac{f(t)}{S(t)}",
+        "caption": "Survival function and hazard (instantaneous failure rate)"
+      },
+      {
+        "type": "formula",
+        "tex": "H(t) = \\int_0^t h(u)\\,du, \\qquad S(t) = \\exp\\left( -H(t) \\right)",
+        "caption": "Cumulative hazard and its link to survival"
+      },
+      {
+        "type": "paragraph",
+        "text": "The hazard is the most interpretable of the three: it is the risk of failing in the next instant for a unit that has survived to $t$. A hazard that increases with age is called IFR (increasing failure rate, wear-out); a decreasing one is DFR (decreasing failure rate, early defects being weeded out). Many products and populations follow a bath-tub hazard: high infant mortality, a long flat period of random failures, then rising wear-out."
+      },
+      {
+        "type": "heading",
+        "text": "Types of censoring"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Right censoring — the event is known only to occur after the last observation time (the most common case).",
+          "Type I censoring — the study stops at a fixed time; the number of failures observed is random.",
+          "Type II censoring — the study stops after a fixed number of failures; the stopping time is random.",
+          "Left and interval censoring — the event is known only to have happened before a time, or between two inspection times."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "The Kaplan–Meier product-limit estimator"
+      },
+      {
+        "type": "paragraph",
+        "text": "Let $t_1 < t_2 < \\dots$ be the distinct observed event times, $d_j$ the number of events at $t_j$, and $n_j$ the number still at risk just before $t_j$ (not yet failed and not yet censored). The Kaplan–Meier estimator multiplies conditional survival probabilities:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\hat{S}(t) = \\prod_{t_j \\le t} \\left( 1 - \\frac{d_j}{n_j} \\right)",
+        "caption": "Kaplan–Meier product-limit estimator"
+      },
+      {
+        "type": "paragraph",
+        "text": "Censored subjects contribute to the risk sets up to their censoring time and then leave quietly, which is exactly how the method uses partial information without bias (under independent censoring). The closely related Nelson–Aalen estimator targets the cumulative hazard: $\\hat{H}(t) = \\sum_{t_j \\le t} d_j / n_j$."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: Kaplan–Meier by hand",
+        "text": "Eight components are tested. Failure times (months) are 2, 4, 4, 6 and 9; units removed without failing at 3, 7 and 10 are censored (written 3+, 7+, 10+).",
+        "steps": [
+          "At $t = 2$: $n = 8$, $d = 1$, so $\\hat{S} = 7/8 = 0.875$.",
+          "The unit censored at 3 leaves the risk set. At $t = 4$: $n = 6$, $d = 2$, so $\\hat{S} = 0.875 \\times 4/6 \\approx 0.583$.",
+          "At $t = 6$: $n = 4$, $d = 1$, so $\\hat{S} = 0.583 \\times 3/4 = 0.4375$.",
+          "The unit censored at 7 leaves. At $t = 9$: $n = 2$, $d = 1$, so $\\hat{S} = 0.4375 \\times 1/2 \\approx 0.219$.",
+          "Nelson–Aalen at $t = 9$: $\\hat{H} = 1/8 + 2/6 + 1/4 + 1/2 \\approx 1.208$, and $\\exp(-1.208) \\approx 0.299$, a slightly higher survival estimate than Kaplan–Meier, as is typical."
+        ]
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Time $t_j$",
+          "At risk $n_j$",
+          "Events $d_j$",
+          "$1 - d_j/n_j$",
+          "$\\hat{S}(t_j)$"
+        ],
+        "rows": [
+          [
+            "2",
+            "8",
+            "1",
+            "0.875",
+            "0.875"
+          ],
+          [
+            "4",
+            "6",
+            "2",
+            "0.667",
+            "0.583"
+          ],
+          [
+            "6",
+            "4",
+            "1",
+            "0.750",
+            "0.438"
+          ],
+          [
+            "9",
+            "2",
+            "1",
+            "0.500",
+            "0.219"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Lifetime distributions"
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Distribution",
+          "Hazard shape",
+          "Typical use"
+        ],
+        "rows": [
+          [
+            "Exponential",
+            "Constant $h(t) = \\lambda$",
+            "Random failures, memoryless processes"
+          ],
+          [
+            "Weibull",
+            "$h(t) = \\frac{k}{\\theta}\\left(\\frac{t}{\\theta}\\right)^{k-1}$: DFR if $k<1$, IFR if $k>1$",
+            "Fatigue, wear-out, general reliability"
+          ],
+          [
+            "Gamma",
+            "Monotone, depends on shape",
+            "Waiting time for several shocks"
+          ],
+          [
+            "Lognormal",
+            "Rises then falls",
+            "Repair times, some disease progressions"
+          ],
+          [
+            "Rayleigh",
+            "Linear increase",
+            "Weibull with $k = 2$"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "To compare survival curves between groups, the log-rank test compares observed and expected events in each group at every event time. To adjust for covariates, the Cox proportional hazards model writes $h(t \\mid \\mathbf{x}) = h_0(t)\\exp(\\boldsymbol{\\beta}^{\\top}\\mathbf{x})$, leaving the baseline hazard unspecified."
+      },
+      {
+        "type": "heading",
+        "text": "System reliability"
+      },
+      {
+        "type": "paragraph",
+        "text": "If component $i$ survives a mission with reliability $p_i$ and components fail independently, a series system (all must work) has reliability $\\prod p_i$, a parallel system (any one suffices) has $1 - \\prod (1 - p_i)$, and a $k$-out-of-$n$ system of identical components has reliability $\\sum_{j=k}^{n} \\binom{n}{j} p^j (1-p)^{n-j}$. For example, a 2-out-of-3 system with $p = 0.9$ has reliability $3(0.81)(0.1) + 0.729 = 0.972$."
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Kaplan–Meier curves and log-rank tests are the standard first look at clinical follow-up data, warranty claims and customer churn. In consulting work we pair them with Weibull fits to estimate B10 lives and warranty costs, or with Cox models to quantify how a covariate (a treatment, a supplier, a pricing plan) shifts the hazard. The most frequent mistake we correct is dropping censored records, which makes survival look far worse than it is."
+      }
+    ],
+    "source_pages": [
+      72,
+      73
+    ],
+    "related_services": [
+      "survival-reliability-analysis",
+      "statistical-analysis"
+    ],
+    "related_courses": [
+      "survival-reliability-analysis",
+      "statistical-inference-hypothesis-testing"
+    ],
+    "order": 14,
+    "status": "published"
+  },
+  {
+    "slug": "bias-variance-and-regularisation",
+    "title": "The Bias–Variance Trade-off and Regularisation",
+    "category": "Machine Learning",
+    "summary": "A model is only useful if it performs well on data it has not seen, and the gap between training and test performance is governed by the balance between bias and variance. This article explains over- and underfitting, the bias–variance decomposition, cross-validation, ridge and lasso penalties, and early stopping.",
+    "tags": [
+      "machine learning",
+      "overfitting",
+      "cross-validation",
+      "ridge regression",
+      "lasso"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Fitting a model to data is easy; fitting one that generalises is the real task. A model's training error is measured on the data used to fit it, while its generalisation error is the expected error on fresh data from the same population. Training error almost always falls as a model becomes more flexible, but generalisation error typically falls and then rises again. Understanding why is the key to choosing model complexity."
+      },
+      {
+        "type": "heading",
+        "text": "Underfitting and overfitting"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Underfitting — the model is too simple to capture the structure (a straight line through clearly curved data). Both training and test errors are high.",
+          "Overfitting — the model is so flexible that it learns noise peculiar to the training sample (a high-degree polynomial that passes through every point). Training error is very low but test error is high.",
+          "A good fit — complex enough to capture the signal, constrained enough to ignore the noise."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "The bias–variance decomposition"
+      },
+      {
+        "type": "paragraph",
+        "text": "Suppose $y = f(x) + \\varepsilon$ with $E[\\varepsilon] = 0$ and $\\operatorname{Var}(\\varepsilon) = \\sigma^2$, and let $\\hat{f}$ be a model trained on a random sample. At a fixed input $x_0$, the expected squared prediction error splits into three parts:"
+      },
+      {
+        "type": "formula",
+        "tex": "E\\left[ (y_0 - \\hat{f}(x_0))^2 \\right] = \\underbrace{\\left( E[\\hat{f}(x_0)] - f(x_0) \\right)^2}_{\\text{bias}^2} + \\underbrace{\\operatorname{Var}\\left( \\hat{f}(x_0) \\right)}_{\\text{variance}} + \\underbrace{\\sigma^2}_{\\text{irreducible}}",
+        "caption": "Bias–variance decomposition of expected test error"
+      },
+      {
+        "type": "paragraph",
+        "text": "Bias measures how far the average model (over many training samples) is from the truth; variance measures how much the fitted model jumps around from sample to sample. Flexible models have low bias and high variance; rigid ones have the opposite. The irreducible term $\\sigma^2$ is a floor no model can beat."
+      },
+      {
+        "type": "heading",
+        "text": "Validation sets and cross-validation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Because generalisation error cannot be computed directly, we estimate it by holding data back. The simplest approach splits the data into training, validation (for tuning choices) and test (for a final, untouched estimate) sets. When data are limited, $k$-fold cross-validation splits the data into $k$ folds, trains on $k-1$ folds, evaluates on the remaining one, and averages:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\text{CV}_{(k)} = \\frac{1}{k}\\sum_{j=1}^{k} \\text{MSE}_j",
+        "caption": "k-fold cross-validation estimate"
+      },
+      {
+        "type": "paragraph",
+        "text": "Values of $k$ between 5 and 10 are common; $k = n$ gives leave-one-out cross-validation. Any data-dependent step, including scaling and feature selection, must be done inside each fold to avoid leaking information from the held-out data."
+      },
+      {
+        "type": "heading",
+        "text": "Regularisation: ridge and lasso"
+      },
+      {
+        "type": "paragraph",
+        "text": "Regularisation reduces variance by penalising large coefficients, deliberately accepting a little bias in return. For linear regression with $n$ observations and coefficients $\\boldsymbol{\\beta}$:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\hat{\\boldsymbol{\\beta}}_{\\text{ridge}} = \\arg\\min_{\\boldsymbol{\\beta}} \\; \\lVert \\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta} \\rVert_2^2 + \\lambda \\lVert \\boldsymbol{\\beta} \\rVert_2^2 = (\\mathbf{X}^{\\top}\\mathbf{X} + \\lambda \\mathbf{I})^{-1}\\mathbf{X}^{\\top}\\mathbf{y}",
+        "caption": "Ridge (Tikhonov, L2) regression"
+      },
+      {
+        "type": "formula",
+        "tex": "\\hat{\\boldsymbol{\\beta}}_{\\text{lasso}} = \\arg\\min_{\\boldsymbol{\\beta}} \\; \\lVert \\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta} \\rVert_2^2 + \\lambda \\sum_{j=1}^{p} \\lvert \\beta_j \\rvert",
+        "caption": "Lasso (L1) regression"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ridge shrinks all coefficients smoothly towards zero and stabilises the solution when predictors are highly correlated (the added $\\lambda\\mathbf{I}$ makes the matrix invertible). The lasso's absolute-value penalty can set coefficients exactly to zero, so it also performs variable selection. Predictors should be standardised first so that the penalty treats them equally, and the intercept is normally not penalised."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: shrinkage and cross-validation",
+        "text": "Fit a no-intercept line $y = \\beta x$ to the points $(1, 2), (2, 4), (3, 7)$, then compare with ridge.",
+        "steps": [
+          "Compute $\\sum x_i y_i = 2 + 8 + 21 = 31$ and $\\sum x_i^2 = 1 + 4 + 9 = 14$.",
+          "Least squares: $\\hat{\\beta} = 31/14 \\approx 2.214$.",
+          "Ridge with $\\lambda = 2$: $\\hat{\\beta} = 31/(14 + 2) = 31/16 \\approx 1.938$ — pulled towards zero.",
+          "To choose $\\lambda$, run 5-fold cross-validation for each candidate. If the fold MSEs for one candidate are 3.2, 2.8, 3.5, 3.0 and 2.5, its CV estimate is $15.0/5 = 3.0$; the candidate with the lowest CV estimate is selected."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Hyperparameters and early stopping"
+      },
+      {
+        "type": "paragraph",
+        "text": "Quantities such as $\\lambda$, tree depth, the number of neighbours in $k$-NN or the number of hidden units are hyperparameters: they are not learned by the fitting algorithm but chosen by validation. In iterative training, notably neural networks fitted by gradient descent, early stopping is itself a regulariser: monitor the validation loss after each epoch and keep the weights from the epoch where it was lowest, before the network begins to memorise the training set. Dropout and weight decay play similar roles in deep learning."
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Symptom",
+          "Likely problem",
+          "Typical remedy"
+        ],
+        "rows": [
+          [
+            "High train and test error",
+            "High bias",
+            "Richer features, more flexible model, less regularisation"
+          ],
+          [
+            "Low train, high test error",
+            "High variance",
+            "More data, stronger regularisation, simpler model, early stopping"
+          ],
+          [
+            "Both low and close",
+            "Good fit",
+            "Confirm on the untouched test set"
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "When we audit a client's predictive model, the first check is whether the reported accuracy was measured on data the model never saw, and whether preprocessing leaked across folds. Regularised regression is often our default for wide datasets — marketing mix, credit scoring, sensor features — because it is stable, interpretable and easy to tune with cross-validation. Learning curves of training versus validation error are a quick, persuasive way to show stakeholders whether more data or a different model will help."
+      }
+    ],
+    "source_pages": [
+      37,
+      38,
+      41,
+      42,
+      105
+    ],
+    "related_services": [
+      "machine-learning-consulting",
+      "regression-predictive-modelling"
+    ],
+    "related_courses": [
+      "machine-learning-fundamentals",
+      "regression-predictive-modelling",
+      "deep-learning-advanced-ml"
+    ],
+    "order": 15,
+    "status": "published"
+  },
+  {
+    "slug": "gradient-descent",
+    "title": "Gradient Descent: How Models Learn",
+    "category": "Machine Learning",
+    "summary": "Gradient descent is the iterative optimisation method behind most modern model fitting, from linear regression to deep neural networks. This article explains the update rule, the role of the learning rate, the least-mean-squares rule, batch versus stochastic and mini-batch variants, and practical convergence considerations.",
+    "tags": [
+      "optimisation",
+      "gradient descent",
+      "machine learning",
+      "learning rate",
+      "neural networks"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Training a model usually means minimising a loss function $J(\\mathbf{w})$ that measures how badly the model with parameters $\\mathbf{w}$ fits the data. For a handful of models, such as ordinary least squares, the minimiser has a closed form. For most others — logistic regression, neural networks, many custom objectives — it does not, and we search for it iteratively. Gradient descent is the simplest and most widely used such search."
+      },
+      {
+        "type": "heading",
+        "text": "The gradient and the update rule"
+      },
+      {
+        "type": "paragraph",
+        "text": "The gradient $\\nabla J(\\mathbf{w})$ is the vector of partial derivatives $\\partial J / \\partial w_j$. It points in the direction in which $J$ increases fastest, so a small step in the opposite direction decreases the loss. Gradient descent repeats that step:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{w}^{(t+1)} = \\mathbf{w}^{(t)} - \\eta \\, \\nabla J\\left( \\mathbf{w}^{(t)} \\right)",
+        "caption": "Gradient descent update with learning rate $\\eta > 0$"
+      },
+      {
+        "type": "paragraph",
+        "text": "The learning rate $\\eta$ sets the step size. Too small and progress is painfully slow; too large and the iterates overshoot the minimum, oscillate or diverge. Iteration stops when the gradient is nearly zero, when the loss stops improving, or after a fixed budget of steps."
+      },
+      {
+        "type": "heading",
+        "text": "Least squares and the LMS rule"
+      },
+      {
+        "type": "paragraph",
+        "text": "For linear regression with predictions $\\hat{y}_i = \\mathbf{w}^{\\top}\\mathbf{x}_i$, the sum of squared errors and its gradient are"
+      },
+      {
+        "type": "formula",
+        "tex": "J(\\mathbf{w}) = \\frac{1}{2}\\sum_{i=1}^{n} \\left( y_i - \\mathbf{w}^{\\top}\\mathbf{x}_i \\right)^2, \\qquad \\nabla J(\\mathbf{w}) = -\\sum_{i=1}^{n} \\left( y_i - \\mathbf{w}^{\\top}\\mathbf{x}_i \\right)\\mathbf{x}_i",
+        "caption": "Sum of squared errors and its gradient (the factor 1/2 tidies the derivative)"
+      },
+      {
+        "type": "paragraph",
+        "text": "Updating with one observation at a time gives the least-mean-squares (LMS) or Widrow–Hoff rule, which nudges the weights in proportion to the current error and the input:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{w} \\leftarrow \\mathbf{w} + \\eta \\left( y_i - \\mathbf{w}^{\\top}\\mathbf{x}_i \\right)\\mathbf{x}_i",
+        "caption": "LMS update for a single training example"
+      },
+      {
+        "type": "paragraph",
+        "text": "For instance, with weight $w = 0.5$, input $x = 2$, target $y = 5$ and $\\eta = 0.05$, the prediction is 1, the error is 4, and the new weight is $0.5 + 0.05 \\times 4 \\times 2 = 0.9$."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: minimising a quadratic",
+        "text": "Minimise $J(w) = (w - 3)^2$, whose gradient is $J'(w) = 2(w - 3)$, starting from $w_0 = 0$ with $\\eta = 0.1$.",
+        "steps": [
+          "Step 1: $w_1 = 0 - 0.1 \\times 2(0 - 3) = 0 + 0.6 = 0.6$.",
+          "Step 2: $w_2 = 0.6 - 0.1 \\times 2(0.6 - 3) = 0.6 + 0.48 = 1.08$.",
+          "Step 3: $w_3 = 1.08 - 0.1 \\times 2(1.08 - 3) = 1.08 + 0.384 = 1.464$.",
+          "In general $w_t - 3 = (1 - 2\\eta)(w_{t-1} - 3)$, so $w_t = 3 - 3(0.8)^t$, which converges to the minimiser 3.",
+          "The iteration converges only if $\\lvert 1 - 2\\eta \\rvert < 1$, i.e. $0 < \\eta < 1$. With $\\eta = 1.1$ the factor is $-1.2$ and the iterates oscillate with growing amplitude."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Batch, stochastic and mini-batch"
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Variant",
+          "Gradient computed from",
+          "Characteristics"
+        ],
+        "rows": [
+          [
+            "Batch",
+            "All $n$ observations",
+            "Smooth, exact steps; expensive for large $n$"
+          ],
+          [
+            "Stochastic (SGD)",
+            "One random observation",
+            "Cheap, noisy steps; can escape shallow local minima"
+          ],
+          [
+            "Mini-batch",
+            "A random subset (e.g. 32–512)",
+            "Balances noise and cost; exploits vectorised hardware"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "One full pass through the training data is an epoch. Shuffling the data between epochs prevents the order of observations from biasing stochastic updates. With SGD the noise in each step means the learning rate is usually decreased over time so that the iterates settle down."
+      },
+      {
+        "type": "heading",
+        "text": "Convergence considerations"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Convexity — for convex losses like least squares or logistic loss, any minimum found is global. Neural network losses are non-convex, and gradient descent finds a good local solution rather than a guaranteed global one.",
+          "Feature scaling — when features are on very different scales the loss surface becomes a long narrow valley and gradient descent zig-zags. Standardising inputs helps markedly.",
+          "Conditioning — for a quadratic loss the safe learning rate is limited by the largest curvature: $\\eta < 2/L$, where $L$ is the largest eigenvalue of the Hessian.",
+          "Stopping rules — monitor validation loss as well as training loss; stopping early also acts as regularisation."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Momentum and adaptive learning rates"
+      },
+      {
+        "type": "paragraph",
+        "text": "Deep learning practice builds on the basic rule. Momentum accumulates a moving average of past gradients, damping oscillation across a valley and accelerating along it. Adaptive methods such as AdaGrad, RMSProp and Adam give each parameter its own effective learning rate, scaled by the history of its squared gradients, so that rarely updated parameters take larger steps. Adam combines momentum with RMSProp-style scaling and is a common default, although well-tuned SGD with momentum remains competitive."
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Most of the time gradient descent runs inside a library, but understanding it pays off when training misbehaves. In consulting engagements the usual culprits are unscaled features, a learning rate that is too high (loss explodes to NaN) or too low (loss plateaus), and no validation monitoring. A learning-rate sweep on a log scale, standardised inputs and a plot of training and validation loss per epoch solve the large majority of such problems."
+      }
+    ],
+    "source_pages": [
+      37,
+      38,
+      42,
+      106
+    ],
+    "related_services": [
+      "machine-learning-consulting",
+      "mathematical-modelling-numerical-computation"
+    ],
+    "related_courses": [
+      "machine-learning-fundamentals",
+      "deep-learning-advanced-ml",
+      "mathematics-for-data-science"
+    ],
+    "order": 16,
+    "status": "published"
+  },
+  {
+    "slug": "linear-programming-and-simplex",
+    "title": "Linear Programming and the Simplex Method",
+    "category": "Mathematics",
+    "summary": "Linear programming finds the best allocation of limited resources when the objective and constraints are linear. This article covers formulation, the graphical method, the geometry behind the simplex algorithm, duality, and the special structure of transportation and assignment problems.",
+    "tags": [
+      "operations research",
+      "linear programming",
+      "simplex method",
+      "duality",
+      "transportation problem"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A linear programme (LP) chooses values of decision variables to maximise or minimise a linear objective subject to linear constraints. Despite its simplicity, the framework covers product-mix planning, blending, staffing, logistics and budget allocation, and efficient algorithms solve problems with many thousands of variables."
+      },
+      {
+        "type": "heading",
+        "text": "Formulation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every LP has three ingredients: decision variables (what we control), an objective (what we optimise) and constraints (what limits us), plus non-negativity. In matrix form:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\max_{\\mathbf{x}} \\; Z = \\mathbf{c}^{\\top}\\mathbf{x} \\quad \\text{subject to} \\quad \\mathbf{A}\\mathbf{x} \\le \\mathbf{b}, \\quad \\mathbf{x} \\ge \\mathbf{0}",
+        "caption": "Linear programme in canonical (maximisation) form"
+      },
+      {
+        "type": "paragraph",
+        "text": "The quality of the model lies in the formulation: defining variables in sensible units, checking that each constraint is genuinely linear and that every resource limit and policy rule is included."
+      },
+      {
+        "type": "heading",
+        "text": "The graphical method and convexity"
+      },
+      {
+        "type": "paragraph",
+        "text": "With two variables each constraint is a half-plane, and their intersection is the feasible region. This region is a convex set: the line segment joining any two feasible points stays feasible. Because the objective is linear, its contours are parallel lines, and the optimum (if one exists) is attained at a corner point, or extreme point, of the region."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: a product-mix problem",
+        "text": "Maximise $Z = 3x + 5y$ subject to $x \\le 4$, $2y \\le 12$, $3x + 2y \\le 18$, $x, y \\ge 0$.",
+        "steps": [
+          "Corner points of the feasible region: $(0, 0)$, $(4, 0)$, $(4, 3)$, $(2, 6)$ and $(0, 6)$.",
+          "Point $(4, 3)$ comes from $x = 4$ and $3(4) + 2y = 18$; point $(2, 6)$ from $y = 6$ and $3x + 12 = 18$.",
+          "Objective values: 0, 12, 27, 36 and 30 respectively.",
+          "The optimum is $x = 2$, $y = 6$ with $Z = 36$; the second and third constraints are binding, the first has slack 2."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Basic feasible solutions and the simplex method"
+      },
+      {
+        "type": "paragraph",
+        "text": "Adding a slack variable to each $\\le$ constraint turns it into an equation. With $m$ equations and $n$ variables, setting $n - m$ variables to zero and solving for the rest gives a basic solution; if all values are non-negative it is a basic feasible solution (BFS). Algebraically, BFSs correspond exactly to corner points of the feasible region."
+      },
+      {
+        "type": "paragraph",
+        "text": "The simplex method moves from one BFS to an adjacent one that improves the objective. At each iteration it picks an entering variable with a favourable reduced cost, uses the minimum-ratio test to find the leaving variable (keeping the solution feasible), and pivots. When no reduced cost can improve $Z$, the current BFS is optimal. The method also detects unbounded and infeasible problems."
+      },
+      {
+        "type": "paragraph",
+        "text": "When the origin is not feasible (because of $\\ge$ or $=$ constraints), artificial variables provide a starting basis. The Big-M method penalises them in the objective with a very large coefficient $M$; the two-phase method first minimises the sum of artificials to find a feasible basis, then optimises the true objective."
+      },
+      {
+        "type": "heading",
+        "text": "Duality"
+      },
+      {
+        "type": "paragraph",
+        "text": "Every LP (the primal) has a companion dual problem. For the canonical form above, the dual is"
+      },
+      {
+        "type": "formula",
+        "tex": "\\min_{\\mathbf{u}} \\; W = \\mathbf{b}^{\\top}\\mathbf{u} \\quad \\text{subject to} \\quad \\mathbf{A}^{\\top}\\mathbf{u} \\ge \\mathbf{c}, \\quad \\mathbf{u} \\ge \\mathbf{0}",
+        "caption": "Dual linear programme"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{c}^{\\top}\\mathbf{x} \\le \\mathbf{b}^{\\top}\\mathbf{u} \\quad \\text{for all feasible } \\mathbf{x}, \\mathbf{u}",
+        "caption": "Weak duality"
+      },
+      {
+        "type": "paragraph",
+        "text": "Strong duality states that, when both have optimal solutions, the optimal values are equal. The dual variables are shadow prices: the gain in $Z$ per extra unit of each resource. In the example the dual optimum is $\\mathbf{u} = (0,\\ 1.5,\\ 1)$ with $W = 12(1.5) + 18(1) = 36$, matching the primal; the first resource has slack, so its shadow price is zero."
+      },
+      {
+        "type": "heading",
+        "text": "Transportation and assignment problems"
+      },
+      {
+        "type": "paragraph",
+        "text": "The transportation problem ships goods from $m$ sources with supplies $s_i$ to $n$ destinations with demands $d_j$ at unit cost $c_{ij}$, minimising $\\sum_i \\sum_j c_{ij}x_{ij}$. Its structure allows specialised methods:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Initial solution — North-West Corner Rule (simple, ignores costs), Least Cost Method, or Vogel's Approximation Method (uses penalty differences and usually starts close to optimal).",
+          "Optimality test — the MODI (u–v) method computes dual values $u_i + v_j = c_{ij}$ on occupied cells and checks reduced costs $c_{ij} - u_i - v_j$ on empty cells; a negative value signals an improving loop.",
+          "Assignment problem — a special case with one-to-one allocation (workers to jobs), solved efficiently by the Hungarian method of row and column reductions."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Two-person zero-sum games are also closely linked: finding a player's optimal mixed strategy can be written as an LP, and the two players' problems are a primal–dual pair."
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "We build LP models for production planning, distribution networks, workforce rostering and media budget allocation. The solver is rarely the hard part; agreeing on the objective, collecting reliable cost and capacity data, and explaining shadow prices to decision-makers is where the value lies. Sensitivity analysis — how far each cost or capacity can change before the plan changes — is a standard part of our deliverable."
+      }
+    ],
+    "source_pages": [
+      32,
+      33,
+      113
+    ],
+    "related_services": [
+      "operations-research-optimisation",
+      "mathematical-modelling-numerical-computation"
+    ],
+    "related_courses": [
+      "operations-research-decision-modelling",
+      "mathematics-for-data-science"
+    ],
+    "order": 17,
+    "status": "published"
+  },
+  {
+    "slug": "decision-analysis-under-risk",
+    "title": "Decision Analysis Under Uncertainty and Risk",
+    "category": "Mathematics",
+    "summary": "Decision analysis provides a structured way to choose between actions when the outcome depends on states of nature we cannot control. This article compares the standard criteria for decisions under uncertainty, expected monetary value under risk, the value of perfect information, decision trees with Bayesian revision, and Monte Carlo simulation.",
+    "tags": [
+      "decision analysis",
+      "expected value",
+      "decision trees",
+      "bayes theorem",
+      "simulation"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Many business choices — whether to expand capacity, launch a product or commission a survey — share a structure: a set of possible actions, a set of states of nature beyond the decision-maker's control, and a payoff for each action–state pair. Decision analysis makes this structure explicit so that the choice can be argued transparently rather than by intuition alone."
+      },
+      {
+        "type": "heading",
+        "text": "The payoff matrix"
+      },
+      {
+        "type": "paragraph",
+        "text": "Rows are actions $a_i$, columns are states $\\theta_j$, and entries are payoffs $v(a_i, \\theta_j)$, often profits. The running example below is a firm deciding how to respond to uncertain demand. Payoffs are in lakh rupees, with probabilities to be used later."
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Action",
+          "High demand (0.3)",
+          "Medium demand (0.5)",
+          "Low demand (0.2)"
+        ],
+        "rows": [
+          [
+            "Large expansion",
+            "200",
+            "80",
+            "−60"
+          ],
+          [
+            "Small expansion",
+            "120",
+            "70",
+            "10"
+          ],
+          [
+            "No expansion",
+            "30",
+            "30",
+            "30"
+          ]
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Decisions under uncertainty"
+      },
+      {
+        "type": "paragraph",
+        "text": "If no probabilities can be assigned, several standard criteria are available, each encoding a different attitude to risk:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Maximin (Wald, pessimistic) — for each action find the worst payoff and choose the action whose worst case is best.",
+          "Maximax (optimistic) — choose the action with the largest best-case payoff.",
+          "Minimax regret (Savage) — regret is $r_{ij} = \\max_k v(a_k, \\theta_j) - v(a_i, \\theta_j)$, the opportunity loss of not having chosen the best action for that state; choose the action whose maximum regret is smallest.",
+          "Laplace (equal likelihood) — treat all states as equally likely and choose the action with the highest average payoff.",
+          "Hurwicz — a weighted blend $\\alpha \\cdot \\text{best} + (1-\\alpha) \\cdot \\text{worst}$ with an optimism coefficient $\\alpha$."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Decisions under risk: expected monetary value"
+      },
+      {
+        "type": "paragraph",
+        "text": "When probabilities $p_j$ for the states can be estimated from data or expert judgement, the standard criterion is expected monetary value (EMV), equivalently minimising expected opportunity loss:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\operatorname{EMV}(a_i) = \\sum_{j} p_j \\, v(a_i, \\theta_j)",
+        "caption": "Expected monetary value of action $a_i$"
+      },
+      {
+        "type": "formula",
+        "tex": "\\operatorname{EVPI} = \\sum_{j} p_j \\max_{i} v(a_i, \\theta_j) - \\max_{i} \\operatorname{EMV}(a_i)",
+        "caption": "Expected value of perfect information"
+      },
+      {
+        "type": "paragraph",
+        "text": "EVPI is the most a rational decision-maker should pay for a perfect forecast, and it equals the minimum expected opportunity loss. It is an upper bound on the worth of any real study, survey or pilot."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: applying the criteria",
+        "text": "Use the payoff matrix above.",
+        "steps": [
+          "Maximin: worst cases are −60, 10, 30, so choose No expansion (30).",
+          "Maximax: best cases are 200, 120, 30, so choose Large expansion (200).",
+          "Regret: column maxima are 200, 80, 30. Maximum regrets are 90 (Large), 80 (Small) and 170 (None), so minimax regret chooses Small expansion.",
+          "Laplace: averages are 220/3 ≈ 73.3, 200/3 ≈ 66.7 and 30, so choose Large expansion.",
+          "EMV: Large $= 0.3(200) + 0.5(80) + 0.2(-60) = 88$; Small $= 36 + 35 + 2 = 73$; None $= 30$. Choose Large expansion.",
+          "With perfect information: $0.3(200) + 0.5(80) + 0.2(30) = 106$, so EVPI $= 106 - 88 = 18$ lakh."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "The example shows why the criterion must be agreed before the analysis: four reasonable rules recommend three different actions."
+      },
+      {
+        "type": "heading",
+        "text": "Decision trees and Bayesian revision"
+      },
+      {
+        "type": "paragraph",
+        "text": "Sequential decisions — for example, first deciding whether to commission a market survey and then deciding on expansion — are drawn as decision trees. Square nodes are decisions, circles are chance events and leaves carry payoffs. The tree is solved by backward induction: at chance nodes take the expected value, at decision nodes take the best branch."
+      },
+      {
+        "type": "paragraph",
+        "text": "When an experiment yields an indicator $s$ (such as a 'favourable' survey), the prior state probabilities are revised with Bayes' theorem before the downstream decision is evaluated:"
+      },
+      {
+        "type": "formula",
+        "tex": "P(\\theta_j \\mid s) = \\frac{P(s \\mid \\theta_j)\\, P(\\theta_j)}{\\sum_{k} P(s \\mid \\theta_k)\\, P(\\theta_k)}",
+        "caption": "Posterior probability of a state after observing survey result $s$"
+      },
+      {
+        "type": "paragraph",
+        "text": "Comparing the expected value of the tree with and without the experiment gives the expected value of sample information (EVSI); the experiment is worthwhile if EVSI exceeds its cost. EVSI can never exceed EVPI."
+      },
+      {
+        "type": "heading",
+        "text": "Monte Carlo simulation"
+      },
+      {
+        "type": "paragraph",
+        "text": "When payoffs depend on several uncertain inputs (price, volume, cost, timing), closed-form expectations become awkward. Monte Carlo simulation draws each input from its probability distribution, computes the payoff, repeats thousands of times, and summarises the resulting distribution: its mean, its percentiles, and the probability of a loss. This shows not only the expected outcome but also the downside risk that EMV hides."
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "We use payoff tables and decision trees to structure investment, pricing and capacity decisions with management teams, and Monte Carlo models when the inputs are numerous or correlated. Often the most useful output is EVPI or EVSI: it tells a client whether a proposed market study or pilot is worth its cost before money is spent. Sensitivity of the recommended action to the probability estimates is always reported alongside the answer."
+      }
+    ],
+    "source_pages": [
+      107,
+      108
+    ],
+    "related_services": [
+      "operations-research-optimisation",
+      "business-analytics-data-mining"
+    ],
+    "related_courses": [
+      "operations-research-decision-modelling",
+      "business-analytics-data-mining"
+    ],
+    "order": 18,
+    "status": "published"
+  },
+  {
+    "slug": "matrix-decompositions-for-data-science",
+    "title": "Matrix Decompositions for Data Science",
+    "category": "Mathematics",
+    "summary": "Factorising a matrix into simpler pieces is how linear systems, least-squares fits, PCA and recommender models are actually computed. This article reviews LU, Cholesky, QR, eigenvalue and singular value decompositions, the power method, and why conditioning matters for numerical accuracy.",
+    "tags": [
+      "linear algebra",
+      "matrix decomposition",
+      "svd",
+      "least squares",
+      "numerical methods"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "A data matrix $\\mathbf{X}$ with $n$ rows (observations) and $p$ columns (features) is the starting point of almost every statistical model. Rather than inverting matrices directly — which is slow and numerically fragile — numerical software factorises them into products of triangular, orthogonal or diagonal matrices that are easy to work with. Knowing which decomposition sits under a routine helps explain its speed, accuracy and failure modes."
+      },
+      {
+        "type": "heading",
+        "text": "Gaussian elimination and LU"
+      },
+      {
+        "type": "paragraph",
+        "text": "Gaussian elimination reduces a system $\\mathbf{A}\\mathbf{x} = \\mathbf{b}$ to upper-triangular form by row operations, then solves by back substitution. Recording the multipliers gives the LU factorisation:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{P}\\mathbf{A} = \\mathbf{L}\\mathbf{U}",
+        "caption": "LU with partial pivoting: unit lower-triangular $\\mathbf{L}$, upper-triangular $\\mathbf{U}$, permutation $\\mathbf{P}$"
+      },
+      {
+        "type": "paragraph",
+        "text": "Once $\\mathbf{A}$ is factorised (about $\\tfrac{2}{3}n^3$ operations), each new right-hand side costs only two triangular solves, $\\mathbf{L}\\mathbf{y} = \\mathbf{P}\\mathbf{b}$ and $\\mathbf{U}\\mathbf{x} = \\mathbf{y}$. Partial pivoting (swapping rows to use the largest available pivot) is essential to control round-off error."
+      },
+      {
+        "type": "heading",
+        "text": "Cholesky for symmetric positive definite matrices"
+      },
+      {
+        "type": "paragraph",
+        "text": "Covariance matrices and the normal-equations matrix $\\mathbf{X}^{\\top}\\mathbf{X}$ are symmetric positive definite (when of full rank). For these, $\\mathbf{A} = \\mathbf{L}\\mathbf{L}^{\\top}$ with $\\mathbf{L}$ lower-triangular with positive diagonal. Cholesky needs half the work of LU, needs no pivoting, and fails exactly when the matrix is not positive definite — a useful diagnostic."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: solving a system by Cholesky",
+        "text": "Solve $\\mathbf{A}\\mathbf{x} = \\mathbf{b}$ with $\\mathbf{A} = \\begin{bmatrix} 4 & 2 \\\\ 2 & 3 \\end{bmatrix}$ and $\\mathbf{b} = (6,\\ 5)^{\\top}$.",
+        "steps": [
+          "$\\ell_{11} = \\sqrt{4} = 2$, $\\ell_{21} = 2/2 = 1$, $\\ell_{22} = \\sqrt{3 - 1^2} = \\sqrt{2}$, so $\\mathbf{L} = \\begin{bmatrix} 2 & 0 \\\\ 1 & \\sqrt{2} \\end{bmatrix}$.",
+          "Forward solve $\\mathbf{L}\\mathbf{y} = \\mathbf{b}$: $y_1 = 6/2 = 3$, $y_2 = (5 - 3)/\\sqrt{2} = \\sqrt{2}$.",
+          "Back solve $\\mathbf{L}^{\\top}\\mathbf{x} = \\mathbf{y}$: $x_2 = \\sqrt{2}/\\sqrt{2} = 1$, $x_1 = (3 - 1)/2 = 1$.",
+          "Check: $4(1) + 2(1) = 6$ and $2(1) + 3(1) = 5$."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "QR and least squares"
+      },
+      {
+        "type": "paragraph",
+        "text": "Any $n \\times p$ matrix of full column rank can be written $\\mathbf{X} = \\mathbf{Q}\\mathbf{R}$, where $\\mathbf{Q}$ has orthonormal columns and $\\mathbf{R}$ is upper-triangular. Gram–Schmidt orthogonalisation builds $\\mathbf{Q}$ column by column (the modified version is more stable); Householder reflections are the standard, most robust method in software."
+      },
+      {
+        "type": "paragraph",
+        "text": "For the least-squares problem $\\min \\lVert \\mathbf{y} - \\mathbf{X}\\boldsymbol{\\beta} \\rVert_2$ there are two routes:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{X}^{\\top}\\mathbf{X}\\,\\hat{\\boldsymbol{\\beta}} = \\mathbf{X}^{\\top}\\mathbf{y} \\qquad \\text{versus} \\qquad \\mathbf{R}\\,\\hat{\\boldsymbol{\\beta}} = \\mathbf{Q}^{\\top}\\mathbf{y}",
+        "caption": "Normal equations (left) and the QR approach (right)"
+      },
+      {
+        "type": "paragraph",
+        "text": "The normal equations are fast but square the condition number, $\\kappa(\\mathbf{X}^{\\top}\\mathbf{X}) = \\kappa(\\mathbf{X})^2$, so precision is lost when predictors are nearly collinear. QR works with $\\mathbf{X}$ directly and is what statistical packages typically use for linear regression."
+      },
+      {
+        "type": "heading",
+        "text": "Eigenvalue decomposition and the power method"
+      },
+      {
+        "type": "paragraph",
+        "text": "A symmetric matrix has a spectral decomposition $\\mathbf{A} = \\mathbf{V}\\boldsymbol{\\Lambda}\\mathbf{V}^{\\top}$ with real eigenvalues and orthonormal eigenvectors — the computation behind PCA. When only the dominant eigenvalue is needed, the power method repeatedly multiplies a starting vector by $\\mathbf{A}$ and normalises: $\\mathbf{v}_{k+1} = \\mathbf{A}\\mathbf{v}_k / \\lVert \\mathbf{A}\\mathbf{v}_k \\rVert$. The Rayleigh quotient $\\mathbf{v}_k^{\\top}\\mathbf{A}\\mathbf{v}_k$ converges to $\\lambda_1$ at a rate governed by $\\lvert \\lambda_2/\\lambda_1 \\rvert$. For the matrix in the example above, starting from $(1, 1)$, three iterations give 5.562, matching the exact $\\lambda_1 = (7 + \\sqrt{17})/2 \\approx 5.5616$. The same idea underlies PageRank."
+      },
+      {
+        "type": "heading",
+        "text": "Singular value decomposition"
+      },
+      {
+        "type": "formula",
+        "tex": "\\mathbf{X} = \\mathbf{U}\\boldsymbol{\\Sigma}\\mathbf{V}^{\\top}, \\qquad \\sigma_1 \\ge \\sigma_2 \\ge \\cdots \\ge \\sigma_r > 0",
+        "caption": "SVD: orthogonal $\\mathbf{U}$, $\\mathbf{V}$ and non-negative singular values on the diagonal of $\\boldsymbol{\\Sigma}$"
+      },
+      {
+        "type": "paragraph",
+        "text": "The SVD exists for every matrix. The number of non-zero singular values is the rank; in floating point, the numerical rank counts singular values above a tolerance, revealing near-dependence among columns. Truncating to the $k$ largest singular values gives the best rank-$k$ approximation (Eckart–Young), which is the basis of PCA on centred data, latent semantic analysis, image compression and many recommender systems. The SVD also gives the pseudo-inverse for rank-deficient least squares."
+      },
+      {
+        "type": "heading",
+        "text": "Condition number and sensitivity"
+      },
+      {
+        "type": "formula",
+        "tex": "\\kappa(\\mathbf{A}) = \\lVert \\mathbf{A} \\rVert \\, \\lVert \\mathbf{A}^{-1} \\rVert = \\frac{\\sigma_{\\max}}{\\sigma_{\\min}}, \\qquad \\frac{\\lVert \\delta \\mathbf{x} \\rVert}{\\lVert \\mathbf{x} \\rVert} \\lesssim \\kappa(\\mathbf{A}) \\, \\frac{\\lVert \\delta \\mathbf{b} \\rVert}{\\lVert \\mathbf{b} \\rVert}",
+        "caption": "2-norm condition number and the error amplification bound"
+      },
+      {
+        "type": "paragraph",
+        "text": "A condition number near 1 (orthogonal matrices) is ideal; one of $10^k$ means roughly $k$ significant digits can be lost. The matrix in the worked example has $\\kappa \\approx 5.562/1.438 \\approx 3.87$, which is very well conditioned."
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Decomposition",
+          "Applies to",
+          "Typical use"
+        ],
+        "rows": [
+          [
+            "LU",
+            "Square matrices",
+            "General linear systems, determinants"
+          ],
+          [
+            "Cholesky",
+            "Symmetric positive definite",
+            "Covariance computations, Gaussian sampling"
+          ],
+          [
+            "QR",
+            "Any full-column-rank matrix",
+            "Least-squares regression"
+          ],
+          [
+            "Eigen",
+            "Square (symmetric for real orthogonal form)",
+            "PCA, Markov chains, stability"
+          ],
+          [
+            "SVD",
+            "Any matrix",
+            "Rank, low-rank approximation, pseudo-inverse"
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "When a client's regression gives unstable or absurd coefficients, we check the condition number and singular values of the design matrix before anything else; near-collinearity is usually the cause. Choosing QR or SVD over explicit inverses, using Cholesky to simulate correlated scenarios, and truncated SVD for large sparse data are small engineering decisions that make analytical pipelines both faster and more trustworthy."
+      }
+    ],
+    "source_pages": [
+      16,
+      17,
+      42,
+      52,
+      53
+    ],
+    "related_services": [
+      "mathematical-modelling-numerical-computation",
+      "machine-learning-consulting"
+    ],
+    "related_courses": [
+      "mathematics-for-data-science",
+      "machine-learning-fundamentals",
+      "multivariate-statistical-analysis"
+    ],
+    "order": 19,
+    "status": "published"
+  },
+  {
+    "slug": "numerical-root-finding",
+    "title": "Numerical Root-Finding Methods",
+    "category": "Mathematics",
+    "summary": "Most equations met in modelling cannot be solved in closed form, so their roots are found by iterative numerical methods. This article explains error types, bracketing and open methods from bisection to Newton–Raphson with worked iterations, orders of convergence, and briefly introduces interpolation and numerical integration.",
+    "tags": [
+      "numerical methods",
+      "newton-raphson",
+      "bisection",
+      "convergence",
+      "numerical integration"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "paragraph",
+        "text": "Finding $x$ such that $f(x) = 0$ is one of the most common computational tasks. It appears when solving for an internal rate of return, an equilibrium price, a maximum-likelihood estimate (where the score function is zero) or the steady state of a model. Except for special cases, such as polynomials of low degree, the answer must be approximated by iteration."
+      },
+      {
+        "type": "heading",
+        "text": "Errors in numerical computation"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Round-off error — computers store numbers with finite precision (about 16 significant digits in double precision), so every arithmetic operation may introduce a tiny error that can accumulate or be amplified, for example when subtracting nearly equal numbers.",
+          "Truncation error — the error from replacing an infinite process by a finite one, such as stopping an iteration or cutting off a Taylor series.",
+          "Absolute and relative error — if $\\tilde{x}$ approximates $x$, the absolute error is $\\lvert x - \\tilde{x} \\rvert$ and the relative error is $\\lvert x - \\tilde{x} \\rvert / \\lvert x \\rvert$."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Bracketing methods"
+      },
+      {
+        "type": "paragraph",
+        "text": "If $f$ is continuous and $f(a)$ and $f(b)$ have opposite signs, the intermediate value theorem guarantees a root in $[a, b]$. Bisection evaluates the midpoint and keeps the half-interval where the sign change persists. It is slow but certain: after $n$ steps the error is at most $(b - a)/2^n$."
+      },
+      {
+        "type": "paragraph",
+        "text": "Regula falsi (false position) replaces the midpoint with the point where the chord joining $(a, f(a))$ and $(b, f(b))$ crosses the axis:"
+      },
+      {
+        "type": "formula",
+        "tex": "c = b - f(b)\\,\\frac{b - a}{f(b) - f(a)}",
+        "caption": "Regula falsi / secant formula"
+      },
+      {
+        "type": "paragraph",
+        "text": "It keeps the bracket, so it always converges, and it is usually faster than bisection, though one endpoint can stagnate on strongly curved functions."
+      },
+      {
+        "type": "heading",
+        "text": "Open methods"
+      },
+      {
+        "type": "paragraph",
+        "text": "The secant method applies the same formula to the two most recent iterates rather than a bracket; it converges faster (order about 1.618) but can fail if the iterates wander. Fixed-point iteration rewrites the equation as $x = g(x)$ and iterates $x_{k+1} = g(x_k)$; it converges near a fixed point when $\\lvert g'(x) \\rvert < 1$ there, linearly with rate $\\lvert g'(x^*) \\rvert$."
+      },
+      {
+        "type": "paragraph",
+        "text": "Newton–Raphson linearises $f$ at the current iterate using its tangent line and jumps to where the tangent meets the axis:"
+      },
+      {
+        "type": "formula",
+        "tex": "x_{k+1} = x_k - \\frac{f(x_k)}{f'(x_k)}",
+        "caption": "Newton–Raphson iteration"
+      },
+      {
+        "type": "formula",
+        "tex": "\\lvert e_{k+1} \\rvert \\approx \\frac{\\lvert f''(x^*) \\rvert}{2\\lvert f'(x^*) \\rvert}\\, \\lvert e_k \\rvert^2",
+        "caption": "Quadratic convergence near a simple root"
+      },
+      {
+        "type": "paragraph",
+        "text": "Quadratic convergence means the number of correct digits roughly doubles each step once the iterate is close. The cost is the need for the derivative, and the method can fail if $f'(x_k)$ is near zero or the starting point is poor."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: solving x³ − x − 2 = 0",
+        "text": "Here $f(x) = x^3 - x - 2$ and $f'(x) = 3x^2 - 1$. Since $f(1) = -2 < 0$ and $f(2) = 4 > 0$, a root lies in $[1, 2]$.",
+        "steps": [
+          "Bisection: midpoints 1.5 ($f = -0.125$), 1.75 ($f \\approx 1.609$), 1.625 ($f \\approx 0.666$), 1.5625 ($f \\approx 0.252$), 1.53125 ($f \\approx 0.059$) — after five steps the root is known to lie in $[1.5, 1.53125]$.",
+          "Newton from $x_0 = 1.5$: $f(1.5) = -0.125$, $f'(1.5) = 5.75$, so $x_1 = 1.5 + 0.125/5.75 \\approx 1.521739$.",
+          "$x_2 \\approx 1.521380$, with $f(x_2) \\approx 5.9 \\times 10^{-7}$.",
+          "$x_3 \\approx 1.5213797068$, with $\\lvert f(x_3) \\rvert < 10^{-13}$: three Newton steps reach full double-precision accuracy, while bisection would need about 50 halvings."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Comparing the methods"
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Method",
+          "Needs",
+          "Order of convergence",
+          "Guaranteed?"
+        ],
+        "rows": [
+          [
+            "Bisection",
+            "Sign-change bracket",
+            "1 (linear, halves error)",
+            "Yes"
+          ],
+          [
+            "Regula falsi",
+            "Sign-change bracket",
+            "Usually linear",
+            "Yes"
+          ],
+          [
+            "Fixed-point",
+            "Suitable $g(x)$",
+            "1 (if $\\lvert g' \\rvert < 1$)",
+            "No"
+          ],
+          [
+            "Secant",
+            "Two starting values",
+            "About 1.618",
+            "No"
+          ],
+          [
+            "Newton–Raphson",
+            "$f'(x)$ and a good start",
+            "2 (quadratic)",
+            "No"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "A robust practical strategy combines them: bracket the root, take Newton or secant steps, and fall back to bisection whenever a step leaves the bracket. Library routines such as Brent's method follow this philosophy."
+      },
+      {
+        "type": "heading",
+        "text": "Related topics: interpolation and integration"
+      },
+      {
+        "type": "paragraph",
+        "text": "The same numerical-methods toolkit includes interpolation — fitting a polynomial through tabulated points using Newton's forward and backward differences or Lagrange's formula — and numerical integration. The trapezoidal rule approximates an integral by trapezoids, with error proportional to $h^2$; Simpson's 1/3 rule fits parabolas through pairs of sub-intervals, with error proportional to $h^4$:"
+      },
+      {
+        "type": "formula",
+        "tex": "\\int_a^b f(x)\\,dx \\approx \\frac{h}{3}\\left[ f_0 + 4(f_1 + f_3 + \\cdots + f_{n-1}) + 2(f_2 + f_4 + \\cdots + f_{n-2}) + f_n \\right]",
+        "caption": "Composite Simpson's 1/3 rule ($n$ even, $h = (b-a)/n$)"
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "Root-finding sits quietly inside many analyses we deliver: solving for break-even volumes and internal rates of return, inverting cumulative distribution functions, and maximising likelihoods via Newton-type algorithms. When a model fails to converge, understanding these methods — scaling, starting values, bracketing — is what turns an error message into a working estimate."
+      }
+    ],
+    "source_pages": [
+      102,
+      103
+    ],
+    "related_services": [
+      "mathematical-modelling-numerical-computation"
+    ],
+    "related_courses": [
+      "mathematics-for-data-science",
+      "mathematical-modelling-differential-equations"
+    ],
+    "order": 20,
+    "status": "published"
+  },
+  {
+    "slug": "time-value-of-money",
+    "title": "Time Value of Money: Interest, Annuities and Gradients",
+    "category": "Mathematics",
+    "summary": "A sum of money available today is worth more than the same sum in the future, and interest is the tool that converts between the two. This article covers simple and compound interest, effective rates, present and future value, annuity and gradient series factors, and growth and decay curves.",
+    "tags": [
+      "financial mathematics",
+      "compound interest",
+      "present value",
+      "annuities",
+      "engineering economics"
+    ],
+    "reading_minutes": 4,
+    "body": [
+      {
+        "type": "callout",
+        "title": "Educational content",
+        "text": "This article explains standard mathematical formulas for teaching purposes. It is not financial, investment, tax or legal advice; consult a qualified professional before making financial decisions."
+      },
+      {
+        "type": "paragraph",
+        "text": "The time value of money rests on a simple observation: money available now can be invested to earn a return, so a rupee today is worth more than a rupee promised in a year. Interest is the price of that delay. Every comparison of cash flows at different dates — a loan schedule, a project appraisal, a lease-versus-buy decision — begins by moving all amounts to a common date."
+      },
+      {
+        "type": "heading",
+        "text": "Simple interest and simple discount"
+      },
+      {
+        "type": "paragraph",
+        "text": "Under simple interest at rate $r$ per period, interest is earned only on the original principal $P$, so after $t$ periods the amount is $A = P(1 + rt)$. Simple discount works from the other end: a sum $F$ due in $t$ periods is discounted at rate $d$, giving discount $D = Fdt$ and proceeds $P = F(1 - dt)$. Discount is computed on the maturity value, which is why a discount rate implies a slightly higher equivalent interest rate."
+      },
+      {
+        "type": "heading",
+        "text": "Compound interest and effective rates"
+      },
+      {
+        "type": "paragraph",
+        "text": "Under compound interest, interest earned is added to the principal and itself earns interest. With a nominal annual rate $r$ compounded $m$ times a year for $t$ years:"
+      },
+      {
+        "type": "formula",
+        "tex": "F = P\\left( 1 + \\frac{r}{m} \\right)^{mt}, \\qquad i_{\\text{eff}} = \\left( 1 + \\frac{r}{m} \\right)^{m} - 1",
+        "caption": "Future value under periodic compounding and the effective annual rate"
+      },
+      {
+        "type": "paragraph",
+        "text": "The effective rate allows offers with different compounding frequencies to be compared fairly. As $m \\to \\infty$, compounding becomes continuous and $F = Pe^{rt}$."
+      },
+      {
+        "type": "heading",
+        "text": "Present and future value"
+      },
+      {
+        "type": "paragraph",
+        "text": "With interest rate $i$ per period, a single amount moves through time by the single-payment factors"
+      },
+      {
+        "type": "formula",
+        "tex": "F = P(1 + i)^n, \\qquad P = \\frac{F}{(1 + i)^n}",
+        "caption": "Compound amount and present worth factors, written (F/P, i, n) and (P/F, i, n)"
+      },
+      {
+        "type": "heading",
+        "text": "Equal-payment series (annuities)"
+      },
+      {
+        "type": "paragraph",
+        "text": "An annuity is a series of equal payments $A$ at the end of each of $n$ periods. Summing the geometric series gives"
+      },
+      {
+        "type": "formula",
+        "tex": "P = A\\,\\frac{1 - (1 + i)^{-n}}{i}, \\qquad F = A\\,\\frac{(1 + i)^n - 1}{i}",
+        "caption": "Present worth (P/A) and compound amount (F/A) factors of an annuity"
+      },
+      {
+        "type": "paragraph",
+        "text": "Their reciprocals are the capital recovery factor $A/P = i(1+i)^n/[(1+i)^n - 1]$, used to compute loan instalments, and the sinking fund factor $A/F$, used to compute the deposit needed to accumulate a target sum."
+      },
+      {
+        "type": "example",
+        "title": "Worked example: three standard calculations",
+        "text": "Amounts are in rupees; all figures are illustrative.",
+        "steps": [
+          "Simple interest: ₹10,000 at 8% per year for 3 years earns $10000 \\times 0.08 \\times 3 = 2400$, giving ₹12,400.",
+          "Compound interest: the same sum at 8% compounded quarterly is $10000(1.02)^{12} \\approx 12682.42$, i.e. ₹12,682.42. The effective annual rate is $(1.02)^4 - 1 \\approx 8.243\\%$.",
+          "Annuity: five year-end payments of ₹2,000 at 10% have present value $2000 \\times \\frac{1 - 1.1^{-5}}{0.1} = 2000 \\times 3.79079 \\approx 7581.57$, i.e. ₹7,581.57.",
+          "Interpretation: compounding adds ₹282.42 over simple interest in three years, and receiving ₹10,000 spread over five years is worth about ₹7,582 today at 10%."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Gradient series"
+      },
+      {
+        "type": "paragraph",
+        "text": "Cash flows often grow over time. In an arithmetic gradient series, the payment increases by a constant $G$ each period (0 at the end of period 1, $G$ at period 2, …, $(n-1)G$ at period $n$). Its present worth is"
+      },
+      {
+        "type": "formula",
+        "tex": "P = \\frac{G}{i}\\left[ \\frac{(1 + i)^n - 1}{i(1 + i)^n} - \\frac{n}{(1 + i)^n} \\right]",
+        "caption": "Arithmetic gradient present worth factor (P/G, i, n)"
+      },
+      {
+        "type": "paragraph",
+        "text": "A geometric gradient series grows at a constant rate $g$, starting from $A_1$ at the end of period 1, as with costs rising with inflation or revenues growing at a fixed percentage. For $i \\ne g$:"
+      },
+      {
+        "type": "formula",
+        "tex": "P = A_1 \\, \\frac{1 - \\left( \\frac{1 + g}{1 + i} \\right)^{n}}{i - g}",
+        "caption": "Geometric gradient present worth"
+      },
+      {
+        "type": "paragraph",
+        "text": "When $i = g$ the formula reduces to $P = nA_1/(1 + i)$."
+      },
+      {
+        "type": "heading",
+        "text": "Growth and decay curves"
+      },
+      {
+        "type": "paragraph",
+        "text": "The same mathematics describes growth and decay more generally. Discrete compounding $y_t = y_0(1 + g)^t$ and continuous growth $y(t) = y_0 e^{kt}$ model population, revenue or prices; with $k < 0$ the curve describes depreciation, radioactive decay or the fading effect of advertising. The doubling time under continuous growth is $\\ln 2 / k$, and the familiar 'rule of 72' approximates the doubling time under annual compounding at $r$ percent as about $72/r$ years."
+      },
+      {
+        "type": "table",
+        "columns": [
+          "Factor",
+          "Converts",
+          "Formula"
+        ],
+        "rows": [
+          [
+            "F/P",
+            "Present sum to future",
+            "$(1+i)^n$"
+          ],
+          [
+            "P/F",
+            "Future sum to present",
+            "$(1+i)^{-n}$"
+          ],
+          [
+            "P/A",
+            "Annuity to present",
+            "$[1-(1+i)^{-n}]/i$"
+          ],
+          [
+            "F/A",
+            "Annuity to future",
+            "$[(1+i)^n-1]/i$"
+          ],
+          [
+            "A/P",
+            "Present sum to annuity",
+            "$i(1+i)^n/[(1+i)^n-1]$"
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "title": "In practice",
+        "text": "We apply these factors when building cost–benefit and project appraisal models, comparing equipment replacement options, structuring repayment schedules in planning tools, and teaching analysts to audit spreadsheet financial models. The most common errors we find are mismatched periods (a monthly payment with an annual rate) and confusion between nominal and effective rates — both are caught by writing every cash flow on a timeline before applying any formula."
+      }
+    ],
+    "source_pages": [
+      109
+    ],
+    "related_services": [
+      "mathematical-modelling-numerical-computation",
+      "business-analytics-data-mining"
+    ],
+    "related_courses": [
+      "financial-mathematics-economics",
+      "mathematics-for-data-science"
+    ],
+    "order": 21,
+    "status": "published"
+  }
+]

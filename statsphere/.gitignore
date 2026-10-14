@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+frontend/public/sitemap.xml
+frontend/public/robots.txt
+
+# Source material and derived extracts (copyright: keep out of version control)
+data/source/*.pdf
+data/extracted/
+data/api-snapshot.json
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

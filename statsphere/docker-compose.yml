@@ -1,0 +1,49 @@
+# Local/production-like stack: PostgreSQL + FastAPI + nginx-served React build.
+# Usage: cp .env.example .env  (edit values)  &&  docker compose up --build
+# Site: http://localhost:8090   API docs (non-production only): http://localhost:8090/api/docs
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-statsphere}
+      POSTGRES_USER: ${POSTGRES_USER:-statsphere}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-statsphere} -d ${POSTGRES_DB:-statsphere}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-statsphere}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-statsphere}
+      TRUST_PROXY_HEADERS: "true"
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8090}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        SITE_URL: ${SITE_URL:-}
+        VITE_BOOKING_URL: ${VITE_BOOKING_URL:-}
+    ports:
+      - "${HTTP_PORT:-8090}:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  pgdata:

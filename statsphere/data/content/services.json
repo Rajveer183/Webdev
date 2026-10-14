@@ -1,0 +1,1483 @@
+[
+  {
+    "slug": "statistical-analysis",
+    "title": "Statistical Analysis & Interpretation",
+    "category": "Statistics",
+    "icon": "Sigma",
+    "summary": "Careful descriptive and inferential analysis of your data, with results explained in plain language so you can act on them.",
+    "overview": "We take a dataset and a question, choose methods whose assumptions actually fit the data, and carry out the analysis from summary statistics through to hypothesis tests and confidence intervals. The work covers measures of central tendency and dispersion, correlation, probability models, large- and small-sample tests, ANOVA and nonparametric alternatives such as chi-square and Kolmogorov-Smirnov tests. Every result comes with an explanation of what it does and does not show.",
+    "problems": [
+      "You have data but are unsure which summary measures or tests are appropriate",
+      "You need to compare groups, means or proportions and judge whether differences are meaningful",
+      "Reports contain numbers without any statement of uncertainty or assumptions",
+      "Your data are skewed, categorical or small in size and standard tests may not apply",
+      "Stakeholders need findings explained without statistical jargon"
+    ],
+    "audience": [
+      "Managers and analysts in business, economics and management roles",
+      "Researchers who need an independent check of their analysis",
+      "Small teams without an in-house statistician",
+      "Public-sector and non-profit teams working with survey or administrative data"
+    ],
+    "client_inputs": [
+      "The question or decision the analysis should inform",
+      "The dataset (or an anonymised extract) with a short description of each variable",
+      "Information on how the data were collected",
+      "Any earlier analyses or reports for context",
+      "A named contact who can answer questions about the data"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We talk through the question, the data available and how the results will be used."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We set out the proposed methods, deliverables and timeline in writing for your agreement."
+      },
+      {
+        "step": "Data review",
+        "detail": "We check variable types, missing values and distributions, and flag issues that affect method choice."
+      },
+      {
+        "step": "Analysis",
+        "detail": "We run descriptive summaries, estimation and the agreed tests, checking assumptions as we go."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We present the findings in a written report and a live session where you can ask questions."
+      },
+      {
+        "step": "Optional follow-up",
+        "detail": "We can answer follow-up questions or re-run the analysis on updated data."
+      }
+    ],
+    "deliverables": [
+      "Written report with methodology, results tables and plain-language interpretation",
+      "Charts and summary tables ready to reuse in presentations",
+      "Statement of assumptions checked and limitations of the analysis",
+      "Reproducible R or Python scripts, or a documented Excel workbook",
+      "Walkthrough session recording or notes"
+    ],
+    "applications": [
+      "Summarising sales, cost or performance data for business and management decisions",
+      "Comparing outcomes between groups in economic and social research",
+      "Testing associations between categorical attributes in survey responses",
+      "Checking whether observed data fit an assumed distribution"
+    ],
+    "methods": [
+      "Measures of central tendency and dispersion",
+      "Skewness, kurtosis and moments",
+      "Correlation (product-moment and Spearman's rank)",
+      "Probability distributions (binomial, Poisson, normal)",
+      "Point and interval estimation, maximum likelihood",
+      "Large-sample tests for means and proportions",
+      "t, F and chi-square tests",
+      "One-way and two-way ANOVA",
+      "Runs test and Kolmogorov-Smirnov one-sample test"
+    ],
+    "tools": [
+      "R",
+      "Python",
+      "Excel",
+      "SPSS"
+    ],
+    "related_courses": [
+      "statistics-for-data-analysis",
+      "statistical-inference-hypothesis-testing",
+      "r-programming-for-statistics"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion",
+      "probability-and-bayes-theorem",
+      "probability-distributions-and-clt",
+      "estimation-and-maximum-likelihood",
+      "hypothesis-testing-essentials",
+      "analysis-of-variance"
+    ],
+    "source_pages": [
+      2,
+      3,
+      13,
+      14,
+      29,
+      30,
+      31,
+      70,
+      71
+    ],
+    "featured": true,
+    "order": 1,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "regression-predictive-modelling",
+    "title": "Regression & Predictive Modelling",
+    "category": "Statistics",
+    "icon": "TrendingUp",
+    "summary": "Regression models that explain how outcomes depend on their drivers, built and validated with transparent methods.",
+    "overview": "This service builds and evaluates regression models for continuous and binary outcomes. We start from least-squares fitting and correlation, extend to multiple and polynomial regression, use cross-validation and regularised methods (ridge and lasso) to control overfitting, and apply logistic regression and discriminant analysis where the outcome is a category. The emphasis is on models you can understand and defend, with honest reporting of goodness of fit.",
+    "problems": [
+      "You want to know which factors are associated with an outcome and by how much",
+      "You need to predict a quantity or a yes/no outcome from available variables",
+      "An existing model fits past data well but performs poorly on new data",
+      "Many candidate predictors make it hard to choose a sensible model",
+      "Model results need to be explained to non-technical decision makers"
+    ],
+    "audience": [
+      "Marketing, sales and operations analysts",
+      "Researchers modelling relationships between variables",
+      "Product and data teams needing a baseline predictive model",
+      "Economists and management students working on applied projects"
+    ],
+    "client_inputs": [
+      "The outcome to be explained or predicted and how it is measured",
+      "Historical data with candidate predictor variables",
+      "Background knowledge on which factors are expected to matter",
+      "Any constraints on interpretability or deployment",
+      "Feedback during model review"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We clarify the outcome, the intended use of the model and what 'useful' means for you."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on model types, validation approach and deliverables."
+      },
+      {
+        "step": "Data review",
+        "detail": "We explore relationships with scatter plots and correlations and prepare the predictors."
+      },
+      {
+        "step": "Modelling & validation",
+        "detail": "We fit candidate models, compare them using cross-validation and check residuals and assumptions."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We explain coefficients, fit measures and limitations in a written report and live session."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We hand over code and notes so your team can refit the model on new data."
+      }
+    ],
+    "deliverables": [
+      "Written report with methodology, coefficient tables and plain-language interpretation",
+      "Comparison of candidate models with validation results",
+      "Diagnostic plots and a statement of model assumptions and limitations",
+      "Reproducible R or Python scripts",
+      "Short guide to refitting or scoring new data"
+    ],
+    "applications": [
+      "Relating marketing activity to sales response",
+      "Explaining cost or demand drivers in production and distribution",
+      "Classifying customers or cases into groups in retail and consumer goods",
+      "Modelling binary outcomes in medical and public health studies"
+    ],
+    "methods": [
+      "Principle of least squares and straight-line fitting",
+      "Coefficient of determination",
+      "Multiple and polynomial regression",
+      "Cross-validation",
+      "Ridge (Tikhonov) regularisation and lasso",
+      "Gradient descent for least squares",
+      "Logistic regression for binary outcomes",
+      "Discriminant analysis",
+      "Maximum likelihood estimation"
+    ],
+    "tools": [
+      "R",
+      "Python",
+      "Excel",
+      "SPSS"
+    ],
+    "related_courses": [
+      "regression-predictive-modelling",
+      "multivariate-statistical-analysis",
+      "statistical-inference-hypothesis-testing"
+    ],
+    "related_articles": [
+      "correlation-and-regression",
+      "bias-variance-and-regularisation",
+      "gradient-descent",
+      "estimation-and-maximum-likelihood"
+    ],
+    "source_pages": [
+      3,
+      37,
+      38,
+      41,
+      42,
+      69
+    ],
+    "featured": true,
+    "order": 2,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "machine-learning-consulting",
+    "title": "Machine Learning & AI Modelling",
+    "category": "Machine Learning",
+    "icon": "BrainCircuit",
+    "summary": "Practical machine learning, from feature selection and classical algorithms to neural networks, scoped to what your data can support.",
+    "overview": "We help you decide whether machine learning is the right tool, then design, train and evaluate models. Work typically starts with data pre-processing and feature selection, moves through classical techniques such as decision trees, random forests, support-vector machines, naive Bayes, k-nearest neighbours and gradient boosting, and, where justified, extends to neural networks, convolutional and recurrent architectures. Models are assessed with appropriate measures such as accuracy, precision and recall on held-out data, and we are clear about their limitations.",
+    "problems": [
+      "You have labelled data and want to automate a classification or prediction task",
+      "You are unsure which algorithm suits your problem and data size",
+      "Too many features make models slow or unstable",
+      "A model has been built but nobody is sure how well it really performs",
+      "You want an independent review of an existing machine learning approach"
+    ],
+    "audience": [
+      "Product and engineering teams exploring machine learning",
+      "Analysts moving from classical statistics to predictive modelling",
+      "Researchers applying pattern recognition to images, text or signals",
+      "Organisations wanting a second opinion on a model before relying on it"
+    ],
+    "client_inputs": [
+      "A description of the task and how predictions would be used",
+      "Training data, with labels where available",
+      "Information on data collection and known quality issues",
+      "Computing environment constraints",
+      "A contact for questions about the domain"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss the task, the data and whether a simpler statistical approach might be enough."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We propose candidate algorithms, evaluation measures and deliverables."
+      },
+      {
+        "step": "Data review & preparation",
+        "detail": "We clean, transform and select features, and set aside data for honest evaluation."
+      },
+      {
+        "step": "Modelling & evaluation",
+        "detail": "We train and compare models, tune them and report performance on held-out data."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We explain how the chosen model works, how it was tested and where it may fail."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We provide code and documentation for your team to retrain or extend the model."
+      }
+    ],
+    "deliverables": [
+      "Written report covering data preparation, model comparison and evaluation results",
+      "Confusion matrices and accuracy, precision and recall summaries",
+      "Feature selection and importance summary",
+      "Reproducible Python or R notebooks and scripts",
+      "Notes on known limitations and suggested monitoring"
+    ],
+    "applications": [
+      "Classifying documents or text in business settings",
+      "Customer and product classification in retail and marketing",
+      "Pattern recognition tasks on images and sequences",
+      "Building Bayesian network models on medical data with appropriate permissions"
+    ],
+    "methods": [
+      "Data pre-processing, feature generation and feature selection (filters, wrappers)",
+      "Decision trees, bagging, random forests and gradient boosting",
+      "Support-vector machines",
+      "Naive Bayes and Bayesian networks",
+      "k-nearest neighbours and k-means",
+      "Bias-variance trade-off and regularisation",
+      "Multilayer perceptrons and back-propagation",
+      "Convolutional and recurrent neural networks, LSTM",
+      "Dimensionality reduction"
+    ],
+    "tools": [
+      "Python",
+      "R"
+    ],
+    "related_courses": [
+      "machine-learning-fundamentals",
+      "deep-learning-advanced-ml",
+      "python-programming-for-data-science",
+      "mathematics-for-data-science"
+    ],
+    "related_articles": [
+      "bias-variance-and-regularisation",
+      "gradient-descent",
+      "matrix-decompositions-for-data-science"
+    ],
+    "source_pages": [
+      4,
+      5,
+      37,
+      38,
+      39,
+      40,
+      48,
+      49,
+      50,
+      51,
+      62,
+      63,
+      105,
+      106
+    ],
+    "featured": true,
+    "order": 3,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": "Confirm in-house capacity (skills and computing resources) for deep-learning engagements before offering them; classical machine learning work can be scoped separately."
+  },
+  {
+    "slug": "time-series-forecasting",
+    "title": "Time-Series Analysis & Forecasting",
+    "category": "Statistics",
+    "icon": "LineChart",
+    "summary": "Trend, seasonality and short-term forecasts from data recorded over time, plus construction of index numbers.",
+    "overview": "We analyse data collected over time to separate trend, seasonal and irregular components, fit growth curves, and produce forecasts using exponential smoothing and autoregressive or moving-average models. Model order is guided by the autocorrelation function and parameters are estimated by least squares or Yule-Walker equations. We also construct simple and weighted index numbers, including Laspeyres, Paasche and Fisher forms and cost-of-living indices.",
+    "problems": [
+      "You need to understand whether a series is trending, seasonal or both",
+      "Planning depends on short-term forecasts of demand, sales or volumes",
+      "Seasonal effects hide the underlying direction of the business",
+      "You need a defensible price or cost index",
+      "Existing forecasts are produced by hand without any measure of error"
+    ],
+    "audience": [
+      "Planning, supply-chain and finance teams",
+      "Economists and analysts working with periodic data",
+      "Retail and hospitality businesses with seasonal demand",
+      "Researchers analysing data from various fields over time"
+    ],
+    "client_inputs": [
+      "Historical time-series data at a consistent frequency",
+      "Notes on known events, changes in definitions or data gaps",
+      "The forecast horizon and how forecasts will be used",
+      "For index numbers: price and quantity data and the chosen base period"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss the series, its frequency and the decisions the forecasts support."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on the methods, forecast horizon and outputs."
+      },
+      {
+        "step": "Data review",
+        "detail": "We plot the series, check for gaps and changes, and decompose it into components."
+      },
+      {
+        "step": "Modelling & forecasting",
+        "detail": "We fit trend, smoothing and AR/MA models and compare them on held-back periods."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We present forecasts with their uncertainty and explain the assumptions behind them."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We provide scripts or a workbook so forecasts can be refreshed with new data."
+      }
+    ],
+    "deliverables": [
+      "Written report with decomposition, model comparison and plain-language interpretation",
+      "Forecast tables and charts with stated assumptions",
+      "Seasonal indices and trend estimates",
+      "Index number calculations with documentation of the formula used",
+      "Reproducible R or Python scripts, or a documented Excel workbook"
+    ],
+    "applications": [
+      "Sales and demand planning in retail and consumer goods",
+      "Production and distribution planning",
+      "Price and cost-of-living index construction for economic analysis",
+      "Monitoring periodic indicators in business and government reporting"
+    ],
+    "methods": [
+      "Additive and multiplicative time-series models",
+      "Moving averages and least-squares trend fitting",
+      "Semi-averages and growth curves",
+      "Seasonal indices (simple averages, ratio to moving average, ratio to trend)",
+      "Autocorrelation function (ACF)",
+      "AR(1), AR(2) and MA processes; Yule-Walker estimation",
+      "Exponential smoothing forecasting",
+      "Laspeyres, Paasche, Marshall-Edgeworth and Fisher index numbers",
+      "Chain-base and fixed-base indices; reversal tests"
+    ],
+    "tools": [
+      "R",
+      "Python",
+      "Excel"
+    ],
+    "related_courses": [
+      "time-series-analysis-forecasting",
+      "statistics-for-data-analysis"
+    ],
+    "related_articles": [
+      "time-series-components-and-forecasting",
+      "index-numbers"
+    ],
+    "source_pages": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "featured": true,
+    "order": 4,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "research-methodology-support",
+    "title": "Research Methodology & Academic Statistical Support",
+    "category": "Research",
+    "icon": "GraduationCap",
+    "summary": "Guidance on research design, sampling, experimental design and statistical analysis for researchers and students, with integrity built in.",
+    "overview": "We support researchers at the methodology and analysis stages: framing a research problem, choosing a research design, planning sampling or experiments, selecting appropriate statistical tests and interpreting results. We can also help you present work clearly using LaTeX, BibTeX and Beamer. We support analysis and methodology only: we do not write theses, dissertations, assignments or any assessed work on a student's behalf, and the research and its written conclusions remain the researcher's own.",
+    "problems": [
+      "You are unsure which research design or statistical method suits your question",
+      "Your sampling plan or experimental layout needs checking before data collection",
+      "You have collected data and need help choosing and running the right analysis",
+      "Supervisors or reviewers have raised methodological questions you need to understand",
+      "You want to typeset formulae, tables and references cleanly in LaTeX"
+    ],
+    "audience": [
+      "Postgraduate and doctoral researchers",
+      "Faculty and independent researchers",
+      "Research teams in organisations and public bodies",
+      "Undergraduates seeking to understand methods (not to outsource assessed work)"
+    ],
+    "client_inputs": [
+      "A short description of the research question and objectives",
+      "Draft methodology or proposal, where available",
+      "Data collected so far, or the planned data collection approach",
+      "Any guidance from your institution or supervisor on acceptable support",
+      "Your own interpretation of results for discussion"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss the research question, the stage you are at and what support is appropriate under your institution's rules."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree in writing the specific methodological and analytical help we will provide."
+      },
+      {
+        "step": "Methodology review",
+        "detail": "We review the research design, sampling plan or experimental design and suggest improvements."
+      },
+      {
+        "step": "Analysis support",
+        "detail": "We advise on or carry out the agreed analysis and explain each step so you understand it."
+      },
+      {
+        "step": "Explanation session",
+        "detail": "We walk through outputs so you can interpret and write them up in your own words."
+      },
+      {
+        "step": "Optional follow-up",
+        "detail": "We can help you respond to methodological questions from supervisors or reviewers."
+      }
+    ],
+    "deliverables": [
+      "Written methodology review with recommendations",
+      "Analysis outputs with an explanation of each method and its assumptions",
+      "Reproducible R scripts or SPSS syntax with comments",
+      "LaTeX or Beamer templates and BibTeX setup guidance",
+      "Session notes summarising the advice given"
+    ],
+    "applications": [
+      "Design of agricultural, medical and biomedical experiments",
+      "Sample survey planning for research and government surveys",
+      "Model formulation and simulation studies in engineering research",
+      "Statistical analysis for economics and management research"
+    ],
+    "methods": [
+      "Research process, problem definition and literature review",
+      "Research design (quantitative, qualitative and mixed methods)",
+      "Mathematical, theoretical and empirical models; model evaluation",
+      "Simulation study steps and validation",
+      "Sampling designs (simple random, stratified, cluster, systematic)",
+      "Experimental designs (CRD, RBD, LSD, factorial)",
+      "Estimation and hypothesis testing",
+      "LaTeX, BibTeX and Beamer for write-ups and presentations"
+    ],
+    "tools": [
+      "R",
+      "SPSS",
+      "LaTeX",
+      "BibTeX",
+      "Beamer"
+    ],
+    "related_courses": [
+      "research-methodology-latex",
+      "experimental-design-sampling",
+      "statistical-inference-hypothesis-testing"
+    ],
+    "related_articles": [
+      "sampling-designs",
+      "design-of-experiments",
+      "hypothesis-testing-essentials"
+    ],
+    "source_pages": [
+      29,
+      30,
+      46,
+      47,
+      58,
+      59,
+      60,
+      61,
+      66,
+      67
+    ],
+    "featured": true,
+    "order": 5,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": "Publish the academic integrity policy alongside this service: support covers methodology and analysis only; no theses, assignments or other assessed work are written on a student's behalf."
+  },
+  {
+    "slug": "survey-sampling-experimental-design",
+    "title": "Survey Design, Sampling & Experimental Design",
+    "category": "Statistics",
+    "icon": "FlaskConical",
+    "summary": "Plan data collection properly: questionnaires, sampling designs and controlled experiments that answer your question efficiently.",
+    "overview": "Good analysis starts with good data collection. We help design questionnaires and schedules, choose and size sampling designs such as simple random, stratified, cluster and systematic sampling, and plan experiments using completely randomised, randomised block, Latin square, factorial and split-plot designs. After data collection we analyse the results using the appropriate estimators or analysis of variance.",
+    "problems": [
+      "You need to survey a population but cannot reach everyone",
+      "A questionnaire needs to be designed or reviewed before fieldwork",
+      "You want to test several factors at once without running every combination",
+      "Variation between sites, batches or days could hide the effect you care about",
+      "Survey or experiment results need to be analysed with the correct design-based method"
+    ],
+    "audience": [
+      "Market and social researchers",
+      "Agricultural, medical and biomedical research teams",
+      "Product and process engineers running trials",
+      "Public bodies planning surveys"
+    ],
+    "client_inputs": [
+      "Objectives of the survey or experiment",
+      "Description of the population, sampling frame or experimental units",
+      "Practical constraints (budget, time, number of runs)",
+      "Draft questionnaire or protocol, if one exists",
+      "Collected data for the analysis stage"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We clarify objectives, the population or units involved and practical constraints."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We recommend a design and outline what we will deliver at the planning and analysis stages."
+      },
+      {
+        "step": "Design",
+        "detail": "We prepare the sampling plan or experimental layout, including randomisation and sample size reasoning."
+      },
+      {
+        "step": "Instrument review",
+        "detail": "We review questionnaires or schedules for clarity and bias."
+      },
+      {
+        "step": "Analysis & reporting",
+        "detail": "Once data are collected, we analyse them with design-appropriate methods and report the findings."
+      },
+      {
+        "step": "Optional follow-up",
+        "detail": "We can advise on follow-up surveys or further experimental runs."
+      }
+    ],
+    "deliverables": [
+      "Sampling plan or experimental layout document with rationale",
+      "Reviewed questionnaire or schedule with comments",
+      "Randomisation lists or run sheets",
+      "Analysis report with estimates, ANOVA tables and plain-language interpretation",
+      "Reproducible R scripts or documented Excel workbooks"
+    ],
+    "applications": [
+      "Research and government sample surveys",
+      "Agricultural field trials",
+      "Medical and biomedical experiments",
+      "Market research and customer surveys in business and management"
+    ],
+    "methods": [
+      "Primary and secondary data; questionnaire and schedule design",
+      "Simple random sampling with and without replacement",
+      "Stratified, cluster and systematic sampling",
+      "Regression method of estimation",
+      "Completely Randomised Design (CRD)",
+      "Randomised Block Design (RBD) and Latin Square Design (LSD)",
+      "Two- and three-level factorial and fractional factorial designs",
+      "Split-plot designs",
+      "Analysis of variance"
+    ],
+    "tools": [
+      "R",
+      "Excel"
+    ],
+    "related_courses": [
+      "experimental-design-sampling",
+      "statistical-inference-hypothesis-testing"
+    ],
+    "related_articles": [
+      "sampling-designs",
+      "design-of-experiments",
+      "analysis-of-variance"
+    ],
+    "source_pages": [
+      2,
+      58,
+      59,
+      60,
+      61
+    ],
+    "featured": true,
+    "order": 6,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "multivariate-analysis-segmentation",
+    "title": "Multivariate Analysis & Segmentation",
+    "category": "Statistics",
+    "icon": "Network",
+    "summary": "Make sense of many variables at once: reduce dimensions, uncover underlying factors and group similar cases.",
+    "overview": "When data have many related variables, looking at them one at a time misses the structure. We use principal component analysis and factor analysis to summarise correlated variables, cluster analysis to group similar customers, products or cases, and discriminant analysis to classify new observations. Results are presented with biplots and other graphics so the segments and factors are easy to interpret.",
+    "problems": [
+      "You have many correlated variables and need a smaller set of meaningful summaries",
+      "You want to group customers, products or locations into segments",
+      "Survey items should be checked for underlying factors",
+      "New cases need to be assigned to known groups",
+      "Multivariate results need clear visual explanation"
+    ],
+    "audience": [
+      "Marketing and customer insight teams",
+      "Researchers working with multi-item surveys",
+      "Retail and consumer goods analysts",
+      "Data teams preparing inputs for further modelling"
+    ],
+    "client_inputs": [
+      "Dataset with the variables to be analysed",
+      "Purpose of the segmentation or reduction",
+      "Any existing groupings or labels",
+      "Business or research context for interpreting segments"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss why you need segments or factors and how they will be used."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on methods, the number of solutions to explore and outputs."
+      },
+      {
+        "step": "Data review",
+        "detail": "We examine mean vectors, correlation matrices and scaling choices."
+      },
+      {
+        "step": "Analysis",
+        "detail": "We run PCA, factor or cluster analysis and test the stability of the results."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We describe each component, factor or segment in plain language with supporting charts."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We provide code to assign new records to segments."
+      }
+    ],
+    "deliverables": [
+      "Written report with methodology, results tables and segment or factor profiles",
+      "Biplots, scree plots and cluster visualisations",
+      "Segment assignment file for your records",
+      "Reproducible R or Python scripts",
+      "Notes on limitations and suggested validation"
+    ],
+    "applications": [
+      "Customer segmentation in marketing and retail",
+      "Reducing multi-item survey scales in social and management research",
+      "Grouping products or outlets in consumer goods",
+      "Classifying cases in medical studies using discriminant models"
+    ],
+    "methods": [
+      "Sample mean vector, dispersion and correlation matrices",
+      "Multivariate normal distribution",
+      "Principal component analysis and biplots",
+      "Orthogonal factor model and factor interpretation",
+      "Cluster analysis: partitioning, hierarchical and density-based methods",
+      "Similarity measures and model-based clustering",
+      "Discriminant analysis",
+      "Multiple and partial correlation"
+    ],
+    "tools": [
+      "R",
+      "Python"
+    ],
+    "related_courses": [
+      "multivariate-statistical-analysis",
+      "business-analytics-data-mining"
+    ],
+    "related_articles": [
+      "principal-components-and-factor-analysis",
+      "matrix-decompositions-for-data-science"
+    ],
+    "source_pages": [
+      68,
+      69,
+      70,
+      71,
+      112
+    ],
+    "featured": false,
+    "order": 7,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "survival-reliability-analysis",
+    "title": "Survival, Reliability & Biostatistical Analysis",
+    "category": "Statistics",
+    "icon": "HeartPulse",
+    "summary": "Time-to-event analysis for patients, customers or components, handling censored data correctly.",
+    "overview": "Survival and reliability analysis studies how long it takes for an event to occur, whether that is a clinical outcome, a customer leaving or a component failing. We estimate survival and hazard functions with Kaplan-Meier and Nelson-Aalen methods, deal with different kinds of censoring, fit lifetime distributions such as exponential, Weibull, gamma and lognormal, and compare groups. Regression approaches such as the Cox proportional hazards model are considered where appropriate. For engineered systems, we assess reliability of series, parallel, k-out-of-n and standby configurations, and can use Markov and queuing models.",
+    "problems": [
+      "Some subjects or units have not yet experienced the event, so ordinary averages mislead",
+      "You need to compare time-to-event between treatment or customer groups",
+      "Component or system reliability must be estimated from failure data",
+      "You want to know whether failure risk rises, falls or follows a bath-tub pattern over time",
+      "Waiting times or service queues need to be modelled"
+    ],
+    "audience": [
+      "Medical, biomedical and public health researchers",
+      "Reliability and maintenance engineers",
+      "Customer retention and subscription analysts",
+      "Operations teams studying queues and service systems"
+    ],
+    "client_inputs": [
+      "Event and follow-up time data with censoring indicators",
+      "Group or covariate information",
+      "Study protocol or system diagram, where relevant",
+      "Evidence of any ethics approvals and data permissions for clinical data",
+      "Questions the analysis should answer"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss the event of interest, how time is measured and how data were collected."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on methods, comparisons and outputs, and confirm data permissions."
+      },
+      {
+        "step": "Data review",
+        "detail": "We check event coding, censoring types and follow-up periods."
+      },
+      {
+        "step": "Analysis",
+        "detail": "We estimate survival and hazard functions, fit lifetime models and compare groups."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We present survival curves and estimates with clear explanations of uncertainty."
+      },
+      {
+        "step": "Optional follow-up",
+        "detail": "We can update analyses as follow-up data accumulate."
+      }
+    ],
+    "deliverables": [
+      "Written report with methodology, results tables and plain-language interpretation",
+      "Kaplan-Meier and cumulative hazard plots with confidence intervals",
+      "Fitted lifetime distribution comparisons with Q-Q and hazard plots",
+      "System reliability calculations, where relevant",
+      "Reproducible R or Python scripts, or SPSS syntax"
+    ],
+    "applications": [
+      "Medical and public health studies of time to recovery or relapse",
+      "Biomedical and clinical research data analysis",
+      "Engineering reliability of components and systems",
+      "Queuing and service-time analysis in operations"
+    ],
+    "methods": [
+      "Survival, hazard and cumulative hazard functions",
+      "Increasing and decreasing failure rate classes; bath-tub hazards",
+      "Exponential, gamma, Weibull, Rayleigh and lognormal lifetime models",
+      "Left, right, interval and other censoring schemes",
+      "Kaplan-Meier and Nelson-Aalen estimators",
+      "Log-rank tests and Cox proportional hazards model",
+      "Series, parallel, k-out-of-n and standby system reliability",
+      "Markov chains, Poisson and birth-death processes; queuing models"
+    ],
+    "tools": [
+      "R",
+      "Python",
+      "SPSS"
+    ],
+    "related_courses": [
+      "survival-reliability-analysis",
+      "statistics-for-data-analysis"
+    ],
+    "related_articles": [
+      "survival-analysis-kaplan-meier",
+      "probability-distributions-and-clt"
+    ],
+    "source_pages": [
+      72,
+      73,
+      74,
+      75,
+      100,
+      101
+    ],
+    "featured": false,
+    "order": 8,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": "Clinical or medical work may require ethics approvals, consent and data-protection arrangements; the client is responsible for obtaining these before data are shared."
+  },
+  {
+    "slug": "statistical-quality-control",
+    "title": "Statistical Quality Control & Process Monitoring",
+    "category": "Statistics",
+    "icon": "Gauge",
+    "summary": "Control charts and acceptance sampling plans that help you tell normal variation from real process problems.",
+    "overview": "We help production and service teams monitor quality using statistical process control. That means distinguishing chance variation from assignable causes, setting up rational subgroups, constructing control charts for variables and attributes, and interpreting patterns and run lengths. We also design single and double acceptance sampling plans and describe their operating characteristics so you understand the risks of accepting or rejecting a lot.",
+    "problems": [
+      "You cannot tell whether a change in a process measurement is real or random",
+      "Inspection is costly and you need a sound sampling plan",
+      "Control charts exist but nobody is sure how limits were set",
+      "Defect rates need to be tracked consistently over time",
+      "Teams need a shared, simple way to monitor quality"
+    ],
+    "audience": [
+      "Production and manufacturing managers",
+      "Quality assurance teams",
+      "Service operations teams tracking error rates",
+      "Engineers responsible for process improvement"
+    ],
+    "client_inputs": [
+      "Process measurements or defect counts over time",
+      "Description of the process and how samples are taken",
+      "Specifications or quality targets",
+      "Current inspection or acceptance practices"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We learn about the process, current quality checks and pain points."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We propose charts and sampling plans suited to the process and data."
+      },
+      {
+        "step": "Data review",
+        "detail": "We check subgrouping, sampling frequency and data quality."
+      },
+      {
+        "step": "Design & analysis",
+        "detail": "We set control limits, analyse patterns and design acceptance sampling plans."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We explain how to read the charts and what to do when signals appear."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We provide templates so your team can maintain the charts."
+      }
+    ],
+    "deliverables": [
+      "Control charts with documented limits and subgrouping rationale",
+      "Written report on process behaviour and identified signals",
+      "Acceptance sampling plan with OC and ASN curves",
+      "Reusable chart templates in Excel or R",
+      "Short reference guide for operators"
+    ],
+    "applications": [
+      "Monitoring dimensions or weights in production",
+      "Tracking defect proportions in assembly and packaging",
+      "Incoming material inspection using acceptance sampling",
+      "Service quality monitoring in operations"
+    ],
+    "methods": [
+      "Chance and assignable causes of variation",
+      "Rational subgrouping and choice of control limits",
+      "Warning limits and Average Run Length (ARL)",
+      "X-bar and R charts; X-bar and s charts",
+      "p and np charts for attributes",
+      "Single and double sampling plans",
+      "Operating characteristic (OC) and ASN functions",
+      "Quality costs and total quality management concepts"
+    ],
+    "tools": [
+      "Excel",
+      "R"
+    ],
+    "related_courses": [
+      "statistical-quality-control"
+    ],
+    "related_articles": [
+      "control-charts-for-quality"
+    ],
+    "source_pages": [
+      43,
+      44
+    ],
+    "featured": false,
+    "order": 9,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "data-visualization-reporting",
+    "title": "Data Visualization & Analytical Reporting",
+    "category": "Analytics",
+    "icon": "BarChart3",
+    "summary": "Clear, honest charts and reports that turn analysis into something your audience can read at a glance.",
+    "overview": "We design visualisations and analytical reports built on sound principles: mapping data to the right visual encodings, using colour deliberately, and choosing chart types that suit amounts, distributions, proportions, relationships, trends and geography. Depending on your environment we work with Excel PivotTables and PivotCharts or with R and Python plotting. We do not tie you to a particular business-intelligence product.",
+    "problems": [
+      "Reports are full of tables but the key message is hard to find",
+      "Charts are inconsistent or use misleading scales and colours",
+      "Monthly reporting takes too long to assemble by hand",
+      "You need to show distributions or uncertainty, not just averages",
+      "Geographic or time-based patterns are hard to see"
+    ],
+    "audience": [
+      "Managers who prepare regular performance reports",
+      "Analysts who want to improve how they present results",
+      "Research teams preparing figures for reports and presentations",
+      "Public-sector teams publishing statistics"
+    ],
+    "client_inputs": [
+      "The data or existing reports to be improved",
+      "The audience and the decisions the report supports",
+      "Software currently in use",
+      "Any style or branding guidance"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss the audience, the key messages and the tools you already use."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on the set of charts or reports and the format of the deliverables."
+      },
+      {
+        "step": "Data review",
+        "detail": "We check the data structure and prepare summaries for charting."
+      },
+      {
+        "step": "Design & build",
+        "detail": "We draft visualisations and refine them with your feedback."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We hand over the final report and explain how each chart should be read."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We provide templates or scripts so the report can be refreshed."
+      }
+    ],
+    "deliverables": [
+      "Set of finished charts and an analytical report",
+      "Excel workbook with PivotTables and PivotCharts, or R/Python plotting scripts",
+      "Chart style guide covering colour, scales and labelling",
+      "Refresh instructions for recurring reports"
+    ],
+    "applications": [
+      "Business performance and management reporting",
+      "Visualising trends and seasonal patterns in sales data",
+      "Choropleth maps and cartograms for regional statistics",
+      "Presenting survey and research results"
+    ],
+    "methods": [
+      "Mapping data onto aesthetics; scales and coordinate systems",
+      "Colour as a tool to distinguish, represent values and highlight",
+      "Bar, grouped and stacked bars, dot plots and heatmaps",
+      "Histograms, empirical CDFs and Q-Q plots",
+      "Visualising proportions",
+      "Smoothing, detrending and time-series decomposition",
+      "Choropleth mapping and cartograms",
+      "PivotTables and PivotCharts"
+    ],
+    "tools": [
+      "Excel",
+      "R",
+      "Python"
+    ],
+    "related_courses": [
+      "data-visualization",
+      "excel-for-data-analytics",
+      "r-programming-for-statistics",
+      "python-programming-for-data-science"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion",
+      "time-series-components-and-forecasting"
+    ],
+    "source_pages": [
+      10,
+      11,
+      22,
+      23,
+      34,
+      78,
+      79
+    ],
+    "featured": false,
+    "order": 10,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "business-analytics-data-mining",
+    "title": "Business Analytics, Data Mining & Warehousing",
+    "category": "Analytics",
+    "icon": "Briefcase",
+    "summary": "From database design and data preparation to mining patterns that support business decisions.",
+    "overview": "This service covers the analytics process end to end: understanding the business question, structuring and querying data, preparing and validating it, and applying descriptive and predictive techniques. We can help design relational databases with ER modelling and normalisation, write SQL for analysis, plan data warehouse structures such as star and snowflake schemas, and apply data mining methods including association rules, classification and clustering.",
+    "problems": [
+      "Data are spread across spreadsheets and systems and hard to combine",
+      "You want to find patterns in transactions or customer behaviour",
+      "Reports are slow because the underlying data structure is poor",
+      "Data quality issues such as missing or inconsistent values undermine trust",
+      "You need a clear analytics process rather than one-off analyses"
+    ],
+    "audience": [
+      "Small and mid-sized businesses building analytics capability",
+      "Marketing, retail and hospitality teams",
+      "Analysts who need structured SQL-based data",
+      "Managers who want decisions grounded in data"
+    ],
+    "client_inputs": [
+      "Business questions and priorities",
+      "Access to, or extracts from, relevant data sources",
+      "Description of current systems and reports",
+      "Contacts who understand the data and business processes"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We map the business questions and the data sources available."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on the analytics or data-structuring work and deliverables."
+      },
+      {
+        "step": "Data review & preparation",
+        "detail": "We clean, integrate, transform and validate the data."
+      },
+      {
+        "step": "Modelling & mining",
+        "detail": "We design data structures and apply the agreed mining or analytical techniques."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We present findings and recommendations in business terms."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We hand over SQL, scripts and documentation to your team."
+      }
+    ],
+    "deliverables": [
+      "Written report with methodology, findings and plain-language interpretation",
+      "ER diagram and normalised schema, or warehouse schema design",
+      "Documented SQL queries and data preparation scripts",
+      "Pattern, rule or segment summaries with supporting charts",
+      "Data quality notes and recommendations"
+    ],
+    "applications": [
+      "Market basket and association analysis in retail",
+      "Customer segmentation in marketing and hospitality",
+      "Social media analytics for consumer goods brands",
+      "Management reporting from integrated business data"
+    ],
+    "methods": [
+      "Business intelligence architecture and the analytics process",
+      "Descriptive and predictive analytics",
+      "Data cleaning, integration, transformation and discretisation",
+      "SQL filtering, joins, aggregation and window functions",
+      "ER modelling and normalisation to third normal form",
+      "Association rule mining",
+      "Classification and cluster analysis",
+      "Data warehousing: data cubes, star and snowflake schemas"
+    ],
+    "tools": [
+      "SQL",
+      "MySQL",
+      "Excel",
+      "R",
+      "Python"
+    ],
+    "related_courses": [
+      "business-analytics-data-mining",
+      "sql-databases-for-data-science",
+      "excel-for-data-analytics"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion",
+      "correlation-and-regression"
+    ],
+    "source_pages": [
+      4,
+      5,
+      76,
+      77,
+      88,
+      89,
+      90,
+      91,
+      111,
+      112
+    ],
+    "featured": true,
+    "order": 11,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "operations-research-optimisation",
+    "title": "Operations Research & Decision Modelling",
+    "category": "Mathematics",
+    "icon": "Route",
+    "summary": "Optimisation and decision models for allocating resources, planning logistics and choosing under uncertainty.",
+    "overview": "Operations research turns a planning problem into a mathematical model and finds the best feasible solution within constraints of time, labour, materials and business rules. We formulate and solve linear programmes, transportation and assignment problems, analyse competitive situations with game theory, and build decision models using payoff matrices, decision trees and the value of information. Where uncertainty is significant we use Monte-Carlo simulation, and for problems with vague criteria we can apply fuzzy multicriteria methods.",
+    "problems": [
+      "You need the best product mix or resource allocation under constraints",
+      "Shipping or assignment costs could be reduced with better planning",
+      "A decision involves risk and you want to weigh options systematically",
+      "You want to know whether extra information is worth paying for",
+      "Uncertain inputs make it hard to judge the range of possible outcomes"
+    ],
+    "audience": [
+      "Operations, production and logistics managers",
+      "Planners and strategy teams",
+      "Economists modelling production or input-output structures",
+      "Analysts building spreadsheet decision models"
+    ],
+    "client_inputs": [
+      "Description of the decision, objectives and constraints",
+      "Cost, capacity, demand or payoff data",
+      "Estimates of probabilities or ranges for uncertain inputs",
+      "Feedback on draft model assumptions"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We understand the decision, the objective and the main constraints."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on the model type and outputs."
+      },
+      {
+        "step": "Model formulation",
+        "detail": "We translate the problem into a mathematical or spreadsheet model and validate assumptions with you."
+      },
+      {
+        "step": "Solution & analysis",
+        "detail": "We solve the model, test sensitivity and run simulations where needed."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We explain the recommended solution, its assumptions and trade-offs."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We provide the model so you can re-run it with new inputs."
+      }
+    ],
+    "deliverables": [
+      "Documented model formulation (objective, variables, constraints)",
+      "Written report with optimal solution, sensitivity and plain-language interpretation",
+      "Decision tree or payoff analysis with expected values",
+      "Simulation results summarising ranges of outcomes",
+      "Reusable Excel model or R/Python scripts"
+    ],
+    "applications": [
+      "Production planning and distribution of goods",
+      "Transportation and assignment of jobs or staff",
+      "Investment or launch decisions under risk",
+      "Input-output analysis of an economy's structure"
+    ],
+    "methods": [
+      "Linear programming: graphical and simplex methods, Big-M and two-phase",
+      "Duality and the dual simplex method",
+      "Transportation problems (north-west corner, least cost, Vogel's, MODI)",
+      "Assignment problems (Hungarian method)",
+      "Two-person zero-sum and non-cooperative games",
+      "Payoff matrices, decision trees and value of information",
+      "Monte-Carlo and discrete-event simulation",
+      "Fuzzy linear programming and multicriteria decision making",
+      "Input-output analysis"
+    ],
+    "tools": [
+      "Excel",
+      "R",
+      "Python"
+    ],
+    "related_courses": [
+      "operations-research-decision-modelling",
+      "financial-mathematics-economics"
+    ],
+    "related_articles": [
+      "linear-programming-and-simplex",
+      "decision-analysis-under-risk"
+    ],
+    "source_pages": [
+      32,
+      33,
+      98,
+      99,
+      107,
+      108,
+      113
+    ],
+    "featured": true,
+    "order": 12,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "mathematical-modelling-numerical-computation",
+    "title": "Mathematical Modelling & Numerical Computation",
+    "category": "Mathematics",
+    "icon": "FunctionSquare",
+    "summary": "Differential-equation models, matrix computations and numerical methods for problems without neat closed-form answers.",
+    "overview": "Many engineering and scientific questions come down to solving equations that are too large or complex to handle by hand. We formulate mathematical models, classify them, and solve them using ordinary differential equations, matrix factorisations such as LU, QR and the singular value decomposition, eigenvalue methods, and numerical techniques for root finding, interpolation, integration and initial value problems. We pay attention to error, conditioning and stability so results can be trusted.",
+    "problems": [
+      "A system is described by differential equations that need solving or simulating",
+      "Large systems of linear equations or least-squares problems must be solved reliably",
+      "Results from existing code are unstable or sensitive to small changes",
+      "You need approximate solutions with a known level of accuracy",
+      "A model exists on paper but has not been implemented or validated"
+    ],
+    "audience": [
+      "Engineers working on structures, electrical networks or chemical processes",
+      "Researchers building mathematical or simulation models",
+      "Data scientists needing robust linear algebra",
+      "Technical teams in science and engineering"
+    ],
+    "client_inputs": [
+      "Problem description and any existing equations or models",
+      "Parameter values, boundary or initial conditions",
+      "Required accuracy and computing environment",
+      "Existing code, if any"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss the system being modelled and what you need from the solution."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We agree on the modelling approach, methods and outputs."
+      },
+      {
+        "step": "Model formulation",
+        "detail": "We set up the equations and check assumptions and model classification."
+      },
+      {
+        "step": "Computation",
+        "detail": "We implement and solve the model, analysing error and sensitivity."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We present solutions, plots and accuracy checks with clear explanations."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We hand over code and documentation."
+      }
+    ],
+    "deliverables": [
+      "Written report with model formulation, methods and results",
+      "Error and sensitivity analysis",
+      "Plots of solutions and behaviour",
+      "Documented MATLAB, Mathematica or Excel files",
+      "Notes on model limitations and validation"
+    ],
+    "applications": [
+      "Design of structures in engineering",
+      "Analysis of electrical networks",
+      "Modelling of chemical processes",
+      "Simulation studies in engineering research"
+    ],
+    "methods": [
+      "First- and second-order ordinary differential equations",
+      "Systems of differential equations",
+      "Model classification, evaluation and simulation",
+      "Gaussian elimination, LU and Cholesky factorisation",
+      "QR factorisation and least-squares problems",
+      "Singular value decomposition and numerical rank",
+      "Eigenvalue methods: power, inverse power and QR algorithm",
+      "Root finding (bisection, secant, Newton-Raphson)",
+      "Interpolation, numerical differentiation and integration",
+      "Jacobi and Gauss-Seidel iterative methods"
+    ],
+    "tools": [
+      "MATLAB",
+      "Mathematica",
+      "Excel"
+    ],
+    "related_courses": [
+      "mathematical-modelling-differential-equations",
+      "mathematics-for-data-science"
+    ],
+    "related_articles": [
+      "matrix-decompositions-for-data-science",
+      "numerical-root-finding"
+    ],
+    "source_pages": [
+      16,
+      18,
+      19,
+      20,
+      21,
+      46,
+      52,
+      53,
+      54,
+      55,
+      102,
+      103
+    ],
+    "featured": false,
+    "order": 13,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": null
+  },
+  {
+    "slug": "big-data-analytics",
+    "title": "Big Data Analytics (Hadoop & Spark)",
+    "category": "Data Science",
+    "icon": "Database",
+    "summary": "Analytics on data too large for a single machine, using the Hadoop ecosystem, Spark and NoSQL stores.",
+    "overview": "When data outgrow spreadsheets and single databases, distributed tools are needed. We advise on and implement analytics using HDFS for storage, MapReduce, Pig and Hive for processing and querying, and Spark and PySpark for faster analysis and data pipelines. We can also work with NoSQL stores such as MongoDB and Cassandra, and run algorithms like k-means clustering and frequent itemset mining at scale.",
+    "problems": [
+      "Data volumes are too large to process with conventional tools",
+      "You need to combine structured, semi-structured and unstructured data",
+      "Batch jobs are slow and difficult to maintain",
+      "You want to run clustering or pattern mining over very large datasets",
+      "You need to judge whether a big data platform is worth the effort"
+    ],
+    "audience": [
+      "Data engineering and analytics teams",
+      "Organisations in marketing, retail, hospitality and consumer goods with large data",
+      "Technical leads assessing the Hadoop or Spark ecosystem",
+      "Researchers working with large datasets"
+    ],
+    "client_inputs": [
+      "Description of data sources, volumes and formats",
+      "Access to a cluster or cloud environment, or requirements for one",
+      "Analytical questions to be answered",
+      "Contacts in IT or engineering for infrastructure questions"
+    ],
+    "process": [
+      {
+        "step": "Discovery call",
+        "detail": "We discuss the data, its scale and the analytical goals."
+      },
+      {
+        "step": "Scoping & proposal",
+        "detail": "We confirm infrastructure, responsibilities and deliverables."
+      },
+      {
+        "step": "Data & platform review",
+        "detail": "We review storage, formats and the processing environment."
+      },
+      {
+        "step": "Implementation & analysis",
+        "detail": "We build the agreed jobs or pipelines and run the analysis."
+      },
+      {
+        "step": "Reporting & walkthrough",
+        "detail": "We present results and explain how the pipeline works."
+      },
+      {
+        "step": "Optional handover",
+        "detail": "We document code and operation so your team can maintain it."
+      }
+    ],
+    "deliverables": [
+      "Written report with architecture overview, methods and findings",
+      "Documented MapReduce, Pig, Hive or PySpark code",
+      "Data pipeline design notes",
+      "Summary of results with charts",
+      "Recommendations on platform use and limitations"
+    ],
+    "applications": [
+      "Big data analytics in marketing and retail",
+      "Customer and operational data in hospitality and consumer goods",
+      "Defence and other sectors with large data volumes",
+      "Social network and web content analysis"
+    ],
+    "methods": [
+      "Characteristics and challenges of big data",
+      "HDFS architecture and file management",
+      "MapReduce programming, combiners and joins",
+      "Pig Latin scripting and Hive queries",
+      "Spark applications, RDDs and Spark SQL",
+      "PySpark and Hive data pipelines",
+      "NoSQL with MongoDB and Cassandra",
+      "k-means clustering and frequent itemset mining with MapReduce"
+    ],
+    "tools": [
+      "Hadoop",
+      "HDFS",
+      "MapReduce",
+      "Pig",
+      "Hive",
+      "Spark",
+      "PySpark",
+      "MongoDB",
+      "Cassandra",
+      "R"
+    ],
+    "related_courses": [
+      "big-data-analytics-hadoop-spark",
+      "sql-databases-for-data-science"
+    ],
+    "related_articles": [],
+    "source_pages": [
+      86,
+      87,
+      92,
+      93,
+      94,
+      95
+    ],
+    "featured": false,
+    "order": 14,
+    "status": "published",
+    "availability": "proposed",
+    "approval_note": "Requires confirmed infrastructure access and data-engineering capacity before this service is offered."
+  }
+]

@@ -1,0 +1,2271 @@
+[
+  {
+    "slug": "demand-forecasting-decomposition",
+    "title": "Monthly Demand Forecasting with Classical Decomposition",
+    "category": "Statistics",
+    "summary": "Separating trend and seasonality in four years of synthetic monthly demand, then projecting the next twelve months and checking accuracy on held-out data.",
+    "is_synthetic": true,
+    "problem": "A planning team wants a transparent twelve-month demand forecast that shows how much of the movement is long-run growth and how much is a repeating seasonal pattern.",
+    "dataset": "48 months of synthetic demand generated from a linear trend multiplied by a fixed seasonal pattern with about 2.5% random noise (seed 20231004). No real company data is used.",
+    "methodology": [
+      "Multiplicative model: observed = trend × seasonal × irregular.",
+      "Trend-cycle estimated with a 2×12 centred moving average (even period).",
+      "Seasonal indices by the ratio-to-moving-average method, normalised to average 1.",
+      "Least-squares straight-line trend fitted to the deseasonalised series.",
+      "Simple exponential smoothing on the deseasonalised series as a comparison; smoothing constant chosen by minimum sum of squared one-step errors."
+    ],
+    "process": [
+      "Plotted the series and confirmed a rising trend with a stable seasonal amplitude, which points to a multiplicative model.",
+      "Computed the centred moving average and the ratio of each observation to it.",
+      "Averaged ratios by calendar month to obtain seasonal indices.",
+      "Fitted the trend line, recombined with the indices, and projected twelve months ahead.",
+      "Re-ran the full procedure on the first 36 months only and forecast the last 12 to measure out-of-sample error (MAPE)."
+    ],
+    "charts": [
+      {
+        "reference_lines": [],
+        "x_type": "number",
+        "id": "decomposition",
+        "kind": "line",
+        "title": "Observed demand, trend-cycle and 12-month forecast",
+        "subtitle": "Synthetic data · units per month",
+        "x_key": "month",
+        "x_label": "Month index",
+        "y_label": "Units",
+        "series": [
+          {
+            "key": "observed",
+            "label": "Observed",
+            "color": 1,
+            "style": "line"
+          },
+          {
+            "key": "trend_cycle",
+            "label": "Trend-cycle (2×12 MA)",
+            "color": 3,
+            "style": "line"
+          },
+          {
+            "key": "forecast",
+            "label": "Forecast",
+            "color": 2,
+            "style": "dashed"
+          }
+        ],
+        "data": [
+          {
+            "month": 1,
+            "observed": 371.3,
+            "trend_cycle": null,
+            "model": 348.6
+          },
+          {
+            "month": 2,
+            "observed": 360.4,
+            "trend_cycle": null,
+            "model": 353.6
+          },
+          {
+            "month": 3,
+            "observed": 389.5,
+            "trend_cycle": null,
+            "model": 395.7
+          },
+          {
+            "month": 4,
+            "observed": 420.8,
+            "trend_cycle": null,
+            "model": 432.1
+          },
+          {
+            "month": 5,
+            "observed": 434.9,
+            "trend_cycle": null,
+            "model": 449.1
+          },
+          {
+            "month": 6,
+            "observed": 465.4,
+            "trend_cycle": null,
+            "model": 481.4
+          },
+          {
+            "month": 7,
+            "observed": 512.6,
+            "trend_cycle": 441.2,
+            "model": 514.7
+          },
+          {
+            "month": 8,
+            "observed": 501.0,
+            "trend_cycle": 444.6,
+            "model": 503.6
+          },
+          {
+            "month": 9,
+            "observed": 472.0,
+            "trend_cycle": 450.1,
+            "model": 468.8
+          },
+          {
+            "month": 10,
+            "observed": 453.5,
+            "trend_cycle": 457.1,
+            "model": 444.7
+          },
+          {
+            "month": 11,
+            "observed": 443.4,
+            "trend_cycle": 463.7,
+            "model": 440.5
+          },
+          {
+            "month": 12,
+            "observed": 449.6,
+            "trend_cycle": 470.9,
+            "model": 463.9
+          },
+          {
+            "month": 13,
+            "observed": 412.1,
+            "trend_cycle": 478.5,
+            "model": 408.4
+          },
+          {
+            "month": 14,
+            "observed": 400.7,
+            "trend_cycle": 485.9,
+            "model": 413.5
+          },
+          {
+            "month": 15,
+            "observed": 480.4,
+            "trend_cycle": 492.6,
+            "model": 461.7
+          },
+          {
+            "month": 16,
+            "observed": 499.1,
+            "trend_cycle": 498.0,
+            "model": 503.3
+          },
+          {
+            "month": 17,
+            "observed": 515.1,
+            "trend_cycle": 502.3,
+            "model": 522.1
+          },
+          {
+            "month": 18,
+            "observed": 558.5,
+            "trend_cycle": 507.7,
+            "model": 558.6
+          },
+          {
+            "month": 19,
+            "observed": 602.0,
+            "trend_cycle": 513.6,
+            "model": 596.1
+          },
+          {
+            "month": 20,
+            "observed": 588.8,
+            "trend_cycle": 519.5,
+            "model": 582.2
+          },
+          {
+            "month": 21,
+            "observed": 545.1,
+            "trend_cycle": 524.8,
+            "model": 541.0
+          },
+          {
+            "month": 22,
+            "observed": 509.8,
+            "trend_cycle": 530.7,
+            "model": 512.4
+          },
+          {
+            "month": 23,
+            "observed": 490.1,
+            "trend_cycle": 538.7,
+            "model": 506.7
+          },
+          {
+            "month": 24,
+            "observed": 531.8,
+            "trend_cycle": 546.3,
+            "model": 532.7
+          },
+          {
+            "month": 25,
+            "observed": 470.8,
+            "trend_cycle": 553.0,
+            "model": 468.3
+          },
+          {
+            "month": 26,
+            "observed": 483.9,
+            "trend_cycle": 558.8,
+            "model": 473.3
+          },
+          {
+            "month": 27,
+            "observed": 525.0,
+            "trend_cycle": 563.7,
+            "model": 527.8
+          },
+          {
+            "month": 28,
+            "observed": 595.4,
+            "trend_cycle": 568.3,
+            "model": 574.5
+          },
+          {
+            "month": 29,
+            "observed": 610.5,
+            "trend_cycle": 574.6,
+            "model": 595.1
+          },
+          {
+            "month": 30,
+            "observed": 646.1,
+            "trend_cycle": 582.1,
+            "model": 635.7
+          },
+          {
+            "month": 31,
+            "observed": 675.4,
+            "trend_cycle": 587.9,
+            "model": 677.5
+          },
+          {
+            "month": 32,
+            "observed": 653.7,
+            "trend_cycle": 592.4,
+            "model": 660.8
+          },
+          {
+            "month": 33,
+            "observed": 599.0,
+            "trend_cycle": 596.9,
+            "model": 613.3
+          },
+          {
+            "month": 34,
+            "observed": 566.2,
+            "trend_cycle": 600.7,
+            "model": 580.1
+          },
+          {
+            "month": 35,
+            "observed": 583.8,
+            "trend_cycle": 604.5,
+            "model": 572.9
+          },
+          {
+            "month": 36,
+            "observed": 619.7,
+            "trend_cycle": 609.3,
+            "model": 601.6
+          },
+          {
+            "month": 37,
+            "observed": 521.8,
+            "trend_cycle": 614.4,
+            "model": 528.2
+          },
+          {
+            "month": 38,
+            "observed": 540.2,
+            "trend_cycle": 620.2,
+            "model": 533.2
+          },
+          {
+            "month": 39,
+            "observed": 577.8,
+            "trend_cycle": 627.8,
+            "model": 593.9
+          },
+          {
+            "month": 40,
+            "observed": 633.2,
+            "trend_cycle": 636.3,
+            "model": 645.7
+          },
+          {
+            "month": 41,
+            "observed": 664.7,
+            "trend_cycle": 643.0,
+            "model": 668.1
+          },
+          {
+            "month": 42,
+            "observed": 706.4,
+            "trend_cycle": 647.3,
+            "model": 712.9
+          },
+          {
+            "month": 43,
+            "observed": 736.8,
+            "trend_cycle": null,
+            "model": 758.9
+          },
+          {
+            "month": 44,
+            "observed": 732.4,
+            "trend_cycle": null,
+            "model": 739.5
+          },
+          {
+            "month": 45,
+            "observed": 701.7,
+            "trend_cycle": null,
+            "model": 685.5
+          },
+          {
+            "month": 46,
+            "observed": 668.4,
+            "trend_cycle": null,
+            "model": 647.8
+          },
+          {
+            "month": 47,
+            "observed": 641.6,
+            "trend_cycle": null,
+            "model": 639.1
+          },
+          {
+            "month": 48,
+            "observed": 665.9,
+            "trend_cycle": null,
+            "model": 670.4,
+            "forecast": 670.4
+          },
+          {
+            "month": 49,
+            "forecast": 588.1
+          },
+          {
+            "month": 50,
+            "forecast": 593.1
+          },
+          {
+            "month": 51,
+            "forecast": 660.0
+          },
+          {
+            "month": 52,
+            "forecast": 716.9
+          },
+          {
+            "month": 53,
+            "forecast": 741.0
+          },
+          {
+            "month": 54,
+            "forecast": 790.1
+          },
+          {
+            "month": 55,
+            "forecast": 840.3
+          },
+          {
+            "month": 56,
+            "forecast": 818.1
+          },
+          {
+            "month": 57,
+            "forecast": 757.8
+          },
+          {
+            "month": 58,
+            "forecast": 715.5
+          },
+          {
+            "month": 59,
+            "forecast": 705.3
+          },
+          {
+            "month": 60,
+            "forecast": 739.2
+          }
+        ]
+      },
+      {
+        "reference_lines": [
+          {
+            "axis": "y",
+            "value": 1.0,
+            "label": "Average month"
+          }
+        ],
+        "x_type": "category",
+        "id": "seasonal-indices",
+        "kind": "bar",
+        "title": "Estimated seasonal indices",
+        "subtitle": "Ratio-to-moving-average · 1.00 = an average month",
+        "x_key": "month",
+        "x_label": "Month",
+        "y_label": "Index",
+        "y_domain": [
+          0.7,
+          1.2
+        ],
+        "series": [
+          {
+            "key": "index",
+            "label": "Seasonal index",
+            "color": 1,
+            "style": "bar"
+          }
+        ],
+        "data": [
+          {
+            "month": "Jan",
+            "index": 0.853
+          },
+          {
+            "month": "Feb",
+            "index": 0.853
+          },
+          {
+            "month": "Mar",
+            "index": 0.942
+          },
+          {
+            "month": "Apr",
+            "index": 1.014
+          },
+          {
+            "month": "May",
+            "index": 1.04
+          },
+          {
+            "month": "Jun",
+            "index": 1.1
+          },
+          {
+            "month": "Jul",
+            "index": 1.16
+          },
+          {
+            "month": "Aug",
+            "index": 1.12
+          },
+          {
+            "month": "Sep",
+            "index": 1.03
+          },
+          {
+            "month": "Oct",
+            "index": 0.964
+          },
+          {
+            "month": "Nov",
+            "index": 0.943
+          },
+          {
+            "month": "Dec",
+            "index": 0.981
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "label": "Trend growth",
+        "value": "5.85 units/month"
+      },
+      {
+        "label": "Peak season index",
+        "value": "1.160 (Jul)"
+      },
+      {
+        "label": "Lowest season index",
+        "value": "0.853 (Jan)"
+      },
+      {
+        "label": "Hold-out MAPE (last 12 months)",
+        "value": "2.05%"
+      },
+      {
+        "label": "Best SES smoothing constant α",
+        "value": "0.90"
+      }
+    ],
+    "interpretation": [
+      "Demand grows by roughly 5.8 units a month once seasonality is removed.",
+      "Jul runs about 16% above an average month and Jan about 15% below it, which matters for staffing and stock planning.",
+      "Forecasting the final year from the first three gave a mean absolute percentage error of 2.1%. That is plausible here because the synthetic series was built from exactly this kind of structure."
+    ],
+    "limitations": [
+      "Real demand rarely has a perfectly stable seasonal pattern; indices should be re-estimated as new data arrives.",
+      "Classical decomposition cannot anticipate structural breaks such as price changes, new competitors or supply shocks.",
+      "The error figure comes from synthetic data and says nothing about accuracy on any real series."
+    ],
+    "applications": [
+      "Retail and consumer-goods demand planning",
+      "Hospitality occupancy planning",
+      "Index construction and business reporting"
+    ],
+    "related_services": [
+      "time-series-forecasting",
+      "business-analytics-data-mining"
+    ],
+    "related_courses": [
+      "time-series-analysis-forecasting",
+      "excel-for-data-analytics"
+    ],
+    "related_articles": [
+      "time-series-components-and-forecasting",
+      "index-numbers"
+    ],
+    "source_pages": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "anova_table": null,
+    "order": 1,
+    "status": "published",
+    "featured": true
+  },
+  {
+    "slug": "process-control-xbar-r",
+    "title": "Process Monitoring with X̄ and R Control Charts",
+    "category": "Statistics",
+    "summary": "Setting control limits from in-control subgroups and detecting a sustained shift in a synthetic fill-weight process.",
+    "is_synthetic": true,
+    "problem": "A production line fills containers to a 50 g target. The quality team needs to tell ordinary variation apart from an assignable cause that needs investigation.",
+    "dataset": "25 synthetic subgroups of 5 measurements each. Subgroups 1–20 come from N(50, 0.8²); from subgroup 21 the mean is deliberately shifted up by 1.6 g to show detection.",
+    "methodology": [
+      "Rational subgrouping: five consecutive units per subgroup.",
+      "Phase I limits computed from subgroups 1–20 using $\\bar{\\bar{x}} \\pm A_2 \\bar{R}$ and $D_3\\bar{R}, D_4\\bar{R}$ with $A_2 = 0.577$, $D_3 = 0$, $D_4 = 2.114$ for $n = 5$.",
+      "Process standard deviation estimated as $\\hat{\\sigma} = \\bar{R}/d_2$ with $d_2 = 2.326$.",
+      "Phase II: later subgroups compared with the fixed limits."
+    ],
+    "process": [
+      "Checked the R chart first: dispersion must be in control before the X̄ limits mean anything.",
+      "Computed the grand mean and average range from the baseline subgroups.",
+      "Plotted subgroup means against the limits and flagged points outside them."
+    ],
+    "charts": [
+      {
+        "reference_lines": [
+          {
+            "axis": "y",
+            "value": 51.123,
+            "label": "UCL 51.12"
+          },
+          {
+            "axis": "y",
+            "value": 49.956,
+            "label": "CL 49.96"
+          },
+          {
+            "axis": "y",
+            "value": 48.789,
+            "label": "LCL 48.79"
+          },
+          {
+            "axis": "x",
+            "value": 20.5,
+            "label": "Shift introduced"
+          }
+        ],
+        "x_type": "number",
+        "id": "xbar",
+        "kind": "line",
+        "title": "X̄ chart: subgroup means",
+        "subtitle": "Synthetic data · grams",
+        "x_key": "subgroup",
+        "x_label": "Subgroup",
+        "y_label": "Mean fill weight (g)",
+        "y_domain": [
+          48.5,
+          52.0
+        ],
+        "series": [
+          {
+            "key": "xbar",
+            "label": "Subgroup mean",
+            "color": 1,
+            "style": "line-points"
+          }
+        ],
+        "data": [
+          {
+            "subgroup": 1,
+            "xbar": 49.462
+          },
+          {
+            "subgroup": 2,
+            "xbar": 49.802
+          },
+          {
+            "subgroup": 3,
+            "xbar": 50.062
+          },
+          {
+            "subgroup": 4,
+            "xbar": 50.268
+          },
+          {
+            "subgroup": 5,
+            "xbar": 50.218
+          },
+          {
+            "subgroup": 6,
+            "xbar": 50.287
+          },
+          {
+            "subgroup": 7,
+            "xbar": 49.69
+          },
+          {
+            "subgroup": 8,
+            "xbar": 50.085
+          },
+          {
+            "subgroup": 9,
+            "xbar": 49.9
+          },
+          {
+            "subgroup": 10,
+            "xbar": 50.217
+          },
+          {
+            "subgroup": 11,
+            "xbar": 49.727
+          },
+          {
+            "subgroup": 12,
+            "xbar": 49.904
+          },
+          {
+            "subgroup": 13,
+            "xbar": 50.162
+          },
+          {
+            "subgroup": 14,
+            "xbar": 50.128
+          },
+          {
+            "subgroup": 15,
+            "xbar": 50.037
+          },
+          {
+            "subgroup": 16,
+            "xbar": 49.521
+          },
+          {
+            "subgroup": 17,
+            "xbar": 49.635
+          },
+          {
+            "subgroup": 18,
+            "xbar": 49.388
+          },
+          {
+            "subgroup": 19,
+            "xbar": 50.742
+          },
+          {
+            "subgroup": 20,
+            "xbar": 49.882
+          },
+          {
+            "subgroup": 21,
+            "xbar": 51.627
+          },
+          {
+            "subgroup": 22,
+            "xbar": 51.769
+          },
+          {
+            "subgroup": 23,
+            "xbar": 51.606
+          },
+          {
+            "subgroup": 24,
+            "xbar": 51.182
+          },
+          {
+            "subgroup": 25,
+            "xbar": 51.845
+          }
+        ]
+      },
+      {
+        "reference_lines": [
+          {
+            "axis": "y",
+            "value": 4.276,
+            "label": "UCL 4.28"
+          },
+          {
+            "axis": "y",
+            "value": 2.023,
+            "label": "R̄ 2.02"
+          }
+        ],
+        "x_type": "number",
+        "id": "range",
+        "kind": "line",
+        "title": "R chart: subgroup ranges",
+        "subtitle": "Synthetic data · grams",
+        "x_key": "subgroup",
+        "x_label": "Subgroup",
+        "y_label": "Range (g)",
+        "y_domain": [
+          0,
+          5
+        ],
+        "series": [
+          {
+            "key": "range",
+            "label": "Subgroup range",
+            "color": 1,
+            "style": "line-points"
+          }
+        ],
+        "data": [
+          {
+            "subgroup": 1,
+            "range": 0.974
+          },
+          {
+            "subgroup": 2,
+            "range": 3.409
+          },
+          {
+            "subgroup": 3,
+            "range": 1.895
+          },
+          {
+            "subgroup": 4,
+            "range": 2.489
+          },
+          {
+            "subgroup": 5,
+            "range": 2.226
+          },
+          {
+            "subgroup": 6,
+            "range": 1.624
+          },
+          {
+            "subgroup": 7,
+            "range": 1.692
+          },
+          {
+            "subgroup": 8,
+            "range": 1.869
+          },
+          {
+            "subgroup": 9,
+            "range": 2.123
+          },
+          {
+            "subgroup": 10,
+            "range": 0.636
+          },
+          {
+            "subgroup": 11,
+            "range": 2.601
+          },
+          {
+            "subgroup": 12,
+            "range": 2.066
+          },
+          {
+            "subgroup": 13,
+            "range": 2.105
+          },
+          {
+            "subgroup": 14,
+            "range": 2.339
+          },
+          {
+            "subgroup": 15,
+            "range": 1.507
+          },
+          {
+            "subgroup": 16,
+            "range": 2.244
+          },
+          {
+            "subgroup": 17,
+            "range": 1.741
+          },
+          {
+            "subgroup": 18,
+            "range": 2.189
+          },
+          {
+            "subgroup": 19,
+            "range": 2.586
+          },
+          {
+            "subgroup": 20,
+            "range": 2.141
+          },
+          {
+            "subgroup": 21,
+            "range": 1.954
+          },
+          {
+            "subgroup": 22,
+            "range": 1.35
+          },
+          {
+            "subgroup": 23,
+            "range": 1.324
+          },
+          {
+            "subgroup": 24,
+            "range": 2.778
+          },
+          {
+            "subgroup": 25,
+            "range": 2.705
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "label": "Grand mean (baseline)",
+        "value": "49.956 g"
+      },
+      {
+        "label": "Average range R̄",
+        "value": "2.023 g"
+      },
+      {
+        "label": "X̄ chart limits",
+        "value": "48.789 – 51.123 g"
+      },
+      {
+        "label": "Estimated σ",
+        "value": "0.870 g"
+      },
+      {
+        "label": "Subgroups signalling",
+        "value": "21, 22, 23, 24, 25"
+      }
+    ],
+    "interpretation": [
+      "The R chart stays within its limits, so short-term variability is stable and the X̄ limits are trustworthy.",
+      "Subgroup means after the shift fall above the upper control limit (subgroups 21, 22, 23, 24, 25), which signals an assignable cause such as a drifting filler setting.",
+      "The estimated process σ of 0.87 g is close to the 0.8 g used to generate the data, which is a useful sanity check on the R̄/d₂ estimator."
+    ],
+    "limitations": [
+      "Only the 'point beyond 3σ' rule is applied here; run rules (e.g., several consecutive points on one side) would add sensitivity.",
+      "Limits assume approximately normal, independent measurements within subgroups.",
+      "The data and shift are synthetic and illustrate the method only."
+    ],
+    "applications": [
+      "Manufacturing and packaging lines",
+      "Service-process monitoring (e.g., turnaround times)",
+      "Laboratory measurement stability"
+    ],
+    "related_services": [
+      "statistical-quality-control"
+    ],
+    "related_courses": [
+      "statistical-quality-control"
+    ],
+    "related_articles": [
+      "control-charts-for-quality"
+    ],
+    "source_pages": [
+      43,
+      44
+    ],
+    "anova_table": null,
+    "order": 2,
+    "status": "published",
+    "featured": true
+  },
+  {
+    "slug": "survival-kaplan-meier-comparison",
+    "title": "Comparing Time-to-Event Curves with Kaplan–Meier and the Log-Rank Test",
+    "category": "Statistics",
+    "summary": "Estimating survival curves for two synthetic groups with right-censored follow-up and testing whether they differ.",
+    "is_synthetic": true,
+    "problem": "A study team needs to compare how long two groups go before an event (for example, component failure or relapse) when some subjects leave the study before the event happens.",
+    "dataset": "Two synthetic groups of 60 subjects. Lifetimes are Weibull (shape 1.5; scale 12 vs 18 months) with independent uniform censoring between 4 and 30 months (seed 20231004). No patient or product data is used.",
+    "methodology": [
+      "Right censoring handled with the Kaplan–Meier product-limit estimator $\\hat{S}(t) = \\prod_{t_i \\le t} (1 - d_i / n_i)$.",
+      "Median survival read as the first time at which $\\hat{S}(t) \\le 0.5$.",
+      "Log-rank test: observed vs expected events in group A summed over distinct event times, compared with $\\chi^2_1$."
+    ],
+    "process": [
+      "Recorded each subject's follow-up time and whether the event was observed (1) or censored (0).",
+      "Computed the number at risk and the number of events at every distinct event time.",
+      "Built the step-function survival curves and compared them with the log-rank statistic."
+    ],
+    "charts": [
+      {
+        "reference_lines": [
+          {
+            "axis": "y",
+            "value": 0.5,
+            "label": "Median"
+          }
+        ],
+        "x_type": "number",
+        "id": "km",
+        "kind": "step",
+        "title": "Kaplan–Meier survival estimates",
+        "subtitle": "Synthetic data · proportion event-free",
+        "x_key": "time",
+        "x_label": "Months of follow-up",
+        "y_label": "Survival probability",
+        "y_domain": [
+          0,
+          1
+        ],
+        "series": [
+          {
+            "key": "group_a",
+            "label": "Group A",
+            "color": 1,
+            "style": "step"
+          },
+          {
+            "key": "group_b",
+            "label": "Group B",
+            "color": 2,
+            "style": "step"
+          }
+        ],
+        "data": [
+          {
+            "time": 0.0,
+            "group_a": 1.0,
+            "group_b": 1.0
+          },
+          {
+            "time": 0.8,
+            "group_a": 0.9833,
+            "group_b": 1.0
+          },
+          {
+            "time": 1.1,
+            "group_a": 0.9667,
+            "group_b": 1.0
+          },
+          {
+            "time": 1.2,
+            "group_a": 0.95,
+            "group_b": 1.0
+          },
+          {
+            "time": 1.4,
+            "group_a": 0.9333,
+            "group_b": 1.0
+          },
+          {
+            "time": 1.5,
+            "group_a": 0.9333,
+            "group_b": 0.9833
+          },
+          {
+            "time": 1.7,
+            "group_a": 0.9167,
+            "group_b": 0.9833
+          },
+          {
+            "time": 2.0,
+            "group_a": 0.9167,
+            "group_b": 0.9667
+          },
+          {
+            "time": 2.1,
+            "group_a": 0.9,
+            "group_b": 0.9667
+          },
+          {
+            "time": 2.2,
+            "group_a": 0.8667,
+            "group_b": 0.9667
+          },
+          {
+            "time": 2.9,
+            "group_a": 0.8667,
+            "group_b": 0.95
+          },
+          {
+            "time": 3.2,
+            "group_a": 0.85,
+            "group_b": 0.95
+          },
+          {
+            "time": 3.4,
+            "group_a": 0.8333,
+            "group_b": 0.95
+          },
+          {
+            "time": 3.6,
+            "group_a": 0.8167,
+            "group_b": 0.95
+          },
+          {
+            "time": 3.8,
+            "group_a": 0.8,
+            "group_b": 0.95
+          },
+          {
+            "time": 4.0,
+            "group_a": 0.8,
+            "group_b": 0.9333
+          },
+          {
+            "time": 4.2,
+            "group_a": 0.8,
+            "group_b": 0.8994
+          },
+          {
+            "time": 4.4,
+            "group_a": 0.7833,
+            "group_b": 0.8994
+          },
+          {
+            "time": 4.6,
+            "group_a": 0.7667,
+            "group_b": 0.8994
+          },
+          {
+            "time": 4.7,
+            "group_a": 0.7496,
+            "group_b": 0.8824
+          },
+          {
+            "time": 4.9,
+            "group_a": 0.7156,
+            "group_b": 0.8824
+          },
+          {
+            "time": 5.0,
+            "group_a": 0.6985,
+            "group_b": 0.8824
+          },
+          {
+            "time": 5.1,
+            "group_a": 0.6815,
+            "group_b": 0.8824
+          },
+          {
+            "time": 5.2,
+            "group_a": 0.6815,
+            "group_b": 0.8651
+          },
+          {
+            "time": 5.4,
+            "group_a": 0.6815,
+            "group_b": 0.8478
+          },
+          {
+            "time": 5.6,
+            "group_a": 0.6644,
+            "group_b": 0.8302
+          },
+          {
+            "time": 5.7,
+            "group_a": 0.6644,
+            "group_b": 0.7948
+          },
+          {
+            "time": 5.9,
+            "group_a": 0.6644,
+            "group_b": 0.7772
+          },
+          {
+            "time": 6.3,
+            "group_a": 0.6644,
+            "group_b": 0.7587
+          },
+          {
+            "time": 6.6,
+            "group_a": 0.647,
+            "group_b": 0.7587
+          },
+          {
+            "time": 6.9,
+            "group_a": 0.629,
+            "group_b": 0.7587
+          },
+          {
+            "time": 7.2,
+            "group_a": 0.6093,
+            "group_b": 0.7587
+          },
+          {
+            "time": 7.3,
+            "group_a": 0.5897,
+            "group_b": 0.7587
+          },
+          {
+            "time": 8.8,
+            "group_a": 0.57,
+            "group_b": 0.7587
+          },
+          {
+            "time": 8.9,
+            "group_a": 0.57,
+            "group_b": 0.737
+          },
+          {
+            "time": 9.1,
+            "group_a": 0.5497,
+            "group_b": 0.737
+          },
+          {
+            "time": 9.5,
+            "group_a": 0.5089,
+            "group_b": 0.737
+          },
+          {
+            "time": 10.1,
+            "group_a": 0.5089,
+            "group_b": 0.6923
+          },
+          {
+            "time": 10.4,
+            "group_a": 0.4877,
+            "group_b": 0.6923
+          },
+          {
+            "time": 10.7,
+            "group_a": 0.4877,
+            "group_b": 0.6692
+          },
+          {
+            "time": 11.2,
+            "group_a": 0.4656,
+            "group_b": 0.6692
+          },
+          {
+            "time": 11.3,
+            "group_a": 0.4212,
+            "group_b": 0.6692
+          },
+          {
+            "time": 11.6,
+            "group_a": 0.4212,
+            "group_b": 0.6453
+          },
+          {
+            "time": 11.9,
+            "group_a": 0.3978,
+            "group_b": 0.6453
+          },
+          {
+            "time": 12.0,
+            "group_a": 0.3276,
+            "group_b": 0.6185
+          },
+          {
+            "time": 12.2,
+            "group_a": 0.2808,
+            "group_b": 0.5916
+          },
+          {
+            "time": 12.8,
+            "group_a": 0.2574,
+            "group_b": 0.5634
+          },
+          {
+            "time": 12.9,
+            "group_a": 0.2106,
+            "group_b": 0.5634
+          },
+          {
+            "time": 13.5,
+            "group_a": 0.1872,
+            "group_b": 0.5634
+          },
+          {
+            "time": 13.9,
+            "group_a": 0.1872,
+            "group_b": 0.5352
+          },
+          {
+            "time": 16.8,
+            "group_a": 0.1872,
+            "group_b": 0.4866
+          },
+          {
+            "time": 17.4,
+            "group_a": 0.1498,
+            "group_b": 0.4866
+          },
+          {
+            "time": 18.1,
+            "group_a": 0.1498,
+            "group_b": 0.4379
+          },
+          {
+            "time": 18.8,
+            "group_a": 0.1498,
+            "group_b": 0.3893
+          },
+          {
+            "time": 19.5,
+            "group_a": 0.0998,
+            "group_b": 0.3893
+          },
+          {
+            "time": 20.5,
+            "group_a": 0.0998,
+            "group_b": 0.2919
+          },
+          {
+            "time": 24.2,
+            "group_a": 0.0998,
+            "group_b": 0.1946
+          },
+          {
+            "time": 25.8,
+            "group_a": 0.0998,
+            "group_b": 0.0973
+          },
+          {
+            "time": 28.3,
+            "group_a": 0.0998,
+            "group_b": 0.0
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "label": "Events / subjects (A)",
+        "value": "44 / 60"
+      },
+      {
+        "label": "Events / subjects (B)",
+        "value": "30 / 60"
+      },
+      {
+        "label": "Median survival A",
+        "value": "10.4 months"
+      },
+      {
+        "label": "Median survival B",
+        "value": "16.8 months"
+      },
+      {
+        "label": "Log-rank χ² (1 df)",
+        "value": "8.69"
+      },
+      {
+        "label": "p-value",
+        "value": "0.0032"
+      }
+    ],
+    "interpretation": [
+      "Group B's curve sits above group A's for most of follow-up: at those times a larger share of group B is still event-free. The curves meet in the far tail, where very few subjects remain at risk and the estimates are imprecise.",
+      "The log-rank test gives χ² = 8.69 on 1 degree of freedom (p = 0.0032), so the evidence that the curves differ is strong.",
+      "Censored subjects still contribute information up to the time they leave, which a simple 'percentage who had the event' would throw away."
+    ],
+    "limitations": [
+      "Kaplan–Meier assumes censoring is unrelated to the risk of the event (non-informative censoring).",
+      "The log-rank test is most powerful when hazards are proportional; crossing curves need other methods.",
+      "Group comparisons in observational data may be confounded; adjusted models (e.g., Cox regression) would be needed.",
+      "All figures come from synthetic data."
+    ],
+    "applications": [
+      "Clinical and public-health follow-up studies",
+      "Product and component reliability",
+      "Customer retention (time to churn)"
+    ],
+    "related_services": [
+      "survival-reliability-analysis"
+    ],
+    "related_courses": [
+      "survival-reliability-analysis"
+    ],
+    "related_articles": [
+      "survival-analysis-kaplan-meier"
+    ],
+    "source_pages": [
+      72,
+      73,
+      74,
+      75
+    ],
+    "anova_table": null,
+    "order": 3,
+    "status": "published",
+    "featured": true
+  },
+  {
+    "slug": "regression-marketing-response",
+    "title": "Measuring a Marketing Response with Simple Linear Regression",
+    "category": "Statistics",
+    "summary": "Quantifying how sales move with promotional spend, with a confidence interval for the effect and a check of the model's assumptions.",
+    "is_synthetic": true,
+    "problem": "A business wants to know how strongly weekly sales are associated with promotional spend, and how precisely that relationship can be estimated.",
+    "dataset": "40 synthetic weeks of promotional spend (5–50 thousand currency units) and sales generated as 120 + 4.2 × spend plus normal noise (σ = 18), seed 20231004.",
+    "methodology": [
+      "Scatter diagram to check that a straight line is a reasonable description.",
+      "Pearson product-moment correlation and Spearman's rank correlation.",
+      "Least-squares fit $\\hat{y} = a + b x$ with a 95% confidence interval for the slope using the $t_{n-2}$ distribution.",
+      "Coefficient of determination $R^2$ and residual standard error."
+    ],
+    "process": [
+      "Plotted the data and confirmed an approximately linear, homoscedastic pattern.",
+      "Estimated the line by least squares and computed the standard error of the slope.",
+      "Checked residuals for curvature or changing spread before interpreting the coefficients."
+    ],
+    "charts": [
+      {
+        "reference_lines": [],
+        "x_type": "number",
+        "id": "scatter",
+        "kind": "scatter",
+        "title": "Sales against promotional spend with least-squares line",
+        "subtitle": "Synthetic data · thousand currency units",
+        "x_key": "spend",
+        "x_label": "Promotional spend",
+        "y_label": "Sales",
+        "series": [
+          {
+            "key": "sales",
+            "label": "Observed weeks",
+            "color": 1,
+            "style": "points"
+          },
+          {
+            "key": "fitted",
+            "label": "Fitted line",
+            "color": 2,
+            "style": "line"
+          }
+        ],
+        "data": [
+          {
+            "spend": 6.2,
+            "sales": 111.8
+          },
+          {
+            "spend": 6.6,
+            "sales": 158.9
+          },
+          {
+            "spend": 7.6,
+            "sales": 188.4
+          },
+          {
+            "spend": 8.0,
+            "sales": 132.4
+          },
+          {
+            "spend": 8.3,
+            "sales": 179.7
+          },
+          {
+            "spend": 8.4,
+            "sales": 159.8
+          },
+          {
+            "spend": 9.1,
+            "sales": 167.6
+          },
+          {
+            "spend": 9.8,
+            "sales": 178.1
+          },
+          {
+            "spend": 14.3,
+            "sales": 196.3
+          },
+          {
+            "spend": 15.2,
+            "sales": 219.1
+          },
+          {
+            "spend": 15.5,
+            "sales": 156.6
+          },
+          {
+            "spend": 16.5,
+            "sales": 170.2
+          },
+          {
+            "spend": 18.3,
+            "sales": 199.2
+          },
+          {
+            "spend": 18.9,
+            "sales": 189.0
+          },
+          {
+            "spend": 19.3,
+            "sales": 195.0
+          },
+          {
+            "spend": 19.6,
+            "sales": 219.3
+          },
+          {
+            "spend": 20.3,
+            "sales": 194.9
+          },
+          {
+            "spend": 20.6,
+            "sales": 191.1
+          },
+          {
+            "spend": 21.1,
+            "sales": 247.0
+          },
+          {
+            "spend": 21.7,
+            "sales": 200.5
+          },
+          {
+            "spend": 23.0,
+            "sales": 241.1
+          },
+          {
+            "spend": 26.7,
+            "sales": 235.2
+          },
+          {
+            "spend": 27.6,
+            "sales": 255.3
+          },
+          {
+            "spend": 28.1,
+            "sales": 246.9
+          },
+          {
+            "spend": 31.3,
+            "sales": 235.2
+          },
+          {
+            "spend": 34.2,
+            "sales": 260.9
+          },
+          {
+            "spend": 34.3,
+            "sales": 252.4
+          },
+          {
+            "spend": 37.7,
+            "sales": 248.5
+          },
+          {
+            "spend": 38.1,
+            "sales": 273.6
+          },
+          {
+            "spend": 38.3,
+            "sales": 264.0
+          },
+          {
+            "spend": 38.7,
+            "sales": 275.4
+          },
+          {
+            "spend": 44.5,
+            "sales": 289.7
+          },
+          {
+            "spend": 45.2,
+            "sales": 315.1
+          },
+          {
+            "spend": 45.3,
+            "sales": 339.5
+          },
+          {
+            "spend": 45.5,
+            "sales": 324.7
+          },
+          {
+            "spend": 46.7,
+            "sales": 317.5
+          },
+          {
+            "spend": 46.8,
+            "sales": 326.4
+          },
+          {
+            "spend": 47.1,
+            "sales": 308.3
+          },
+          {
+            "spend": 47.3,
+            "sales": 316.0
+          },
+          {
+            "spend": 47.8,
+            "sales": 313.1
+          }
+        ],
+        "overlay": [
+          {
+            "spend": 6.2,
+            "fitted": 150.9
+          },
+          {
+            "spend": 47.8,
+            "fitted": 317.9
+          }
+        ]
+      },
+      {
+        "reference_lines": [
+          {
+            "axis": "y",
+            "value": 0,
+            "label": "0"
+          }
+        ],
+        "x_type": "number",
+        "id": "residuals",
+        "kind": "scatter",
+        "title": "Residuals against fitted values",
+        "subtitle": "No pattern is what we want to see",
+        "x_key": "fitted",
+        "x_label": "Fitted sales",
+        "y_label": "Residual",
+        "series": [
+          {
+            "key": "residual",
+            "label": "Residual",
+            "color": 1,
+            "style": "points"
+          }
+        ],
+        "data": [
+          {
+            "fitted": 150.9,
+            "residual": -39.0
+          },
+          {
+            "fitted": 152.5,
+            "residual": 6.5
+          },
+          {
+            "fitted": 156.5,
+            "residual": 32.0
+          },
+          {
+            "fitted": 158.1,
+            "residual": -25.7
+          },
+          {
+            "fitted": 159.3,
+            "residual": 20.4
+          },
+          {
+            "fitted": 159.7,
+            "residual": 0.1
+          },
+          {
+            "fitted": 162.5,
+            "residual": 5.1
+          },
+          {
+            "fitted": 165.3,
+            "residual": 12.8
+          },
+          {
+            "fitted": 183.4,
+            "residual": 12.9
+          },
+          {
+            "fitted": 187.0,
+            "residual": 32.1
+          },
+          {
+            "fitted": 188.2,
+            "residual": -31.6
+          },
+          {
+            "fitted": 192.2,
+            "residual": -22.1
+          },
+          {
+            "fitted": 199.5,
+            "residual": -0.3
+          },
+          {
+            "fitted": 201.9,
+            "residual": -12.9
+          },
+          {
+            "fitted": 203.5,
+            "residual": -8.4
+          },
+          {
+            "fitted": 204.7,
+            "residual": 14.6
+          },
+          {
+            "fitted": 207.5,
+            "residual": -12.6
+          },
+          {
+            "fitted": 208.7,
+            "residual": -17.6
+          },
+          {
+            "fitted": 210.7,
+            "residual": 36.2
+          },
+          {
+            "fitted": 213.1,
+            "residual": -12.7
+          },
+          {
+            "fitted": 218.3,
+            "residual": 22.8
+          },
+          {
+            "fitted": 233.2,
+            "residual": 2.0
+          },
+          {
+            "fitted": 236.8,
+            "residual": 18.5
+          },
+          {
+            "fitted": 238.8,
+            "residual": 8.0
+          },
+          {
+            "fitted": 251.7,
+            "residual": -16.5
+          },
+          {
+            "fitted": 263.3,
+            "residual": -2.4
+          },
+          {
+            "fitted": 263.7,
+            "residual": -11.3
+          },
+          {
+            "fitted": 277.4,
+            "residual": -28.9
+          },
+          {
+            "fitted": 279.0,
+            "residual": -5.3
+          },
+          {
+            "fitted": 279.8,
+            "residual": -15.8
+          },
+          {
+            "fitted": 281.4,
+            "residual": -6.0
+          },
+          {
+            "fitted": 304.7,
+            "residual": -14.9
+          },
+          {
+            "fitted": 307.5,
+            "residual": 7.6
+          },
+          {
+            "fitted": 307.9,
+            "residual": 31.6
+          },
+          {
+            "fitted": 308.7,
+            "residual": 16.0
+          },
+          {
+            "fitted": 313.5,
+            "residual": 4.0
+          },
+          {
+            "fitted": 313.9,
+            "residual": 12.4
+          },
+          {
+            "fitted": 315.1,
+            "residual": -6.8
+          },
+          {
+            "fitted": 315.9,
+            "residual": 0.0
+          },
+          {
+            "fitted": 317.9,
+            "residual": -4.9
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "label": "Fitted line",
+        "value": "ŷ = 126.0 + 4.02x"
+      },
+      {
+        "label": "95% CI for slope",
+        "value": "3.59 to 4.44"
+      },
+      {
+        "label": "Pearson r",
+        "value": "0.952"
+      },
+      {
+        "label": "Spearman ρ",
+        "value": "0.948"
+      },
+      {
+        "label": "R²",
+        "value": "0.905"
+      },
+      {
+        "label": "Residual std. error",
+        "value": "18.6"
+      }
+    ],
+    "interpretation": [
+      "Each additional thousand units of spend is associated with about 4.0 thousand units of extra sales (95% CI 3.6 to 4.4).",
+      "Spend accounts for about 91% of the week-to-week variation in sales (R²); the rest comes from other factors.",
+      "Residuals scatter evenly around zero with no curvature, so the straight-line model is adequate for this data."
+    ],
+    "limitations": [
+      "Association is not causation: in real data, spend is often raised when demand is already expected to be high.",
+      "Predictions outside the observed spend range (5–50) are extrapolation.",
+      "Real campaigns usually need multiple regression to control for seasonality, price and other drivers.",
+      "The data is synthetic."
+    ],
+    "applications": [
+      "Marketing-mix and pricing studies",
+      "Dose–response in agricultural or biomedical experiments",
+      "Calibration and measurement studies"
+    ],
+    "related_services": [
+      "regression-predictive-modelling",
+      "statistical-analysis"
+    ],
+    "related_courses": [
+      "regression-predictive-modelling",
+      "statistics-for-data-analysis"
+    ],
+    "related_articles": [
+      "correlation-and-regression"
+    ],
+    "source_pages": [
+      3,
+      41,
+      42
+    ],
+    "anova_table": null,
+    "order": 4,
+    "status": "published",
+    "featured": false
+  },
+  {
+    "slug": "pca-customer-segmentation",
+    "title": "Reducing Customer Metrics to Key Dimensions with Principal Components",
+    "category": "Statistics",
+    "summary": "Using principal component analysis on five correlated behaviour metrics to find the few dimensions that summarise them.",
+    "is_synthetic": true,
+    "problem": "An analytics team tracks several overlapping customer metrics and wants a smaller set of uncorrelated dimensions for reporting and later segmentation.",
+    "dataset": "300 synthetic customers with five standardised metrics generated from two hidden factors plus noise (seed 20231004). No real customer data is used.",
+    "methodology": [
+      "Standardised each variable and formed the sample correlation matrix $\\mathbf{R}$.",
+      "Eigen-decomposition $\\mathbf{R} = \\mathbf{V}\\boldsymbol{\\Lambda}\\mathbf{V}^\\top$; component variances are the eigenvalues.",
+      "Retained components using the scree plot and the eigenvalue-greater-than-one (Kaiser) rule.",
+      "Interpreted loadings $\\ell_{jk} = v_{jk}\\sqrt{\\lambda_k}$, the correlation between variable $j$ and component $k$."
+    ],
+    "process": [
+      "Checked pairwise correlations to confirm there was redundancy worth reducing.",
+      "Computed eigenvalues and the proportion of variance each component explains.",
+      "Named the retained components from their strongest loadings."
+    ],
+    "charts": [
+      {
+        "reference_lines": [
+          {
+            "axis": "y",
+            "value": 1.0,
+            "label": "Kaiser threshold"
+          }
+        ],
+        "x_type": "category",
+        "id": "scree",
+        "kind": "bar",
+        "title": "Scree plot: variance explained by each component",
+        "subtitle": "Synthetic data · eigenvalues of the correlation matrix",
+        "x_key": "component",
+        "x_label": "Component",
+        "y_label": "Eigenvalue",
+        "series": [
+          {
+            "key": "eigenvalue",
+            "label": "Eigenvalue",
+            "color": 1,
+            "style": "bar"
+          }
+        ],
+        "data": [
+          {
+            "component": "PC1",
+            "eigenvalue": 2.706,
+            "share": "54.1%"
+          },
+          {
+            "component": "PC2",
+            "eigenvalue": 1.769,
+            "share": "35.4%"
+          },
+          {
+            "component": "PC3",
+            "eigenvalue": 0.23,
+            "share": "4.6%"
+          },
+          {
+            "component": "PC4",
+            "eigenvalue": 0.166,
+            "share": "3.3%"
+          },
+          {
+            "component": "PC5",
+            "eigenvalue": 0.129,
+            "share": "2.6%"
+          }
+        ]
+      },
+      {
+        "reference_lines": [],
+        "x_type": "category",
+        "id": "loadings",
+        "kind": "bar",
+        "layout": "horizontal",
+        "title": "Loadings on the first two components",
+        "subtitle": "Correlation between each metric and the component",
+        "x_key": "metric",
+        "x_label": "Loading",
+        "y_label": "Metric",
+        "y_domain": [
+          -1,
+          1
+        ],
+        "series": [
+          {
+            "key": "pc1",
+            "label": "PC1",
+            "color": 1,
+            "style": "bar"
+          },
+          {
+            "key": "pc2",
+            "label": "PC2",
+            "color": 2,
+            "style": "bar"
+          }
+        ],
+        "data": [
+          {
+            "metric": "Visit frequency",
+            "pc1": 0.948,
+            "pc2": -0.067
+          },
+          {
+            "metric": "Basket value",
+            "pc1": 0.953,
+            "pc2": -0.035
+          },
+          {
+            "metric": "Items per visit",
+            "pc1": 0.938,
+            "pc2": -0.085
+          },
+          {
+            "metric": "Discount usage",
+            "pc1": 0.091,
+            "pc2": 0.937
+          },
+          {
+            "metric": "Online share",
+            "pc1": -0.098,
+            "pc2": -0.937
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "label": "Components with eigenvalue > 1",
+        "value": "2"
+      },
+      {
+        "label": "Variance explained by PC1",
+        "value": "54.1%"
+      },
+      {
+        "label": "Variance explained by PC2",
+        "value": "35.4%"
+      },
+      {
+        "label": "Cumulative (PC1 + PC2)",
+        "value": "89.5%"
+      }
+    ],
+    "interpretation": [
+      "Two components explain 90% of the total variation in five metrics, so the data is well summarised in two dimensions.",
+      "PC1 loads on visit frequency, basket value and items per visit: an 'engagement' dimension.",
+      "PC2 contrasts discount usage with online share: a 'price sensitivity versus channel' dimension. Component scores can feed cluster analysis for segmentation."
+    ],
+    "limitations": [
+      "Components are linear combinations; non-linear structure needs other techniques.",
+      "Naming components is a judgement; loadings should be reviewed with domain experts.",
+      "Results depend on scaling; here all variables were standardised.",
+      "The data is synthetic."
+    ],
+    "applications": [
+      "Customer and market segmentation",
+      "Survey scale construction (with factor analysis)",
+      "Reducing correlated predictors before modelling"
+    ],
+    "related_services": [
+      "multivariate-analysis-segmentation",
+      "business-analytics-data-mining"
+    ],
+    "related_courses": [
+      "multivariate-statistical-analysis"
+    ],
+    "related_articles": [
+      "principal-components-and-factor-analysis",
+      "matrix-decompositions-for-data-science"
+    ],
+    "source_pages": [
+      68,
+      69,
+      70,
+      71
+    ],
+    "anova_table": null,
+    "order": 5,
+    "status": "published",
+    "featured": false
+  },
+  {
+    "slug": "anova-treatment-comparison",
+    "title": "Comparing Three Treatments with a Completely Randomised Design",
+    "category": "Research",
+    "summary": "Analysing a synthetic field trial with one-way ANOVA, then identifying which treatments differ.",
+    "is_synthetic": true,
+    "problem": "A research team has randomly assigned plots to a control and two treatments and needs to know whether mean yield differs, and if so, which treatments differ.",
+    "dataset": "24 synthetic plots: 8 replicates per group drawn from normal distributions (means 52, 55.5, 58; σ = 3), seed 20231004.",
+    "methodology": [
+      "Completely randomised design (CRD) with equal replication.",
+      "One-way ANOVA: total sum of squares split into treatment and error components, $F = MS_{T}/MS_{E}$.",
+      "95% confidence intervals for group means using the pooled error mean square.",
+      "Tukey's HSD for pairwise comparisons after a significant F test (a standard follow-up to ANOVA)."
+    ],
+    "process": [
+      "Confirmed the design: randomisation, replication, and no blocking factor.",
+      "Built the ANOVA table and tested the null hypothesis of equal treatment means.",
+      "Compared pairs of treatments while controlling the family-wise error rate."
+    ],
+    "charts": [
+      {
+        "reference_lines": [],
+        "x_type": "category",
+        "id": "means",
+        "kind": "bar",
+        "title": "Mean yield by group with 95% confidence intervals",
+        "subtitle": "Synthetic data · yield units per plot",
+        "x_key": "group",
+        "x_label": "Group",
+        "y_label": "Mean yield",
+        "y_domain": [
+          40,
+          65
+        ],
+        "series": [
+          {
+            "key": "mean",
+            "label": "Mean yield",
+            "color": 1,
+            "style": "bar",
+            "error_key": "ci"
+          }
+        ],
+        "data": [
+          {
+            "group": "Control",
+            "mean": 52.86,
+            "ci": 2.01,
+            "low": 50.85,
+            "high": 54.86
+          },
+          {
+            "group": "Treatment A",
+            "mean": 54.72,
+            "ci": 2.01,
+            "low": 52.71,
+            "high": 56.73
+          },
+          {
+            "group": "Treatment B",
+            "mean": 57.66,
+            "ci": 2.01,
+            "low": 55.66,
+            "high": 59.67
+          }
+        ]
+      }
+    ],
+    "anova_table": {
+      "columns": [
+        "Source",
+        "df",
+        "Sum of squares",
+        "Mean square",
+        "F",
+        "p-value"
+      ],
+      "rows": [
+        [
+          "Treatments",
+          "2",
+          "93.98",
+          "46.99",
+          "6.31",
+          "0.0071"
+        ],
+        [
+          "Error",
+          "21",
+          "156.30",
+          "7.44",
+          "",
+          ""
+        ],
+        [
+          "Total",
+          "23",
+          "250.28",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    "results": [
+      {
+        "label": "F statistic",
+        "value": "F(2, 21) = 6.31"
+      },
+      {
+        "label": "p-value",
+        "value": "0.0071"
+      },
+      {
+        "label": "Pooled error SD",
+        "value": "2.73"
+      },
+      {
+        "label": "Tukey HSD",
+        "value": "Treatment A − Control: p = 0.3761"
+      },
+      {
+        "label": "Tukey HSD",
+        "value": "Treatment B − Control: p = 0.0055"
+      },
+      {
+        "label": "Tukey HSD",
+        "value": "Treatment B − Treatment A: p = 0.1023"
+      }
+    ],
+    "interpretation": [
+      "The F test (F = 6.31, p = 0.0071) indicates that at least one group mean differs.",
+      "Tukey's HSD shows that Treatment B and Control differ at the 5% level, while the remaining comparisons are not significant with eight replicates per group.",
+      "Effect sizes (differences in mean yield) matter as much as p-values when deciding whether a treatment is worth adopting."
+    ],
+    "limitations": [
+      "ANOVA assumes independent errors, normality and equal variances; these should be checked with residual plots.",
+      "If plots varied systematically (soil, slope), a randomised block or Latin square design would control that variation.",
+      "The data is synthetic."
+    ],
+    "applications": [
+      "Agricultural field trials",
+      "Biomedical and laboratory experiments",
+      "A/B and multivariate tests in product research"
+    ],
+    "related_services": [
+      "survey-sampling-experimental-design",
+      "statistical-analysis"
+    ],
+    "related_courses": [
+      "experimental-design-sampling",
+      "statistical-inference-hypothesis-testing"
+    ],
+    "related_articles": [
+      "analysis-of-variance",
+      "design-of-experiments"
+    ],
+    "source_pages": [
+      30,
+      60,
+      61
+    ],
+    "order": 6,
+    "status": "published",
+    "featured": false
+  },
+  {
+    "slug": "lp-product-mix-optimisation",
+    "title": "Choosing a Product Mix with Linear Programming",
+    "category": "Mathematics",
+    "summary": "Formulating a two-product planning problem with machine, labour and demand limits, solving it, and reading the shadow prices.",
+    "is_synthetic": true,
+    "problem": "A small workshop makes two products and wants the weekly production plan that maximises contribution without exceeding machine time, labour time or expected demand.",
+    "dataset": "Illustrative coefficients: contribution 40 and 30 per unit; product 1 needs 2 machine-hours and product 2 needs 1 (100 available); each needs 1 labour-hour (80 available); demand for product 1 is at most 40.",
+    "methodology": [
+      "Formulation: maximise $Z = 40x_1 + 30x_2$ subject to $2x_1 + x_2 \\le 100$, $x_1 + x_2 \\le 80$, $x_1 \\le 40$, $x_1, x_2 \\ge 0$.",
+      "Graphical method: the optimum lies at a corner point of the convex feasible region.",
+      "Simplex-based solver (HiGHS) to confirm the optimum and obtain dual values (shadow prices)."
+    ],
+    "process": [
+      "Translated each business rule into a linear constraint.",
+      "Enumerated the corner points of the feasible region and evaluated the objective at each.",
+      "Solved with a simplex-type solver and interpreted the dual values for each resource."
+    ],
+    "charts": [
+      {
+        "reference_lines": [],
+        "x_type": "category",
+        "id": "vertices",
+        "kind": "bar",
+        "title": "Objective value at each corner point of the feasible region",
+        "subtitle": "Illustrative coefficients · contribution per week",
+        "x_key": "vertex",
+        "x_label": "Corner point (x₁, x₂)",
+        "y_label": "Contribution Z",
+        "series": [
+          {
+            "key": "z",
+            "label": "Contribution",
+            "color": 1,
+            "style": "bar"
+          }
+        ],
+        "data": [
+          {
+            "vertex": "(0, 0)",
+            "z": 0.0
+          },
+          {
+            "vertex": "(0, 80)",
+            "z": 2400.0
+          },
+          {
+            "vertex": "(20, 60)",
+            "z": 2600.0
+          },
+          {
+            "vertex": "(40, 0)",
+            "z": 1600.0
+          },
+          {
+            "vertex": "(40, 20)",
+            "z": 2200.0
+          }
+        ]
+      }
+    ],
+    "anova_table": {
+      "columns": [
+        "Corner point (x₁, x₂)",
+        "Z = 40x₁ + 30x₂"
+      ],
+      "rows": [
+        [
+          "(0, 0)",
+          "0"
+        ],
+        [
+          "(40, 0)",
+          "1,600"
+        ],
+        [
+          "(40, 20)",
+          "2,200"
+        ],
+        [
+          "(20, 60)",
+          "2,600"
+        ],
+        [
+          "(0, 80)",
+          "2,400"
+        ]
+      ]
+    },
+    "results": [
+      {
+        "label": "Optimal plan",
+        "value": "x₁ = 20, x₂ = 60"
+      },
+      {
+        "label": "Maximum contribution",
+        "value": "2,600"
+      },
+      {
+        "label": "Shadow price: machine-hours",
+        "value": "10 per hour"
+      },
+      {
+        "label": "Shadow price: labour-hours",
+        "value": "20 per hour"
+      },
+      {
+        "label": "Shadow price: product-1 demand",
+        "value": "0 per unit"
+      }
+    ],
+    "interpretation": [
+      "The best plan makes 20 units of product 1 and 60 of product 2, for a contribution of 2,600.",
+      "Machine and labour hours are both binding, so each has a positive shadow price: an extra hour would raise contribution by that amount, within the range where the same constraints stay binding.",
+      "The demand limit on product 1 is not binding, so its shadow price is zero. Raising forecast demand would not change the plan."
+    ],
+    "limitations": [
+      "Linear programming assumes constant contributions and resource use per unit, and allows fractional production unless integer constraints are added.",
+      "Shadow prices are valid only within their sensitivity ranges.",
+      "Coefficients are illustrative, not drawn from any real business."
+    ],
+    "applications": [
+      "Production and distribution planning",
+      "Diet and blending problems",
+      "Transportation and assignment of resources"
+    ],
+    "related_services": [
+      "operations-research-optimisation"
+    ],
+    "related_courses": [
+      "operations-research-decision-modelling"
+    ],
+    "related_articles": [
+      "linear-programming-and-simplex"
+    ],
+    "source_pages": [
+      32,
+      33,
+      113
+    ],
+    "order": 7,
+    "status": "published",
+    "featured": false
+  }
+]

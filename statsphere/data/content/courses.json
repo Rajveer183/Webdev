@@ -1,0 +1,3229 @@
+[
+  {
+    "slug": "statistics-for-data-analysis",
+    "title": "Statistics for Data Analysis",
+    "category": "Statistics",
+    "level": "Beginner",
+    "format": "extended",
+    "summary": "A grounded first course in describing data and reasoning with probability — from charts and averages to distributions and the central limit theorem.",
+    "description": "This course builds the statistical vocabulary that every later analysis depends on. Participants start by classifying variables and choosing suitable graphs, then move on to summarising data with measures of central tendency, dispersion, skewness and kurtosis, and to describing the relationship between two variables with correlation and a least-squares line.\n\nThe second half introduces probability as the language of uncertainty: sample spaces and events, conditional probability and Bayes' theorem, random variables, expectation and variance, and the binomial, Poisson and normal distributions. It closes with the central limit theorem, which explains why the normal distribution appears so often in practice and prepares participants for inference.",
+    "learning_objectives": [
+      "Classify variables and choose an appropriate chart for categorical and quantitative data",
+      "Compute and interpret measures of central tendency, dispersion, skewness and kurtosis",
+      "Measure association using Pearson's product-moment and Spearman's rank correlation and fit a least-squares line",
+      "Apply conditional probability and Bayes' theorem to simple decision problems",
+      "Work with discrete and continuous random variables, expectation, variance and moment generating functions",
+      "Use the binomial, Poisson and normal distributions and explain the role of the central limit theorem"
+    ],
+    "modules": [
+      {
+        "title": "Data, variables and graphs",
+        "topics": [
+          "Types of variables",
+          "Graphs for categorical data: pie and bar charts",
+          "Graphs for quantitative data: line charts, dotplots, stem-and-leaf plots",
+          "Relative frequency histograms",
+          "Primary and secondary data"
+        ]
+      },
+      {
+        "title": "Summarising data",
+        "topics": [
+          "Mean, median and mode",
+          "Geometric and harmonic mean",
+          "Range, quartile deviation, mean deviation, standard deviation",
+          "Central and non-central moments, Sheppard's correction",
+          "Skewness and kurtosis"
+        ]
+      },
+      {
+        "title": "Correlation and simple regression",
+        "topics": [
+          "Scatter diagrams",
+          "Product-moment correlation and its properties",
+          "Spearman's rank correlation",
+          "Principle of least squares and fitting a straight line",
+          "Regression coefficients and the coefficient of determination"
+        ]
+      },
+      {
+        "title": "Probability foundations",
+        "topics": [
+          "Random experiments, sample spaces and events",
+          "Classical, statistical and axiomatic definitions of probability",
+          "Conditional probability and independence",
+          "Bayes' theorem"
+        ]
+      },
+      {
+        "title": "Random variables and expectation",
+        "topics": [
+          "Discrete and continuous random variables",
+          "Probability mass and density functions, distribution functions",
+          "Joint, marginal and conditional distributions",
+          "Expectation, variance and the law of large numbers",
+          "Moment generating functions"
+        ]
+      },
+      {
+        "title": "Key probability distributions",
+        "topics": [
+          "Binomial, Poisson and normal distributions",
+          "Relationships between binomial, Poisson and normal",
+          "Properties of the normal distribution",
+          "The central limit theorem"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "None — comfort with school-level arithmetic and algebra is enough"
+    ],
+    "audience": [
+      "Students beginning statistics or data science",
+      "Working professionals who need to read and summarise data",
+      "Analysts moving from reporting to quantitative analysis",
+      "Researchers who want a refresher on statistical foundations"
+    ],
+    "projects": [
+      "Summarise a sample dataset with frequency tables, histograms and stem-and-leaf plots, and write a short descriptive report",
+      "Compare the spread and shape of two groups using standard deviation, skewness and kurtosis",
+      "Compute Pearson and Spearman correlations for paired data and fit and interpret a least-squares line",
+      "Solve a set of applied probability problems using conditional probability and Bayes' theorem",
+      "Simulate sample means to see the central limit theorem at work and compare binomial, Poisson and normal approximations"
+    ],
+    "tools": [
+      "Excel",
+      "R"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Short quizzes after each module",
+      "Worked problem sets",
+      "Capstone mini-project: a descriptive and probabilistic analysis of a sample dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "statistical-analysis",
+      "regression-predictive-modelling",
+      "data-visualization-reporting"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion",
+      "correlation-and-regression",
+      "probability-and-bayes-theorem",
+      "probability-distributions-and-clt"
+    ],
+    "source_modules": [
+      {
+        "name": "Descriptive Statistics",
+        "code": "17200102",
+        "pages": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Probability & Distribution Theory",
+        "code": "17200202",
+        "pages": [
+          13,
+          14
+        ]
+      }
+    ],
+    "source_pages": [
+      2,
+      3,
+      13,
+      14
+    ],
+    "featured": true,
+    "order": 1,
+    "status": "published"
+  },
+  {
+    "slug": "statistical-inference-hypothesis-testing",
+    "title": "Statistical Inference & Hypothesis Testing",
+    "category": "Statistics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Learn how to estimate unknown quantities and test claims from sample data — from maximum likelihood to t, chi-square, F tests and ANOVA.",
+    "description": "Statistical inference is the step from describing a sample to drawing conclusions about a population. This course covers what makes a good estimator, how to build point and interval estimates, and how maximum likelihood estimation works. It then sets out the logic of hypothesis testing: null and alternative hypotheses, critical regions, significance levels, one- and two-tailed tests, the two types of error and the Neyman–Pearson lemma.\n\nParticipants apply this framework to large-sample tests for means and proportions, small-sample t and F tests, chi-square tests for goodness of fit and independence, and one-way and two-way analysis of variance. A short module on nonparametric checks — the runs test for randomness and the one-sample Kolmogorov–Smirnov test — rounds out the toolkit for situations where distributional assumptions are doubtful.",
+    "learning_objectives": [
+      "Distinguish parameters from statistics and explain sampling distributions and standard errors",
+      "Evaluate estimators for unbiasedness, efficiency, consistency and sufficiency, and derive maximum likelihood estimates",
+      "Formulate hypotheses, choose a significance level and interpret Type I and Type II errors",
+      "Carry out large-sample, t, F and chi-square tests and construct the related confidence intervals",
+      "Analyse one-way and two-way classified data with ANOVA",
+      "Apply the runs test and one-sample Kolmogorov–Smirnov test when parametric assumptions are questionable"
+    ],
+    "modules": [
+      {
+        "title": "Estimators and their properties",
+        "topics": [
+          "Parameter and statistic",
+          "Sampling distribution and standard error",
+          "Point and interval estimation",
+          "Unbiasedness, efficiency, consistency and sufficiency"
+        ]
+      },
+      {
+        "title": "Estimation methods and testing logic",
+        "topics": [
+          "Method of maximum likelihood",
+          "Null and alternative, simple and composite hypotheses",
+          "Critical region and level of significance",
+          "One-tailed and two-tailed tests, Type I and Type II errors",
+          "Neyman–Pearson lemma"
+        ]
+      },
+      {
+        "title": "Large-sample tests",
+        "topics": [
+          "Single mean and single proportion",
+          "Difference between two means",
+          "Difference between two proportions",
+          "Related confidence intervals"
+        ]
+      },
+      {
+        "title": "Small-sample tests",
+        "topics": [
+          "Chi-square tests for goodness of fit and independence of attributes",
+          "Student's t tests for means",
+          "Snedecor's F test for variances",
+          "Equality of two means and two variances under normality"
+        ]
+      },
+      {
+        "title": "Analysis of variance",
+        "topics": [
+          "One-way ANOVA",
+          "Two-way ANOVA",
+          "Interpreting the F statistic"
+        ]
+      },
+      {
+        "title": "Nonparametric checks",
+        "topics": [
+          "Test for randomness based on the total number of runs",
+          "One-sample Kolmogorov–Smirnov test"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistics for Data Analysis or equivalent knowledge of descriptive statistics and probability distributions"
+    ],
+    "audience": [
+      "Students of statistics, economics, management and the sciences",
+      "Researchers preparing theses or papers that require significance testing",
+      "Analysts who need to compare groups or test claims from data",
+      "Working professionals reviewing study or survey results"
+    ],
+    "projects": [
+      "Estimate a population mean and proportion from a sample and report confidence intervals",
+      "Run a two-sample test comparing two groups and interpret the result and the risk of each error type",
+      "Test independence of two attributes in a contingency table with a chi-square test",
+      "Analyse a two-way classified dataset with ANOVA and summarise the findings",
+      "Check a data sequence for randomness with a runs test and test goodness of fit with the one-sample Kolmogorov–Smirnov test"
+    ],
+    "tools": [
+      "R",
+      "Python",
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Short quizzes on testing concepts",
+      "Applied problem sets with written interpretation",
+      "Capstone mini-project: a complete inferential analysis of a sample dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "statistical-analysis",
+      "research-methodology-support",
+      "survey-sampling-experimental-design"
+    ],
+    "related_articles": [
+      "estimation-and-maximum-likelihood",
+      "hypothesis-testing-essentials",
+      "analysis-of-variance",
+      "probability-distributions-and-clt"
+    ],
+    "source_modules": [
+      {
+        "name": "Inferential Statistics",
+        "code": "17200304",
+        "pages": [
+          29,
+          30,
+          31
+        ]
+      },
+      {
+        "name": "Applied Multivariate Statistical Analysis Lab",
+        "code": "17200603",
+        "pages": [
+          70,
+          71
+        ]
+      }
+    ],
+    "source_pages": [
+      29,
+      30,
+      31,
+      70,
+      71
+    ],
+    "featured": true,
+    "order": 2,
+    "status": "published"
+  },
+  {
+    "slug": "excel-for-data-analytics",
+    "title": "Excel for Data Analytics",
+    "category": "Analytics",
+    "level": "Beginner",
+    "format": "short-course",
+    "summary": "A practical spreadsheet course covering data import and cleaning, lookups, logical and statistical functions, PivotTables and charts.",
+    "description": "Spreadsheets remain the most widely used analysis tool in many organisations. This short course takes participants from basic formulas to confident analytical work in Excel: bringing data in from text files and the web, splitting and de-duplicating it, and writing formulas that copy correctly using absolute and relative references.\n\nParticipants then build logical tests with IF, nested IF, AND, OR and NOT, summarise data with SUMIF, COUNTIF and related statistical functions, retrieve values with lookup functions, and summarise large lists with PivotTables and PivotCharts. The course finishes with charting techniques and worksheet formatting so that results are presented clearly.",
+    "learning_objectives": [
+      "Import, clean and restructure data using text-to-columns, duplicate removal and grouping",
+      "Write formulas with correct absolute and relative cell references",
+      "Use lookup, logical and conditional statistical functions to answer business questions",
+      "Summarise and explore data with PivotTables and PivotCharts",
+      "Present results with appropriate charts and well-formatted worksheets"
+    ],
+    "modules": [
+      {
+        "title": "Spreadsheet essentials",
+        "topics": [
+          "SUM, AVERAGE, COUNT, MAX, MIN",
+          "Basic text, date and time functions",
+          "Absolute and relative cell referencing",
+          "Formatting numbers, fonts, alignment, borders and cell styles"
+        ]
+      },
+      {
+        "title": "Getting data ready",
+        "topics": [
+          "Importing from the web and from text files",
+          "Text to columns",
+          "Removing duplicates",
+          "Grouping and ungrouping"
+        ]
+      },
+      {
+        "title": "Functions for analysis",
+        "topics": [
+          "LOOKUP functions",
+          "IF and nested IF",
+          "AND, OR and NOT",
+          "SUMIF and COUNTIF",
+          "AVERAGE, COUNT, LARGE and SMALL"
+        ]
+      },
+      {
+        "title": "PivotTables and charts",
+        "topics": [
+          "Creating and formatting PivotTables",
+          "Page fields in a PivotTable",
+          "Creating and modifying PivotCharts",
+          "Chart data techniques"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "None — basic familiarity with using a computer is enough"
+    ],
+    "audience": [
+      "Working professionals who handle data in spreadsheets",
+      "Students preparing for analytical coursework",
+      "Administrative and operations staff who produce regular reports",
+      "Small-business owners tracking sales or costs"
+    ],
+    "projects": [
+      "Import a raw text or web dataset, clean it and prepare it for analysis",
+      "Build a lookup-driven summary sheet that pulls values from a master list",
+      "Create a PivotTable and PivotChart report summarising sales by category and period",
+      "Design a formatted one-page dashboard using conditional summaries and charts"
+    ],
+    "tools": [
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "3 weeks · about 18 hours",
+    "proposed_hours": 18,
+    "assessment": [
+      "Hands-on lab exercises in each session",
+      "Short practical quiz",
+      "Final mini-project: a cleaned dataset with a PivotTable report and charts"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "data-visualization-reporting",
+      "business-analytics-data-mining",
+      "statistical-analysis"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion"
+    ],
+    "source_modules": [
+      {
+        "name": "Analytics using Excel",
+        "code": "17200101",
+        "pages": [
+          10,
+          11
+        ]
+      }
+    ],
+    "source_pages": [
+      10,
+      11
+    ],
+    "featured": true,
+    "order": 3,
+    "status": "published"
+  },
+  {
+    "slug": "r-programming-for-statistics",
+    "title": "R Programming for Statistics",
+    "category": "Programming",
+    "level": "Beginner",
+    "format": "short-course",
+    "summary": "Get started with R: objects, data input and output, calculations, plots and descriptive statistics with probability distributions.",
+    "description": "R was built for statistical computing, and this short course introduces it from the ground up. Participants learn how R works, how to create, list and delete objects, how to read and write data files, and how to generate regular and random sequences, carry out arithmetic and matrix computations, and manipulate objects.\n\nThe second part uses R for statistical work: producing graphics and plots, computing measures of central tendency and frequency distributions, using generic functions, and working with discrete and continuous probability distributions. By the end, participants can take a small dataset from file to summary statistics and charts entirely in R.",
+    "learning_objectives": [
+      "Explain how R stores and manages objects in memory",
+      "Read data from and write data to files",
+      "Generate regular and random sequences and perform arithmetic and matrix computations",
+      "Produce graphics and plots to explore data",
+      "Compute descriptive statistics and frequency distributions",
+      "Work with discrete and continuous probability distributions in R"
+    ],
+    "modules": [
+      {
+        "title": "Getting started with R",
+        "topics": [
+          "Introduction to R and how it works",
+          "Creating, listing and deleting objects",
+          "Object types and manipulation"
+        ]
+      },
+      {
+        "title": "Working with data",
+        "topics": [
+          "Reading and writing data in a file",
+          "Generating data: regular and random sequences",
+          "Arithmetic and simple functions",
+          "Matrix computation"
+        ]
+      },
+      {
+        "title": "Graphics and descriptive statistics",
+        "topics": [
+          "Graphics and plots",
+          "Central tendency of data",
+          "Frequency distributions",
+          "Generic functions"
+        ]
+      },
+      {
+        "title": "Probability distributions in R",
+        "topics": [
+          "Discrete probability distributions",
+          "Continuous probability distributions"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "None — no prior programming experience required; basic statistics is helpful"
+    ],
+    "audience": [
+      "Students of statistics, mathematics and the sciences",
+      "Researchers who want a free, scriptable statistics environment",
+      "Analysts moving beyond spreadsheets",
+      "Working professionals starting in data science"
+    ],
+    "projects": [
+      "Load a CSV dataset into R, inspect its structure and write a cleaned version back to file",
+      "Generate random samples from several distributions and compare their histograms",
+      "Produce a descriptive statistics report with frequency tables and plots for a sample dataset",
+      "Perform basic matrix computations and verify results"
+    ],
+    "tools": [
+      "R"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "4 weeks · about 20 hours",
+    "proposed_hours": 20,
+    "assessment": [
+      "Weekly lab exercises",
+      "Short coding quiz",
+      "Final mini-project: a scripted descriptive analysis in R"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "statistical-analysis",
+      "data-visualization-reporting"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion",
+      "probability-distributions-and-clt"
+    ],
+    "source_modules": [
+      {
+        "name": "Introduction to R Programming",
+        "code": "17200201",
+        "pages": [
+          22,
+          23
+        ]
+      }
+    ],
+    "source_pages": [
+      22,
+      23
+    ],
+    "featured": false,
+    "order": 4,
+    "status": "published"
+  },
+  {
+    "slug": "python-programming-for-data-science",
+    "title": "Python Programming for Data Science",
+    "category": "Programming",
+    "level": "Beginner",
+    "format": "short-course",
+    "summary": "A beginner's introduction to Python — installing and running programs, debugging, variables, control flow, file input/output and plotting data.",
+    "description": "This short course gives newcomers a solid footing in core Python before they move on to analytical work. Participants install Python, run programs interactively and as scripts, and learn to recognise and fix syntax, runtime and semantic errors. They then work with values, types, variables, operators and expressions, and control the flow of a program with conditional statements and loops.\n\nThe course ends with practical data handling: reading data from text files, file input and output, and producing simple plots with a Python visualisation library. It deliberately concentrates on programming fundamentals, giving participants the base they need for later data-science and machine-learning courses.",
+    "learning_objectives": [
+      "Install Python and run programs in interactive and script mode",
+      "Identify and fix syntax, runtime and semantic errors through systematic debugging",
+      "Use values, types, variables, operators and expressions correctly, including type conversion",
+      "Control program flow with if/else, nested conditions, for and while loops and loop-control statements",
+      "Read data from text files and plot it with a Python visualisation library"
+    ],
+    "modules": [
+      {
+        "title": "Python and the programming environment",
+        "topics": [
+          "The Python language: history and features",
+          "Installing Python and running programs",
+          "Interactive mode and script mode",
+          "Formal and natural languages; brackets, braces and parentheses"
+        ]
+      },
+      {
+        "title": "Debugging",
+        "topics": [
+          "Syntax errors",
+          "Runtime errors",
+          "Semantic errors",
+          "Experimental debugging"
+        ]
+      },
+      {
+        "title": "Variables and expressions",
+        "topics": [
+          "Values and types",
+          "Variables, names and keywords",
+          "Type conversion",
+          "Operators, operands and order of operations"
+        ]
+      },
+      {
+        "title": "Control flow",
+        "topics": [
+          "if, if-else and nested if-else",
+          "for, while and nested loops",
+          "Terminating loops and skipping iterations"
+        ]
+      },
+      {
+        "title": "Working with files and plots",
+        "topics": [
+          "File input and output",
+          "Reading data from a text file",
+          "Plotting data with a visualisation library"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "None — no prior programming experience required"
+    ],
+    "audience": [
+      "Students starting a data-science or analytics pathway",
+      "Working professionals who want to automate simple data tasks",
+      "Researchers who need basic scripting skills",
+      "Analysts preparing for machine-learning courses"
+    ],
+    "projects": [
+      "Write a script that reads numbers from a text file and reports simple summaries",
+      "Debug a set of deliberately broken programs and document each error type",
+      "Build a small menu-driven program using conditionals and loops",
+      "Read a text dataset and produce a labelled line or bar plot"
+    ],
+    "tools": [
+      "Python"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "4 weeks · about 20 hours",
+    "proposed_hours": 20,
+    "assessment": [
+      "Lab exercises in every session",
+      "Short coding quiz",
+      "Final mini-project: read, process and plot a text dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "statistical-analysis",
+      "data-visualization-reporting"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion"
+    ],
+    "source_modules": [
+      {
+        "name": "Programming with Python",
+        "code": "17200301",
+        "pages": [
+          34,
+          35
+        ]
+      }
+    ],
+    "source_pages": [
+      34,
+      35
+    ],
+    "featured": true,
+    "order": 5,
+    "status": "published"
+  },
+  {
+    "slug": "sql-databases-for-data-science",
+    "title": "SQL & Databases for Data Science",
+    "category": "Data Science",
+    "level": "Beginner",
+    "format": "extended",
+    "summary": "Design relational databases and query them with SQL — from ER modelling and normalisation to joins, subqueries, window functions, triggers and procedures.",
+    "description": "Most organisational data lives in databases, so querying them well is a core analytical skill. This course introduces database management systems and data models, then teaches how to design a database with entity–relationship diagrams and normalise it to third normal form to remove redundancy and anomalies.\n\nParticipants then use SQL (with MySQL) to create and alter tables with primary and foreign keys, write queries with filtering, joins, aggregation and GROUP BY, use subqueries and window functions for ordered data, and work with constraints, views, triggers, stored procedures and cursors. The course also covers basic statistics and data munging in SQL, and introduces document and graph databases as alternatives for data science work.",
+    "learning_objectives": [
+      "Explain the components and advantages of a database management system and the role of data models",
+      "Design a database with ER diagrams and normalise it up to third normal form",
+      "Create, alter and drop tables with appropriate keys, data types and constraints",
+      "Write SQL queries using filtering, joins, aggregation, subqueries and window functions",
+      "Use views, triggers, stored procedures and cursors in MySQL",
+      "Describe when document or graph databases suit a data-science problem"
+    ],
+    "modules": [
+      {
+        "title": "Database foundations",
+        "topics": [
+          "Advantages and components of a DBMS",
+          "Data types, integrity and normal forms",
+          "Data dictionary",
+          "Data models, business rules and degrees of data abstraction"
+        ]
+      },
+      {
+        "title": "Database design",
+        "topics": [
+          "ER diagrams: entities, attributes, keys, relationships, cardinalities",
+          "Generalisation and specialisation",
+          "Converting designs to normalised tables",
+          "Normalisation up to third normal form"
+        ]
+      },
+      {
+        "title": "SQL querying",
+        "topics": [
+          "DDL and DML",
+          "Filtering, joins and aggregation",
+          "Subtotals with GROUP BY",
+          "Nested and correlated subqueries",
+          "Window functions and ordered data"
+        ]
+      },
+      {
+        "title": "SQL for data science",
+        "topics": [
+          "SQL as a data-science tool",
+          "Basic statistics with SQL",
+          "Data munging with SQL",
+          "Document and graph databases"
+        ]
+      },
+      {
+        "title": "Constraints, views and procedural SQL",
+        "topics": [
+          "Integrity constraints",
+          "Views, data independence and security",
+          "Triggers",
+          "Stored procedures and cursors"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "None — basic computer literacy; some spreadsheet experience is helpful"
+    ],
+    "audience": [
+      "Students of data science, statistics and computing",
+      "Analysts who need to pull their own data from databases",
+      "Working professionals managing business records",
+      "Researchers organising project data"
+    ],
+    "projects": [
+      "Choose a case study, write a problem statement and draw its ER diagram",
+      "Normalise the case-study tables to third normal form and implement them in MySQL",
+      "Write a set of analytical queries using joins, GROUP BY, subqueries and window functions",
+      "Add a trigger, a stored procedure and a view to the case-study database",
+      "Compute basic summary statistics directly in SQL"
+    ],
+    "tools": [
+      "SQL",
+      "MySQL"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "6 weeks · about 36 hours",
+    "proposed_hours": 36,
+    "assessment": [
+      "Lab exercises after each module",
+      "Short quizzes on design and query concepts",
+      "Capstone mini-project: a designed, normalised and queried case-study database"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "business-analytics-data-mining",
+      "big-data-analytics",
+      "data-visualization-reporting"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion"
+    ],
+    "source_modules": [
+      {
+        "name": "Introduction to Data Science (Unit 2: Databases for Data Science)",
+        "code": "17200103",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "name": "Database Management System",
+        "code": "17200702",
+        "pages": [
+          88,
+          89
+        ]
+      },
+      {
+        "name": "Database Management System Lab",
+        "code": "17200703",
+        "pages": [
+          90,
+          91
+        ]
+      }
+    ],
+    "source_pages": [
+      4,
+      88,
+      89,
+      90,
+      91
+    ],
+    "featured": false,
+    "order": 6,
+    "status": "published"
+  },
+  {
+    "slug": "data-visualization",
+    "title": "Data Visualization",
+    "category": "Analytics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Turn data into clear graphics: map data to aesthetics, use colour well, and visualise amounts, distributions, proportions, trends and geospatial data.",
+    "description": "Good charts make analysis understandable; poor ones mislead. This course treats visualisation as a set of deliberate design choices. Participants learn how data values are mapped onto aesthetics and scales, how coordinate systems (including nonlinear and curved axes) change what a reader sees, and how to use colour to distinguish groups, represent values and highlight what matters.\n\nThe course then works through a directory of chart types — bar, grouped and stacked bars, dot plots and heatmaps for amounts; histograms, empirical cumulative distribution functions and Q-Q plots for distributions; pie charts, side-by-side and stacked bars for proportions; and smoothing, detrending and time-series decomposition for trends — before introducing map projections, layers, choropleths and cartograms for geospatial data. It builds on the basic graphs for categorical and quantitative data used in descriptive statistics.",
+    "learning_objectives": [
+      "Map data attributes to aesthetics and scales and choose suitable coordinate systems",
+      "Use colour to distinguish categories, represent values and highlight key findings",
+      "Select appropriate charts for amounts, distributions, proportions and x–y relationships",
+      "Visualise distributions with ECDFs and Q-Q plots, including highly skewed data",
+      "Show trends with smoothing, fitted functional forms and time-series decomposition",
+      "Produce basic geospatial graphics such as choropleth maps and cartograms"
+    ],
+    "modules": [
+      {
+        "title": "Foundations of visual encoding",
+        "topics": [
+          "Graphs for categorical and quantitative data",
+          "Mapping data onto aesthetics",
+          "Aesthetics and types of data; scales",
+          "Cartesian coordinates, nonlinear axes, curved axes"
+        ]
+      },
+      {
+        "title": "Colour and visualising amounts",
+        "topics": [
+          "Colour to distinguish, represent values and highlight",
+          "Bar plots, grouped and stacked bars",
+          "Dot plots and heatmaps"
+        ]
+      },
+      {
+        "title": "Visualising distributions",
+        "topics": [
+          "Histograms and density views",
+          "Empirical cumulative distribution functions",
+          "Highly skewed distributions",
+          "Quantile–quantile plots"
+        ]
+      },
+      {
+        "title": "Visualising proportions",
+        "topics": [
+          "The case for pie charts",
+          "Side-by-side and stacked bars",
+          "Stacked densities",
+          "Proportions as parts of the total"
+        ]
+      },
+      {
+        "title": "Trends and geospatial data",
+        "topics": [
+          "Smoothing and fitted functional forms",
+          "Detrending and time-series decomposition",
+          "Projections and layers",
+          "Choropleth mapping and cartograms"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Basic descriptive statistics",
+      "Working familiarity with Excel, R or Python for producing charts"
+    ],
+    "audience": [
+      "Analysts and report writers",
+      "Researchers preparing figures for papers and theses",
+      "Working professionals who present data to decision-makers",
+      "Students of statistics and data science"
+    ],
+    "projects": [
+      "Redesign a set of poorly constructed charts and justify each change",
+      "Compare a variable's distribution across groups using histograms, ECDFs and Q-Q plots",
+      "Build a proportions graphic and compare pie, side-by-side and stacked-bar alternatives",
+      "Decompose and visualise a time series to show trend and seasonality",
+      "Create a choropleth map from regional sample data"
+    ],
+    "tools": [
+      "R",
+      "Python",
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "6 weeks · about 32 hours",
+    "proposed_hours": 32,
+    "assessment": [
+      "Weekly visual critique exercises",
+      "Short quizzes on chart selection",
+      "Capstone mini-project: a short visual report on a chosen dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "data-visualization-reporting",
+      "business-analytics-data-mining",
+      "statistical-analysis"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion",
+      "time-series-components-and-forecasting"
+    ],
+    "source_modules": [
+      {
+        "name": "Data Visualization and Modelling",
+        "code": "17200607",
+        "pages": [
+          78,
+          79
+        ]
+      },
+      {
+        "name": "Descriptive Statistics",
+        "code": "17200102",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "source_pages": [
+      2,
+      78,
+      79
+    ],
+    "featured": false,
+    "order": 7,
+    "status": "published"
+  },
+  {
+    "slug": "regression-predictive-modelling",
+    "title": "Regression & Predictive Modelling",
+    "category": "Statistics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Build, evaluate and regularise regression models — from least squares and correlation to multiple and polynomial regression, ridge, lasso and logistic regression.",
+    "description": "Regression is the workhorse of predictive analysis. This course begins with correlation and the least-squares line, then extends to multiple explanatory variables and polynomial terms. Participants learn to evaluate models properly with cross-validation and other measures, and to control overfitting with regularisation — Tikhonov (ridge) regression and the lasso.\n\nA module on gradient descent shows how models are fitted numerically by minimising the sum of squared errors, including the role of the learning rate and least-mean-squares updates. The course closes with models for a binary outcome: logistic regression and discriminant analysis, and how the two approaches compare in a classification decision.",
+    "learning_objectives": [
+      "Fit and interpret simple linear regression and relate regression coefficients to the correlation coefficient",
+      "Build multiple and polynomial regression models and interpret their coefficients",
+      "Evaluate models with the coefficient of determination and cross-validation",
+      "Apply ridge (Tikhonov) and lasso regularisation to control overfitting",
+      "Explain and implement gradient descent for least-squares fitting",
+      "Model a binary outcome with logistic regression and discriminant analysis"
+    ],
+    "modules": [
+      {
+        "title": "Correlation and the least-squares line",
+        "topics": [
+          "Scatter diagrams and correlation",
+          "Principle of least squares",
+          "Regression coefficients and correlation",
+          "Coefficient of determination"
+        ]
+      },
+      {
+        "title": "Multiple and polynomial regression",
+        "topics": [
+          "Simple linear regression",
+          "Regression with multiple explanatory variables",
+          "Polynomial regression"
+        ]
+      },
+      {
+        "title": "Model evaluation and regularisation",
+        "topics": [
+          "Cross-validation",
+          "Other ways to evaluate linear regression models",
+          "Regularised regression",
+          "Tikhonov regularisation for ridge regression",
+          "Lasso"
+        ]
+      },
+      {
+        "title": "Fitting by gradient descent",
+        "topics": [
+          "Functions and gradients",
+          "Gradient descent and learning rate",
+          "Least-mean-squares updates for regression",
+          "Sum of squared errors objective"
+        ]
+      },
+      {
+        "title": "Models for binary outcomes",
+        "topics": [
+          "Regression with a binary dependent variable",
+          "Estimating the logistic regression model",
+          "Discriminant model and the decision process of discriminant analysis"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistics for Data Analysis or equivalent",
+      "Basic familiarity with matrices is helpful",
+      "Working knowledge of R, Python or Excel"
+    ],
+    "audience": [
+      "Analysts building forecasting or response models",
+      "Researchers modelling relationships between variables",
+      "Working professionals in marketing, operations or finance",
+      "Students of statistics and data science"
+    ],
+    "projects": [
+      "Fit a simple and a multiple regression to sample marketing data and interpret the coefficients",
+      "Compare linear and polynomial fits using cross-validation",
+      "Apply ridge and lasso to a dataset with many predictors and compare the selected models",
+      "Implement gradient descent for a least-squares problem and study the effect of the learning rate",
+      "Build a logistic regression classifier for a binary outcome and compare it with discriminant analysis"
+    ],
+    "tools": [
+      "R",
+      "Python",
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Applied lab exercises",
+      "Short quizzes on model assumptions and evaluation",
+      "Capstone mini-project: build and validate a predictive model on a sample dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "regression-predictive-modelling",
+      "statistical-analysis",
+      "machine-learning-consulting"
+    ],
+    "related_articles": [
+      "correlation-and-regression",
+      "bias-variance-and-regularisation",
+      "gradient-descent"
+    ],
+    "source_modules": [
+      {
+        "name": "Descriptive Statistics",
+        "code": "17200102",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "name": "Mathematical Foundations of Data Science",
+        "code": "17200403",
+        "pages": [
+          41,
+          42
+        ]
+      },
+      {
+        "name": "Applied Multivariate Statistical Analysis",
+        "code": "17200602",
+        "pages": [
+          69
+        ]
+      }
+    ],
+    "source_pages": [
+      3,
+      41,
+      42,
+      69
+    ],
+    "featured": true,
+    "order": 8,
+    "status": "published"
+  },
+  {
+    "slug": "time-series-analysis-forecasting",
+    "title": "Time Series Analysis & Forecasting",
+    "category": "Statistics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Analyse data recorded over time — trend, seasonality, AR and MA models, exponential smoothing forecasts and index numbers — with hands-on lab work.",
+    "description": "Sales, prices, demand and many other business and economic quantities are recorded over time. This course explains how to break a time series into its components using additive and multiplicative models, measure trend by freehand, semi-averages, moving averages and least squares, fit growth curves, and estimate seasonal indices.\n\nParticipants then move to Box–Jenkins ideas: moving-average and autoregressive processes of orders one and two, the autocorrelation function as a guide to model order, and estimation of AR(1) and AR(2) parameters with least squares and the Yule–Walker equations. Exponential smoothing provides a practical forecasting method, and a final module covers the construction of simple and weighted index numbers, including Laspeyres, Paasche, Marshall–Edgeworth and Fisher indices, reversal tests and cost-of-living indices.",
+    "learning_objectives": [
+      "Identify trend, seasonal, cyclical and irregular components and choose additive or multiplicative models",
+      "Measure trend using moving averages, semi-averages and least squares, and fit growth curves",
+      "Compute seasonal indices by simple averages, ratio to moving averages and ratio to trend",
+      "Use the ACF to suggest model order and fit AR(1) and AR(2) models via Yule–Walker and least squares",
+      "Produce forecasts using exponential smoothing",
+      "Construct and test simple and weighted index numbers, including a cost-of-living index"
+    ],
+    "modules": [
+      {
+        "title": "Time series components",
+        "topics": [
+          "Definition and components of a time series",
+          "Additive and multiplicative models",
+          "Applications from various fields",
+          "Decomposition of a time series"
+        ]
+      },
+      {
+        "title": "Measuring trend",
+        "topics": [
+          "Freehand curve and method of semi-averages",
+          "Moving averages (odd and even periods)",
+          "Least squares: linear and parabolic trend",
+          "Fitting mathematical and growth curves"
+        ]
+      },
+      {
+        "title": "Seasonality",
+        "topics": [
+          "Seasonal indices by simple averages",
+          "Ratio to moving averages",
+          "Ratio to trend"
+        ]
+      },
+      {
+        "title": "Box–Jenkins modelling and smoothing",
+        "topics": [
+          "Moving-average and autoregressive processes of order one and two",
+          "ACF and its use in identifying MA order",
+          "Estimating AR(1) and AR(2) with least squares and Yule–Walker equations",
+          "Exponential smoothing forecasting"
+        ]
+      },
+      {
+        "title": "Index numbers",
+        "topics": [
+          "Construction of simple and weighted index numbers",
+          "Laspeyres, Paasche, Marshall–Edgeworth and Fisher indices",
+          "Chain-base and fixed-base indices",
+          "Reversal tests",
+          "Cost-of-living index numbers"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistics for Data Analysis or equivalent (descriptive statistics, correlation and least squares)",
+      "Basic familiarity with Excel, R or Python"
+    ],
+    "audience": [
+      "Analysts responsible for demand, sales or operational forecasts",
+      "Researchers working with economic or environmental series",
+      "Working professionals in planning, supply chain and finance",
+      "Students of statistics, economics and data science"
+    ],
+    "projects": [
+      "Measure the trend of a sales series by moving averages and by least squares, and compare the two",
+      "Compute seasonal indices by ratio to moving averages and ratio to trend for monthly data",
+      "Plot the ACF of a series and fit AR(1) and AR(2) models using the Yule–Walker equations",
+      "Forecast the next periods of a series with exponential smoothing",
+      "Construct Laspeyres, Paasche and Fisher index numbers and apply the reversal tests"
+    ],
+    "tools": [
+      "Excel",
+      "R",
+      "Python"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Lab exercises drawn from the practical list",
+      "Short quizzes on components and model identification",
+      "Capstone mini-project: decompose and forecast a sample time series"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "time-series-forecasting",
+      "statistical-analysis",
+      "data-visualization-reporting"
+    ],
+    "related_articles": [
+      "time-series-components-and-forecasting",
+      "index-numbers",
+      "correlation-and-regression"
+    ],
+    "source_modules": [
+      {
+        "name": "Time Series Analysis",
+        "code": "17200302",
+        "pages": [
+          25,
+          26
+        ]
+      },
+      {
+        "name": "Time Series Analysis Lab",
+        "code": "17200303",
+        "pages": [
+          27,
+          28
+        ]
+      }
+    ],
+    "source_pages": [
+      25,
+      26,
+      27,
+      28
+    ],
+    "featured": true,
+    "order": 9,
+    "status": "published"
+  },
+  {
+    "slug": "machine-learning-fundamentals",
+    "title": "Machine Learning Fundamentals",
+    "category": "Machine Learning",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Learn the core ideas and classical algorithms of machine learning — optimisation, regression, trees, ensembles, SVM, naive Bayes, kNN and k-means — with lab implementations.",
+    "description": "This course introduces machine learning as the study of systems that learn from data. It begins with types of learning, the steps of an ML workflow, numerical representation issues such as overflow and underflow, and the linear algebra and optimisation ideas — norms, matrix decompositions, constrained and unconstrained optimisation and gradient descent — that algorithms depend on.\n\nParticipants then study the learning paradigm through linear regression, goodness of fit, the bias–variance trade-off, variants of gradient descent and maximum likelihood estimation, before working through classical techniques: decision trees, bagging, random forests, gradient boosting, support vector machines, naive Bayes, k-nearest neighbours and k-means. Data pre-processing and feature selection with filters and wrappers are covered so that models are trained on well-prepared inputs. Lab sessions implement these algorithms and evaluate them with accuracy, precision and recall.",
+    "learning_objectives": [
+      "Distinguish supervised and unsupervised learning and outline the steps of a machine-learning project",
+      "Prepare data through cleaning, integration, reduction, transformation and feature selection",
+      "Explain gradient descent and its variants and relate model fitting to maximum likelihood",
+      "Diagnose under- and overfitting using the bias–variance trade-off",
+      "Implement and compare decision trees, random forests, boosting, SVM, naive Bayes, kNN and k-means",
+      "Evaluate classifiers with accuracy, precision and recall"
+    ],
+    "modules": [
+      {
+        "title": "Foundations of machine learning",
+        "topics": [
+          "Types of learning approaches and steps in machine learning",
+          "Supervised and unsupervised learning",
+          "Machine representation of numbers, overflow and underflow",
+          "Linear algebra basics, norms and matrix decompositions"
+        ]
+      },
+      {
+        "title": "Optimisation",
+        "topics": [
+          "Constrained and unconstrained optimisation",
+          "Numerical optimisation",
+          "Gradient descent and its variants"
+        ]
+      },
+      {
+        "title": "The learning paradigm",
+        "topics": [
+          "Linear regression and least-squares gradient descent",
+          "Goodness of fit",
+          "Bias–variance trade-off",
+          "Maximum likelihood estimation"
+        ]
+      },
+      {
+        "title": "Data pre-processing and feature selection",
+        "topics": [
+          "Data cleaning, integration, reduction and transformation",
+          "Data discretisation",
+          "Feature generation and selection",
+          "Filter and wrapper methods"
+        ]
+      },
+      {
+        "title": "Classical techniques",
+        "topics": [
+          "Decision trees, bagging and random forests",
+          "Gradient boosting",
+          "Support vector machines",
+          "Naive Bayes",
+          "k-nearest neighbours and k-means"
+        ]
+      },
+      {
+        "title": "Concept learning and evaluation in the lab",
+        "topics": [
+          "FIND-S and Candidate-Elimination algorithms",
+          "Bayesian networks",
+          "Accuracy, precision and recall"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Mathematics for Data Science or equivalent linear algebra and calculus",
+      "Statistics for Data Analysis or equivalent probability knowledge",
+      "Python Programming for Data Science or basic R/Python programming"
+    ],
+    "audience": [
+      "Students progressing into data science and AI",
+      "Analysts who want to move from descriptive to predictive work",
+      "Working professionals evaluating ML for their organisation",
+      "Researchers applying ML methods to their data"
+    ],
+    "projects": [
+      "Implement the FIND-S and Candidate-Elimination algorithms on training data read from a CSV file",
+      "Build a decision-tree classifier and a naive Bayes classifier, including a document-classification task",
+      "Classify the iris dataset with k-nearest neighbours and with a support vector machine",
+      "Implement gradient descent from scratch and compare learning rates",
+      "Report accuracy, precision and recall for each model and recommend one"
+    ],
+    "tools": [
+      "Python",
+      "R"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 48 hours",
+    "proposed_hours": 48,
+    "assessment": [
+      "Lab assignments for each algorithm",
+      "Short quizzes on concepts",
+      "Capstone mini-project: an end-to-end classification study with model comparison"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "machine-learning-consulting",
+      "regression-predictive-modelling",
+      "business-analytics-data-mining"
+    ],
+    "related_articles": [
+      "bias-variance-and-regularisation",
+      "gradient-descent",
+      "estimation-and-maximum-likelihood",
+      "probability-and-bayes-theorem"
+    ],
+    "source_modules": [
+      {
+        "name": "Machine Learning-I",
+        "code": "17200401",
+        "pages": [
+          37,
+          38
+        ]
+      },
+      {
+        "name": "Machine Learning-I Lab",
+        "code": "17200402",
+        "pages": [
+          39,
+          40
+        ]
+      },
+      {
+        "name": "Introduction to Data Science",
+        "code": "17200103",
+        "pages": [
+          4,
+          5
+        ]
+      }
+    ],
+    "source_pages": [
+      4,
+      5,
+      37,
+      38,
+      39,
+      40
+    ],
+    "featured": true,
+    "order": 10,
+    "status": "published"
+  },
+  {
+    "slug": "deep-learning-advanced-ml",
+    "title": "Deep Learning & Advanced Machine Learning",
+    "category": "Machine Learning",
+    "level": "Advanced",
+    "format": "extended",
+    "summary": "Go beyond classical ML: feedforward and convolutional networks, RNNs and LSTMs, training and regularisation of deep models, ensembles and statistical pattern recognition.",
+    "description": "This advanced course covers the neural-network methods behind modern machine learning. It starts with feedforward networks — single and multilayer perceptrons, activation functions, gradient-based learning and back-propagation — and the techniques that make deep models trainable: regularisation and norm penalties, dataset augmentation, early stopping, parameter initialisation, adaptive learning rates and batch normalisation.\n\nParticipants then study convolutional networks (convolution, pooling and common architectures, with transfer learning), sequence models (RNNs, bidirectional and deep RNNs, back-propagation through time, LSTM and attention), and applications such as natural language processing and generative adversarial networks. Ensemble methods (stacking, bagging, boosting) and a statistical pattern-recognition module — Bayesian decision theory, kernel and nearest-neighbour methods, Parzen windows and self-organising networks — complete the picture.",
+    "learning_objectives": [
+      "Build and train multilayer feedforward networks using back-propagation",
+      "Apply regularisation, initialisation, adaptive learning rates and batch normalisation to stabilise deep-model training",
+      "Explain and implement convolutional networks and transfer learning",
+      "Model sequential data with RNNs, LSTMs and back-propagation through time",
+      "Use ensemble methods such as stacking, bagging and boosting",
+      "Apply Bayesian decision theory and nonparametric methods to pattern-recognition tasks"
+    ],
+    "modules": [
+      {
+        "title": "Deep learning foundations",
+        "topics": [
+          "Overfitting, underfitting and regularisation",
+          "Hyperparameters and validation sets",
+          "Stochastic gradient descent",
+          "Challenges motivating deep learning"
+        ]
+      },
+      {
+        "title": "Feedforward networks",
+        "topics": [
+          "Single-layer and multilayer feedforward networks",
+          "Activation functions and gradient-based learning",
+          "Back-propagation",
+          "Parameter norm penalties, dataset augmentation and early stopping"
+        ]
+      },
+      {
+        "title": "Training deep models and CNNs",
+        "topics": [
+          "Challenges in neural-network optimisation",
+          "Parameter initialisation and adaptive learning rates",
+          "Batch normalisation",
+          "Convolution, pooling and CNN architectures",
+          "Transfer learning"
+        ]
+      },
+      {
+        "title": "Sequence models and NLP",
+        "topics": [
+          "RNNs, deep and bidirectional RNNs",
+          "Back-propagation through time, vanishing gradients and truncated BPTT",
+          "LSTM and attention networks",
+          "Machine translation, speech recognition and parsing",
+          "Generative adversarial networks"
+        ]
+      },
+      {
+        "title": "Trees and ensembles",
+        "topics": [
+          "Training decision trees and decision stumps",
+          "Stacking",
+          "Bagging and boosting"
+        ]
+      },
+      {
+        "title": "Statistical pattern recognition",
+        "topics": [
+          "Design of a pattern recognition system",
+          "Bayesian decision theory: error, risk and loss",
+          "Histogram, kernel and k-nearest-neighbour methods",
+          "Probabilistic neural network based on Parzen windows",
+          "Pattern clustering and self-organising networks"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Machine Learning Fundamentals or equivalent",
+      "Comfort with linear algebra, calculus and probability",
+      "Programming experience in Python or R"
+    ],
+    "audience": [
+      "Data scientists extending into neural networks",
+      "Researchers applying deep learning to images, text or signals",
+      "Postgraduate and advanced undergraduate students",
+      "Technical professionals evaluating deep-learning approaches"
+    ],
+    "projects": [
+      "Implement CNN operations in Python and train a small image classifier",
+      "Implement a deep RNN and back-propagation through time for a sequence task",
+      "Build a simple natural-language-processing pipeline",
+      "Compare a single decision tree with bagged and boosted ensembles",
+      "Demonstrate dimensionality reduction before training a classifier"
+    ],
+    "tools": [
+      "Python",
+      "R"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 48 hours",
+    "proposed_hours": 48,
+    "assessment": [
+      "Lab implementation assignments",
+      "Short concept quizzes",
+      "Capstone mini-project: design, train and evaluate a deep model on a sample dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "machine-learning-consulting",
+      "big-data-analytics"
+    ],
+    "related_articles": [
+      "gradient-descent",
+      "bias-variance-and-regularisation",
+      "probability-and-bayes-theorem"
+    ],
+    "source_modules": [
+      {
+        "name": "Machine Learning-II",
+        "code": "17200502",
+        "pages": [
+          48,
+          49
+        ]
+      },
+      {
+        "name": "Machine Learning-II Lab",
+        "code": "17200503",
+        "pages": [
+          50,
+          51
+        ]
+      },
+      {
+        "name": "Deep Learning Techniques",
+        "code": "17200801",
+        "pages": [
+          105,
+          106
+        ]
+      },
+      {
+        "name": "Pattern Recognition",
+        "code": "17200509",
+        "pages": [
+          62,
+          63
+        ]
+      }
+    ],
+    "source_pages": [
+      48,
+      49,
+      50,
+      51,
+      62,
+      63,
+      105,
+      106
+    ],
+    "featured": false,
+    "order": 11,
+    "status": "published"
+  },
+  {
+    "slug": "multivariate-statistical-analysis",
+    "title": "Multivariate Statistical Analysis",
+    "category": "Statistics",
+    "level": "Advanced",
+    "format": "extended",
+    "summary": "Analyse many variables at once — the multivariate normal model, discriminant analysis, logistic regression, principal components, factor analysis and clustering.",
+    "description": "Real datasets rarely involve a single variable. This course provides the methods to explore, model and simplify multivariate data. It begins with mean vectors, dispersion and correlation matrices and graphical displays, then develops the multivariate normal distribution, maximum likelihood estimation of its parameters, tests of linear hypotheses, and partial and multiple correlation.\n\nParticipants then learn to classify observations with discriminant analysis and logistic regression, reduce dimension with principal components (including biplots) and the orthogonal factor model, and group observations with cluster analysis based on similarity measures and statistical models. Lab sessions apply each technique to data and include tests for multiple correlation and correlation matrices.",
+    "learning_objectives": [
+      "Summarise multivariate data with mean vectors, dispersion and correlation matrices and graphical displays",
+      "Work with the multivariate normal distribution and estimate its parameters",
+      "Test hypotheses about multiple and partial correlation and regression coefficients",
+      "Classify observations using discriminant analysis and logistic regression",
+      "Reduce dimension with principal components and factor analysis and interpret the results",
+      "Group observations with cluster analysis using suitable similarity measures"
+    ],
+    "modules": [
+      {
+        "title": "Exploring multivariate data",
+        "topics": [
+          "Diagrammatic representation of multivariate data",
+          "Sample mean vector, dispersion and correlation matrices",
+          "Linear transforms: means, variances, covariances, correlations"
+        ]
+      },
+      {
+        "title": "The multivariate linear model",
+        "topics": [
+          "Multivariate normal distribution: density and MGF",
+          "Singular and non-singular normal distributions",
+          "Maximum likelihood estimation",
+          "Tests of linear hypotheses",
+          "Partial and multiple correlation and regression coefficients"
+        ]
+      },
+      {
+        "title": "Classification models",
+        "topics": [
+          "Discriminant model and the decision process",
+          "Logistic regression with a binary dependent variable",
+          "Estimating the logistic model"
+        ]
+      },
+      {
+        "title": "Dimension reduction",
+        "topics": [
+          "Population and sample principal components",
+          "Large-sample inference and biplots",
+          "The orthogonal factor model",
+          "Interpretation of factor analysis"
+        ]
+      },
+      {
+        "title": "Cluster analysis",
+        "topics": [
+          "Concepts of cluster analysis",
+          "Similarity measures",
+          "Clustering based on statistical models"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistical Inference & Hypothesis Testing or equivalent",
+      "Matrix algebra (as in Mathematics for Data Science)",
+      "Working knowledge of R or Python"
+    ],
+    "audience": [
+      "Researchers handling survey or experimental data with many variables",
+      "Market and customer analysts working on segmentation",
+      "Postgraduate students in statistics and the social or life sciences",
+      "Data scientists who need interpretable dimension reduction"
+    ],
+    "projects": [
+      "Test a sample correlation matrix and a multiple correlation coefficient",
+      "Fit discriminant and logistic regression models to a two-group classification problem",
+      "Run a principal components analysis on customer data and interpret a biplot",
+      "Carry out a factor analysis on questionnaire items and name the factors",
+      "Segment observations with cluster analysis and profile each cluster"
+    ],
+    "tools": [
+      "R",
+      "Python"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Lab exercises following the practical list",
+      "Short quizzes on method selection",
+      "Capstone mini-project: a multivariate analysis report on a sample dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "multivariate-analysis-segmentation",
+      "statistical-analysis",
+      "regression-predictive-modelling"
+    ],
+    "related_articles": [
+      "principal-components-and-factor-analysis",
+      "matrix-decompositions-for-data-science",
+      "correlation-and-regression"
+    ],
+    "source_modules": [
+      {
+        "name": "Applied Multivariate Statistical Analysis",
+        "code": "17200602",
+        "pages": [
+          68,
+          69
+        ]
+      },
+      {
+        "name": "Applied Multivariate Statistical Analysis Lab",
+        "code": "17200603",
+        "pages": [
+          70,
+          71
+        ]
+      }
+    ],
+    "source_pages": [
+      68,
+      69,
+      70,
+      71
+    ],
+    "featured": false,
+    "order": 12,
+    "status": "published"
+  },
+  {
+    "slug": "survival-reliability-analysis",
+    "title": "Survival & Reliability Analysis",
+    "category": "Statistics",
+    "level": "Advanced",
+    "format": "extended",
+    "summary": "Model time-to-event data: hazard functions, lifetime distributions, censoring, Kaplan–Meier and Nelson–Aalen estimators, system reliability and queuing applications.",
+    "description": "Many questions are about how long until something happens — a component fails, a patient relapses, a customer leaves. This course introduces the survival, hazard, cumulative hazard and reversed hazard functions, increasing and decreasing failure-rate classes and bath-tub shaped hazards, and the lifetime distributions used to model them: exponential, gamma, Weibull, Rayleigh and lognormal.\n\nParticipants learn how censoring arises and how to estimate survival with the Kaplan–Meier estimator and cumulative hazard with the Nelson–Aalen estimator, with confidence intervals and Q-Q and hazard plots. Reliability theory covers series, parallel, k-out-of-n and standby systems, and a module on stochastic processes connects Markov chains, Poisson and birth–death processes to reliability and queuing models. Lab work uses SPSS, with R and other statistical packages as alternatives.",
+    "learning_objectives": [
+      "Relate survival, hazard, cumulative hazard and reversed hazard functions to one another",
+      "Fit and compare lifetime distributions including exponential, gamma, Weibull, Rayleigh and lognormal",
+      "Recognise types of censoring and estimate survival with Kaplan–Meier and cumulative hazard with Nelson–Aalen",
+      "Assess fit with Q-Q and hazard plots and construct confidence intervals for survival",
+      "Compute reliability of series, parallel, k-out-of-n and standby systems",
+      "Use Markov chains, Poisson and birth–death processes to describe simple queuing and reliability problems"
+    ],
+    "modules": [
+      {
+        "title": "Survival and hazard functions",
+        "topics": [
+          "Survival, hazard and cumulative hazard functions",
+          "Reversed hazard function",
+          "Bath-tub shaped hazards",
+          "Increasing and decreasing failure-rate distributions"
+        ]
+      },
+      {
+        "title": "Lifetime distributions",
+        "topics": [
+          "Exponential and gamma",
+          "Weibull and Rayleigh",
+          "Lognormal",
+          "Mean residual time"
+        ]
+      },
+      {
+        "title": "Censoring and estimation",
+        "topics": [
+          "Left, right, interval and random censoring",
+          "Time, order and hybrid censoring",
+          "Kaplan–Meier estimator and its properties",
+          "Nelson–Aalen estimator",
+          "Linear and log-transformed confidence intervals, Q-Q and hazard plots"
+        ]
+      },
+      {
+        "title": "Reliability theory",
+        "topics": [
+          "Series and parallel systems",
+          "k-out-of-n and non-series-parallel systems",
+          "Mixed-mode failures",
+          "Simple and k-out-of-n standby redundancy"
+        ]
+      },
+      {
+        "title": "Stochastic processes for reliability and queues",
+        "topics": [
+          "Markov chains and transition probability matrices",
+          "Poisson process",
+          "Birth and death processes",
+          "Markovian and non-Markovian queuing models"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistical Inference & Hypothesis Testing or equivalent",
+      "Familiarity with probability distributions"
+    ],
+    "audience": [
+      "Biostatisticians and clinical or public-health researchers",
+      "Reliability and maintenance engineers",
+      "Analysts studying customer churn or time-to-event outcomes",
+      "Postgraduate students in statistics"
+    ],
+    "projects": [
+      "Create an SPSS data file from a codebook and produce descriptive statistics and graphs",
+      "Estimate and compare Kaplan–Meier survival curves for two groups",
+      "Fit Weibull, Rayleigh and lognormal distributions to failure-time data and check fit with Q-Q plots",
+      "Compute the reliability of a mixed series–parallel system with a standby unit",
+      "Fit a regression model for survival data and interpret it"
+    ],
+    "tools": [
+      "SPSS",
+      "R",
+      "SAS",
+      "JMP",
+      "STATA"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Lab exercises in SPSS",
+      "Short quizzes on hazard concepts and censoring",
+      "Capstone mini-project: a survival or reliability analysis of a sample dataset"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "survival-reliability-analysis",
+      "statistical-analysis",
+      "research-methodology-support"
+    ],
+    "related_articles": [
+      "survival-analysis-kaplan-meier",
+      "probability-distributions-and-clt"
+    ],
+    "source_modules": [
+      {
+        "name": "Reliability & Survival Analysis",
+        "code": "17200604",
+        "pages": [
+          72,
+          73
+        ]
+      },
+      {
+        "name": "Reliability & Survival Analysis Lab",
+        "code": "17200605",
+        "pages": [
+          74,
+          75
+        ]
+      },
+      {
+        "name": "Introduction of Stochastic Process",
+        "code": "17200708",
+        "pages": [
+          100,
+          101
+        ]
+      }
+    ],
+    "source_pages": [
+      72,
+      73,
+      74,
+      75,
+      100,
+      101
+    ],
+    "featured": false,
+    "order": 13,
+    "status": "published"
+  },
+  {
+    "slug": "experimental-design-sampling",
+    "title": "Experimental Design & Sampling",
+    "category": "Research",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Plan data collection that answers the question — questionnaires, sample surveys, random, stratified, cluster and systematic sampling, and CRD, RBD, Latin square and factorial designs.",
+    "description": "The quality of an analysis is fixed largely at the planning stage. This course covers both ways of gathering data well: surveys and experiments. It starts with primary and secondary data, questionnaire and schedule design, and the principal steps of a sample survey, including sampling frames, sampling units and control of variability.\n\nParticipants then study simple random sampling with and without replacement, sampling for proportions, stratified, cluster and systematic sampling, and regression estimators. The experimental-design half covers the basic principles of experimentation and ANOVA, completely randomised, randomised block and Latin square designs (including missing observations and relative efficiency), two- and three-level factorial experiments, fractional factorials and split-plot designs.",
+    "learning_objectives": [
+      "Design a questionnaire and plan the principal steps of a sample survey",
+      "Select and analyse simple random, stratified, cluster and systematic samples",
+      "Use regression estimators to improve precision in surveys",
+      "Apply the principles of randomisation, replication and blocking to experiments",
+      "Lay out and analyse CRD, RBD and Latin square designs, including missing observations",
+      "Plan and interpret factorial, fractional factorial and split-plot experiments"
+    ],
+    "modules": [
+      {
+        "title": "Data collection and surveys",
+        "topics": [
+          "Primary and secondary data",
+          "Designing a questionnaire and a schedule",
+          "Types of surveys and principal steps",
+          "Sampling unit, sampling frame, random and non-random samples"
+        ]
+      },
+      {
+        "title": "Probability sampling designs",
+        "topics": [
+          "SRSWOR and SRSWR",
+          "Sampling for proportions and percentages",
+          "Stratified sampling and its advantages",
+          "Cluster and area sampling",
+          "Linear and two-dimensional systematic sampling"
+        ]
+      },
+      {
+        "title": "Regression method of estimation",
+        "topics": [
+          "Regression estimates with a pre-assigned coefficient",
+          "Regression estimator and its variance",
+          "Combined regression estimator",
+          "Regression method in stratified sampling"
+        ]
+      },
+      {
+        "title": "Principles and basic designs",
+        "topics": [
+          "Strategy and guidelines for experimentation",
+          "Introduction to ANOVA",
+          "CRD, RBD and Latin square designs",
+          "Relative efficiency and missing observations"
+        ]
+      },
+      {
+        "title": "Factorial and advanced designs",
+        "topics": [
+          "Factors, levels, interactions and treatment combinations",
+          "Two-level and three-level factorial designs",
+          "Fractional factorial designs",
+          "Split-plot and strip arrangements",
+          "Groups of experiments"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistical Inference & Hypothesis Testing or equivalent (including ANOVA)"
+    ],
+    "audience": [
+      "Researchers planning surveys, trials or field experiments",
+      "Students writing dissertations with primary data",
+      "Market-research and survey professionals",
+      "Quality and process engineers running experiments"
+    ],
+    "projects": [
+      "Design a questionnaire and sampling plan for a small survey",
+      "Compare the precision of simple random and stratified samples drawn from the same population",
+      "Lay out and analyse a randomised block experiment, including estimating a missing value",
+      "Analyse a two-factor factorial experiment and interpret the interaction",
+      "Compute a regression estimator for a survey total and its estimated variance"
+    ],
+    "tools": [
+      "R",
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Design exercises",
+      "Short quizzes on choosing a design",
+      "Capstone mini-project: a full survey or experimental plan with a worked analysis"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "survey-sampling-experimental-design",
+      "research-methodology-support",
+      "statistical-analysis"
+    ],
+    "related_articles": [
+      "sampling-designs",
+      "design-of-experiments",
+      "analysis-of-variance"
+    ],
+    "source_modules": [
+      {
+        "name": "Sampling Techniques",
+        "code": "17200507",
+        "pages": [
+          58,
+          59
+        ]
+      },
+      {
+        "name": "Design of Experiment",
+        "code": "17200508",
+        "pages": [
+          60,
+          61
+        ]
+      },
+      {
+        "name": "Descriptive Statistics",
+        "code": "17200102",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "source_pages": [
+      2,
+      58,
+      59,
+      60,
+      61
+    ],
+    "featured": false,
+    "order": 14,
+    "status": "published"
+  },
+  {
+    "slug": "statistical-quality-control",
+    "title": "Statistical Quality Control",
+    "category": "Statistics",
+    "level": "Intermediate",
+    "format": "short-course",
+    "summary": "Monitor and improve processes with control charts and acceptance sampling — X-bar, R, s, p and np charts, ARL, and single and double sampling plans.",
+    "description": "Statistical quality control applies statistical methods to keeping products and services within specification. This course places SQC in the wider context of quality improvement and total quality management, including quality costs and the link between quality and productivity.\n\nParticipants learn the statistical basis of control charts — chance versus assignable causes, choice of control and warning limits, rational subgroups, sample size and frequency, pattern analysis and average run length — and construct 3-sigma charts for variables (X-bar and R, X-bar and s) and attributes (p and np). The final module covers acceptance sampling with single and double sampling plans and their OC and ASN functions.",
+    "learning_objectives": [
+      "Explain the quality philosophy, quality costs and the role of statistical methods in quality improvement",
+      "Distinguish chance and assignable causes and set control and warning limits",
+      "Construct and interpret X-bar and R, X-bar and s, p and np charts",
+      "Use rational subgrouping, pattern analysis and average run length to design monitoring",
+      "Design single and double sampling plans and interpret OC and ASN curves"
+    ],
+    "modules": [
+      {
+        "title": "Quality and quality improvement",
+        "topics": [
+          "History of quality methodology",
+          "Statistical methods for quality control and improvement",
+          "Total quality management and quality philosophy",
+          "Quality costs and quality–productivity links"
+        ]
+      },
+      {
+        "title": "Statistical process control",
+        "topics": [
+          "Chance and assignable causes",
+          "Choice and significance of control limits",
+          "Sample size, sampling frequency and rational subgroups",
+          "Pattern analysis, warning limits and ARL"
+        ]
+      },
+      {
+        "title": "Control charts",
+        "topics": [
+          "Statistical basis of 3-sigma charts",
+          "X-bar and R charts",
+          "X-bar and s charts",
+          "p and np charts"
+        ]
+      },
+      {
+        "title": "Acceptance sampling",
+        "topics": [
+          "Single and double sampling plans",
+          "OC and ASN functions",
+          "Attribute plans using the binomial distribution"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistics for Data Analysis or equivalent (normal and binomial distributions)"
+    ],
+    "audience": [
+      "Quality, production and operations professionals",
+      "Process and manufacturing engineers",
+      "Students of statistics and industrial engineering",
+      "Service managers monitoring performance metrics"
+    ],
+    "projects": [
+      "Build X-bar and R charts for sample process measurements and identify out-of-control points",
+      "Construct a p chart for defective proportions and interpret patterns",
+      "Compare control-limit choices using average run length",
+      "Design a single and a double sampling plan and plot their OC curves"
+    ],
+    "tools": [
+      "Excel",
+      "R"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "4 weeks · about 24 hours",
+    "proposed_hours": 24,
+    "assessment": [
+      "Practical charting exercises",
+      "Short quiz",
+      "Final mini-project: a control-chart study of a sample process"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "statistical-quality-control",
+      "statistical-analysis",
+      "data-visualization-reporting"
+    ],
+    "related_articles": [
+      "control-charts-for-quality",
+      "probability-distributions-and-clt"
+    ],
+    "source_modules": [
+      {
+        "name": "Statistical Quality Control and Demography (SQC units only)",
+        "code": "17200404",
+        "pages": [
+          43,
+          44
+        ]
+      }
+    ],
+    "source_pages": [
+      43,
+      44
+    ],
+    "featured": false,
+    "order": 15,
+    "status": "published"
+  },
+  {
+    "slug": "big-data-analytics-hadoop-spark",
+    "title": "Big Data Analytics with Hadoop & Spark",
+    "category": "Data Science",
+    "level": "Advanced",
+    "format": "extended",
+    "summary": "Store and process large datasets with HDFS, MapReduce, Pig, Hive and Spark, and get introduced to NoSQL stores such as MongoDB and Cassandra.",
+    "description": "When data outgrows a single machine, different tools are needed. This course explains the characteristics of big data, why conventional processing falls short, and how big-data frameworks are used across marketing, retail, hospitality and other sectors. It introduces cloud computing and the Hadoop ecosystem: HDFS, cluster architecture and modes, the Hadoop daemons, schedulers, cluster setup, configuration and administration.\n\nParticipants write MapReduce programs — word count, matrix multiplication, sorting, indexing, combiners and map-side and reduce-side joins — and follow a MapReduce job through its phases. They then use Pig Latin and Hive for higher-level data processing, build and run Spark applications with RDDs and Spark SQL, create a simple data pipeline with PySpark and Hive, and are introduced to NoSQL storage with MongoDB and Cassandra.",
+    "learning_objectives": [
+      "Explain the characteristics of big data and the limitations of conventional processing",
+      "Describe Hadoop architecture, HDFS, the cluster daemons and schedulers",
+      "Interact with HDFS from the command line and perform file-management tasks",
+      "Write MapReduce applications including combiners and map-side and reduce-side joins",
+      "Process data with Pig Latin, Hive and Spark, including RDDs and Spark SQL",
+      "Outline how NoSQL stores such as MongoDB and Cassandra fit into big-data systems"
+    ],
+    "modules": [
+      {
+        "title": "Introduction to big data",
+        "topics": [
+          "Characteristics and importance of big data",
+          "Limitations of conventional data processing",
+          "Big-data applications in business",
+          "Cloud computing features and applications"
+        ]
+      },
+      {
+        "title": "Hadoop and HDFS",
+        "topics": [
+          "Hadoop concepts and features",
+          "HDFS and read/write anatomy",
+          "Cluster modes and architecture",
+          "NameNode, Secondary NameNode, DataNode and trackers",
+          "HDFS shell commands"
+        ]
+      },
+      {
+        "title": "Cluster setup and administration",
+        "topics": [
+          "SSH and Hadoop configuration",
+          "Fair and Capacity schedulers",
+          "Hadoop 2.0 vs 3.0",
+          "Monitoring and maintenance"
+        ]
+      },
+      {
+        "title": "MapReduce programming",
+        "topics": [
+          "Phases of a MapReduce job, shuffle and sort",
+          "Driver, Mapper and Reducer classes",
+          "Combiners",
+          "Map-side and reduce-side joins",
+          "Distributed cache"
+        ]
+      },
+      {
+        "title": "Pig, Hive and Spark",
+        "topics": [
+          "Pig Latin: sort, group, join, project, filter",
+          "Hive databases, tables, views, functions and indexes",
+          "Spark applications and RDDs",
+          "Spark SQL",
+          "Data pipelines with PySpark and Hive"
+        ]
+      },
+      {
+        "title": "NoSQL for big data",
+        "topics": [
+          "NoSQL concepts",
+          "MongoDB",
+          "Cassandra"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "SQL & Databases for Data Science or equivalent SQL knowledge",
+      "Programming experience in Python or Java",
+      "Comfort with the command line"
+    ],
+    "audience": [
+      "Data engineers and analysts working with large datasets",
+      "Students in data science and computing",
+      "Technical professionals planning big-data infrastructure",
+      "Researchers processing large log, text or sensor datasets"
+    ],
+    "projects": [
+      "Set up a Hadoop cluster and perform HDFS file-management tasks",
+      "Implement word count and matrix multiplication with MapReduce, and compare with Spark",
+      "Find the maximum temperature per year in a weather dataset with MapReduce and with Pig Latin",
+      "Create and query Hive tables and views",
+      "Implement k-means clustering or a frequent-itemset algorithm using MapReduce"
+    ],
+    "tools": [
+      "Hadoop",
+      "HDFS",
+      "MapReduce",
+      "Pig",
+      "Hive",
+      "Spark",
+      "PySpark",
+      "MongoDB",
+      "Cassandra"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 48 hours",
+    "proposed_hours": 48,
+    "assessment": [
+      "Lab exercises from the practical list",
+      "Short quizzes on architecture",
+      "Capstone mini-project: solve a real-life style big-data problem end to end"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "big-data-analytics",
+      "business-analytics-data-mining",
+      "machine-learning-consulting"
+    ],
+    "related_articles": [
+      "matrix-decompositions-for-data-science"
+    ],
+    "source_modules": [
+      {
+        "name": "Hadoop Programming",
+        "code": "17200701",
+        "pages": [
+          86,
+          87
+        ]
+      },
+      {
+        "name": "Big Data Analytics",
+        "code": "17200704",
+        "pages": [
+          92,
+          93
+        ]
+      },
+      {
+        "name": "Big Data Analytics Lab",
+        "code": "17200705",
+        "pages": [
+          94,
+          95
+        ]
+      }
+    ],
+    "source_pages": [
+      86,
+      87,
+      92,
+      93,
+      94,
+      95
+    ],
+    "featured": false,
+    "order": 16,
+    "status": "published"
+  },
+  {
+    "slug": "business-analytics-data-mining",
+    "title": "Business Analytics & Data Mining",
+    "category": "Analytics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Connect data to decisions: business intelligence, the analytics process, data preparation, data warehousing, association rules, classification and clustering.",
+    "description": "This course shows how organisations turn raw data into timely decisions. It begins with the data-science process, the relationship between business intelligence and data science, and the architecture of a business-intelligence system, including the role of mathematical models. Participants then follow the analytics process — descriptive, predictive and prescriptive techniques, plus social-media and behavioural analytics.\n\nThe data-mining half covers data preparation (cleaning missing and noisy data, integration, transformation, validation, standardisation and feature extraction), concept description and class comparison, association rule mining and text mining, and clustering with partitioning, hierarchical and density-based methods. A data-warehousing module explains multidimensional models, data cubes, star, snowflake and fact-constellation schemas, and three-tier architecture.",
+    "learning_objectives": [
+      "Describe the data-science process and the architecture of a business-intelligence system",
+      "Distinguish descriptive, predictive and prescriptive analytics and choose an approach for a business question",
+      "Prepare data by handling missing and noisy values, integrating, validating and transforming it",
+      "Apply association rule mining, concept description and clustering to business data",
+      "Design a simple data warehouse using star or snowflake schemas and data cubes"
+    ],
+    "modules": [
+      {
+        "title": "Data science and business intelligence",
+        "topics": [
+          "What data science is and the data-science process",
+          "Business intelligence and data science",
+          "Data, information and knowledge",
+          "BI architecture and the role of mathematical models",
+          "Real-time BI systems"
+        ]
+      },
+      {
+        "title": "The analytics process",
+        "topics": [
+          "Introduction to the analytics process",
+          "Descriptive, predictive and prescriptive analytics",
+          "Social-media and behavioural analytics"
+        ]
+      },
+      {
+        "title": "Data preparation",
+        "topics": [
+          "Data cleaning: missing values and noisy data",
+          "Data integration and transformation",
+          "Data validation",
+          "Standardisation and feature extraction"
+        ]
+      },
+      {
+        "title": "Data mining techniques",
+        "topics": [
+          "Data-mining functionalities and process",
+          "Concept description and class comparison",
+          "Association rule mining and text mining",
+          "Partitioning, hierarchical and density-based clustering"
+        ]
+      },
+      {
+        "title": "Data warehousing",
+        "topics": [
+          "Database vs data warehouse",
+          "Multidimensional data model and data cubes",
+          "Star, snowflake and fact-constellation schemas",
+          "Concept hierarchies and three-tier architecture"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Statistics for Data Analysis or equivalent",
+      "Basic SQL or spreadsheet skills"
+    ],
+    "audience": [
+      "Business and operations analysts",
+      "Managers who commission or use analytics",
+      "Students of business analytics and data science",
+      "Small and medium enterprises building reporting capability"
+    ],
+    "projects": [
+      "Map a business decision to the analytics process and specify the data needed",
+      "Clean and prepare a sample sales dataset with missing and noisy values",
+      "Mine association rules from transaction data and interpret the strongest rules",
+      "Segment customers with a clustering method and profile the segments",
+      "Design a star schema and data cube for a retail reporting case study"
+    ],
+    "tools": [
+      "Excel",
+      "SQL",
+      "R",
+      "Python"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "6 weeks · about 36 hours",
+    "proposed_hours": 36,
+    "assessment": [
+      "Case-study exercises",
+      "Short quizzes",
+      "Capstone mini-project: a business case study from data preparation to recommendations"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "business-analytics-data-mining",
+      "data-visualization-reporting",
+      "multivariate-analysis-segmentation",
+      "big-data-analytics"
+    ],
+    "related_articles": [
+      "central-tendency-and-dispersion",
+      "principal-components-and-factor-analysis"
+    ],
+    "source_modules": [
+      {
+        "name": "Business Analytics",
+        "code": "17200606",
+        "pages": [
+          76,
+          77
+        ]
+      },
+      {
+        "name": "Data Mining and Data Warehousing",
+        "code": "17200804",
+        "pages": [
+          111,
+          112
+        ]
+      },
+      {
+        "name": "Introduction to Data Science",
+        "code": "17200103",
+        "pages": [
+          4,
+          5
+        ]
+      }
+    ],
+    "source_pages": [
+      4,
+      5,
+      76,
+      77,
+      111,
+      112
+    ],
+    "featured": false,
+    "order": 17,
+    "status": "published"
+  },
+  {
+    "slug": "operations-research-decision-modelling",
+    "title": "Operations Research & Decision Modelling",
+    "category": "Mathematics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Model and optimise decisions: linear programming and simplex, duality, transportation and assignment, game theory, decision analysis under risk, simulation and fuzzy decision making.",
+    "description": "Operations research provides mathematical tools for allocating scarce resources and choosing between alternatives. This course covers formulating linear programmes and solving them graphically and with the simplex, Big-M, two-phase and dual simplex methods, together with duality theory. Transportation and assignment problems are solved with the north-west corner, least-cost and Vogel's methods, the MODI test and the Hungarian method.\n\nThe decision-modelling half introduces payoff matrices, decision making under risk, the value of information, decision trees and Bayesian decisions with experimentation. Game theory runs from two-person zero-sum games and saddle points to Nash equilibrium. Monte-Carlo and discrete-event simulation with pseudo-random numbers handle uncertainty, and a short module on fuzzy multicriteria decision making and fuzzy linear programming addresses imprecise objectives.",
+    "learning_objectives": [
+      "Formulate linear programming models for production, distribution and similar problems",
+      "Solve LPs with graphical, simplex, Big-M, two-phase and dual simplex methods and interpret dual values",
+      "Solve transportation and assignment problems and test for optimality",
+      "Structure decisions with payoff matrices and decision trees and compute the value of information",
+      "Analyse two-person zero-sum and non-cooperative games",
+      "Use Monte-Carlo simulation and fuzzy linear programming to support decisions under uncertainty"
+    ],
+    "modules": [
+      {
+        "title": "Linear programming",
+        "topics": [
+          "Scope of operations research",
+          "LP formulation and graphical solution",
+          "Convex sets and hyperplanes",
+          "Simplex, Big-M and two-phase methods",
+          "Duality and the dual simplex method"
+        ]
+      },
+      {
+        "title": "Transportation and assignment",
+        "topics": [
+          "LP formulation of the transportation problem",
+          "North-west corner, least-cost and Vogel's approximation",
+          "MODI optimality test",
+          "Hungarian assignment method"
+        ]
+      },
+      {
+        "title": "Decision analysis",
+        "topics": [
+          "Payoff matrices",
+          "Decision making under risk",
+          "Value of information",
+          "Bayes' theorem and decision trees",
+          "Decision problems with experimentation"
+        ]
+      },
+      {
+        "title": "Game theory",
+        "topics": [
+          "Two-person zero-sum games and saddle points",
+          "Minimax–maximin principle and mixed strategies",
+          "Graphical and LP solution of games",
+          "Dominant strategies and Nash equilibrium",
+          "Bayesian and subgame-perfect equilibrium"
+        ]
+      },
+      {
+        "title": "Simulation and fuzzy decisions",
+        "topics": [
+          "Discrete-event and Monte-Carlo simulation",
+          "Pseudo-random numbers and random variate generation",
+          "Fuzzy multicriteria decision making and fuzzy ranking",
+          "Fuzzy linear programming and defuzzification"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "School-level algebra and basic probability",
+      "Comfort with spreadsheets"
+    ],
+    "audience": [
+      "Operations, supply-chain and production planners",
+      "Management and economics students",
+      "Analysts supporting resource allocation decisions",
+      "Researchers modelling decision problems"
+    ],
+    "projects": [
+      "Formulate and solve a product-mix LP, then interpret shadow prices from the dual",
+      "Solve a transportation problem with Vogel's method and verify optimality with MODI",
+      "Build a decision tree for an investment choice under risk and compute the value of information",
+      "Solve a mixed-strategy game graphically and by linear programming",
+      "Run a Monte-Carlo simulation of a queue or inventory decision in a spreadsheet"
+    ],
+    "tools": [
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 40 hours",
+    "proposed_hours": 40,
+    "assessment": [
+      "Problem sets with written interpretation",
+      "Short quizzes",
+      "Capstone mini-project: model, solve and recommend for a decision case"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "operations-research-optimisation",
+      "mathematical-modelling-numerical-computation",
+      "business-analytics-data-mining"
+    ],
+    "related_articles": [
+      "linear-programming-and-simplex",
+      "decision-analysis-under-risk",
+      "probability-and-bayes-theorem"
+    ],
+    "source_modules": [
+      {
+        "name": "Operations Research",
+        "code": "17200305",
+        "pages": [
+          32,
+          33
+        ]
+      },
+      {
+        "name": "Introduction to Decision Modelling",
+        "code": "17200802",
+        "pages": [
+          107,
+          108
+        ]
+      },
+      {
+        "name": "Fuzzy Logic & Fuzzy Decision Making",
+        "code": "17200707",
+        "pages": [
+          98,
+          99
+        ]
+      }
+    ],
+    "source_pages": [
+      32,
+      33,
+      98,
+      99,
+      107,
+      108
+    ],
+    "featured": false,
+    "order": 18,
+    "status": "published"
+  },
+  {
+    "slug": "mathematics-for-data-science",
+    "title": "Mathematics for Data Science",
+    "category": "Mathematics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "The linear algebra, calculus, matrix computation, numerical methods and probability inequalities that sit underneath statistics and machine learning.",
+    "description": "Data-science methods are built on a small number of mathematical ideas. This course gathers them in one place. The linear-algebra modules cover solving linear systems by Gaussian and Gauss–Jordan elimination, vector spaces, bases and dimension, linear transformations and rank–nullity, inner products, Gram–Schmidt orthonormalisation and eigenvalues — then move to computational practice with LU, Cholesky and QR factorisations, least-squares problems, the singular value decomposition and eigenvalue algorithms such as the power method and QR algorithm.\n\nThe calculus module covers limits, continuity, partial differentiation, Jacobians, Taylor series and maxima and minima of functions of two variables, plus multiple integrals for areas and volumes. Numerical methods address errors, root finding, interpolation, numerical differentiation and integration, and iterative solvers. A final module on concentration inequalities — Markov, Chebyshev and Chernoff–Hoeffding — explains why sampling and estimation work. Labs use MATLAB, Mathematica and Excel.",
+    "learning_objectives": [
+      "Solve systems of linear equations and reason about rank, basis, dimension and linear transformations",
+      "Compute and apply LU, Cholesky, QR, eigenvalue and singular value decompositions",
+      "Use partial derivatives, Taylor expansions and multiple integrals in optimisation and modelling",
+      "Apply numerical methods for root finding, interpolation, differentiation, integration and linear systems, and assess their errors",
+      "Use Markov, Chebyshev and Chernoff–Hoeffding inequalities to bound estimation error",
+      "Carry out matrix and calculus computations in MATLAB, Mathematica or Excel"
+    ],
+    "modules": [
+      {
+        "title": "Linear algebra",
+        "topics": [
+          "Elementary transformations, echelon form and rank",
+          "Gaussian and Gauss–Jordan elimination",
+          "Vector spaces, subspaces, basis and dimension",
+          "Linear transformations and rank–nullity theorem",
+          "Inner products, Gram–Schmidt and orthogonal projection",
+          "Eigenvalues, eigenvectors and diagonalisation"
+        ]
+      },
+      {
+        "title": "Matrix computations",
+        "topics": [
+          "LU and Cholesky factorisation",
+          "Normal equations and QR factorisation",
+          "Least-squares problems, including rank-deficient cases",
+          "Singular value decomposition and numerical rank",
+          "Power, inverse power and Rayleigh quotient iteration; QR algorithm"
+        ]
+      },
+      {
+        "title": "Calculus",
+        "topics": [
+          "Limits, continuity and differentiability",
+          "Partial differentiation, Euler's theorem and Jacobians",
+          "Mean value theorems, Taylor and Maclaurin series",
+          "Maxima and minima of two-variable functions",
+          "Double and triple integrals, area and volume"
+        ]
+      },
+      {
+        "title": "Numerical methods",
+        "topics": [
+          "Round-off and truncation errors",
+          "Bisection, secant, Regula Falsi and Newton–Raphson",
+          "Lagrange, Newton and Hermite interpolation",
+          "Numerical differentiation; trapezoidal and Simpson's rules",
+          "Jacobi and Gauss–Seidel iteration"
+        ]
+      },
+      {
+        "title": "Probability and concentration",
+        "topics": [
+          "Probability review: conditional probability and Bayes's rule",
+          "Markov and Chebyshev inequalities",
+          "Chernoff–Hoeffding inequality and union bound",
+          "Importance sampling"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "School-level mathematics including basic algebra and differentiation"
+    ],
+    "audience": [
+      "Students preparing for machine-learning and statistics courses",
+      "Working professionals moving into data science who need a mathematics refresher",
+      "Researchers using quantitative models",
+      "Analysts who want to understand what algorithms do internally"
+    ],
+    "projects": [
+      "Compute determinants, inverses, rank, eigenvalues and eigenvectors of matrices in MATLAB or Mathematica",
+      "Solve a least-squares problem via normal equations, QR and SVD and compare stability",
+      "Find and plot maxima and minima of a two-variable function and evaluate a double integral",
+      "Locate roots of a transcendental equation with bisection and Newton–Raphson and compare convergence",
+      "Use the power method to find the dominant eigenvalue of a data matrix"
+    ],
+    "tools": [
+      "MATLAB",
+      "Mathematica",
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "8 weeks · about 48 hours",
+    "proposed_hours": 48,
+    "assessment": [
+      "Weekly problem sets",
+      "Lab computation exercises",
+      "Capstone mini-project: a computational study applying decompositions or numerical methods"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "mathematical-modelling-numerical-computation",
+      "machine-learning-consulting",
+      "operations-research-optimisation"
+    ],
+    "related_articles": [
+      "matrix-decompositions-for-data-science",
+      "numerical-root-finding",
+      "gradient-descent",
+      "probability-and-bayes-theorem"
+    ],
+    "source_modules": [
+      {
+        "name": "Linear Algebra",
+        "code": "17200203",
+        "pages": [
+          16,
+          17
+        ]
+      },
+      {
+        "name": "Calculus",
+        "code": "17200105",
+        "pages": [
+          6,
+          7
+        ]
+      },
+      {
+        "name": "Calculus Lab",
+        "code": "17200105",
+        "pages": [
+          8,
+          9
+        ]
+      },
+      {
+        "name": "Matrix Computations for Data Science",
+        "code": "17200504",
+        "pages": [
+          52,
+          53
+        ]
+      },
+      {
+        "name": "Matrix Computations for Data Science Lab",
+        "code": "17200505",
+        "pages": [
+          54,
+          55
+        ]
+      },
+      {
+        "name": "Numerical Method",
+        "code": "17200710",
+        "pages": [
+          102,
+          103
+        ]
+      },
+      {
+        "name": "Mathematical Foundations of Data Science",
+        "code": "17200403",
+        "pages": [
+          41
+        ]
+      }
+    ],
+    "source_pages": [
+      6,
+      7,
+      8,
+      9,
+      16,
+      17,
+      41,
+      52,
+      53,
+      54,
+      55,
+      102,
+      103
+    ],
+    "featured": true,
+    "order": 19,
+    "status": "published"
+  },
+  {
+    "slug": "mathematical-modelling-differential-equations",
+    "title": "Mathematical Modelling with Differential Equations",
+    "category": "Mathematics",
+    "level": "Intermediate",
+    "format": "extended",
+    "summary": "Build and solve models of change — first- and second-order ODEs, systems of equations, solution in MATLAB, and simulation models including Monte-Carlo.",
+    "description": "Differential equations describe how quantities change, and they underpin models in engineering, the sciences and economics. This course covers the order, degree and geometric meaning of differential equations; exact equations and integrating factors; Clairaut's equation and singular solutions; orthogonal trajectories; and linear equations with constant coefficients, including Cauchy's equation.\n\nParticipants then solve second-order linear equations with variable coefficients by reduction to normal form, change of variables and variation of parameters, and handle simultaneous equations. Lab sessions solve these problems in MATLAB using dsolve. The course places this work in a modelling context — theoretical and empirical models, model evaluation and limitations, the steps of a simulation study and validation — and introduces Monte-Carlo simulation with pseudo-random numbers.",
+    "learning_objectives": [
+      "Classify differential equations by order, degree and linearity and interpret them geometrically",
+      "Solve exact, linear, homogeneous and Bernoulli first-order equations",
+      "Solve second-order linear equations using constant-coefficient methods and variation of parameters",
+      "Solve simultaneous differential equations analytically and with MATLAB's dsolve",
+      "Formulate, evaluate and state the limitations of mathematical and simulation models",
+      "Set up a simple Monte-Carlo simulation using pseudo-random numbers"
+    ],
+    "modules": [
+      {
+        "title": "First-order equations",
+        "topics": [
+          "Order, degree, linear and nonlinear equations",
+          "Geometrical meaning of a differential equation",
+          "Exact equations and integrating factors",
+          "Clairaut's equation and singular solutions"
+        ]
+      },
+      {
+        "title": "Linear equations and trajectories",
+        "topics": [
+          "Orthogonal trajectories in Cartesian and polar coordinates",
+          "Linear equations with constant coefficients",
+          "Homogeneous and non-homogeneous equations",
+          "Cauchy's differential equation"
+        ]
+      },
+      {
+        "title": "Second-order and simultaneous equations",
+        "topics": [
+          "Variable coefficients when part of the CF is known",
+          "Reduction to normal form and change of variables",
+          "Method of variation of parameters",
+          "Simultaneous equations and dx/P = dy/Q = dz/R"
+        ]
+      },
+      {
+        "title": "Solving ODEs in MATLAB",
+        "topics": [
+          "Analytical solution with dsolve, with and without initial conditions",
+          "Bernoulli and nonlinear equations with initial conditions",
+          "Second-order ODEs with initial conditions",
+          "Systems of ODEs"
+        ]
+      },
+      {
+        "title": "Modelling and simulation",
+        "topics": [
+          "Mathematical models and their classification",
+          "Theoretical and empirical models; evaluation and limitations",
+          "Steps in a simulation study, validation and data collection",
+          "Discrete-event and Monte-Carlo simulation; pseudo-random numbers"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "Calculus (differentiation and integration), as in Mathematics for Data Science"
+    ],
+    "audience": [
+      "Students of mathematics, engineering and the sciences",
+      "Researchers building mechanistic or dynamic models",
+      "Engineers and analysts who use simulation",
+      "Postgraduate students preparing modelling chapters"
+    ],
+    "projects": [
+      "Solve first-order linear and Bernoulli equations with initial conditions in MATLAB",
+      "Solve a second-order ODE with initial conditions and plot the solution",
+      "Solve a system of ODEs describing two interacting quantities",
+      "Formulate a simple growth or decay model, solve it and discuss its limitations",
+      "Run a Monte-Carlo simulation and compare its result with an analytical solution"
+    ],
+    "tools": [
+      "MATLAB",
+      "Mathematica"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "6 weeks · about 36 hours",
+    "proposed_hours": 36,
+    "assessment": [
+      "Lab exercises in MATLAB",
+      "Short quizzes on solution methods",
+      "Capstone mini-project: a modelling report combining an ODE model and a simulation"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "mathematical-modelling-numerical-computation",
+      "research-methodology-support",
+      "operations-research-optimisation"
+    ],
+    "related_articles": [
+      "numerical-root-finding",
+      "decision-analysis-under-risk"
+    ],
+    "source_modules": [
+      {
+        "name": "Differential Equations",
+        "code": "17200204",
+        "pages": [
+          18,
+          19
+        ]
+      },
+      {
+        "name": "Differential Equations Lab",
+        "code": "17200205",
+        "pages": [
+          20,
+          21
+        ]
+      },
+      {
+        "name": "Research Methodology (Unit 2: Formulation and Simulation)",
+        "code": "17200501",
+        "pages": [
+          46
+        ]
+      },
+      {
+        "name": "Introduction to Decision Modelling (Unit 4: Simulation models)",
+        "code": "17200802",
+        "pages": [
+          108
+        ]
+      }
+    ],
+    "source_pages": [
+      18,
+      19,
+      20,
+      21,
+      46,
+      108
+    ],
+    "featured": false,
+    "order": 20,
+    "status": "published"
+  },
+  {
+    "slug": "research-methodology-latex",
+    "title": "Research Methodology & LaTeX",
+    "category": "Research",
+    "level": "Beginner",
+    "format": "short-course",
+    "summary": "Plan research properly and write it up professionally — research design, literature review, models and simulation, then LaTeX documents, Beamer slides and BibTeX references.",
+    "description": "This course supports students and researchers through two parts of a project that are often learned informally: designing the research and presenting it. The research-methodology part covers types of research, the research process, identifying a topic, defining the problem, conducting a literature survey and review, and research design, along with an introduction to mathematical and simulation models and their validation.\n\nThe LaTeX part teaches participants to install and use LaTeX, structure documents with article and book classes, control page layout, format text, write complex mathematics, build tables and insert images, and read error messages. It finishes with presentations in Beamer and bibliography management with BibTeX.",
+    "learning_objectives": [
+      "Distinguish types of research and outline the research process",
+      "Identify a research topic, define the problem and conduct a structured literature review",
+      "Choose a research design and explain the role and limitations of models and simulation",
+      "Produce well-structured LaTeX documents with sections, page layout, tables, images and mathematics",
+      "Create a presentation in Beamer and manage references with BibTeX"
+    ],
+    "modules": [
+      {
+        "title": "Foundations of research",
+        "topics": [
+          "Research and types of research",
+          "Research vs research methods",
+          "The research process",
+          "Relevant and quality research"
+        ]
+      },
+      {
+        "title": "Problem, literature and design",
+        "topics": [
+          "Identifying a research topic",
+          "Problem definition",
+          "Literature survey and literature review",
+          "Research design"
+        ]
+      },
+      {
+        "title": "Models and simulation in research",
+        "topics": [
+          "Mathematical models and classifications",
+          "Theoretical and empirical models",
+          "Model evaluation and limitations",
+          "Simulation studies and validation"
+        ]
+      },
+      {
+        "title": "LaTeX documents",
+        "topics": [
+          "Installation and editors",
+          "Article and book classes, sections",
+          "Packages, margins, headers, footers, orientation and columns",
+          "Reading error messages"
+        ]
+      },
+      {
+        "title": "Formatting, mathematics and presentation",
+        "topics": [
+          "Text styles, colours and lists",
+          "Writing complex mathematics",
+          "Tables, merged cells and long tables",
+          "Inserting and transforming images",
+          "Beamer presentations and BibTeX bibliographies"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "None — suitable for anyone starting a research project"
+    ],
+    "audience": [
+      "Undergraduate and postgraduate students beginning a dissertation or thesis",
+      "Researchers who want to write papers in LaTeX",
+      "Working professionals preparing technical reports",
+      "Faculty and research assistants formalising their workflow"
+    ],
+    "projects": [
+      "Write a research problem statement and a short structured literature review",
+      "Prepare a research-design outline for a chosen topic",
+      "Typeset a short paper in LaTeX with equations, a table and a figure",
+      "Create a Beamer presentation of the paper with a BibTeX-generated reference list"
+    ],
+    "tools": [
+      "LaTeX",
+      "Beamer",
+      "BibTeX"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "4 weeks · about 24 hours",
+    "proposed_hours": 24,
+    "assessment": [
+      "Practical LaTeX exercises",
+      "Research-proposal draft",
+      "Final submission: a typeset proposal and matching Beamer presentation"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "research-methodology-support",
+      "survey-sampling-experimental-design",
+      "data-visualization-reporting"
+    ],
+    "related_articles": [
+      "hypothesis-testing-essentials",
+      "design-of-experiments"
+    ],
+    "source_modules": [
+      {
+        "name": "Research Methodology",
+        "code": "17200501",
+        "pages": [
+          46,
+          47
+        ]
+      },
+      {
+        "name": "Introduction to LaTeX",
+        "code": "17200601",
+        "pages": [
+          66,
+          67
+        ]
+      }
+    ],
+    "source_pages": [
+      46,
+      47,
+      66,
+      67
+    ],
+    "featured": false,
+    "order": 21,
+    "status": "published"
+  },
+  {
+    "slug": "financial-mathematics-economics",
+    "title": "Financial Mathematics & Mathematical Economics",
+    "category": "Mathematics",
+    "level": "Intermediate",
+    "format": "short-course",
+    "summary": "The mathematics of interest, discounting and payment series, plus optimisation, linear programming, input–output analysis and game theory applied to economic problems.",
+    "description": "This course brings together two applied areas. The financial-mathematics part covers progressions, growth and decay curves, interest rates, the time value of money, simple discount, discrete compounding, and equal-payment, arithmetic-gradient and geometric-gradient series. The economics part applies the same quantitative thinking to production functions (including Cobb–Douglas), returns to scale, marginal cost and revenue, and output decisions under competition and monopoly.\n\nParticipants also study optimisation methods in economic analysis, linear and non-linear programming with production and diet problems, Leontief-style input–output analysis with the Hawkins–Simon conditions, game theory, and difference and differential equations in economic dynamics. The course is educational and does not constitute investment or financial advice.",
+    "learning_objectives": [
+      "Apply the time value of money, interest and discounting to cash-flow problems",
+      "Evaluate equal-payment, gradient and geometric-gradient series with discrete compounding",
+      "Analyse production with one and two variable inputs, including Cobb–Douglas forms and returns to scale",
+      "Determine profit-maximising output for competitive and monopoly firms",
+      "Use constrained optimisation, linear programming and input–output analysis on economic problems",
+      "Apply game theory and difference/differential equations to economic models"
+    ],
+    "modules": [
+      {
+        "title": "Foundations of financial mathematics",
+        "topics": [
+          "Progressions and series",
+          "Growth and decay curves",
+          "Statistical measures for financial data",
+          "Interest, interest rates and simple discount",
+          "Time value of money"
+        ]
+      },
+      {
+        "title": "Discrete compounding",
+        "topics": [
+          "Discrete compounding and discrete payments",
+          "Equal-payment series factors",
+          "Gradient series factors",
+          "Geometric gradient series factors"
+        ]
+      },
+      {
+        "title": "Production, cost and markets",
+        "topics": [
+          "Production functions with one and two inputs",
+          "Cobb–Douglas form",
+          "Diminishing marginal returns and MRTS",
+          "Returns to scale",
+          "Marginal cost, marginal revenue and profit maximisation; monopoly output"
+        ]
+      },
+      {
+        "title": "Optimisation and linear programming in economics",
+        "topics": [
+          "Constrained and unconstrained optimisation for consumers and producers",
+          "Primal and dual LP, graphical and simplex methods",
+          "Production and diet problems",
+          "Non-linear programming"
+        ]
+      },
+      {
+        "title": "Input–output analysis, games and dynamics",
+        "topics": [
+          "Structure of an economy and technical coefficients",
+          "Hawkins–Simon conditions; static and dynamic input–output",
+          "Two-person zero-sum, cooperative and non-cooperative games",
+          "Difference and first- and second-order differential equations"
+        ]
+      }
+    ],
+    "prerequisites": [
+      "School-level algebra; basic calculus is helpful"
+    ],
+    "audience": [
+      "Students of economics, commerce, mathematics and statistics",
+      "Working professionals in finance, accounting or planning who want the underlying mathematics",
+      "Analysts evaluating projects and payment schedules",
+      "Researchers using economic models"
+    ],
+    "projects": [
+      "Compare loan or savings options using present and future values in a spreadsheet",
+      "Value a payment schedule with arithmetic and geometric gradients",
+      "Estimate returns to scale from a Cobb–Douglas production function",
+      "Solve a diet or production LP and interpret the dual",
+      "Compute total outputs for a small economy using an input–output table"
+    ],
+    "tools": [
+      "Excel"
+    ],
+    "teaching_format": "Instructor-led sessions combined with hands-on lab work on real or sample datasets.",
+    "delivery_modes": [],
+    "proposed_duration": "4 weeks · about 24 hours",
+    "proposed_hours": 24,
+    "assessment": [
+      "Problem sets",
+      "Short quizzes",
+      "Final mini-project: a worked financial or economic modelling case"
+    ],
+    "certificate": {
+      "type": "completion",
+      "eligibility": [
+        "Attend at least 80% of sessions (proposed)",
+        "Complete the lab exercises (proposed)",
+        "Submit the final project"
+      ]
+    },
+    "fee": null,
+    "availability": "proposed",
+    "related_services": [
+      "operations-research-optimisation",
+      "mathematical-modelling-numerical-computation"
+    ],
+    "related_articles": [
+      "time-value-of-money",
+      "linear-programming-and-simplex"
+    ],
+    "source_modules": [
+      {
+        "name": "Introduction to Financial Mathematics",
+        "code": "17200803",
+        "pages": [
+          109,
+          110
+        ]
+      },
+      {
+        "name": "Mathematical Economics",
+        "code": "17200805",
+        "pages": [
+          113,
+          114
+        ]
+      }
+    ],
+    "source_pages": [
+      109,
+      110,
+      113,
+      114
+    ],
+    "featured": false,
+    "order": 22,
+    "status": "published"
+  }
+]

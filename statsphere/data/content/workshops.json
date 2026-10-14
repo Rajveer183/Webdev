@@ -1,0 +1,374 @@
+[
+  {
+    "slug": "quantitative-reasoning-for-decision-makers",
+    "title": "Quantitative Reasoning for Decision Makers",
+    "summary": "A practical introduction to reading data, probability and statistical evidence for managers who rely on analysis but do not produce it.",
+    "participants": [
+      "Managers and team leads",
+      "Business and operations staff who review reports",
+      "Non-technical stakeholders in analytics projects"
+    ],
+    "objectives": [
+      "Interpret common summary measures and recognise when they mislead",
+      "Reason about probability, conditional probability and Bayes' theorem in everyday decisions",
+      "Understand what a confidence interval and a hypothesis test do and do not show",
+      "Ask better questions about the assumptions behind an analysis"
+    ],
+    "topics": [
+      "Types of data and choosing appropriate charts",
+      "Mean, median, mode and measures of dispersion",
+      "Correlation versus causation",
+      "Probability, conditional probability and Bayes' theorem",
+      "Binomial, Poisson and normal distributions",
+      "Sampling distributions and standard error",
+      "Hypothesis testing, errors and significance levels"
+    ],
+    "formats": ["Half-day", "1 day"],
+    "example_agenda": [
+      { "session": "Session 1 · Describing data", "detail": "Variable types, charts and summary measures, with examples of misleading averages." },
+      { "session": "Session 2 · Thinking in probabilities", "detail": "Conditional probability and Bayes' theorem applied to business scenarios." },
+      { "session": "Session 3 · Evidence and uncertainty", "detail": "Sampling, confidence intervals and what a test result really means." },
+      { "session": "Session 4 · Questioning an analysis", "detail": "A checklist exercise reviewing a sample report." }
+    ],
+    "customisation": [
+      "Examples drawn from the organisation's own sector",
+      "Use of the organisation's anonymised reports as case material",
+      "Pre-workshop survey to gauge participants' comfort with numbers"
+    ],
+    "related_courses": ["statistics-for-data-analysis", "statistical-inference-hypothesis-testing"],
+    "source_pages": [2, 3, 13, 14, 29, 30],
+    "order": 1,
+    "status": "published"
+  },
+  {
+    "slug": "excel-analytics-for-teams",
+    "title": "Excel Analytics for Teams",
+    "summary": "Hands-on training in the Excel functions, lookups, PivotTables and charts that teams use to analyse and report data every day.",
+    "participants": [
+      "Administrative, finance and operations staff",
+      "Analysts who work mainly in spreadsheets",
+      "Team members preparing regular reports"
+    ],
+    "objectives": [
+      "Import, clean and structure data in Excel",
+      "Use lookup, logical and statistical functions correctly",
+      "Build and format PivotTables and PivotCharts",
+      "Consolidate results from multiple worksheets into a clear summary"
+    ],
+    "topics": [
+      "Basic, text, date and time functions",
+      "Importing data, text to columns and removing duplicates",
+      "Absolute and relative cell referencing",
+      "LOOKUP functions",
+      "IF, nested IF and AND/OR/NOT",
+      "SUMIF, COUNTIF and statistical functions",
+      "PivotTables and PivotCharts",
+      "Chart techniques and worksheet formatting"
+    ],
+    "formats": ["Half-day", "1 day", "2 days"],
+    "example_agenda": [
+      { "session": "Session 1 · Getting data in shape", "detail": "Importing, cleaning, grouping and referencing." },
+      { "session": "Session 2 · Functions that answer questions", "detail": "Lookup, logical and conditional statistical functions." },
+      { "session": "Session 3 · PivotTables and PivotCharts", "detail": "Summarising and slicing data interactively." },
+      { "session": "Session 4 · Reporting", "detail": "Consolidation, chart techniques and formatting a finished report." }
+    ],
+    "customisation": [
+      "Exercises built on the organisation's own anonymised data",
+      "Focus on the reports the team produces regularly",
+      "Pre-workshop skills survey to set the starting level"
+    ],
+    "related_courses": ["excel-for-data-analytics"],
+    "source_pages": [10, 11],
+    "order": 2,
+    "status": "published"
+  },
+  {
+    "slug": "python-r-for-data-analysis",
+    "title": "Python & R for Data Analysis",
+    "summary": "An introduction to programming for analysis in R and Python, from reading data to producing summary statistics and plots.",
+    "participants": [
+      "Analysts moving beyond spreadsheets",
+      "Researchers and engineers new to programming",
+      "Technical staff who need reproducible analysis"
+    ],
+    "objectives": [
+      "Write and run simple scripts in R and Python",
+      "Read data from files, manipulate it and handle common errors",
+      "Produce descriptive statistics and frequency distributions",
+      "Create clear plots of data"
+    ],
+    "topics": [
+      "How R works: objects, data in files, sequences and matrix computation",
+      "Python basics: values, types, variables, expressions",
+      "Conditionals and loops",
+      "Debugging syntax, runtime and semantic errors",
+      "Descriptive statistics and frequency distributions",
+      "Discrete and continuous probability distributions in R",
+      "Graphics and plots"
+    ],
+    "formats": ["1 day", "2 days", "3 days", "Multi-week cohort"],
+    "example_agenda": [
+      { "session": "Session 1 · First steps in R", "detail": "Objects, reading and writing data, and simple calculations." },
+      { "session": "Session 2 · First steps in Python", "detail": "Variables, control flow and reading a text file." },
+      { "session": "Session 3 · Describing data in code", "detail": "Summary statistics and frequency tables in both languages." },
+      { "session": "Session 4 · Plotting and reporting", "detail": "Producing and saving charts, and a short end-to-end exercise." }
+    ],
+    "customisation": [
+      "Choice of R only, Python only, or both",
+      "Exercises using the organisation's own anonymised datasets",
+      "Pre-workshop skills survey and environment set-up check"
+    ],
+    "related_courses": ["r-programming-for-statistics", "python-programming-for-data-science"],
+    "source_pages": [22, 23, 34, 35],
+    "order": 3,
+    "status": "published"
+  },
+  {
+    "slug": "applied-machine-learning",
+    "title": "Applied Machine Learning",
+    "summary": "A practical tour of core machine learning methods, how they are trained and how to evaluate them honestly.",
+    "participants": [
+      "Analysts and developers with some programming experience",
+      "Data teams starting machine learning projects",
+      "Technical managers overseeing model development"
+    ],
+    "objectives": [
+      "Distinguish supervised and unsupervised learning and choose suitable techniques",
+      "Explain gradient descent and the bias-variance trade-off",
+      "Train and compare classical classifiers on real data",
+      "Evaluate models with accuracy, precision and recall"
+    ],
+    "topics": [
+      "Types of learning and steps in a machine learning project",
+      "Constrained and unconstrained optimisation; gradient descent",
+      "Linear regression, goodness of fit and bias-variance trade-off",
+      "Decision trees, bagging and random forests",
+      "Support-vector machines and naive Bayes",
+      "k-means and k-nearest neighbours",
+      "Gradient boosting",
+      "Model evaluation measures"
+    ],
+    "formats": ["2 days", "3 days", "Multi-week cohort"],
+    "example_agenda": [
+      { "session": "Session 1 · Foundations", "detail": "Learning types, data representation and the machine learning workflow." },
+      { "session": "Session 2 · Optimisation and regression", "detail": "Gradient descent, least squares and the bias-variance trade-off." },
+      { "session": "Session 3 · Classical classifiers", "detail": "Trees, random forests, SVM, naive Bayes and kNN in practice." },
+      { "session": "Session 4 · Evaluation", "detail": "Accuracy, precision, recall and comparing models fairly." },
+      { "session": "Session 5 · Mini project", "detail": "Participants build and present a small model end to end." }
+    ],
+    "customisation": [
+      "Use cases from the organisation's sector",
+      "Project work on the organisation's own anonymised data",
+      "Choice of Python or R for exercises",
+      "Pre-workshop skills survey"
+    ],
+    "related_courses": ["machine-learning-fundamentals", "python-programming-for-data-science"],
+    "source_pages": [37, 38, 39, 40],
+    "order": 4,
+    "status": "published"
+  },
+  {
+    "slug": "statistical-modelling-workshop",
+    "title": "Statistical Modelling Workshop",
+    "summary": "Building, checking and interpreting regression models, including regularised and logistic regression.",
+    "participants": [
+      "Analysts who already use basic statistics",
+      "Researchers modelling relationships between variables",
+      "Marketing and operations teams using predictive models"
+    ],
+    "objectives": [
+      "Fit and interpret simple and multiple regression models",
+      "Use cross-validation to compare models",
+      "Apply ridge and lasso regularisation to control overfitting",
+      "Model binary outcomes with logistic regression and discriminant analysis"
+    ],
+    "topics": [
+      "Scatter diagrams, correlation and least squares",
+      "Coefficient of determination",
+      "Multiple and polynomial regression",
+      "Cross-validation",
+      "Ridge (Tikhonov) and lasso regression",
+      "Logistic regression for binary outcomes",
+      "Discriminant analysis"
+    ],
+    "formats": ["1 day", "2 days"],
+    "example_agenda": [
+      { "session": "Session 1 · Linear regression revisited", "detail": "Least squares, interpretation and fit." },
+      { "session": "Session 2 · Choosing between models", "detail": "Multiple and polynomial regression with cross-validation." },
+      { "session": "Session 3 · Regularisation", "detail": "Ridge and lasso in practice." },
+      { "session": "Session 4 · Binary outcomes", "detail": "Logistic regression and discriminant analysis with a worked case." }
+    ],
+    "customisation": [
+      "Case studies matched to the organisation's sector",
+      "Exercises using the organisation's own anonymised data",
+      "Choice of R, Python or SPSS for demonstrations"
+    ],
+    "related_courses": ["regression-predictive-modelling", "multivariate-statistical-analysis"],
+    "source_pages": [3, 41, 42, 69],
+    "order": 5,
+    "status": "published"
+  },
+  {
+    "slug": "data-visualization-workshop",
+    "title": "Data Visualization Workshop",
+    "summary": "Principles and practice of clear, honest charts for reports, dashboards and presentations.",
+    "participants": [
+      "Anyone who produces charts for reports or presentations",
+      "Analysts and researchers",
+      "Communications and reporting teams"
+    ],
+    "objectives": [
+      "Match data types to suitable visual encodings and chart types",
+      "Use colour deliberately to distinguish, represent and highlight",
+      "Show distributions, proportions and trends effectively",
+      "Critique and improve existing charts"
+    ],
+    "topics": [
+      "Mapping data onto aesthetics; scales and axes",
+      "Colour scales",
+      "Visualising amounts: bars, dot plots and heatmaps",
+      "Distributions: histograms, ECDFs and Q-Q plots",
+      "Proportions: pie, side-by-side and stacked bars",
+      "Trends, smoothing and time-series decomposition",
+      "Geospatial data: choropleths and cartograms"
+    ],
+    "formats": ["Half-day", "1 day"],
+    "example_agenda": [
+      { "session": "Session 1 · Principles", "detail": "Aesthetics, scales and coordinate systems." },
+      { "session": "Session 2 · Colour and amounts", "detail": "Colour choices and charts for comparing quantities." },
+      { "session": "Session 3 · Distributions, proportions and trends", "detail": "Choosing the right chart for each question." },
+      { "session": "Session 4 · Chart clinic", "detail": "Participants redesign charts from their own work." }
+    ],
+    "customisation": [
+      "Chart clinic using the organisation's own reports",
+      "Exercises in Excel, R or Python depending on tools in use",
+      "Alignment with the organisation's style guidelines"
+    ],
+    "related_courses": ["data-visualization", "excel-for-data-analytics"],
+    "source_pages": [78, 79],
+    "order": 6,
+    "status": "published"
+  },
+  {
+    "slug": "research-and-analytical-methods",
+    "title": "Research & Analytical Methods",
+    "summary": "Research design, sampling, experimental design and clear technical write-ups for teams that run studies.",
+    "participants": [
+      "Research and evaluation teams",
+      "Policy and programme staff who commission studies",
+      "Postgraduate researchers and research supervisors"
+    ],
+    "objectives": [
+      "Frame a research problem and choose a suitable research design",
+      "Select and justify a sampling design for a survey",
+      "Plan a basic designed experiment and its analysis",
+      "Prepare well-structured technical documents and presentations in LaTeX and Beamer"
+    ],
+    "topics": [
+      "Research process, problem definition and literature review",
+      "Models, model classification and simulation studies",
+      "Sample surveys, sampling frames and steps in a survey",
+      "Simple random, stratified, cluster and systematic sampling",
+      "CRD, RBD, LSD and factorial experiments",
+      "LaTeX documents, tables, figures and mathematics",
+      "BibTeX bibliographies and Beamer presentations"
+    ],
+    "formats": ["1 day", "2 days", "Multi-week cohort"],
+    "example_agenda": [
+      { "session": "Session 1 · Designing research", "detail": "From research question to research design and literature review." },
+      { "session": "Session 2 · Sampling", "detail": "Choosing and comparing sampling designs." },
+      { "session": "Session 3 · Experiments", "detail": "Principles of experimental design and ANOVA-based analysis." },
+      { "session": "Session 4 · Writing it up", "detail": "LaTeX, BibTeX and Beamer for reports and presentations." }
+    ],
+    "customisation": [
+      "Examples from the organisation's field of research",
+      "Review of a current or planned study as a case",
+      "Optional extended LaTeX lab"
+    ],
+    "related_courses": ["research-methodology-latex", "experimental-design-sampling"],
+    "source_pages": [46, 47, 58, 59, 60, 61, 66, 67],
+    "order": 7,
+    "status": "published"
+  },
+  {
+    "slug": "quality-control-for-operations",
+    "title": "Quality Control for Operations",
+    "summary": "Control charts and acceptance sampling for teams responsible for product and service quality.",
+    "participants": [
+      "Production supervisors and operators",
+      "Quality assurance staff",
+      "Operations and process improvement teams"
+    ],
+    "objectives": [
+      "Distinguish chance from assignable causes of variation",
+      "Construct and interpret variables and attributes control charts",
+      "Choose subgroup size and sampling frequency sensibly",
+      "Understand single and double acceptance sampling plans"
+    ],
+    "topics": [
+      "Quality, productivity and quality costs",
+      "Statistical basis of control charts and control limits",
+      "Rational subgroups, patterns, warning limits and ARL",
+      "X-bar and R charts; X-bar and s charts",
+      "p and np charts",
+      "Single and double sampling plans, OC and ASN functions"
+    ],
+    "formats": ["Half-day", "1 day", "2 days"],
+    "example_agenda": [
+      { "session": "Session 1 · Why variation matters", "detail": "Quality concepts and chance versus assignable causes." },
+      { "session": "Session 2 · Charts for measurements", "detail": "Building X-bar, R and s charts." },
+      { "session": "Session 3 · Charts for defects", "detail": "p and np charts and reading patterns." },
+      { "session": "Session 4 · Acceptance sampling", "detail": "Designing and comparing sampling plans." }
+    ],
+    "customisation": [
+      "Exercises using the organisation's own anonymised process data",
+      "Examples specific to manufacturing or service settings",
+      "Templates for charts in the tools the team already uses"
+    ],
+    "related_courses": ["statistical-quality-control"],
+    "source_pages": [43, 44],
+    "order": 8,
+    "status": "published"
+  },
+  {
+    "slug": "big-data-foundations",
+    "title": "Big Data Foundations",
+    "summary": "An orientation to the Hadoop ecosystem, Spark and NoSQL for teams evaluating or starting big data work.",
+    "participants": [
+      "Data engineers and developers",
+      "Analysts who will work with large datasets",
+      "Technical leads assessing big data platforms"
+    ],
+    "objectives": [
+      "Explain the characteristics of big data and limits of conventional processing",
+      "Describe HDFS architecture and the MapReduce programming model",
+      "Write simple Pig, Hive and Spark jobs",
+      "Recognise where NoSQL stores such as MongoDB and Cassandra fit"
+    ],
+    "topics": [
+      "Big data characteristics, applications and challenges",
+      "Hadoop architecture, HDFS and cluster modes",
+      "MapReduce phases, combiners and joins",
+      "Pig Latin and Hive",
+      "Spark applications, RDDs and Spark SQL",
+      "Building a data pipeline with PySpark and Hive",
+      "NoSQL with MongoDB and Cassandra"
+    ],
+    "formats": ["2 days", "3 days", "Multi-week cohort"],
+    "example_agenda": [
+      { "session": "Session 1 · Why big data", "detail": "Characteristics, use cases and platform overview." },
+      { "session": "Session 2 · Hadoop and HDFS", "detail": "Architecture, file operations and MapReduce word count." },
+      { "session": "Session 3 · Pig and Hive", "detail": "Querying and transforming data at scale." },
+      { "session": "Session 4 · Spark", "detail": "Spark applications and a PySpark pipeline." }
+    ],
+    "customisation": [
+      "Use of the organisation's own cluster or a sandbox environment",
+      "Sector-specific examples such as retail or marketing data",
+      "Pre-workshop skills survey covering SQL and programming"
+    ],
+    "related_courses": ["big-data-analytics-hadoop-spark", "sql-databases-for-data-science"],
+    "source_pages": [86, 87, 92, 93, 94, 95],
+    "order": 9,
+    "status": "published"
+  }
+]
