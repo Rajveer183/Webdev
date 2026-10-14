@@ -23,22 +23,13 @@ function ScrollToTop() {
 
 function UtilityBar() {
   return (
-    <div className="hidden bg-[#0b1736] text-slate-300 md:block">
+    <div className="hidden bg-[#0B1F4D] text-slate-300 md:block border-b border-[#0B1F4D]/20">
       <div className="container-page flex h-9 items-center justify-between text-xs">
-        <a href={brand.institution.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-white">
+        <a href={brand.institution.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-white transition-colors duration-150">
           A service of {brand.institution.name} <ExternalLink className="h-3 w-3" aria-hidden />
         </a>
-        <nav aria-label="Quick links" className="flex items-center gap-5">
-          <Link to="/courses" className="hover:text-white">
-            Certificate Courses
-          </Link>
-          <Link to="/corporate-training" className="hover:text-white">
-            Corporate Training
-          </Link>
-          <Link to="/knowledge" className="hover:text-white">
-            Knowledge Hub
-          </Link>
-          <Link to="/contact" className="font-medium text-teal-300 hover:text-teal-200">
+        <nav aria-label="Quick links" className="flex items-center">
+          <Link to="/contact" className="font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors duration-150">
             Contact Us
           </Link>
         </nav>

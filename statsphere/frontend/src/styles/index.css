@@ -7,83 +7,111 @@
 /* ---------- Design tokens ---------- */
 :root {
   color-scheme: light;
-  --bg: #f6f8fb;
-  --surface: #ffffff;
-  --surface-2: #f1f4f9;
-  --surface-3: #e8edf5;
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --text: #0b1324;
-  --text-muted: #475569;
-  --text-subtle: #64748b;
-  --brand: #172554; /* deep navy: headings, primary buttons */
-  --brand-hover: #1e3a8a;
-  --brand-fg: #ffffff;
-  --brand-soft: #e7ecfb;
-  --link: #1d4ed8;
-  --accent: #0f766e; /* restrained teal, text-safe */
-  --accent-strong: #115e59;
-  --accent-soft: #e0f5f2;
-  --ring: #2563eb;
-  --success: #15803d;
-  --success-soft: #e8f6ec;
-  --warning: #a16207;
-  --warning-soft: #fdf6e3;
-  --danger: #b91c1c;
-  --danger-soft: #fdecec;
-  --hero-from: #0b1736;
+
+  /* SGT Consulting Services exact color system */
+  --primary: #0B1F4D;
+  --accent: #0F766E;
+  --accent-hover: #0D5F59;
+  --text-heading: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --bg-hero: linear-gradient(180deg, #F1F6FF 0%, #FFFFFF 100%);
+  --bg-section: #F8FAFC;
+  --border: #E2E8F0;
+
+  /* App compatibility tokens */
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-2: #F8FAFC;
+  --surface-3: #F1F6FF;
+  --border-strong: #CBD5E1;
+  --text: #0F172A;
+  --text-subtle: #64748B;
+  --brand: #0B1F4D; /* deep navy: headings, primary buttons */
+  --brand-hover: #172554;
+  --brand-fg: #FFFFFF;
+  --brand-soft: #F1F6FF;
+  --link: #0F766E;
+  --accent-strong: #0D5F59;
+  --accent-soft: #E6F4F1;
+  --ring: #0F766E;
+  --success: #15803D;
+  --success-soft: #E8F6EC;
+  --warning: #A16207;
+  --warning-soft: #FDF6E3;
+  --danger: #B91C1C;
+  --danger-soft: #FDECEC;
+  --hero-from: #0B1F4D;
   --hero-to: #172554;
 
-  /* Chart tokens: categorical slots 1-3 of the validated reference palette (light). */
-  --chart-surface: #ffffff;
-  --chart-grid: #e6e9ef;
-  --chart-axis: #52514e;
-  --series-1: #2a78d6;
-  --series-2: #eb6834;
-  --series-3: #1baf7a;
-  --chart-ref: #6b7280;
+  /* Chart tokens */
+  --chart-surface: #FFFFFF;
+  --chart-grid: #E6E9EF;
+  --chart-axis: #52514E;
+  --series-1: #2A78D6;
+  --series-2: #EB6834;
+  --series-3: #1BAF7A;
+  --chart-ref: #6B7280;
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #0a0f1c;
-  --surface: #111827;
+
+  /* SGT Consulting Services exact dark tokens */
+  --primary: #E6ECFF;
+  --accent: #2DD4BF;
+  --accent-hover: #5EEAD4;
+  --text-heading: #F8FAFC;
+  --text-body: #CBD5E1;
+  --text-muted: #94A3B8;
+  --bg-hero: #0B1220;
+  --bg-section: #0F172A;
+  --border: #1E293B;
+
+  /* App compatibility tokens */
+  --bg: #0B1220;
+  --surface: #0F172A;
   --surface-2: #162033;
-  --surface-3: #1d2a42;
-  --border: #253149;
-  --border-strong: #34425e;
-  --text: #e6ebf4;
-  --text-muted: #a5b1c6;
-  --text-subtle: #8593ab;
-  --brand: #c7d4ff;
-  --brand-hover: #e0e7ff;
-  --brand-fg: #0b1324;
-  --brand-soft: #1b2747;
-  --link: #8fb4ff;
-  --accent: #5eead4;
-  --accent-strong: #99f6e4;
-  --accent-soft: #0f2f2d;
-  --ring: #8fb4ff;
-  --success: #4ade80;
-  --success-soft: #10291a;
-  --warning: #facc15;
-  --warning-soft: #2c250b;
-  --danger: #f87171;
-  --danger-soft: #2f1414;
-  --hero-from: #070c19;
-  --hero-to: #101b38;
+  --surface-3: #1E293B;
+  --border-strong: #334155;
+  --text: #F8FAFC;
+  --text-subtle: #94A3B8;
+  --brand: #E6ECFF;
+  --brand-hover: #FFFFFF;
+  --brand-fg: #0B1F4D;
+  --brand-soft: #162033;
+  --link: #2DD4BF;
+  --accent-strong: #5EEAD4;
+  --accent-soft: #082F2C;
+  --ring: #2DD4BF;
+  --success: #4ADE80;
+  --success-soft: #10291A;
+  --warning: #FACC15;
+  --warning-soft: #2C250B;
+  --danger: #F87171;
+  --danger-soft: #2F1414;
+  --hero-from: #070C19;
+  --hero-to: #101B38;
 
   --chart-surface: #111827;
   --chart-grid: #263247;
-  --chart-axis: #c3c2b7;
-  --series-1: #3987e5;
-  --series-2: #d95926;
-  --series-3: #199e70;
-  --chart-ref: #9ca3af;
+  --chart-axis: #C3C2B7;
+  --series-1: #3987E5;
+  --series-2: #D95926;
+  --series-3: #199E70;
+  --chart-ref: #9CA3AF;
 }
 
 @theme inline {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-heading: var(--text-heading);
+  --color-body: var(--text-body);
+  --color-muted: var(--text-muted);
+  --color-section: var(--bg-section);
+  --color-border: var(--border);
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -91,14 +119,12 @@
   --color-line: var(--border);
   --color-line-strong: var(--border-strong);
   --color-ink: var(--text);
-  --color-muted: var(--text-muted);
   --color-subtle: var(--text-subtle);
   --color-brand: var(--brand);
   --color-brand-hover: var(--brand-hover);
   --color-brand-fg: var(--brand-fg);
   --color-brand-soft: var(--brand-soft);
   --color-link: var(--link);
-  --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
   --color-ring: var(--ring);
@@ -117,19 +143,19 @@
   }
   body {
     background: var(--bg);
-    color: var(--text);
+    color: var(--text-body);
     font-family: var(--font-sans);
     font-feature-settings: 'cv11', 'ss01';
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
   :focus-visible {
-    outline: 2px solid var(--ring);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 4px;
   }
   ::selection {
-    background: color-mix(in oklab, var(--ring) 25%, transparent);
+    background: color-mix(in oklab, var(--accent) 25%, transparent);
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -144,7 +170,7 @@
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8;
   }
   .eyebrow {
     @apply text-xs font-semibold tracking-[0.14em] text-accent uppercase;
