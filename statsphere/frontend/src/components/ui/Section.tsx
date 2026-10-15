@@ -66,17 +66,70 @@ export function Section({
   )
 }
 
-/** Per-page accent for the breadcrumb and eyebrow, so each main section has its own colour. */
+/** Per-page accent for the breadcrumb, eyebrow, title bar, glow and illustration frame, so each main section has its own colour. */
 export type HeaderAccent = 'gold' | 'sky' | 'violet' | 'emerald' | 'indigo' | 'rose' | 'teal'
 
-const ACCENT_TEXT: Record<HeaderAccent, string> = {
-  gold: 'text-accent',
-  sky: 'text-sky-700 dark:text-sky-300',
-  violet: 'text-violet-700 dark:text-violet-300',
-  emerald: 'text-emerald-700 dark:text-emerald-300',
-  indigo: 'text-indigo-700 dark:text-indigo-300',
-  rose: 'text-rose-700 dark:text-rose-300',
-  teal: 'text-teal-700 dark:text-teal-300',
+interface AccentStyle {
+  text: string
+  /** Pill box behind the breadcrumb and eyebrow. */
+  box: string
+  dot: string
+  /** Gradient bar under the title and frame around the illustration. */
+  gradient: string
+  /** Hex for the large blurred glow. */
+  glow: string
+}
+
+const ACCENT: Record<HeaderAccent, AccentStyle> = {
+  gold: {
+    text: 'text-accent-strong',
+    box: 'border-amber-300/70 bg-amber-50/80 dark:border-amber-400/30 dark:bg-amber-500/10',
+    dot: 'bg-amber-500',
+    gradient: 'from-amber-400 via-orange-400 to-rose-400',
+    glow: '#FCD34D',
+  },
+  sky: {
+    text: 'text-sky-700 dark:text-sky-300',
+    box: 'border-sky-300/70 bg-sky-50/80 dark:border-sky-400/30 dark:bg-sky-500/10',
+    dot: 'bg-sky-500',
+    gradient: 'from-sky-400 via-blue-500 to-indigo-500',
+    glow: '#7DD3FC',
+  },
+  violet: {
+    text: 'text-violet-700 dark:text-violet-300',
+    box: 'border-violet-300/70 bg-violet-50/80 dark:border-violet-400/30 dark:bg-violet-500/10',
+    dot: 'bg-violet-500',
+    gradient: 'from-violet-400 via-purple-500 to-fuchsia-500',
+    glow: '#C4B5FD',
+  },
+  emerald: {
+    text: 'text-emerald-700 dark:text-emerald-300',
+    box: 'border-emerald-300/70 bg-emerald-50/80 dark:border-emerald-400/30 dark:bg-emerald-500/10',
+    dot: 'bg-emerald-500',
+    gradient: 'from-emerald-400 via-teal-500 to-cyan-500',
+    glow: '#6EE7B7',
+  },
+  indigo: {
+    text: 'text-indigo-700 dark:text-indigo-300',
+    box: 'border-indigo-300/70 bg-indigo-50/80 dark:border-indigo-400/30 dark:bg-indigo-500/10',
+    dot: 'bg-indigo-500',
+    gradient: 'from-indigo-400 via-blue-500 to-sky-400',
+    glow: '#A5B4FC',
+  },
+  rose: {
+    text: 'text-rose-700 dark:text-rose-300',
+    box: 'border-rose-300/70 bg-rose-50/80 dark:border-rose-400/30 dark:bg-rose-500/10',
+    dot: 'bg-rose-500',
+    gradient: 'from-rose-400 via-pink-500 to-orange-400',
+    glow: '#FDA4AF',
+  },
+  teal: {
+    text: 'text-teal-700 dark:text-teal-300',
+    box: 'border-teal-300/70 bg-teal-50/80 dark:border-teal-400/30 dark:bg-teal-500/10',
+    dot: 'bg-teal-500',
+    gradient: 'from-teal-400 via-cyan-500 to-sky-500',
+    glow: '#5EEAD4',
+  },
 }
 
 export interface Crumb {
@@ -109,7 +162,8 @@ export function PageHeader({
       {/* Soft blurred glow circles */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -right-24 h-[460px] w-[460px] rounded-full bg-[#9CC4FF] opacity-35 blur-[80px]"
+        style={{ background: ACCENT[accent].glow }}
+        className="pointer-events-none absolute -top-24 -right-24 h-[460px] w-[460px] rounded-full opacity-40 blur-[80px] dark:opacity-15"
       />
       <div
         aria-hidden="true"
@@ -125,12 +179,24 @@ export function PageHeader({
       <div className={`container-page relative py-12 sm:py-16 ${aside ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12' : ''}`}>
         <div>
           {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} accent={accent} />}
-          {eyebrow && <p className={`eyebrow mb-3 ${ACCENT_TEXT[accent]}`}>{eyebrow}</p>}
+          {eyebrow && (
+            <p className={`eyebrow mb-4 inline-flex items-center gap-2 rounded-full border-[1.5px] px-3.5 py-1.5 shadow-sm backdrop-blur ${ACCENT[accent].box} ${ACCENT[accent].text}`}>
+              <span aria-hidden className={`h-2 w-2 rounded-full ${ACCENT[accent].dot}`} />
+              {eyebrow}
+            </p>
+          )}
           <h1 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-tight">{tc(title)}</h1>
-          {intro && <div className="mt-4 max-w-3xl text-lg leading-8 text-muted">{intro}</div>}
+          <span aria-hidden className={`mt-5 block h-1.5 w-24 rounded-full bg-gradient-to-r ${ACCENT[accent].gradient}`} />
+          {intro && <div className="mt-5 max-w-3xl text-lg leading-8 text-muted">{intro}</div>}
           {children}
         </div>
-        {aside && <div className="hidden lg:block">{aside}</div>}
+        {aside && (
+          <div className="hidden lg:block">
+            <div className={`rounded-[22px] bg-gradient-to-br p-[3px] shadow-xl shadow-slate-900/10 transition duration-300 hover:-translate-y-1 hover:rotate-[-0.5deg] ${ACCENT[accent].gradient}`}>
+              <div className="rounded-[19px] bg-[var(--bg-card)] p-1">{aside}</div>
+            </div>
+          </div>
+        )}
       </div>
       <WaveDivider color={nextColor} variant="wave-1" />
     </header>
@@ -138,10 +204,15 @@ export function PageHeader({
 }
 
 export function Breadcrumbs({ items, accent }: { items: Crumb[]; accent?: HeaderAccent }) {
-  const current = accent ? `font-medium ${ACCENT_TEXT[accent]}` : 'text-muted'
+  const a = accent ? ACCENT[accent] : undefined
+  const current = a ? `font-semibold ${a.text}` : 'text-muted'
   return (
     <nav aria-label="Breadcrumb" className="mb-5">
-      <ol className="flex flex-wrap items-center gap-1 text-sm text-subtle">
+      <ol
+        className={`inline-flex flex-wrap items-center gap-1.5 rounded-full border-[1.5px] px-3.5 py-1.5 text-sm text-subtle shadow-sm backdrop-blur ${
+          a ? a.box : 'border-line-strong bg-surface/80'
+        }`}
+      >
         <li>
           <Link to="/" className="hover:text-ink">
             Home

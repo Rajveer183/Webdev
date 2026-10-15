@@ -1,10 +1,11 @@
 import { forwardRef, useId, type InputHTMLAttributes, type ReactNode, type SelectHTMLAttributes, type TextareaHTMLAttributes } from 'react'
 
+/** Colour, background and focus glow come from `.field-control` in index.css, tinted per field by `.field`. */
 const control =
-  'block w-full rounded-xl border bg-surface px-3.5 py-2.5 text-[0.95rem] text-ink placeholder:text-subtle shadow-sm transition focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/25 disabled:opacity-60'
+  'field-control block w-full rounded-xl border-[1.5px] px-3.5 py-2.5 text-[0.95rem] text-ink placeholder:text-subtle shadow-sm transition focus:outline-none disabled:opacity-60'
 
 function stateClass(error?: string) {
-  return error ? 'border-danger' : 'border-line-strong'
+  return error ? 'border-danger' : ''
 }
 
 interface FieldShellProps {
@@ -22,8 +23,8 @@ export function FieldShell({ label, error, hint, required, children, className =
   const errId = error ? `${id}-err` : undefined
   const describedBy = [hintId, errId].filter(Boolean).join(' ') || undefined
   return (
-    <div className={className}>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium text-ink">
+    <div className={`field ${className}`}>
+      <label htmlFor={id} className="field-label mb-1.5 block text-sm font-medium text-ink">
         {label}
         {required ? (
           <span className="text-danger" aria-hidden>

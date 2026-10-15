@@ -310,6 +310,42 @@
   :root[data-theme='dark'] .card:hover, :root[data-theme='dark'] .card-hover:hover {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   }
+  /* Form fields: each field takes the next colour in the rotation (dot, border, tint, focus glow) */
+  .field { --f: #0284c7; }
+  .field:nth-child(6n + 2) { --f: #7c3aed; }
+  .field:nth-child(6n + 3) { --f: #059669; }
+  .field:nth-child(6n + 4) { --f: #ea580c; }
+  .field:nth-child(6n + 5) { --f: #c026d3; }
+  .field:nth-child(6n + 6) { --f: #0d9488; }
+  :root[data-theme='dark'] .field { --f: #38bdf8; }
+  :root[data-theme='dark'] .field:nth-child(6n + 2) { --f: #a78bfa; }
+  :root[data-theme='dark'] .field:nth-child(6n + 3) { --f: #34d399; }
+  :root[data-theme='dark'] .field:nth-child(6n + 4) { --f: #fb923c; }
+  :root[data-theme='dark'] .field:nth-child(6n + 5) { --f: #e879f9; }
+  :root[data-theme='dark'] .field:nth-child(6n + 6) { --f: #2dd4bf; }
+  .field-label::before {
+    content: '';
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.5rem;
+    vertical-align: 0.05em;
+    border-radius: 9999px;
+    background: var(--f);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--f) 18%, transparent);
+  }
+  .field-control {
+    border-color: color-mix(in srgb, var(--f, var(--primary)) 35%, var(--border));
+    background-color: color-mix(in srgb, var(--f, var(--primary)) 4%, var(--bg-card));
+  }
+  .field-control:hover {
+    border-color: color-mix(in srgb, var(--f, var(--primary)) 60%, var(--border));
+  }
+  .field-control:focus {
+    border-color: var(--f, var(--primary));
+    background-color: var(--bg-card);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--f, var(--primary)) 18%, transparent);
+  }
   /* Graphs get a clear outline, stronger than an ordinary card border */
   .chart-frame {
     border: 2px solid color-mix(in srgb, var(--primary) 45%, transparent);
