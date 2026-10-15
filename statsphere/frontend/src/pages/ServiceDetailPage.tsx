@@ -72,7 +72,7 @@ export default function ServiceDetailPage() {
       </PageHeader>
 
       <div className="container-page grid gap-12 py-14 lg:grid-cols-[1fr_20rem]">
-        <div className="space-y-14">
+        <div className="space-y-10">
           <Block title="What this service is">
             <p className="text-[1.02rem] leading-8 text-muted">{s.overview}</p>
           </Block>
@@ -116,7 +116,7 @@ export default function ServiceDetailPage() {
             <TagList items={s.tools} label="Tools" offset={3} />
           </Block>
 
-          <section id="enquire" className="scroll-mt-24 rounded-3xl border border-line bg-surface p-6 sm:p-10">
+          <section id="enquire" className="scroll-mt-24 rounded-3xl border border-line bg-surface p-6 sm:p-8">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">Discuss Your Project</h2>
             <p className="mt-2 mb-8 text-muted">
               Describe your problem, data and timeline. We will reply to arrange an initial conversation about scope and approach.

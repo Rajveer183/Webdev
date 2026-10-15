@@ -92,7 +92,7 @@ export default function CourseDetailPage() {
       </PageHeader>
 
       <div className="container-page grid gap-12 py-14 lg:grid-cols-[1fr_20rem]">
-        <div className="space-y-14">
+        <div className="space-y-10">
           <Block title="About this course">
             {c.description.split('\n').filter(Boolean).map((p, i) => (
               <p key={i} className="mb-4 text-[1.02rem] leading-8 text-muted">
@@ -197,7 +197,7 @@ export default function CourseDetailPage() {
             </div>
           </details>
 
-          <section id="enquire" className="scroll-mt-24 rounded-3xl border border-line bg-surface p-6 sm:p-10">
+          <section id="enquire" className="scroll-mt-24 rounded-3xl border border-line bg-surface p-6 sm:p-8">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">Enquire About This Course</h2>
             <p className="mt-2 mb-8 text-muted">Register your interest and we will contact you when dates, delivery mode and fees are confirmed.</p>
             <CourseEnquiryForm courseSlug={c.slug} />

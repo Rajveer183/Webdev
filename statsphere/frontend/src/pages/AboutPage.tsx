@@ -158,13 +158,13 @@ function Team() {
     return null
   }
   return (
-    <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
+    <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-12 sm:py-16">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
           <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">Team</p>
           <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">Who you will work with</h2>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={`grid gap-6 sm:grid-cols-2 ${brand.team.length >= 3 ? 'lg:grid-cols-3' : 'max-w-3xl'}`}>
           {brand.team.map((m) => (
             <article key={m.name} className="flex flex-col overflow-hidden rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] shadow-sm transition-all duration-200 hover:border-[var(--accent)] hover:shadow-md">
               {m.photo ? (
@@ -310,8 +310,8 @@ export default function AboutPage() {
       </div>
 
       {/* ===================== SECTION 2: PURPOSE & TRAINING (--bg-blue) ===================== */}
-      <section className="relative bg-[var(--bg-blue)] pt-16 sm:pt-20">
-        <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+      <section className="relative bg-[var(--bg-blue)] pt-12 sm:pt-16">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
           <div className="grid grid-cols-1 items-stretch gap-8 min-[900px]:grid-cols-2">
             {/* Card 1: Our Purpose */}
             <div className="flex h-full flex-col rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] p-8 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
@@ -360,8 +360,8 @@ export default function AboutPage() {
       </section>
 
       {/* ===================== SECTION 3: VALUES (--bg-cream) ===================== */}
-      <section className="relative bg-[var(--bg-cream)] pt-16 sm:pt-20">
-        <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+      <section className="relative bg-[var(--bg-cream)] pt-12 sm:pt-16">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
               Values
@@ -392,8 +392,8 @@ export default function AboutPage() {
 
       {/* ===================== SECTION 4: AREAS OF EXPERTISE (--bg-lavender) ===================== */}
       {content && (
-        <section className="relative bg-[var(--bg-lavender)] pt-16 sm:pt-20">
-          <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+        <section className="relative bg-[var(--bg-lavender)] pt-12 sm:pt-16">
+          <div className="mx-auto w-full max-w-[1200px] px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
             <div className="mb-10 max-w-3xl">
               <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
                 Areas of expertise
@@ -423,8 +423,8 @@ export default function AboutPage() {
 
       {/* ===================== SECTION 5: WHO WE SERVE (--bg-mint) ===================== */}
       {content && (
-        <section className="relative bg-[var(--bg-mint)] pt-16 sm:pt-20">
-          <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+        <section className="relative bg-[var(--bg-mint)] pt-12 sm:pt-16">
+          <div className="mx-auto w-full max-w-[1200px] px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
             <div className="mb-10 max-w-3xl">
               <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
                 Who we serve
@@ -456,8 +456,8 @@ export default function AboutPage() {
       )}
 
       {/* ===================== SECTION 6: OUR INSTITUTION (--bg-blue) ===================== */}
-      <section className="relative bg-[var(--bg-blue)] pt-16 sm:pt-20">
-        <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+      <section className="relative bg-[var(--bg-blue)] pt-12 sm:pt-16">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
           <div className="mb-8 max-w-3xl">
             <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
               Our institution

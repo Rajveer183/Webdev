@@ -158,7 +158,7 @@ export default function HomePage() {
           className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(var(--primary)_1.5px,transparent_1.5px)] [background-size:24px_24px]"
         />
 
-        <div className="container-page relative grid items-center gap-12 py-16 lg:grid-cols-[1.15fr_1fr] lg:py-24">
+        <div className="container-page relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr] lg:py-20">
           <div className="animate-fade-up">
             <p className="eyebrow mb-3">
               {brand.institution.name} · {tagline}
@@ -353,9 +353,9 @@ export default function HomePage() {
           eyebrow="FAQ"
           title="Frequently asked questions"
         >
-          <div className="mx-auto max-w-3xl">
+          <div className="max-w-3xl">
             <Faq items={content.faq.slice(0, 6)} />
-            <p className="mt-6 text-center text-sm text-muted">
+            <p className="mt-6 text-sm text-muted">
               More questions?{' '}
               <Link to="/contact?type=contact" className="link">
                 Send us a message

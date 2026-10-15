@@ -17,10 +17,10 @@ export function CtaBanner({
   return (
     <section
       style={{ background: 'var(--bg-band)' }}
-      className="relative overflow-hidden bg-band pt-16 text-white sm:pt-20"
+      className="relative overflow-hidden bg-band pt-12 text-white sm:pt-16"
     >
       <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[var(--accent)]/15 blur-3xl" />
-      <div className="container-page relative pb-16 sm:pb-20">
+      <div className="container-page relative pb-12 sm:pb-16">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{tc(title)}</h2>

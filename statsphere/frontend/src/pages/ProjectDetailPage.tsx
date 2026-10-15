@@ -56,7 +56,7 @@ export default function ProjectDetailPage() {
       </PageHeader>
 
       <div className="container-page grid gap-12 py-14 lg:grid-cols-[1fr_18rem]">
-        <div className="min-w-0 space-y-12">
+        <div className="min-w-0 space-y-10">
           <div className="grid gap-6 md:grid-cols-2">
             <Block title="Problem statement" icon={Target}>
               <p className="leading-7 text-muted">{p.problem}</p>

@@ -45,8 +45,8 @@ export function Section({
   const hasDivider = Boolean(dividerColor || isBandDivider)
 
   return (
-    <section id={id} className={`relative pt-14 sm:pt-20 ${TONE_BG[tone]} ${className}`}>
-      <div ref={ref} className={`container-page ${hasDivider ? 'pb-14 sm:pb-20' : 'pb-14 sm:pb-20'}`}>
+    <section id={id} className={`relative pt-12 sm:pt-16 ${TONE_BG[tone]} ${className}`}>
+      <div ref={ref} className={`container-page ${hasDivider ? 'pb-10 sm:pb-12' : 'pb-12 sm:pb-16'}`}>
         {(title || eyebrow) && (
           <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-3xl">
@@ -176,7 +176,7 @@ export function PageHeader({
         className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(var(--primary)_1.5px,transparent_1.5px)] [background-size:24px_24px]"
       />
 
-      <div className={`container-page relative py-12 sm:py-16 ${aside ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12' : ''}`}>
+      <div className={`container-page relative py-10 sm:py-12 lg:py-16 ${aside ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12' : ''}`}>
         <div>
           {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} accent={accent} />}
           {eyebrow && (
