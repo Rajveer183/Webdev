@@ -1,4 +1,4 @@
-# Render Blueprint for the StatSphere API (FastAPI). The database is an external free Postgres (Neon/Supabase).
+# Render Blueprint for the StatSphere API (FastAPI + SQLite, no separate database).
 # Render → New → Blueprint → pick this repo. Fill in the `sync: false` values when prompted.
 
 services:
@@ -14,8 +14,11 @@ services:
         value: "8000"
       - key: APP_ENV
         value: production
+      # SQLite on Render's free (ephemeral) disk: wiped on every restart/deploy. Content and the admin
+      # login are re-created on startup; enquiries, admin edits, settings and uploads are lost.
+      # For permanent data, replace with a free Neon connection string (sync: false).
       - key: DATABASE_URL
-        sync: false # Neon/Supabase connection string (postgres://...?sslmode=require)
+        value: sqlite:////srv/data/db/statsphere.db
       - key: JWT_SECRET
         generateValue: true
       - key: TRUST_PROXY_HEADERS

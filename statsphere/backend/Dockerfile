@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY backend/ .
 COPY data/content/ /srv/data/content/
 
-RUN useradd --create-home --uid 10001 app && mkdir -p /srv/data/extracted && chown -R app /srv/data/extracted
+RUN useradd --create-home --uid 10001 app && mkdir -p /srv/data/extracted /srv/data/db && chown -R app /srv/data/extracted /srv/data/db
 USER app
 
 EXPOSE 8000
