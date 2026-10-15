@@ -1,8 +1,9 @@
-import { ChevronRight, Compass, ExternalLink, Eye, Layers, Scale, Target, UserRound, Wrench } from 'lucide-react'
+import { Compass, ExternalLink, Eye, Layers, Scale, Target, UserRound, Wrench } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { CtaBanner } from '../components/content/CtaBanner'
 import { InstitutionReference } from '../components/content/InstitutionReference'
 import { Icon } from '../components/ui/Icon'
+import { Breadcrumbs } from '../components/ui/Section'
 import { brand } from '../config/brand'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { useSite } from '../hooks/useSite'
@@ -224,22 +225,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 items-stretch gap-8 min-[900px]:grid-cols-12 lg:gap-12">
             {/* Left Column: Text block */}
             <div className="flex flex-col justify-center min-[900px]:col-span-7">
-              {/* Breadcrumb with 16px bottom spacing */}
-              <nav aria-label="Breadcrumb" className="mb-4">
-                <ol className="flex items-center gap-1.5 text-sm text-[var(--text-muted)]">
-                  <li>
-                    <Link to="/" className="transition-colors duration-150 hover:text-[var(--text-heading)]">
-                      Home
-                    </Link>
-                  </li>
-                  <li className="flex items-center gap-1.5">
-                    <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-                    <span aria-current="page" className="font-medium text-[var(--text-heading)]">
-                      About
-                    </span>
-                  </li>
-                </ol>
-              </nav>
+              <Breadcrumbs items={[{ label: 'About' }]} />
 
               {/* Eyebrow "ABOUT US": --accent, uppercase */}
               <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">

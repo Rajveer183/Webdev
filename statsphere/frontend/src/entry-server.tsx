@@ -41,6 +41,9 @@ export async function render(url: string): Promise<RenderResult> {
         </ErrorBoundary>
       </HeadContext.Provider>
     </StrictMode>,
+    // Inline every Suspense boundary: large ones would otherwise be revealed by inline
+    // <script>$RC(…)</script> snippets, which the CSP (script-src 'self') blocks.
+    { progressiveChunkSize: Number.MAX_SAFE_INTEGER },
   )
   const html = await new Response(prelude).text()
   const paths = stop()

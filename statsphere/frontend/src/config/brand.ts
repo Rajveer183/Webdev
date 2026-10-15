@@ -13,7 +13,7 @@ export const brand = {
     'Statistical consulting, mathematical modelling, data analytics and practical certificate courses in statistics, mathematics and data science, from SGT University.',
   category: 'Statistics, Mathematics & Data Science Consulting and Professional Training',
   /** Logo shown in the header, footer and admin area (the official SGT University seal). Admin → Settings → Logos can replace it. */
-  logo: '/assets/sgt-university-logo.png',
+  logo: '/assets/sgt-university-logo.webp',
   logoAlt: 'SGT University logo',
   /** Public URL of the deployed site, used for canonical links and social metadata. */
   siteUrl: (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') || '',
@@ -32,7 +32,7 @@ export const brand = {
     legalName: 'Shree Guru Gobind Singh Tricentenary University',
     url: 'https://sgtuniversity.ac.in/',
     department: 'Department of Mathematics',
-    logo: '/assets/sgt-university-logo.png',
+    logo: '/assets/sgt-university-logo.webp',
     logoAlt: 'SGT University logo',
     showLogo: true,
   },

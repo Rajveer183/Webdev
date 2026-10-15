@@ -2,19 +2,14 @@ import { CalendarClock, Clock, ExternalLink, Mail, MapPin, Phone } from 'lucide-
 import { Link } from 'react-router-dom'
 import { LogoMark } from '../components/ui/Logo'
 import { brand } from '../config/brand'
+import { useApi } from '../hooks/useApi'
 import { useSite } from '../hooks/useSite'
+import type { ListResponse, ServiceCard } from '../types/content'
 
-const COLUMNS = [
-  {
-    title: 'Consulting',
-    links: [
-      { to: '/services', label: 'All services' },
-      { to: '/services/statistical-analysis', label: 'Statistical analysis' },
-      { to: '/services/regression-predictive-modelling', label: 'Predictive modelling' },
-      { to: '/services/time-series-forecasting', label: 'Forecasting' },
-      { to: '/services/research-methodology-support', label: 'Research support' },
-    ],
-  },
+/** Featured services linked from the footer; the list comes from the API so unpublished slugs never appear. */
+const FOOTER_SERVICES = 4
+
+const STATIC_COLUMNS = [
   {
     title: 'Learning',
     links: [
@@ -38,6 +33,17 @@ export function Footer() {
   const { name, tagline, contact, bookingUrl, brandLogoUrl } = useSite()
   const year = new Date().getFullYear()
   const hasContact = contact.email || contact.phone || contact.address
+  const featured = useApi<ListResponse<ServiceCard>>('/api/services?featured=true')
+  const columns = [
+    {
+      title: 'Consulting',
+      links: [
+        { to: '/services', label: 'All services' },
+        ...(featured.data?.items ?? []).slice(0, FOOTER_SERVICES).map((s) => ({ to: `/services/${s.slug}`, label: s.title })),
+      ],
+    },
+    ...STATIC_COLUMNS,
+  ]
 
   return (
     <footer className="border-t border-white/10 bg-[var(--bg-footer)] text-slate-300">
@@ -91,7 +97,7 @@ export function Footer() {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-3">
-          {COLUMNS.map((col) => (
+          {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
               <h2 className="text-sm font-semibold text-white">{col.title}</h2>
               <ul className="mt-4 space-y-2.5">

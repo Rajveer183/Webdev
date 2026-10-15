@@ -10,7 +10,7 @@ import fitz  # PyMuPDF
 
 HERE = Path(__file__).resolve().parent
 PUBLIC = HERE.parent / "public"
-SEAL = PUBLIC / "assets" / "sgt-university-logo.png"
+SEAL = HERE / "sgt-university-logo-source.png"
 
 NAVY = (15 / 255, 29 / 255, 69 / 255)
 TEAL = (94 / 255, 234 / 255, 212 / 255)

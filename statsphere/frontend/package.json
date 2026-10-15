@@ -11,6 +11,7 @@
     "lint": "oxlint",
     "test": "vitest run",
     "sitemap": "node scripts/generate-sitemap.mjs",
+    "check:dist": "node scripts/check-dist.mjs",
     "build:spa": "tsc -b && vite build"
   },
   "dependencies": {

@@ -65,7 +65,7 @@ npm run dev                       # http://localhost:5173  (proxies /api to :800
 ```
 
 To preview the production build exactly as it will be served (prerendered pages, hydration,
-`/admin` and unknown URLs falling back to the app shell):
+the nginx security headers, `/admin` served from the app shell, and unknown URLs answering 404 with it):
 
 ```bash
 cd frontend
@@ -90,7 +90,7 @@ docker compose up --build -d      # http://localhost:8090
 ```
 
 - **Backend container:** runs `alembic upgrade head` and seeds the catalogue on startup (`AUTO_MIGRATE`, `SEED_ON_STARTUP`).
-- **Frontend container:** a multi-stage build. A Python stage exports the API snapshot from `data/content`, the Node stage builds and prerenders every public page, and nginx serves `<route>/index.html` (falling back to the `noindex` app shell for `/admin` and unknown URLs), adds security headers and proxies `/api` to the backend.
+- **Frontend container:** a multi-stage build. A Python stage exports the API snapshot from `data/content`, the Node stage builds and prerenders every public page, and nginx serves `<route>/index.html` (serving the `noindex` app shell for `/admin`, and for unknown URLs with a 404 status), adds security headers (including a CSP and HSTS) and proxies `/api` to the backend.
 - **Production mode (`APP_ENV=production`):** startup is refused without a strong `JWT_SECRET`, and the API docs are disabled.
 - **After the first login:** remove `ADMIN_PASSWORD` from `.env`.
 - **Before going live:** put a TLS-terminating proxy in front of port 8090, such as a cloud load balancer or Caddy.
@@ -100,8 +100,9 @@ docker compose up --build -d      # http://localhost:8090
 ```bash
 cd backend  && .venv/Scripts/python -m pytest                  # 69 tests
 cd backend  && .venv/Scripts/python -m app.cli check-content   # schema + cross-reference validation
-cd frontend && npm test                                        # 15 tests (vitest)
+cd frontend && npm test                                        # 30 tests (vitest)
 cd frontend && npm run build                                   # type-check, build, prerender
+cd frontend && npm run check:dist                              # prerendered pages: meta, data, JSON-LD, no inline scripts
 ```
 
 The backend tests cover:
@@ -156,6 +157,7 @@ The backend tests cover:
 - **Database access:** the SQLAlchemy ORM handles all queries (no string-built SQL).
 - **Internal fields:** editorial notes such as `approval_note` are stripped from public responses.
 - **Uploads:** logo files are identified by their file signature (never the client's content type); SVG is rejected because it can contain script; images are served with `Content-Security-Policy: default-src 'none'`.
+- **Content Security Policy:** `frontend/security-headers.conf` allows scripts from the site itself only. Pages have no inline scripts: the theme bootstrap is `public/theme-init.js`, prerendered data is a non-executable JSON block, and `npm run check:dist` fails the build output if an inline script appears. Inline styles remain allowed (React `style` props, Recharts).
 - **Scaling:** the rate limiter is in-process. With more than one backend replica, move limits to Redis or the reverse proxy.
 
 ## E-mail, booking and integrations
@@ -191,7 +193,7 @@ left as configurable placeholders or labelled "proposed":
 4. **Team.** Profiles are hidden until you add verified entries to `frontend/src/config/brand.ts → team`.
 5. **Branding and the SGT University relationship.** The site owner confirmed that SGT Consulting Services is an official
    SGT University service, so the site uses the SGT University seal and describes the service as part of the university.
-   - **Logo file:** `frontend/public/assets/sgt-university-logo.png`, the official seal referenced by `admission.sgtuniversity.ac.in` (`og:image`). The white header logo from `sgtuniversity.ac.in` is also saved as `sgt-university-logo-long-white.png`. The site footer SVG was not used because it embeds a NAAC accreditation badge.
+   - **Logo file:** the full-size official seal is `frontend/brand/sgt-university-logo-source.png`; the site serves web-sized copies (`frontend/public/assets/sgt-university-logo.webp`, plus a `.png` at the same path), regenerated with `python frontend/brand/optimize_images.py`. It is the official seal referenced by `admission.sgtuniversity.ac.in` (`og:image`). The white header logo from `sgtuniversity.ac.in` is also saved as `sgt-university-logo-long-white.png`. The site footer SVG was not used because it embeds a NAAC accreditation badge.
    - **Where it appears:** header, footer, admin area, favicon (`favicon.png`, `apple-touch-icon.png`), the social share image (`og-image.png`, regenerate with `python frontend/brand/build_og_image.py`) and the "A service of SGT University" panel.
    - **Replacing it:** upload a different logo in Admin → Settings → Logos, or change `brand.logo` in `frontend/src/config/brand.ts`.
    - **Certificates** are still described as certificates of completion issued by SGT Consulting Services, not SGT University degrees or diplomas, and not externally accredited. Change this wording only if the university confirms a different status.
@@ -204,4 +206,4 @@ left as configurable placeholders or labelled "proposed":
 
 - **Static HTML freshness:** prerendered HTML reflects the content at build time. Visitors always see current data (pages refresh from the API after loading), but search engines see the build-time version until the frontend is rebuilt.
 - **Roles:** there is a single admin role; every admin can manage content, enquiries, settings and other admins.
-- **Unknown URLs** return the app shell with HTTP 200 (the app shows its 404 page and the shell is `noindex`); nginx cannot know which slugs exist without a rebuild.
+- **Unpublished slugs:** URLs without a prerendered page return HTTP 404 with the app shell. A slug published after the last build also gets that 404 status until the frontend is rebuilt, although the app still renders the page.

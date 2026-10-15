@@ -22,18 +22,7 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#172554" />
-    <script>
-      // Apply the saved or system theme before first paint to avoid a flash.
-      ;(function () {
-        try {
-          var t = localStorage.getItem('statsphere-theme')
-          if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-          document.documentElement.setAttribute('data-theme', t)
-        } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'light')
-        }
-      })()
-    </script>
+    <script src="/theme-init.js"></script>
   </head>
   <body>
     <noscript>

@@ -96,7 +96,8 @@ async function main() {
     let page = applyHead(template, head)
     page = page.replace(
       '<div id="root"></div>',
-      `<div id="root">${html}</div>\n    <script>window.__SSR_DATA__=${safeJson(data)}</script>`,
+      // A JSON block, not an inline script: it is never executed, so the CSP can forbid inline scripts.
+      `<div id="root">${html}</div>\n    <script type="application/json" id="ssr-data">${safeJson(data)}</script>`,
     )
     const out = route === '/' ? templatePath : resolve(dist, `.${route}`, 'index.html')
     mkdirSync(dirname(out), { recursive: true })

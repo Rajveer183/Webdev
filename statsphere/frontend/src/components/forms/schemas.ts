@@ -1,5 +1,9 @@
 import { z } from 'zod'
 
+// Interpreted parsing only: Zod's `new Function` probe would otherwise be reported as a CSP
+// (script-src 'self') violation on every page with a form. Every form imports this module.
+z.config({ jitless: true })
+
 /** Client-side rules mirror backend/app/schemas/enquiry.py. The server remains the source of truth. */
 
 const phone = z
