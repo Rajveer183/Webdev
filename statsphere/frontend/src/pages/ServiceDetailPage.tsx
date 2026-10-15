@@ -16,6 +16,7 @@ import { organizationLd } from '../config/brand'
 import { usePageMeta } from '../hooks/usePageMeta'
 import type { Service } from '../types/content'
 import NotFoundPage from './NotFoundPage'
+import { categoryColor } from '../lib/categoryColors'
 
 function Block({ title, children, id }: { title: string; children: React.ReactNode; id?: string }) {
   return (
@@ -110,9 +111,9 @@ export default function ServiceDetailPage() {
             <h3 className="mb-3 text-sm font-semibold text-ink">Methods</h3>
             <TagList items={s.methods} label="Methods" />
             <h3 className="mt-6 mb-3 flex items-center gap-2 text-sm font-semibold text-ink">
-              <Wrench className="h-4 w-4 text-subtle" aria-hidden /> Tools
+              <Wrench className="h-4 w-4 text-orange-600 dark:text-orange-300" aria-hidden /> Tools
             </h3>
-            <TagList items={s.tools} label="Tools" />
+            <TagList items={s.tools} label="Tools" offset={3} />
           </Block>
 
           <section id="enquire" className="scroll-mt-24 rounded-3xl border border-line bg-surface p-6 sm:p-10">
@@ -126,7 +127,7 @@ export default function ServiceDetailPage() {
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
           <div className="card p-6">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand">
+            <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${categoryColor(s.category).icon}`}>
               <Icon name={s.icon} className="h-5 w-5" />
             </span>
             <p className="mt-4 font-semibold text-ink">{s.title}</p>

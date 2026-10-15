@@ -10,6 +10,9 @@ import { EmptyState, ErrorState, SkeletonGrid } from '../components/ui/States'
 import { useApi } from '../hooks/useApi'
 import { usePageMeta } from '../hooks/usePageMeta'
 import type { CourseCard as CourseCardT, ListResponse } from '../types/content'
+import { PALETTE } from '../lib/categoryColors'
+
+const LEVEL_PILL: Record<string, (typeof PALETTE)[string]> = { Beginner: PALETTE.emerald, Intermediate: PALETTE.sky, Advanced: PALETTE.violet }
 
 const LEVELS = ['Beginner', 'Intermediate', 'Advanced']
 const MODE_LABEL: Record<string, string> = { online: 'Online', 'in-person': 'In person', hybrid: 'Hybrid' }
@@ -130,8 +133,10 @@ export default function CoursesPage() {
               type="button"
               aria-pressed={f.level === l}
               onClick={() => setParam('level', l)}
-              className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${
-                f.level === l ? 'border-brand bg-brand text-brand-fg' : 'border-line bg-surface text-muted hover:border-line-strong hover:text-ink'
+              className={`rounded-full border-[1.5px] px-4 py-1.5 text-sm font-medium transition ${
+                l
+                  ? f.level === l ? LEVEL_PILL[l].pillOn : LEVEL_PILL[l].pill
+                  : f.level === l ? 'border-brand bg-brand text-brand-fg shadow-sm' : 'border-line-strong bg-surface text-muted hover:border-brand hover:text-ink'
               }`}
             >
               {l || 'All levels'}

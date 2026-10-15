@@ -11,9 +11,9 @@ const tones: Record<Tone, string> = {
   success: 'bg-success-soft text-success border-transparent',
 }
 
-export function Badge({ tone = 'neutral', children, className = '' }: { tone?: Tone; children: ReactNode; className?: string }) {
+export function Badge({ tone = 'neutral', color, children, className = '' }: { tone?: Tone; color?: string; children: ReactNode; className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium ${tones[tone]} ${className}`}>
+    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium ${color ?? tones[tone]} ${className}`}>
       {children}
     </span>
   )

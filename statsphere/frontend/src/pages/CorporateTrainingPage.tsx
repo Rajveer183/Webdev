@@ -10,6 +10,7 @@ import { ErrorState, SkeletonGrid } from '../components/ui/States'
 import { useApi } from '../hooks/useApi'
 import { usePageMeta } from '../hooks/usePageMeta'
 import type { CourseCard, ListResponse, Workshop } from '../types/content'
+import { rotatingColor } from '../lib/categoryColors'
 
 const OBJECTIVES = [
   'Build a shared, correct understanding of statistical reasoning across analysts, managers and researchers.',
@@ -99,8 +100,8 @@ export default function CorporateTrainingPage() {
           <SkeletonGrid count={6} />
         ) : (
           <div className="grid gap-6 lg:grid-cols-2">
-            {data.items.map((w) => (
-              <article key={w.slug} className="card flex flex-col p-6">
+            {data.items.map((w, idx) => (
+              <article key={w.slug} className={`card flex flex-col p-6 ${rotatingColor(idx).card}`}>
                 <h3 className="text-lg font-semibold text-ink">{w.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted">{w.summary}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">

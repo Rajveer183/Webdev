@@ -2,14 +2,15 @@ import { titleCase } from '../../lib/titleCase'
 import { Check } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { RichText } from '../content/RichText'
+import { rotatingColor } from '../../lib/categoryColors'
 
 export function CheckList({ items, columns = 1 }: { items: string[]; columns?: 1 | 2 }) {
   return (
     <ul className={`grid gap-3 ${columns === 2 ? 'sm:grid-cols-2' : ''}`}>
-      {items.map((item) => (
+      {items.map((item, i) => (
         <li key={item} className="flex gap-3 text-[0.95rem] leading-7 text-muted">
-          <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-soft text-accent-strong">
-            <Check className="h-3.5 w-3.5" aria-hidden />
+          <span className={`mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full !shadow-sm ${rotatingColor(i).icon}`}>
+            <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden />
           </span>
           <span>
             <RichText text={item} />
@@ -26,10 +27,10 @@ export function Steps({ steps }: { steps: { title: string; detail: ReactNode }[]
       {steps.map((s, i) => (
         <li key={s.title} className="relative flex gap-4">
           <div className="flex flex-col items-center">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line-strong bg-surface text-sm font-semibold text-brand">
+            <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold ring-4 ring-[var(--bg-card)] ${rotatingColor(i).icon}`}>
               {i + 1}
             </span>
-            {i < steps.length - 1 && <span aria-hidden className="mt-2 w-px flex-1 bg-line" />}
+            {i < steps.length - 1 && <span aria-hidden className="mt-2 w-0.5 flex-1 rounded-full bg-gradient-to-b from-line-strong to-transparent" />}
           </div>
           <div className="pb-2">
             <h3 className="font-semibold text-ink">{titleCase(s.title)}</h3>
@@ -41,11 +42,11 @@ export function Steps({ steps }: { steps: { title: string; detail: ReactNode }[]
   )
 }
 
-export function TagList({ items, label }: { items: string[]; label?: string }) {
+export function TagList({ items, label, offset = 0 }: { items: string[]; label?: string; offset?: number }) {
   return (
     <ul className="flex flex-wrap gap-2" aria-label={label}>
-      {items.map((t) => (
-        <li key={t} className="rounded-lg border border-line bg-surface-2 px-2.5 py-1 text-sm text-muted">
+      {items.map((t, i) => (
+        <li key={t} className={`rounded-lg border px-2.5 py-1 text-sm font-medium ${rotatingColor(i + offset).badge}`}>
           {t}
         </li>
       ))}

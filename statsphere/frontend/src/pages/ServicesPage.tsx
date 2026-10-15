@@ -12,6 +12,7 @@ import { useApi } from '../hooks/useApi'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { useSite } from '../hooks/useSite'
 import type { ListResponse, ServiceCard as ServiceCardT } from '../types/content'
+import { categoryColor } from '../lib/categoryColors'
 
 const ENGAGEMENTS = [
   { title: 'Fixed-scope project', text: 'A defined question, agreed deliverables and a timeline: for example an analysis report, a forecast or a model with documentation.' },
@@ -70,8 +71,10 @@ export default function ServicesPage() {
                 type="button"
                 aria-pressed={category === c}
                 onClick={() => setParam('category', c)}
-                className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
-                  category === c ? 'border-brand bg-brand text-brand-fg' : 'border-line bg-surface text-muted hover:border-line-strong hover:text-ink'
+                className={`rounded-full border-[1.5px] px-3.5 py-1.5 text-sm font-medium transition ${
+                  c
+                    ? category === c ? categoryColor(c).pillOn : categoryColor(c).pill
+                    : category === c ? 'border-brand bg-brand text-brand-fg shadow-sm' : 'border-line-strong bg-surface text-muted hover:border-brand hover:text-ink'
                 }`}
               >
                 {c || 'All'}

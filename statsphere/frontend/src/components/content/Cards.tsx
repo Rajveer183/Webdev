@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import type { ArticleCard as ArticleCardT, CourseCard as CourseCardT, ProjectCard as ProjectCardT, ServiceCard as ServiceCardT } from '../../types/content'
 import { Badge, FORMAT_LABEL, LEVEL_TONE } from '../ui/Badge'
 import { Icon } from '../ui/Icon'
+import { categoryColor } from '../../lib/categoryColors'
 import { Illustration, motifFor } from '../illustrations/Illustration'
 import { RichText } from './RichText'
 
@@ -25,14 +26,15 @@ function CardVisual({ category, slug }: { category: string; slug: string }) {
 }
 
 export function ServiceCard({ service, visual = false }: { service: ServiceCardT; visual?: boolean }) {
+  const col = categoryColor(service.category)
   return (
-    <article className="card card-hover group relative flex h-full flex-col p-6">
+    <article className={`card card-hover group relative flex h-full flex-col p-6 ${col.card}`}>
       {visual && <CardVisual category={service.category} slug={service.slug} />}
       <div className="flex items-start justify-between gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand">
+        <span className={`flex h-11 w-11 items-center justify-center rounded-xl transition group-hover:scale-105 ${col.icon}`}>
           <Icon name={service.icon} className="h-5 w-5" />
         </span>
-        <Badge>{service.category}</Badge>
+        <Badge color={col.badge}>{service.category}</Badge>
       </div>
       <h3 className="mt-5 text-lg font-semibold leading-snug text-ink">
         <Link to={`/services/${service.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none">
@@ -48,16 +50,17 @@ export function ServiceCard({ service, visual = false }: { service: ServiceCardT
 }
 
 export function CourseCard({ course, visual = false }: { course: CourseCardT; visual?: boolean }) {
+  const col = categoryColor(course.category)
   return (
-    <article className="card card-hover group relative flex h-full flex-col p-6">
+    <article className={`card card-hover group relative flex h-full flex-col p-6 ${col.card}`}>
       {visual && <CardVisual category={course.category} slug={course.slug} />}
       <div className="flex items-start justify-between gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent-strong">
+        <span className={`flex h-11 w-11 items-center justify-center rounded-xl transition group-hover:scale-105 ${col.icon}`}>
           <Icon name={CATEGORY_ICON[course.category] ?? 'BookOpen'} className="h-5 w-5" />
         </span>
         <div className="flex flex-wrap justify-end gap-1.5">
           <Badge tone={LEVEL_TONE[course.level]}>{course.level}</Badge>
-          <Badge>{course.category}</Badge>
+          <Badge color={col.badge}>{course.category}</Badge>
         </div>
       </div>
       <h3 className="mt-4 text-lg font-semibold leading-snug text-ink">
@@ -94,11 +97,14 @@ export function CourseCard({ course, visual = false }: { course: CourseCardT; vi
 }
 
 export function ArticleCard({ article }: { article: ArticleCardT }) {
+  const col = categoryColor(article.category)
   return (
-    <article className="card card-hover group relative flex h-full flex-col p-6">
+    <article className={`card card-hover group relative flex h-full flex-col p-6 ${col.card}`}>
       <div className="flex items-center justify-between gap-2 text-xs text-subtle">
-        <span className="inline-flex items-center gap-1.5 font-medium text-accent">
-          <BookOpen className="h-3.5 w-3.5" aria-hidden />
+        <span className={`inline-flex items-center gap-2 font-semibold ${col.text}`}>
+          <span className={`flex h-7 w-7 items-center justify-center rounded-lg ${col.icon}`}>
+            <BookOpen className="h-3.5 w-3.5" aria-hidden />
+          </span>
           {article.category}
         </span>
         <span>{article.reading_minutes} min read</span>
@@ -123,13 +129,17 @@ export function ArticleCard({ article }: { article: ArticleCardT }) {
 }
 
 export function ProjectCard({ project }: { project: ProjectCardT }) {
+  const col = categoryColor(project.category)
   return (
-    <article className="card card-hover group relative flex h-full flex-col p-6">
-      <div className="flex flex-wrap items-center gap-2">
-        <Badge tone="accent">
-          <FlaskConical className="h-3 w-3" aria-hidden /> Demonstration
-        </Badge>
-        <Badge>{project.category}</Badge>
+    <article className={`card card-hover group relative flex h-full flex-col p-6 ${col.card}`}>
+      <div className="flex items-start justify-between gap-3">
+        <span className={`flex h-11 w-11 items-center justify-center rounded-xl transition group-hover:scale-105 ${col.icon}`}>
+          <FlaskConical className="h-5 w-5" aria-hidden />
+        </span>
+        <div className="flex flex-wrap justify-end gap-1.5">
+          <Badge tone="accent">Demonstration</Badge>
+          <Badge color={col.badge}>{project.category}</Badge>
+        </div>
       </div>
       <h3 className="mt-4 text-lg font-semibold leading-snug text-ink">
         <Link to={`/projects/${project.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none">

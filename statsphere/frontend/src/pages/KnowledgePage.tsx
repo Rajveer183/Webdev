@@ -9,6 +9,7 @@ import { EmptyState, ErrorState, SkeletonGrid } from '../components/ui/States'
 import { useApi } from '../hooks/useApi'
 import { usePageMeta } from '../hooks/usePageMeta'
 import type { ArticleCard as ArticleCardT, ListResponse, Topic } from '../types/content'
+import { categoryColor } from '../lib/categoryColors'
 
 export default function KnowledgePage() {
   const { data, error, reload } = useApi<ListResponse<ArticleCardT>>('/api/articles')
@@ -72,8 +73,10 @@ export default function KnowledgePage() {
                 type="button"
                 aria-pressed={category === c}
                 onClick={() => setParam('category', c)}
-                className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition ${
-                  category === c ? 'border-brand bg-brand text-brand-fg' : 'border-line bg-surface text-muted hover:border-line-strong hover:text-ink'
+                className={`rounded-full border-[1.5px] px-3.5 py-1.5 text-sm font-medium transition ${
+                  c
+                    ? category === c ? categoryColor(c).pillOn : categoryColor(c).pill
+                    : category === c ? 'border-brand bg-brand text-brand-fg shadow-sm' : 'border-line-strong bg-surface text-muted hover:border-brand hover:text-ink'
                 }`}
               >
                 {c || 'All topics'}

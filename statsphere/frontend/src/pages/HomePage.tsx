@@ -42,7 +42,7 @@ function HeroVisual() {
   const x1 = Number((20 + ((1.96 + 3.2) / 6.4) * 360).toFixed(2))
   return (
     <div className="relative mx-auto w-full max-w-md">
-      <div className="rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[var(--card-shadow)]">
+      <div className="rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] p-6 shadow-[var(--card-shadow)]">
         <div className="flex items-center justify-between text-xs text-[var(--text-muted)]">
           <span>Sampling distribution of the mean</span>
           <span className="rounded-full bg-[var(--tint-blue)] px-2.5 py-0.5 text-xs font-semibold text-[var(--primary)]">95% interval</span>

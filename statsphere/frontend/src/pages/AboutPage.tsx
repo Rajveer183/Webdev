@@ -8,6 +8,7 @@ import { usePageMeta } from '../hooks/usePageMeta'
 import { useSite } from '../hooks/useSite'
 import { titleCase } from '../lib/titleCase'
 import { WaveDivider } from '../components/ui/WaveDivider'
+import { PALETTE, rotatingColor } from '../lib/categoryColors'
 
 const VALUES = [
   {
@@ -52,7 +53,7 @@ function NetworkGraphCard() {
   ]
 
   return (
-    <div className="relative flex h-full min-h-[380px] w-full items-center justify-center overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-200 hover:border-[var(--accent)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)]">
+    <div className="relative flex h-full min-h-[380px] w-full items-center justify-center overflow-hidden rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-200 hover:border-[var(--accent)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)]">
       <svg
         viewBox="0 0 440 360"
         className="h-full max-h-[380px] w-full select-none"
@@ -165,7 +166,7 @@ function Team() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {brand.team.map((m) => (
-            <article key={m.name} className="flex flex-col overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] shadow-sm transition-all duration-200 hover:border-[var(--accent)] hover:shadow-md">
+            <article key={m.name} className="flex flex-col overflow-hidden rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] shadow-sm transition-all duration-200 hover:border-[var(--accent)] hover:shadow-md">
               {m.photo ? (
                 <img src={m.photo} alt={`Portrait of ${m.name}`} className="aspect-[4/3] w-full object-cover" loading="lazy" />
               ) : (
@@ -296,7 +297,7 @@ export default function AboutPage() {
             {/* Right Column: Illustration card matching text block height */}
             <div className="flex items-stretch min-[900px]:col-span-5">
               {brand.aboutImage ? (
-                <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-[var(--accent)]">
+                <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-[var(--accent)]">
                   <img src={brand.aboutImage} alt="" className="h-full w-full object-cover" />
                 </div>
               ) : (
@@ -313,8 +314,8 @@ export default function AboutPage() {
         <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
           <div className="grid grid-cols-1 items-stretch gap-8 min-[900px]:grid-cols-2">
             {/* Card 1: Our Purpose */}
-            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
-              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-blue)] text-[var(--primary)]">
+            <div className="flex h-full flex-col rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] p-8 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
+              <div className={`mb-6 flex h-10 w-10 items-center justify-center rounded-xl ${PALETTE.sky.icon}`}>
                 <Target className="h-5 w-5" aria-hidden />
               </div>
               <h2 className="mb-4 text-2xl font-bold tracking-tight text-[var(--text-heading)]">
@@ -334,8 +335,8 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2: Consulting and Training, Together */}
-            <div className="flex h-full flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-8 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
-              <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-blue)] text-[var(--primary)]">
+            <div className="flex h-full flex-col rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--bg-card)] p-8 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md sm:p-10">
+              <div className={`mb-6 flex h-10 w-10 items-center justify-center rounded-xl ${PALETTE.violet.icon}`}>
                 <Layers className="h-5 w-5" aria-hidden />
               </div>
               <h2 className="mb-4 text-2xl font-bold tracking-tight text-[var(--text-heading)]">
@@ -370,12 +371,12 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {VALUES.map(({ icon: I, title, text }) => (
+            {VALUES.map(({ icon: I, title, text }, idx) => (
               <div
                 key={title}
-                className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card-warm)] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
+                className={`flex flex-col rounded-[16px] border-[1.5px] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${rotatingColor(idx).card}`}
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-cream)] text-[var(--primary)]">
+                <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${rotatingColor(idx).icon}`}>
                   <I className="h-5 w-5" aria-hidden />
                 </div>
                 <h3 className="text-lg font-semibold text-[var(--text-heading)]">{titleCase(title)}</h3>
@@ -404,10 +405,10 @@ export default function AboutPage() {
                 Our subject coverage spans a complete four-year statistics and data science curriculum, from descriptive statistics to deep learning.
               </p>
             </div>
-            <div className="grid gap-px overflow-hidden rounded-[16px] border border-[var(--border)] bg-[var(--border)] shadow-[var(--card-shadow)] sm:grid-cols-2 lg:grid-cols-4">
-              {content.expertise_areas.map((e) => (
+            <div className="grid gap-px overflow-hidden rounded-[16px] border-[1.5px] border-[var(--border-strong)] bg-[var(--border-strong)] shadow-[var(--card-shadow)] sm:grid-cols-2 lg:grid-cols-4">
+              {content.expertise_areas.map((e, idx) => (
                 <div key={e.title} className="bg-[var(--bg-card)] p-6 transition-colors duration-150 hover:bg-[var(--tint-lavender)]/20">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-lavender)] text-[var(--primary)]">
+                  <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${rotatingColor(idx).icon}`}>
                     <Icon name={e.icon} className="h-5 w-5" />
                   </div>
                   <h3 className="mt-2 font-semibold text-[var(--text-heading)]">{titleCase(e.title)}</h3>
@@ -436,12 +437,12 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {content.industries.map((i) => (
+              {content.industries.map((i, idx) => (
                 <div
                   key={i.name}
-                  className="flex flex-col rounded-[16px] border border-[var(--border)] bg-[var(--bg-card)] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-md"
+                  className={`flex flex-col rounded-[16px] border-[1.5px] p-6 shadow-[var(--card-shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${rotatingColor(idx).card}`}
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--tint-mint)] text-[var(--primary)]">
+                  <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${rotatingColor(idx).icon}`}>
                     <Icon name={i.icon} className="h-5 w-5" />
                   </div>
                   <h3 className="text-base font-semibold text-[var(--text-heading)]">{titleCase(i.name)}</h3>
