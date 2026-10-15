@@ -28,11 +28,6 @@ services:
       - key: ADMIN_USERNAME
         value: admin
       - key: ADMIN_PASSWORD
-        sync: false # first admin's password; remove after first login
-      # Render's free tier blocks SMTP ports, so enquiry e-mails go through Brevo's free HTTP API.
-      - key: BREVO_API_KEY
-        sync: false # brevo.com → SMTP & API → API keys
-      - key: SMTP_FROM
-        sync: false # a sender address verified in Brevo (e.g. your Gmail)
-      - key: NOTIFY_EMAIL
-        sync: false # inbox that receives enquiries
+        sync: false # admin login password; keep it set (SQLite is wiped on restart, admin is re-created from this)
+      # E-mail notifications are off. To enable later (Render's free tier blocks SMTP), add
+      # BREVO_API_KEY, SMTP_FROM and NOTIFY_EMAIL in Render → Environment.
