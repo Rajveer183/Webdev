@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "npm ci",
-  "buildCommand": "(cd ../backend && python3 -m pip install -q -r requirements.txt && AUTO_MIGRATE=false SEED_ON_STARTUP=false python3 -m app.cli export-api --from-content --out ../data/api-snapshot.json) || echo '[vercel] API snapshot skipped: pages will render client-side'; npm run build && cp dist/spa.html dist/404.html",
+  "buildCommand": "bash scripts/vercel-build.sh",
   "outputDirectory": "dist",
   "trailingSlash": false,
   "rewrites": [
