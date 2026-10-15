@@ -114,6 +114,7 @@ export default function CoursesPage() {
   return (
     <>
       <PageHeader
+        accent="violet"
         crumbs={[{ label: 'Certificate Courses' }]}
         eyebrow="Certificate courses"
         title="Build practical skill in statistics, mathematics and data science"

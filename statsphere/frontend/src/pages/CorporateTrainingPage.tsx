@@ -41,6 +41,7 @@ export default function CorporateTrainingPage() {
   return (
     <>
       <PageHeader
+        accent="emerald"
         crumbs={[{ label: 'Corporate Training' }]}
         eyebrow="Corporate training & workshops"
         title="Upskill your team in statistics, analytics and data science"

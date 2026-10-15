@@ -55,6 +55,7 @@ export default function KnowledgePage() {
   return (
     <>
       <PageHeader
+        accent="indigo"
         crumbs={[{ label: 'Knowledge Hub' }]}
         eyebrow="Knowledge hub"
         title="Statistics, mathematics and data science, explained"

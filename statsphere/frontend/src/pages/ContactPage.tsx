@@ -9,10 +9,42 @@ import { usePageMeta } from '../hooks/usePageMeta'
 import { useSite } from '../hooks/useSite'
 
 const TABS = [
-  { key: 'consulting', label: 'Consulting', icon: Briefcase, blurb: 'Book a consultation or discuss a project.' },
-  { key: 'course', label: 'Course Enquiry', icon: GraduationCap, blurb: 'Register interest in a certificate course.' },
-  { key: 'corporate', label: 'Corporate Training', icon: Users, blurb: 'Request a training proposal for your team.' },
-  { key: 'contact', label: 'General', icon: MessageSquare, blurb: 'Anything else.' },
+  {
+    key: 'consulting',
+    label: 'Consulting',
+    icon: Briefcase,
+    blurb: 'Book a consultation or discuss a project.',
+    chip: 'bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-300',
+    on: 'border-sky-400 bg-sky-50 ring-1 ring-sky-400 dark:border-sky-400/70 dark:bg-sky-500/10 dark:ring-sky-400/70',
+    hover: 'hover:border-sky-300 hover:bg-sky-50/50 dark:hover:border-sky-400/50 dark:hover:bg-sky-500/5',
+  },
+  {
+    key: 'course',
+    label: 'Course Enquiry',
+    icon: GraduationCap,
+    blurb: 'Register interest in a certificate course.',
+    chip: 'bg-violet-100 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300',
+    on: 'border-violet-400 bg-violet-50 ring-1 ring-violet-400 dark:border-violet-400/70 dark:bg-violet-500/10 dark:ring-violet-400/70',
+    hover: 'hover:border-violet-300 hover:bg-violet-50/50 dark:hover:border-violet-400/50 dark:hover:bg-violet-500/5',
+  },
+  {
+    key: 'corporate',
+    label: 'Corporate Training',
+    icon: Users,
+    blurb: 'Request a training proposal for your team.',
+    chip: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300',
+    on: 'border-emerald-400 bg-emerald-50 ring-1 ring-emerald-400 dark:border-emerald-400/70 dark:bg-emerald-500/10 dark:ring-emerald-400/70',
+    hover: 'hover:border-emerald-300 hover:bg-emerald-50/50 dark:hover:border-emerald-400/50 dark:hover:bg-emerald-500/5',
+  },
+  {
+    key: 'contact',
+    label: 'General',
+    icon: MessageSquare,
+    blurb: 'Anything else.',
+    chip: 'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300',
+    on: 'border-amber-400 bg-amber-50 ring-1 ring-amber-400 dark:border-amber-400/70 dark:bg-amber-500/10 dark:ring-amber-400/70',
+    hover: 'hover:border-amber-300 hover:bg-amber-50/50 dark:hover:border-amber-400/50 dark:hover:bg-amber-500/5',
+  },
 ] as const
 
 type TabKey = (typeof TABS)[number]['key']
@@ -39,6 +71,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
+        accent="teal"
         crumbs={[{ label: 'Contact' }]}
         eyebrow="Contact"
         title="How can we help?"
@@ -48,7 +81,7 @@ export default function ContactPage() {
       <div className="container-page grid gap-10 py-14 lg:grid-cols-[1fr_20rem]">
         <div>
           <div role="tablist" aria-label="Enquiry type" className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {TABS.map(({ key, label, icon: I }) => (
+            {TABS.map(({ key, label, icon: I, chip, on, hover }) => (
               <button
                 key={key}
                 id={`tab-${key}`}
@@ -63,11 +96,13 @@ export default function ContactPage() {
                   if (e.key === 'ArrowRight') select(TABS[(i + 1) % TABS.length].key)
                   if (e.key === 'ArrowLeft') select(TABS[(i - 1 + TABS.length) % TABS.length].key)
                 }}
-                className={`flex flex-col items-start gap-1.5 rounded-2xl border p-4 text-left transition ${
-                  active === key ? 'border-ring bg-brand-soft/70 shadow-sm' : 'border-line bg-surface hover:border-line-strong'
+                className={`flex flex-col items-start gap-2.5 rounded-2xl border p-4 text-left transition ${
+                  active === key ? `${on} shadow-sm` : `border-line bg-surface ${hover}`
                 }`}
               >
-                <I className={`h-5 w-5 ${active === key ? 'text-brand' : 'text-subtle'}`} aria-hidden />
+                <span className={`flex h-9 w-9 items-center justify-center rounded-xl ${chip}`}>
+                  <I className="h-5 w-5" aria-hidden />
+                </span>
                 <span className="text-sm font-semibold text-ink">{label}</span>
               </button>
             ))}

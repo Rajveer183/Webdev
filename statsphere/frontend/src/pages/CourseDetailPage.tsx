@@ -69,6 +69,7 @@ export default function CourseDetailPage() {
   return (
     <>
       <PageHeader
+        accent="violet"
         crumbs={[{ label: 'Certificate Courses', to: '/courses' }, { label: c.title }]}
         eyebrow={`${c.category} · Certificate course`}
         title={c.title}

@@ -19,6 +19,7 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHeader
+        accent="rose"
         crumbs={[{ label: 'Projects' }]}
         eyebrow="Projects & case studies"
         title="Worked analyses, end to end"

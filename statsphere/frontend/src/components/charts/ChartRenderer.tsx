@@ -262,7 +262,7 @@ export function ChartRenderer({ spec }: { spec: ChartSpec }) {
   const labelFor = (k: string) => (k === spec.x_key ? spec.x_label : spec.series.find((s) => s.key === k)?.label ?? k)
 
   return (
-    <figure className="card p-4 sm:p-6" aria-labelledby={titleId}>
+    <figure className="card chart-frame p-4 sm:p-6" aria-labelledby={titleId}>
       <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
         <figcaption id={titleId}>
           <p className="font-semibold text-ink">{spec.title}</p>

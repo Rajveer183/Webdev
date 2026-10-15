@@ -52,6 +52,7 @@ export default function ServiceDetailPage() {
   return (
     <>
       <PageHeader
+        accent="sky"
         crumbs={[{ label: 'Consulting', to: '/services' }, { label: s.title }]}
         eyebrow={s.category}
         title={s.title}

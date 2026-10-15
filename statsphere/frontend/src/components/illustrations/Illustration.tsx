@@ -235,6 +235,8 @@ export function Illustration({ motif, className = '', label }: { motif: Motif; c
       <rect x="10" y="10" width="380" height="280" rx="16" fill="var(--bg-card)" stroke="var(--border)" />
       <rect x="10" y="10" width="380" height="280" rx="16" fill={`url(#grid-${motif})`} className="text-primary/10" />
       <rect x="10" y="10" width="380" height="280" rx="16" fill={`url(#glow-${motif})`} />
+      {/* Visible outline around every graph */}
+      <rect x="10" y="10" width="380" height="280" rx="16" fill="none" stroke="var(--primary)" strokeOpacity="0.45" strokeWidth="2" />
       <Motifs motif={motif} />
     </svg>
   )

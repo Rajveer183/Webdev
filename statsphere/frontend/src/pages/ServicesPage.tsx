@@ -53,6 +53,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHeader
+        accent="sky"
         crumbs={[{ label: 'Consulting' }]}
         eyebrow="Consulting services"
         title="Statistical, mathematical and data science consulting"

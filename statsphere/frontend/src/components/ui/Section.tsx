@@ -66,6 +66,19 @@ export function Section({
   )
 }
 
+/** Per-page accent for the breadcrumb and eyebrow, so each main section has its own colour. */
+export type HeaderAccent = 'gold' | 'sky' | 'violet' | 'emerald' | 'indigo' | 'rose' | 'teal'
+
+const ACCENT_TEXT: Record<HeaderAccent, string> = {
+  gold: 'text-accent',
+  sky: 'text-sky-700 dark:text-sky-300',
+  violet: 'text-violet-700 dark:text-violet-300',
+  emerald: 'text-emerald-700 dark:text-emerald-300',
+  indigo: 'text-indigo-700 dark:text-indigo-300',
+  rose: 'text-rose-700 dark:text-rose-300',
+  teal: 'text-teal-700 dark:text-teal-300',
+}
+
 export interface Crumb {
   label: string
   to?: string
@@ -79,6 +92,7 @@ export function PageHeader({
   children,
   aside,
   nextColor = 'var(--bg-blue)',
+  accent = 'gold',
 }: {
   eyebrow?: string
   title: ReactNode
@@ -88,6 +102,7 @@ export function PageHeader({
   /** Visual shown beside the heading on large screens (e.g. a subject illustration). */
   aside?: ReactNode
   nextColor?: string
+  accent?: HeaderAccent
 }) {
   return (
     <header style={{ background: 'var(--bg-hero)' }} className="relative overflow-hidden bg-hero">
@@ -109,8 +124,8 @@ export function PageHeader({
 
       <div className={`container-page relative py-12 sm:py-16 ${aside ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-center lg:gap-12' : ''}`}>
         <div>
-          {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} />}
-          {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+          {crumbs && crumbs.length > 0 && <Breadcrumbs items={crumbs} accent={accent} />}
+          {eyebrow && <p className={`eyebrow mb-3 ${ACCENT_TEXT[accent]}`}>{eyebrow}</p>}
           <h1 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-tight">{tc(title)}</h1>
           {intro && <div className="mt-4 max-w-3xl text-lg leading-8 text-muted">{intro}</div>}
           {children}
@@ -122,7 +137,8 @@ export function PageHeader({
   )
 }
 
-export function Breadcrumbs({ items }: { items: Crumb[] }) {
+export function Breadcrumbs({ items, accent }: { items: Crumb[]; accent?: HeaderAccent }) {
+  const current = accent ? `font-medium ${ACCENT_TEXT[accent]}` : 'text-muted'
   return (
     <nav aria-label="Breadcrumb" className="mb-5">
       <ol className="flex flex-wrap items-center gap-1 text-sm text-subtle">
@@ -139,7 +155,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
                 {c.label}
               </Link>
             ) : (
-              <span aria-current="page" className="text-muted">
+              <span aria-current="page" className={current}>
                 {c.label}
               </span>
             )}
