@@ -161,7 +161,7 @@ function Team() {
     <section className="border-b border-[var(--border)] bg-[var(--bg-section-alt)] py-16 sm:py-20">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
-          <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">Team</p>
+          <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">Team</p>
           <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">Who you will work with</h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -176,7 +176,7 @@ function Team() {
               )}
               <div className="p-6">
                 <p className="font-semibold text-[var(--text-heading)]">{m.name}</p>
-                <p className="text-sm font-medium text-[var(--accent)]">{m.role}</p>
+                <p className="text-sm font-medium text-accent-text">{m.role}</p>
                 <p className="mt-3 text-sm leading-6 text-[var(--text-body)]">{m.bio}</p>
                 {m.credentials && <p className="mt-3 text-xs text-[var(--text-muted)]">{m.credentials.join(' · ')}</p>}
                 {m.linkedin && (
@@ -242,7 +242,7 @@ export default function AboutPage() {
               </nav>
 
               {/* Eyebrow "ABOUT US": --accent, uppercase */}
-              <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
+              <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
                 ABOUT US
               </p>
 
@@ -263,32 +263,32 @@ export default function AboutPage() {
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   to="/contact?type=consulting"
-                  className="inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-6 py-3.5 text-sm font-semibold text-white dark:text-[#060D1F] shadow-sm transition-all duration-150 hover:bg-[var(--primary-hover)] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center rounded-xl bg-[var(--primary)] px-6 py-3.5 text-sm font-semibold text-white dark:text-[#060D1F] shadow-sm transition-all duration-150 hover:bg-[var(--primary-hover)] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2"
                 >
                   Book a Consultation
                 </Link>
                 <Link
                   to="/courses"
-                  className="inline-flex items-center justify-center rounded-xl border-[1.5px] border-[var(--primary)] bg-transparent px-6 py-3.5 text-sm font-semibold text-[var(--primary)] transition-all duration-150 hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center rounded-xl border-[1.5px] border-[var(--primary)] bg-transparent px-6 py-3.5 text-sm font-semibold text-[var(--primary)] transition-all duration-150 hover:bg-[var(--accent-soft)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2"
                 >
                   Explore Courses
                 </Link>
               </div>
 
-              {/* Slim trust strip under the CTAs with 3 stats in --text-muted with gold (--accent) numbers */}
+              {/* Slim trust strip under the CTAs with 3 stats in --text-muted with gold (--accent-text) numbers */}
               <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-[var(--border)] pt-6 text-sm text-[var(--text-muted)] sm:gap-8">
                 <div className="flex items-center gap-2">
-                  <span className="text-base font-bold text-[var(--accent)]">SGT</span>
+                  <span className="text-base font-bold text-accent-text">SGT</span>
                   <span>Part of SGT University</span>
                 </div>
                 <div className="hidden h-3.5 w-px bg-[var(--border)] sm:block" aria-hidden />
                 <div className="flex items-center gap-2">
-                  <span className="text-base font-bold text-[var(--accent)]">25+</span>
+                  <span className="text-base font-bold text-accent-text">25+</span>
                   <span>projects delivered</span>
                 </div>
                 <div className="hidden h-3.5 w-px bg-[var(--border)] sm:block" aria-hidden />
                 <div className="flex items-center gap-2">
-                  <span className="text-base font-bold text-[var(--accent)]">500+</span>
+                  <span className="text-base font-bold text-accent-text">500+</span>
                   <span>learners trained</span>
                 </div>
               </div>
@@ -363,7 +363,7 @@ export default function AboutPage() {
       <section className="relative bg-[var(--bg-cream)] pt-16 sm:pt-20">
         <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
           <div className="mb-10 max-w-3xl">
-            <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
+            <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
               Values
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">
@@ -395,7 +395,7 @@ export default function AboutPage() {
         <section className="relative bg-[var(--bg-lavender)] pt-16 sm:pt-20">
           <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
             <div className="mb-10 max-w-3xl">
-              <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
+              <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
                 Areas of expertise
               </p>
               <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">
@@ -426,7 +426,7 @@ export default function AboutPage() {
         <section className="relative bg-[var(--bg-mint)] pt-16 sm:pt-20">
           <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
             <div className="mb-10 max-w-3xl">
-              <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
+              <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
                 Who we serve
               </p>
               <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">
@@ -459,7 +459,7 @@ export default function AboutPage() {
       <section className="relative bg-[var(--bg-blue)] pt-16 sm:pt-20">
         <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
           <div className="mb-8 max-w-3xl">
-            <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[var(--accent)]">
+            <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
               Our institution
             </p>
             <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">

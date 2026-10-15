@@ -155,7 +155,7 @@ export default function CorporateTrainingPage() {
           <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {example.example_agenda.map((a, i) => (
               <li key={a.session} className="card p-5">
-                <span className="text-xs font-semibold text-accent">Session {i + 1}</span>
+                <span className="text-xs font-semibold text-accent-text">Session {i + 1}</span>
                 <p className="mt-1 font-semibold text-ink">{a.session.replace(/^Session \d+\s*·\s*/, '')}</p>
                 <p className="mt-2 text-sm leading-6 text-muted">{a.detail}</p>
               </li>

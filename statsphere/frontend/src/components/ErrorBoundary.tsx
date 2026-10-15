@@ -27,7 +27,7 @@ export function ErrorFallback({ error }: { error: unknown }) {
   const chunk = /Loading chunk|dynamically imported module|Failed to fetch/i.test(message)
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 py-24 text-center">
-      <p className="text-sm font-semibold text-accent">Something went wrong</p>
+      <p className="text-sm font-semibold text-accent-text">Something went wrong</p>
       <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">This Page Could Not Be Displayed</h1>
       <p className="mt-3 max-w-md text-muted">
         {chunk

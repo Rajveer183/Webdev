@@ -67,7 +67,7 @@ export function Section({
 }
 
 /** Per-page accent for the breadcrumb, eyebrow, title bar, glow and illustration frame, so each main section has its own colour. */
-export type HeaderAccent = 'gold' | 'sky' | 'violet' | 'emerald' | 'indigo' | 'rose' | 'teal'
+export type HeaderAccent = 'gold' | 'sky' | 'violet' | 'emerald' | 'indigo' | 'fuchsia' | 'teal'
 
 interface AccentStyle {
   text: string
@@ -82,52 +82,52 @@ interface AccentStyle {
 
 const ACCENT: Record<HeaderAccent, AccentStyle> = {
   gold: {
-    text: 'text-accent-strong',
+    text: 'text-accent-text',
     box: 'border-amber-300/70 bg-amber-50/80 dark:border-amber-400/30 dark:bg-amber-500/10',
     dot: 'bg-amber-500',
-    gradient: 'from-amber-400 via-orange-400 to-rose-400',
+    gradient: 'from-amber-500 via-amber-400 to-yellow-300',
     glow: '#FCD34D',
   },
   sky: {
     text: 'text-sky-700 dark:text-sky-300',
     box: 'border-sky-300/70 bg-sky-50/80 dark:border-sky-400/30 dark:bg-sky-500/10',
     dot: 'bg-sky-500',
-    gradient: 'from-sky-400 via-blue-500 to-indigo-500',
+    gradient: 'from-sky-400 via-sky-500 to-violet-500',
     glow: '#7DD3FC',
   },
   violet: {
     text: 'text-violet-700 dark:text-violet-300',
     box: 'border-violet-300/70 bg-violet-50/80 dark:border-violet-400/30 dark:bg-violet-500/10',
     dot: 'bg-violet-500',
-    gradient: 'from-violet-400 via-purple-500 to-fuchsia-500',
+    gradient: 'from-violet-400 via-violet-500 to-fuchsia-500',
     glow: '#C4B5FD',
   },
   emerald: {
     text: 'text-emerald-700 dark:text-emerald-300',
     box: 'border-emerald-300/70 bg-emerald-50/80 dark:border-emerald-400/30 dark:bg-emerald-500/10',
     dot: 'bg-emerald-500',
-    gradient: 'from-emerald-400 via-teal-500 to-cyan-500',
+    gradient: 'from-emerald-400 via-emerald-500 to-teal-500',
     glow: '#6EE7B7',
   },
   indigo: {
     text: 'text-indigo-700 dark:text-indigo-300',
     box: 'border-indigo-300/70 bg-indigo-50/80 dark:border-indigo-400/30 dark:bg-indigo-500/10',
     dot: 'bg-indigo-500',
-    gradient: 'from-indigo-400 via-blue-500 to-sky-400',
+    gradient: 'from-indigo-500 via-indigo-400 to-sky-400',
     glow: '#A5B4FC',
   },
-  rose: {
-    text: 'text-rose-700 dark:text-rose-300',
-    box: 'border-rose-300/70 bg-rose-50/80 dark:border-rose-400/30 dark:bg-rose-500/10',
-    dot: 'bg-rose-500',
-    gradient: 'from-rose-400 via-pink-500 to-orange-400',
-    glow: '#FDA4AF',
+  fuchsia: {
+    text: 'text-fuchsia-700 dark:text-fuchsia-300',
+    box: 'border-fuchsia-300/70 bg-fuchsia-50/80 dark:border-fuchsia-400/30 dark:bg-fuchsia-500/10',
+    dot: 'bg-fuchsia-500',
+    gradient: 'from-fuchsia-400 via-fuchsia-500 to-orange-400',
+    glow: '#F0ABFC',
   },
   teal: {
     text: 'text-teal-700 dark:text-teal-300',
     box: 'border-teal-300/70 bg-teal-50/80 dark:border-teal-400/30 dark:bg-teal-500/10',
     dot: 'bg-teal-500',
-    gradient: 'from-teal-400 via-cyan-500 to-sky-500',
+    gradient: 'from-teal-400 via-teal-500 to-sky-500',
     glow: '#5EEAD4',
   },
 }

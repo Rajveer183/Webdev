@@ -41,7 +41,7 @@ export default function ProjectDetailPage() {
   return (
     <>
       <PageHeader
-        accent="rose"
+        accent="fuchsia"
         crumbs={[{ label: 'Projects', to: '/projects' }, { label: p.title }]}
         eyebrow={p.category}
         title={p.title}

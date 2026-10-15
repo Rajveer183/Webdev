@@ -41,9 +41,9 @@ const TABS = [
     label: 'General',
     icon: MessageSquare,
     blurb: 'Anything else.',
-    chip: 'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300',
-    on: 'border-amber-400 bg-amber-50 ring-1 ring-amber-400 dark:border-amber-400/70 dark:bg-amber-500/10 dark:ring-amber-400/70',
-    hover: 'hover:border-amber-300 hover:bg-amber-50/50 dark:hover:border-amber-400/50 dark:hover:bg-amber-500/5',
+    chip: 'bg-orange-100 text-orange-700 dark:bg-orange-500/15 dark:text-orange-300',
+    on: 'border-orange-400 bg-orange-50 ring-1 ring-orange-400 dark:border-orange-400/70 dark:bg-orange-500/10 dark:ring-orange-400/70',
+    hover: 'hover:border-orange-300 hover:bg-orange-50/50 dark:hover:border-orange-400/50 dark:hover:bg-orange-500/5',
   },
 ] as const
 

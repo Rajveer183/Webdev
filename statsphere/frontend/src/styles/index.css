@@ -14,9 +14,11 @@
   --accent: #C8962E;
   --accent-hover: #A87A1C;
   --accent-soft: #FBF4E3;
+  /* Gold for text on light backgrounds; #C8962E is only ~2.5:1, so it stays on fills, bars and borders. */
+  --accent-text: #85631E;
   --text-heading: #0F172A;
   --text-body: #334155;
-  --text-muted: #64748B;
+  --text-muted: #526178;
   --border: #D6E4F7;
 
   /* Light mode background palette */
@@ -39,7 +41,7 @@
   --topbar-text: #E6ECFF;
   --header-bg: linear-gradient(90deg, #0B1F4D 0%, #12306B 40%, #1E4FA3 75%, #2B63C4 100%);
   --header-text: #FFFFFF;
-  --header-muted: #C9D6F5;
+  --header-muted: #E3EBFF;
   --header-hover: rgba(255, 255, 255, 0.1);
   --header-border: rgba(255, 255, 255, 0.18);
   --header-stripe: linear-gradient(90deg, #C8962E 0%, #F0CB78 50%, #C8962E 100%);
@@ -57,12 +59,12 @@
   --brand-soft: var(--bg-blue);
   --link: var(--primary);
   --accent-strong: var(--accent-hover);
-  --ring: var(--accent);
+  --ring: var(--primary);
   --card-shadow: 0 8px 24px rgba(18, 48, 107, 0.08);
   --success: #15803D;
   --success-soft: #E8F6EC;
-  --warning: #C8962E;
-  --warning-soft: var(--accent-soft);
+  --warning: #B45309;
+  --warning-soft: #FEF3C7;
   --danger: #B91C1C;
   --danger-soft: #FDECEC;
   --hero-from: #12306B;
@@ -74,7 +76,7 @@
   --chart-axis: #52514E;
   --series-1: #12306B;
   --series-2: #C8962E;
-  --series-3: #1BAF7A;
+  --series-3: #15803D;
   --chart-ref: #64748B;
 }
 
@@ -87,6 +89,7 @@
   --accent: #E3B650;
   --accent-hover: #F0CB78;
   --accent-soft: #2A2210;
+  --accent-text: #E3B650;
   --text-heading: #F8FAFC;
   --text-body: #CBD5E1;
   --text-muted: #94A3B8;
@@ -134,8 +137,8 @@
   --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   --success: #4ADE80;
   --success-soft: #10291A;
-  --warning: #E3B650;
-  --warning-soft: var(--accent-soft);
+  --warning: #FBBF24;
+  --warning-soft: #2A1F05;
   --danger: #F87171;
   --danger-soft: #2F1414;
   --hero-from: #1E4FA3;
@@ -157,6 +160,7 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-text: var(--accent-text);
   --color-heading: var(--text-heading);
   --color-body: var(--text-body);
   --color-muted: var(--text-muted);
@@ -213,7 +217,7 @@
     text-rendering: optimizeLegibility;
   }
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--ring);
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -294,7 +298,7 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-text);
   }
   .card {
     background-color: var(--bg-card);
