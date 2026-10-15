@@ -102,7 +102,7 @@
     { "title": "Real-world datasets", "icon": "Database", "description": "Exercises use realistic sample datasets, so learners practise cleaning, analysing and interpreting rather than just computing." },
     { "title": "Project-based assessment", "icon": "ClipboardCheck", "description": "Proposed assessment combines lab exercises and short quizzes with a final applied project." },
     { "title": "Interpretation & communication", "icon": "MessageSquareText", "description": "Learners practise explaining results, assumptions and limitations, which is the part analysis work most often gets wrong." },
-    { "title": "Clear certification terms", "icon": "Award", "description": "Certificates are certificates of completion issued by SGT Consulting Services. They are not SGT University degrees or diplomas, or externally accredited qualifications." }
+    { "title": "Clear certification terms", "icon": "Award", "description": "Certificates are certificates of completion issued by Hexona Consultancy Services. They are not university degrees or diplomas, or externally accredited qualifications." }
   ],
   "faq": [
     {
@@ -111,7 +111,7 @@
     },
     {
       "q": "Are the certificate courses accredited or part of a degree?",
-      "a": "Courses lead to a certificate of completion issued by SGT Consulting Services, the consulting and training service of SGT University. They are short professional courses, not SGT University degrees or diplomas, and they are not accredited by a government body or industry certifier. If a course gains such recognition, its course page will say so explicitly."
+      "a": "Courses lead to a certificate of completion issued by Hexona Consultancy Services. They are short professional courses, not university degrees or diplomas, and they are not accredited by a government body or industry certifier. If a course gains such recognition, its course page will say so explicitly."
     },
     {
       "q": "Are courses open for enrolment now?",

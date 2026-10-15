@@ -141,7 +141,7 @@ def cmd_catalogue_report(_: argparse.Namespace) -> int:
         by_sem[t.get("semester") or 0].append(t)
 
     lines = [
-        "# SGT Consulting Services content catalogue",
+        "# Hexona Consultancy Services content catalogue",
         "",
         "Generated from `data/content/topics.json` by `python -m app.cli catalogue-report`. "
         "Source: `data/source/bsc-hons-statistics-data-science-syllabus.pdf` (114 pages). "
@@ -213,10 +213,10 @@ def cmd_test_email(_: argparse.Namespace) -> int:
         print("E-mail is not configured. Missing: " + ", ".join(missing))
         return 1
     msg = EmailMessage()
-    msg["Subject"] = "[SGT Consulting] Test e-mail"
+    msg["Subject"] = "[Hexona Consultancy] Test e-mail"
     msg["From"] = s.sender
     msg["To"] = s.notify_email
-    msg.set_content("This is a test from the SGT Consulting Services website. Enquiry notifications will arrive at this address.")
+    msg.set_content("This is a test from the Hexona Consultancy Services website. Enquiry notifications will arrive at this address.")
     try:
         with smtplib.SMTP(s.smtp_host, s.smtp_port, timeout=20) as smtp:
             if s.smtp_starttls:

@@ -1,7 +1,6 @@
 import { CalendarClock, Clock, ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { LogoMark } from '../components/ui/Logo'
-import { brand } from '../config/brand'
 import { useApi } from '../hooks/useApi'
 import { useSite } from '../hooks/useSite'
 import type { ListResponse, ServiceCard } from '../types/content'
@@ -125,13 +124,7 @@ export function Footer() {
           <p>
             © {year} {name}. All rights reserved.
           </p>
-          <p>
-            A service of{' '}
-            <a href={brand.institution.url} target="_blank" rel="noopener noreferrer" className="hover:text-white">
-              {brand.institution.name}
-            </a>
-            . Certificates of completion are not degrees or accredited qualifications.
-          </p>
+          <p>Certificates of completion are not degrees or accredited qualifications.</p>
         </div>
       </div>
     </footer>

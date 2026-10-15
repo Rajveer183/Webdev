@@ -54,7 +54,7 @@ export function CertificatePolicy() {
         <Award className="h-6 w-6 text-success" aria-hidden />
         <h3 className="mt-3 font-semibold text-ink">What Our Certificate Is</h3>
         <p className="mt-2 text-sm leading-6 text-muted">
-          A <strong className="text-ink">certificate of completion issued by SGT Consulting Services</strong>, a service of SGT University, awarded when you meet
+          A <strong className="text-ink">certificate of completion issued by Hexona Consultancy Services</strong>, awarded when you meet
           the course&apos;s stated requirements (for example attendance, lab exercises and a final project). It records the topics covered
           and the work you completed.
         </p>
@@ -63,7 +63,7 @@ export function CertificatePolicy() {
         <ShieldAlert className="h-6 w-6 text-warning" aria-hidden />
         <h3 className="mt-3 font-semibold text-ink">What It Is Not</h3>
         <p className="mt-2 text-sm leading-6 text-muted">
-          It is <strong className="text-ink">not</strong> an SGT University degree or diploma, and not an externally accredited,
+          It is <strong className="text-ink">not</strong> a university degree or diploma, and not an externally accredited,
           government-recognised or industry-certified qualification. If any course gains such recognition, it will be stated explicitly on
           that course page.
         </p>

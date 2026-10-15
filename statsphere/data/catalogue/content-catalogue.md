@@ -1,4 +1,4 @@
-# SGT Consulting Services content catalogue
+# Hexona Consultancy Services content catalogue
 
 Generated from `data/content/topics.json` by `python -m app.cli catalogue-report`. Source: `data/source/bsc-hons-statistics-data-science-syllabus.pdf` (114 pages). Page numbers are 1-based PDF pages.
 

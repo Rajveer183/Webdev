@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { CheckboxField, TextField } from '../../components/forms/Fields'
+import { TextField } from '../../components/forms/Fields'
 import { FormAlert } from '../../components/forms/FormParts'
 import { Button } from '../../components/ui/Button'
 import { brand } from '../../config/brand'
@@ -77,18 +77,6 @@ export function SettingsTab() {
         <legend className="px-1 font-semibold text-ink">Brand</legend>
         <TextField label="Business name override" hint={`Default: ${brand.name}`} value={brandS.name ?? ''} onChange={(e) => setBrand({ ...brandS, name: e.target.value })} />
         <TextField label="Tagline override" hint={`Default: ${brand.tagline}`} value={brandS.tagline ?? ''} onChange={(e) => setBrand({ ...brandS, tagline: e.target.value })} />
-        <div className="sm:col-span-2">
-          <CheckboxField
-            label={
-              <>
-                Show the {brand.institution.name} seal in the “A service of {brand.institution.name}” panel on the About and Knowledge Hub
-                pages. The header and footer always use the business logo (Settings → Logos).
-              </>
-            }
-            checked={brandS.show_institution_logo ?? brand.institution.showLogo}
-            onChange={(e) => setBrand({ ...brandS, show_institution_logo: e.target.checked })}
-          />
-        </div>
       </fieldset>
       {msg && <FormAlert tone={msg.tone}>{msg.text}</FormAlert>}
       <Button type="submit" disabled={saving}>

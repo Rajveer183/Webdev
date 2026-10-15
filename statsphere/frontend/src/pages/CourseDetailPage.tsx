@@ -160,10 +160,10 @@ export default function CourseDetailPage() {
           <Block title="Certificate">
             <div className="rounded-2xl border border-line bg-surface p-6">
               <p className="flex items-center gap-2 font-semibold text-ink">
-                <Award className="h-5 w-5 text-success" aria-hidden /> Certificate of completion, issued by SGT Consulting Services
+                <Award className="h-5 w-5 text-success" aria-hidden /> Certificate of completion, issued by Hexona Consultancy Services
               </p>
               <p className="mt-2 text-sm leading-6 text-muted">
-                A short professional course certificate. It is not an SGT University degree or diploma, and not an externally accredited
+                A short professional course certificate. It is not a university degree or diploma, and not an externally accredited
                 or government-recognised qualification.
               </p>
               <h3 className="mt-5 text-sm font-semibold text-ink">Proposed Eligibility Requirements</h3>
@@ -215,7 +215,7 @@ export default function CourseDetailPage() {
               <Fact icon={MonitorSmartphone} label="Delivery mode" value={modes} />
               <Fact icon={CalendarRange} label="Next cohort" value={c.availability === 'enrolling' ? 'Enrolling now' : 'Scheduled on demand'} note={availabilityHint(c.availability)} />
               <Fact icon={ReceiptText} label="Fee" value={c.fee ?? 'Shared on enquiry'} />
-              <Fact icon={Award} label="Certificate" value="Certificate of completion" note="Issued by SGT Consulting Services" />
+              <Fact icon={Award} label="Certificate" value="Certificate of completion" note="Issued by Hexona Consultancy Services" />
             </dl>
             <a href="#enquire" className={buttonClass('primary', 'md', 'mt-6 w-full')}>
               Enquire about this course

@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     )
 
     app_env: Literal["development", "production", "test"] = "development"
-    app_name: str = "SGT Consulting Services API"
+    app_name: str = "Hexona Consultancy Services API"
     log_level: str = "INFO"
 
     # Database: SQLite for local development, PostgreSQL in Docker/production.

@@ -1,7 +1,6 @@
 import { FileUp, Inbox, LayoutDashboard, Library, LogOut, ScrollText, Settings, Users } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { LogoMark } from '../../components/ui/Logo'
 import { usePageMeta } from '../../hooks/usePageMeta'
 import { adminRequest, tokenStore } from './adminApi'
 import { AdminLogin } from './AdminLogin'
@@ -61,7 +60,7 @@ export default function AdminPage() {
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
           <Link to="/" className="flex items-center gap-2 text-sm font-semibold text-ink">
-            <LogoMark className="h-7 w-7" /> SGT Consulting Services · admin
+            Hexona Consultancy Services · admin
           </Link>
           <div className="flex items-center gap-3 text-sm text-muted">
             <span className="hidden sm:inline">Signed in as {user}</span>

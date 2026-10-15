@@ -107,7 +107,7 @@ class SiteSetting(Base):
 
 
 class MediaAsset(Base):
-    """Small uploaded images (brand logo, institution logo) stored in the database so every replica can serve them."""
+    """Small uploaded images (brand logo) stored in the database so every replica can serve them."""
 
     __tablename__ = "media_assets"
 

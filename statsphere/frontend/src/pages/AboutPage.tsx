@@ -1,7 +1,6 @@
 import { Compass, ExternalLink, Eye, Layers, Scale, Target, UserRound, Wrench } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { CtaBanner } from '../components/content/CtaBanner'
-import { InstitutionReference } from '../components/content/InstitutionReference'
 import { Icon } from '../components/ui/Icon'
 import { Breadcrumbs } from '../components/ui/Section'
 import { brand } from '../config/brand'
@@ -241,7 +240,7 @@ export default function AboutPage() {
 
               {/* Paragraph: --text-body, 18px, line-height 1.6, max-width 60ch */}
               <p className="max-w-[60ch] text-[18px] leading-[1.6] text-[var(--text-body)]">
-                {name} is the consulting and professional training service of {brand.institution.name}. We help students,
+                {name} is a consulting and professional training service. We help students,
                 researchers, professionals and businesses solve quantitative problems and build practical data science skills.
               </p>
 
@@ -263,11 +262,6 @@ export default function AboutPage() {
 
               {/* Slim trust strip under the CTAs with 3 stats in --text-muted with gold (--accent-text) numbers */}
               <div className="mt-8 flex flex-wrap items-center gap-6 border-t border-[var(--border)] pt-6 text-sm text-[var(--text-muted)] sm:gap-8">
-                <div className="flex items-center gap-2">
-                  <span className="text-base font-bold text-accent-text">SGT</span>
-                  <span>Part of SGT University</span>
-                </div>
-                <div className="hidden h-3.5 w-px bg-[var(--border)] sm:block" aria-hidden />
                 <div className="flex items-center gap-2">
                   <span className="text-base font-bold text-accent-text">25+</span>
                   <span>projects delivered</span>
@@ -440,22 +434,6 @@ export default function AboutPage() {
           <WaveDivider color="var(--bg-blue)" variant="wave-1" />
         </section>
       )}
-
-      {/* ===================== SECTION 6: OUR INSTITUTION (--bg-blue) ===================== */}
-      <section className="relative bg-[var(--bg-blue)] pt-12 sm:pt-16">
-        <div className="mx-auto w-full max-w-[1200px] px-4 pb-10 sm:px-6 sm:pb-12 lg:px-8">
-          <div className="mb-8 max-w-3xl">
-            <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-accent-text">
-              Our institution
-            </p>
-            <h2 className="text-2xl font-bold tracking-tight text-[var(--text-heading)] sm:text-3xl">
-              Part of SGT University
-            </h2>
-          </div>
-          <InstitutionReference />
-        </div>
-        <WaveDivider isBand variant="wave-2" />
-      </section>
 
       {/* ===================== BOTTOM CTA BANNER ===================== */}
       <CtaBanner

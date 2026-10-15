@@ -8,7 +8,7 @@
 :root {
   color-scheme: light;
 
-  /* SGT Consulting Services exact color system */
+  /* Hexona Consultancy Services exact color system */
   --primary: #12306B;
   --primary-hover: #0D2552;
   --accent: #C8962E;
@@ -83,7 +83,7 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  /* SGT Consulting Services exact dark tokens */
+  /* Hexona Consultancy Services exact dark tokens */
   --primary: #8FB0FF;
   --primary-hover: #B5CBFF;
   --accent: #E3B650;

@@ -208,5 +208,5 @@ export interface SiteResponse {
   contact: ContactSettings
   brand: { name: string | null; tagline: string | null; show_institution_logo: boolean | null }
   content: SiteContent
-  media: { brand_logo: string | null; institution_logo: string | null }
+  media: { brand_logo: string | null }
 }

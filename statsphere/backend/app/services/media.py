@@ -10,7 +10,6 @@ from app.models import MediaAsset
 
 MEDIA_KEYS = {
     "brand-logo": "Business logo shown in the header and footer",
-    "institution-logo": "Replacement institution logo for the Curriculum reference panel",
 }
 MAX_MEDIA_BYTES = 1024 * 1024  # 1 MB
 

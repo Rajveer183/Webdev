@@ -55,8 +55,6 @@ function applyHead(template, head) {
   if (head.canonical) {
     extra.push(`<link rel="canonical" href="${escapeAttr(head.canonical)}" />`)
     html = setMeta(html, 'property', 'og:url', head.canonical)
-    // Social networks require an absolute image URL.
-    html = setMeta(html, 'property', 'og:image', new URL('/og-image.png', head.canonical).href)
   }
   if (head.jsonLd) extra.push(`<script type="application/ld+json" id="page-jsonld">${head.jsonLd.replace(/</g, '\\u003c')}</script>`)
   return extra.length ? html.replace('</head>', `    ${extra.join('\n    ')}\n  </head>`) : html

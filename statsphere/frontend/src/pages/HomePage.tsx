@@ -10,7 +10,7 @@ import { LinkButton } from '../components/ui/Button'
 import { Section } from '../components/ui/Section'
 import { WaveDivider } from '../components/ui/WaveDivider'
 import { ErrorState, Loading, SkeletonGrid } from '../components/ui/States'
-import { brand, organizationLd } from '../config/brand'
+import { brand } from '../config/brand'
 import { useApi } from '../hooks/useApi'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { useSite } from '../hooks/useSite'
@@ -125,7 +125,6 @@ export default function HomePage() {
         '@context': 'https://schema.org',
         '@type': 'ProfessionalService',
         name,
-        parentOrganization: organizationLd.parentOrganization,
         description: brand.description,
         slogan: tagline,
         ...(brand.siteUrl ? { url: brand.siteUrl } : {}),
@@ -161,7 +160,7 @@ export default function HomePage() {
         <div className="container-page relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr] lg:py-20">
           <div className="animate-fade-up">
             <p className="eyebrow mb-3">
-              {brand.institution.name} · {tagline}
+              {tagline}
             </p>
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-[var(--text-heading)] sm:text-5xl lg:text-[3.25rem] lg:leading-[1.12]">
               Expert Consulting. Practical Data Science Training. Measurable Impact.

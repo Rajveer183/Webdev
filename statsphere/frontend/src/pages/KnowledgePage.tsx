@@ -2,7 +2,6 @@ import { Search } from 'lucide-react'
 import { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { ArticleCard } from '../components/content/Cards'
-import { InstitutionReference } from '../components/content/InstitutionReference'
 import { Illustration } from '../components/illustrations/Illustration'
 import { PageHeader, Section } from '../components/ui/Section'
 import { EmptyState, ErrorState, SkeletonGrid } from '../components/ui/States'
@@ -157,10 +156,6 @@ export default function KnowledgePage() {
           </div>
         </Section>
       )}
-
-      <Section>
-        <InstitutionReference compact />
-      </Section>
     </>
   )
 }

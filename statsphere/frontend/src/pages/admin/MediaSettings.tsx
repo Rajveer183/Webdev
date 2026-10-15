@@ -1,15 +1,13 @@
 import { ImageUp, Trash2 } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import { FormAlert } from '../../components/forms/FormParts'
-import { brand } from '../../config/brand'
 import { ApiError } from '../../services/api'
 import { adminRequest } from './adminApi'
 
 type Media = Record<string, { description: string; url: string | null }>
 
 const FALLBACK: Record<string, string> = {
-  'brand-logo': `SGT University seal (${brand.logo})`,
-  'institution-logo': `Bundled file ${brand.institution.logo}`,
+  'brand-logo': 'No logo (the business name is shown on its own)',
 }
 
 export function MediaSettings() {

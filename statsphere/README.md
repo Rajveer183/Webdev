@@ -1,8 +1,8 @@
-# SGT Consulting Services
+# Hexona Consultancy Services
 
-The website of SGT Consulting Services, the statistics, mathematics and data-science consulting and
-professional training service of SGT University. The subject matter comes from the university's 114-page
-B.Sc. (Hons) Statistics & Data Science syllabus (Department of Mathematics).
+The website of Hexona Consultancy Services, a statistics, mathematics and data-science consulting and
+professional training service. The subject matter comes from a 114-page
+B.Sc. (Hons) Statistics & Data Science syllabus.
 It is organised into consulting services, certificate courses, corporate workshops,
 knowledge articles and worked demonstration projects.
 
@@ -131,9 +131,9 @@ The backend tests cover:
 | GET/PATCH | `/api/admin/catalogue/{kind}[/{slug}]` | Publish, unpublish, availability, featured, order, full validated edits |
 | GET/PATCH | `/api/admin/topics[/{id}]` | Review PDF-derived topics |
 | POST/GET | `/api/admin/pdf-ingestion[/runs]` | Upload a syllabus PDF and see ingestion history |
-| GET/PUT | `/api/admin/settings` | Contact details, booking link, brand overrides, institution-logo switch |
+| GET/PUT | `/api/admin/settings` | Contact details, booking link, brand overrides |
 | GET/POST/DELETE | `/api/admin/users[/{id}]`, PUT `/api/admin/users/{id}/password`, POST `/api/admin/me/password` | Admin accounts |
-| GET/PUT/DELETE | `/api/admin/media[/{key}]` | Brand and institution logo uploads (PNG/JPEG/WebP ≤ 1 MB) |
+| GET/PUT/DELETE | `/api/admin/media[/{key}]` | Brand logo upload (PNG/JPEG/WebP ≤ 1 MB) |
 | GET | `/api/media/{key}` | Serves uploaded logos |
 
 **Response formats**
@@ -191,13 +191,10 @@ left as configurable placeholders or labelled "proposed":
    - Three carry internal approval notes visible only in admin: machine learning / deep learning capacity, big-data infrastructure, and clinical ethics responsibilities.
    - Research support also has a note about publishing the academic-integrity policy.
 4. **Team.** Profiles are hidden until you add verified entries to `frontend/src/config/brand.ts → team`.
-5. **Branding and the SGT University relationship.** The site owner confirmed that SGT Consulting Services is an official
-   SGT University service, so the site uses the SGT University seal and describes the service as part of the university.
-   - **Logo file:** the full-size official seal is `frontend/brand/sgt-university-logo-source.png`; the site serves web-sized copies (`frontend/public/assets/sgt-university-logo.webp`, plus a `.png` at the same path), regenerated with `python frontend/brand/optimize_images.py`. It is the official seal referenced by `admission.sgtuniversity.ac.in` (`og:image`). The white header logo from `sgtuniversity.ac.in` is also saved as `sgt-university-logo-long-white.png`. The site footer SVG was not used because it embeds a NAAC accreditation badge.
-   - **Where it appears:** header, footer, admin area, favicon (`favicon.png`, `apple-touch-icon.png`), the social share image (`og-image.png`, regenerate with `python frontend/brand/build_og_image.py`) and the "A service of SGT University" panel.
-   - **Replacing it:** upload a different logo in Admin → Settings → Logos, or change `brand.logo` in `frontend/src/config/brand.ts`.
-   - **Certificates** are still described as certificates of completion issued by SGT Consulting Services, not SGT University degrees or diplomas, and not externally accredited. Change this wording only if the university confirms a different status.
-   - **Structured data** lists SGT University as the parent organisation.
+5. **Branding.** The site has no bundled logo, favicon or social share image. The header and footer show the business name
+   on its own until a logo is uploaded in Admin → Settings → Logos.
+   - **Certificates** are described as certificates of completion issued by Hexona Consultancy Services, not university degrees or
+     diplomas, and not externally accredited.
 6. **Source PDF.** The syllabus is used as subject-matter reference. Website text is written in our own words, and the PDF and its raw extraction are git-ignored.
 7. **Domain.** Set `SITE_URL` for canonical URLs, Open Graph URLs and `sitemap.xml`.
 8. **Privacy notice.** `/privacy` is a factual starting point. Have it reviewed for your jurisdiction.

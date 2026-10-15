@@ -74,7 +74,7 @@ def _compose(enquiry: Enquiry, db=None) -> EmailMessage:
     s = get_settings()
     kind = TYPE_LABELS.get(enquiry.type, "Enquiry")
     msg = EmailMessage()
-    msg["Subject"] = f"[SGT Consulting] {kind} from {enquiry.name} ({enquiry.reference})"
+    msg["Subject"] = f"[Hexona Consultancy] {kind} from {enquiry.name} ({enquiry.reference})"
     msg["From"] = s.sender
     msg["To"] = s.notify_email
     msg["Reply-To"] = enquiry.email  # replying goes straight to the visitor
@@ -96,7 +96,7 @@ def _compose(enquiry: Enquiry, db=None) -> EmailMessage:
         rows.append((label, _readable(db, key, value) if db is not None else str(value)))
 
     width = max(len(label) for label, _ in rows)
-    lines = [f"New {kind.lower()} submitted on the SGT Consulting Services website.", ""]
+    lines = [f"New {kind.lower()} submitted on the Hexona Consultancy Services website.", ""]
     lines += [f"{label.ljust(width)} : {value}" for label, value in rows]
     if enquiry.message:
         lines += ["", f"{MESSAGE_LABELS.get(enquiry.type, 'Message')}:", "-" * 40, enquiry.message, "-" * 40]

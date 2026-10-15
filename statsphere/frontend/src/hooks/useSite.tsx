@@ -9,9 +9,7 @@ interface SiteValue {
   contact: ContactSettings
   content: SiteContent | undefined
   bookingUrl: string
-  showInstitutionLogo: boolean
   brandLogoUrl: string | null
-  institutionLogoUrl: string
   loading: boolean
 }
 
@@ -36,9 +34,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     contact,
     content: data?.content,
     bookingUrl: contact.booking_url || brand.bookingUrl,
-    showInstitutionLogo: data?.brand.show_institution_logo ?? brand.institution.showLogo,
     brandLogoUrl: data?.media?.brand_logo ?? null,
-    institutionLogoUrl: data?.media?.institution_logo ?? brand.institution.logo,
     loading,
   }
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>

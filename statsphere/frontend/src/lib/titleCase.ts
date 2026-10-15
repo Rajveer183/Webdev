@@ -4,7 +4,7 @@
  *
  * - Short function words (and, of, the, in, …) stay lowercase unless they start the title or
  *   follow a colon/dash.
- * - Words that already contain capitals or digits (SGT, SQL, R, B.Sc., PCA, X̄, k-Means) are kept as written.
+ * - Words that already contain capitals or digits (SQL, R, B.Sc., PCA, X̄, k-Means) are kept as written.
  * - Hyphenated words capitalise each part ("Time-Series", "Least-Squares").
  * - Inline TeX segments ($…$) are left untouched.
  */
@@ -26,7 +26,7 @@ function caseWord(word: string, forceCap: boolean): string {
     .split('-')
     .map((part) => {
       const c = stripPunct(part)
-      // Keep acronyms and mixed-case words as written (SQL, SGT, B.Sc., k-NN parts with internal capitals).
+      // Keep acronyms and mixed-case words as written (SQL, B.Sc., k-NN parts with internal capitals).
       if (/[\p{Lu}\p{N}]/u.test(c.slice(1))) return part
       return capitalise(part)
     })

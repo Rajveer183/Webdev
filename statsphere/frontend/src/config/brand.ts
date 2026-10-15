@@ -6,36 +6,16 @@
  * area (Settings) and served by GET /api/site. Never put unverified claims here.
  */
 export const brand = {
-  name: 'SGT Consulting Services',
-  shortName: 'SGT Consulting',
+  name: 'Hexona Consultancy Services',
+  shortName: 'Hexona Consultancy',
   tagline: 'From Statistical Insight to Data-Driven Impact.',
   description:
-    'Statistical consulting, mathematical modelling, data analytics and practical certificate courses in statistics, mathematics and data science, from SGT University.',
+    'Statistical consulting, mathematical modelling, data analytics and practical certificate courses in statistics, mathematics and data science.',
   category: 'Statistics, Mathematics & Data Science Consulting and Professional Training',
-  /** Logo shown in the header, footer and admin area (the official SGT University seal). Admin → Settings → Logos can replace it. */
-  logo: '/assets/sgt-university-logo.webp',
-  logoAlt: 'SGT University logo',
   /** Public URL of the deployed site, used for canonical links and social metadata. */
   siteUrl: (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') || '',
   /** Optional external booking page (e.g. a scheduling tool). Admin Settings can override it. */
   bookingUrl: (import.meta.env.VITE_BOOKING_URL as string | undefined) || '',
-
-  /**
-   * Parent institution. SGT Consulting Services is an official service of SGT University
-   * (confirmed by the site owner). Its course catalogue is built on the university's
-   * B.Sc. (Hons) Statistics & Data Science curriculum (Department of Mathematics).
-   * Do not add accreditation or recognition badges here unless they apply to these
-   * specific services and courses.
-   */
-  institution: {
-    name: 'SGT University',
-    legalName: 'Shree Guru Gobind Singh Tricentenary University',
-    url: 'https://sgtuniversity.ac.in/',
-    department: 'Department of Mathematics',
-    logo: '/assets/sgt-university-logo.webp',
-    logoAlt: 'SGT University logo',
-    showLogo: true,
-  },
 
   /**
    * Team profiles shown on the About page. Leave empty until names, roles and credentials are
@@ -56,12 +36,6 @@ export const brand = {
 export const organizationLd = {
   '@type': 'Organization',
   name: brand.name,
-  parentOrganization: {
-    '@type': 'CollegeOrUniversity',
-    name: brand.institution.name,
-    legalName: brand.institution.legalName,
-    url: brand.institution.url,
-  },
 }
 
 export type Brand = typeof brand
