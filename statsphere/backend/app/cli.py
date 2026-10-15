@@ -200,10 +200,10 @@ def cmd_export_api(args: argparse.Namespace) -> int:
 
 
 def cmd_test_email(_: argparse.Namespace) -> int:
-    """Send a test message to NOTIFY_EMAIL and report the exact SMTP error if it fails."""
-    import smtplib
-    import ssl
+    """Send a test message to NOTIFY_EMAIL and report the exact SMTP/Brevo error if it fails."""
     from email.message import EmailMessage
+
+    from app.services.notifications import DeliveryError, deliver
 
     s = get_settings()
     if not s.email_enabled:
@@ -218,18 +218,9 @@ def cmd_test_email(_: argparse.Namespace) -> int:
     msg["To"] = s.notify_email
     msg.set_content("This is a test from the Hexona Consultancy Services website. Enquiry notifications will arrive at this address.")
     try:
-        with smtplib.SMTP(s.smtp_host, s.smtp_port, timeout=20) as smtp:
-            if s.smtp_starttls:
-                smtp.starttls(context=ssl.create_default_context())
-            if s.smtp_username and s.smtp_password:
-                smtp.login(s.smtp_username, s.smtp_password)
-            smtp.send_message(msg)
-    except smtplib.SMTPAuthenticationError as exc:
-        print(f"Login rejected by {s.smtp_host}: {exc.smtp_code} {exc.smtp_error.decode(errors='replace')}")
-        print("For Gmail, SMTP_PASSWORD must be a 16-character App Password (not your normal password).")
-        return 1
-    except (OSError, smtplib.SMTPException) as exc:
-        print(f"Sending failed: {type(exc).__name__}: {exc}")
+        deliver(msg, timeout=20)
+    except DeliveryError as exc:
+        print(f"Sending failed: {exc}")
         return 1
     print(f"Test e-mail sent to {s.notify_email}. Check the inbox (and the spam folder).")
     return 0

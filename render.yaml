@@ -1,0 +1,35 @@
+# Render Blueprint for the StatSphere API (FastAPI). The database is an external free Postgres (Neon/Supabase).
+# Render → New → Blueprint → pick this repo. Fill in the `sync: false` values when prompted.
+
+services:
+  - type: web
+    name: statsphere-api
+    runtime: docker
+    plan: free
+    dockerContext: ./statsphere
+    dockerfilePath: ./statsphere/backend/Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false # Neon/Supabase connection string (postgres://...?sslmode=require)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: TRUST_PROXY_HEADERS
+        value: "true"
+      - key: CORS_ORIGINS
+        sync: false # your Vercel URL, e.g. https://statsphere.vercel.app
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false # first admin's password; remove after first login
+      # Render's free tier blocks SMTP ports, so enquiry e-mails go through Brevo's free HTTP API.
+      - key: BREVO_API_KEY
+        sync: false # brevo.com → SMTP & API → API keys
+      - key: SMTP_FROM
+        sync: false # a sender address verified in Brevo (e.g. your Gmail)
+      - key: NOTIFY_EMAIL
+        sync: false # inbox that receives enquiries

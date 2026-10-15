@@ -194,3 +194,32 @@ def test_admin_resend_requires_email_configured(client, admin_headers):
     eid = client.get("/api/admin/enquiries", params={"q": ref}, headers=admin_headers).json()["items"][0]["id"]
     r = client.post(f"/api/admin/enquiries/{eid}/notify", headers=admin_headers)
     assert r.status_code == 400
+
+
+def test_enquiry_is_emailed_via_brevo_when_api_key_set(client, monkeypatch):
+    """With BREVO_API_KEY the notification goes over HTTPS (no SMTP), keeping Reply-To."""
+    import httpx
+
+    calls = []
+
+    def fake_post(url, json, headers, timeout):
+        calls.append((url, json, headers))
+        return httpx.Response(201, json={"messageId": "x"})
+
+    s = get_settings()
+    for k, v in {"brevo_api_key": "test-key", "smtp_host": None, "smtp_username": None, "smtp_from": "sender@example.com"}.items():
+        monkeypatch.setattr(s, k, v)
+    monkeypatch.setattr(httpx, "post", fake_post)
+
+    r = client.post("/api/contact", json=base_enquiry(email="asha@example.com", subject="Brevo", message="Please send this over HTTPS."))
+    assert r.status_code == 201
+    assert len(calls) == 1
+    url, payload, headers = calls[0]
+    assert url.startswith("https://api.brevo.com/")
+    assert headers["api-key"] == "test-key"
+    assert payload["sender"] == {"email": "sender@example.com"}
+    assert payload["to"] == [{"email": s.notify_email}]
+    assert payload["replyTo"] == {"email": "asha@example.com"}
+    assert "Please send this over HTTPS." in payload["textContent"]
+    with SessionLocal() as db:
+        assert db.scalar(select(Enquiry).where(Enquiry.reference == r.json()["reference"])).notification_status == "sent"

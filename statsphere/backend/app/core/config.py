@@ -61,8 +61,20 @@ class Settings(BaseSettings):
     smtp_password: str | None = None
     smtp_starttls: bool = True
     smtp_from: str | None = None
+    # Brevo HTTP API key: sends over HTTPS instead of SMTP (hosts like Render's free tier block SMTP ports).
+    brevo_api_key: str | None = None
     # Private inbox that receives every submitted enquiry. Never sent to the browser or shown on the site.
     notify_email: str | None = Field(default="rajveersinghrathorer584@gmail.com", description="Inbox that receives enquiry notifications")
+
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def _psycopg_driver(cls, v):
+        # Hosted Postgres (Render, Neon, ...) hands out postgres:// URLs; we ship psycopg 3, not psycopg2.
+        if isinstance(v, str):
+            for prefix in ("postgres://", "postgresql://"):
+                if v.startswith(prefix):
+                    return "postgresql+psycopg://" + v[len(prefix):]
+        return v
 
     @field_validator("content_dir", "extracted_dir", mode="before")
     @classmethod
@@ -88,6 +100,8 @@ class Settings(BaseSettings):
 
     @property
     def email_enabled(self) -> bool:
+        if self.brevo_api_key:
+            return bool(self.sender and self.notify_email)
         login_ok = not self.smtp_username or bool(self.smtp_password)
         return bool(self.smtp_host and self.sender and self.notify_email and login_ok)
 

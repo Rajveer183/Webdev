@@ -105,6 +105,50 @@ def _compose(enquiry: Enquiry, db=None) -> EmailMessage:
     return msg
 
 
+BREVO_URL = "https://api.brevo.com/v3/smtp/email"
+
+
+class DeliveryError(Exception):
+    pass
+
+
+def deliver(msg: EmailMessage, timeout: float = 15) -> None:
+    """Send via the Brevo HTTP API when BREVO_API_KEY is set, otherwise via SMTP."""
+    s = get_settings()
+    if s.brevo_api_key:
+        import httpx
+
+        payload = {
+            "sender": {"email": msg["From"]},
+            "to": [{"email": msg["To"]}],
+            "subject": msg["Subject"],
+            "textContent": msg.get_content(),
+        }
+        if msg["Reply-To"]:
+            payload["replyTo"] = {"email": msg["Reply-To"]}
+        try:
+            r = httpx.post(BREVO_URL, json=payload, headers={"api-key": s.brevo_api_key, "accept": "application/json"}, timeout=timeout)
+        except httpx.HTTPError as exc:
+            raise DeliveryError(f"{type(exc).__name__}: {exc}") from exc
+        if r.status_code >= 300:
+            raise DeliveryError(f"Brevo answered {r.status_code}: {r.text[:300]}")
+        return
+    try:
+        with smtplib.SMTP(s.smtp_host, s.smtp_port, timeout=timeout) as smtp:
+            if s.smtp_starttls:
+                smtp.starttls(context=ssl.create_default_context())
+            if s.smtp_username and s.smtp_password:
+                smtp.login(s.smtp_username, s.smtp_password)
+            smtp.send_message(msg)
+    except smtplib.SMTPAuthenticationError as exc:
+        raise DeliveryError(
+            f"Login rejected by {s.smtp_host}: {exc.smtp_code} {exc.smtp_error.decode(errors='replace')}. "
+            "For Gmail, SMTP_PASSWORD must be a 16-character App Password."
+        ) from exc
+    except (OSError, smtplib.SMTPException) as exc:
+        raise DeliveryError(f"{type(exc).__name__}: {exc}") from exc
+
+
 def send_enquiry_notification(enquiry_id: int) -> None:
     """Runs as a background task after the enquiry has been committed."""
     s = get_settings()
@@ -118,15 +162,10 @@ def send_enquiry_notification(enquiry_id: int) -> None:
             log.info("Enquiry %s stored; e-mail notification skipped (SMTP not configured)", enquiry.reference)
             return
         try:
-            with smtplib.SMTP(s.smtp_host, s.smtp_port, timeout=15) as smtp:
-                if s.smtp_starttls:
-                    smtp.starttls(context=ssl.create_default_context())
-                if s.smtp_username and s.smtp_password:
-                    smtp.login(s.smtp_username, s.smtp_password)
-                smtp.send_message(_compose(enquiry, db))
+            deliver(_compose(enquiry, db))
             enquiry.notification_status = "sent"
             log.info("Enquiry %s notification sent", enquiry.reference)
-        except (OSError, smtplib.SMTPException) as exc:
+        except DeliveryError as exc:
             enquiry.notification_status = "failed"
-            log.warning("Enquiry %s notification failed: %s", enquiry.reference, type(exc).__name__)
+            log.warning("Enquiry %s notification failed: %s", enquiry.reference, exc)
         db.commit()
